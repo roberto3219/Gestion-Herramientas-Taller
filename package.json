@@ -10,9 +10,13 @@
   "author": "Roberto Alfredo Llampa",
   "license": "ISC",
   "dependencies": {
+    "bcryptjs": "^3.0.2",
     "bootstrap": "^5.3.8",
     "ejs": "^3.1.10",
     "express": "^5.1.0",
+    "multer": "^2.0.2",
+    "mysql": "^2.18.1",
+    "mysql2": "^3.14.4",
     "nodemon": "^3.1.10"
   }
 }
