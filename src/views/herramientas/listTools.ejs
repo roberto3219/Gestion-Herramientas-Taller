@@ -1,0 +1,44 @@
+<div class="container mt-4">
+  <h2 class="mb-4">Lista de Herramientas</h2>
+
+  <!-- Buscador -->
+  <form class="d-flex mb-3" method="GET" action="/herramientas/buscar">
+    <input class="form-control me-2" type="search" placeholder="Buscar herramienta por nombre o categoría" name="q">
+    <button class="btn btn-outline-primary" type="submit">Buscar</button>
+  </form>
+
+  <!-- Tabla -->
+  <table class="table table-hover table-bordered">
+    <thead class="table-dark">
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Categoría</th>
+        <th>Cantidad Disponible</th>
+        <th>Estado</th>
+        <th>Acción</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% herramientas.forEach(h => { %>
+        <tr>
+          <td><%= h.id %></td>
+          <td><%= h.nombre %></td>
+          <td><%= h.categoria %></td>
+          <td><%= h.cantidad %></td>
+          <td>
+            <% if(h.estado === 'Disponible'){ %>
+              <span class="badge bg-success">Disponible</span>
+            <% } else { %>
+              <span class="badge bg-secondary"><%= h.estado %></span>
+            <% } %>
+          </td>
+          <td>
+            <a href="/herramientas/<%= h.id %>/editar" class="btn btn-sm btn-warning">Editar</a>
+            <a href="/herramientas/<%= h.id %>/eliminar" class="btn btn-sm btn-danger">Eliminar</a>
+          </td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</div>

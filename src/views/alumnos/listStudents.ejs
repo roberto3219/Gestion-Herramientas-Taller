@@ -1,0 +1,36 @@
+<div class="container mt-4">
+  <h2 class="mb-4">Lista de Alumnos</h2>
+
+  <!-- Buscador -->
+  <form class="d-flex mb-3" method="GET" action="/alumnos/buscar">
+    <input class="form-control me-2" type="search" placeholder="Buscar alumno por nombre o correo" name="q">
+    <button class="btn btn-outline-primary" type="submit">Buscar</button>
+  </form>
+
+  <!-- Tabla -->
+  <table class="table table-hover table-bordered">
+    <thead class="table-dark">
+      <tr>
+        <th>ID</th>
+        <th>Nombre Completo</th>
+        <th>Email</th>
+        <th>Rol</th>
+        <th>Acción</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% alumnos.forEach(a => { %>
+        <tr>
+          <td><%= a.id %></td>
+          <td><%= a.nombre %></td>
+          <td><%= a.email %></td>
+          <td><%= a.rol %></td>
+          <td>
+            <a href="/alumnos/<%= a.id %>/editar" class="btn btn-sm btn-warning">Editar</a>
+            <a href="/alumnos/<%= a.id %>/eliminar" class="btn btn-sm btn-danger">Eliminar</a>
+          </td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</div>

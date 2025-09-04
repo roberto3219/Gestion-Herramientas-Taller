@@ -1,0 +1,35 @@
+<div class="container mt-4">
+  <h2 class="mb-3">Registro de Herramientas</h2>
+  <form method="POST" action="/herramientas/guardar">
+    <div class="mb-3">
+      <label for="nombre" class="form-label">Nombre de la Herramienta</label>
+      <input type="text" class="form-control" id="nombre" name="nombre" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="categoria" class="form-label">Categoría</label>
+      <select class="form-select" id="categoria" name="categoria" required>
+        <option value="">Seleccione...</option>
+        <option>Eléctrica</option>
+        <option>Manual</option>
+        <option>Medición</option>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label for="cantidad" class="form-label">Cantidad Disponible</label>
+      <input type="number" class="form-control" id="cantidad" name="cantidad" required min="1">
+    </div>
+
+    <div class="mb-3">
+      <label for="estado" class="form-label">Estado</label>
+      <select class="form-select" id="estado" name="estado" required>
+        <option value="Disponible">Disponible</option>
+        <option value="En reparación">En reparación</option>
+      </select>
+    </div>
+
+    <button type="submit" class="btn btn-success">Guardar</button>
+    <a href="/herramientas" class="btn btn-secondary">Cancelar</a>
+  </form>
+</div>

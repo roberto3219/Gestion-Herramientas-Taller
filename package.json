@@ -5,7 +5,11 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "test": "nodemon app.js"
+    "dev": "nodemon app.js",
+    "migrate": "npx sequelize-cli db:migrate",
+    "seed": "npx sequelize-cli db:seed:all",
+    "backup": "node scripts/backup.js",
+    "pdfs": "node scripts/generate_pdfs.js"
   },
   "author": "Roberto Alfredo Llampa",
   "license": "ISC",
@@ -17,6 +21,12 @@
     "multer": "^2.0.2",
     "mysql": "^2.18.1",
     "mysql2": "^3.14.4",
-    "nodemon": "^3.1.10"
+    "nodemon": "^3.1.10",
+    "pdfkit": "^0.17.2",
+    "sequelize": "^6.37.7",
+    "sqlite3": "^5.1.7"
+  },
+  "devDependencies": {
+    "sequelize-cli": "^6.6.3"
   }
 }

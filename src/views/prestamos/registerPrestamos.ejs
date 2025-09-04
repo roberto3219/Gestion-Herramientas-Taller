@@ -1,0 +1,36 @@
+<div class="container mt-4">
+  <h2 class="mb-3">Registrar Préstamo</h2>
+  <form method="POST" action="/prestamos/guardar">
+    <div class="mb-3">
+      <label for="alumno" class="form-label">Nombre del Alumno</label>
+      <input type="text" class="form-control" id="alumno" name="alumno" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="herramienta" class="form-label">Herramienta</label>
+      <select class="form-select" id="herramienta" name="herramienta" required>
+        <option value="">Seleccione una herramienta</option>
+        <% herramientas.forEach(h => { %>
+          <option value="<%= h.id %>"><%= h.nombre %></option>
+        <% }) %>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label for="profesor" class="form-label">Profesor a cargo</label>
+      <input type="text" class="form-control" id="profesor" name="profesor" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="fecha_prestamo" class="form-label">Fecha de Préstamo</label>
+      <input type="date" class="form-control" id="fecha_prestamo" name="fecha_prestamo" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="fecha_devolucion" class="form-label">Fecha de Devolución</label>
+      <input type="date" class="form-control" id="fecha_devolucion" name="fecha_devolucion" required>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Registrar Préstamo</button>
+  </form>
+</div>
