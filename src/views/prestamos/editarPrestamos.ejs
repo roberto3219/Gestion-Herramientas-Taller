@@ -1,0 +1,48 @@
+<div class="container mt-4">
+  <h2>Editar Préstamo</h2>
+
+  <form action="/prestamos/<%= prestamo.id %>/editar" method="POST">
+    <div class="mb-3">
+      <label class="form-label">Alumno</label>
+      <select class="form-control" name="alumno_id">
+        <% alumnos.forEach(a => { %>
+          <option value="<%= a.id %>" <%= a.id === prestamo.alumno_id ? 'selected' : '' %>><%= a.nombre %></option>
+        <% }) %>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Herramienta</label>
+      <select class="form-control" name="herramienta_id">
+        <% herramientas.forEach(h => { %>
+          <option value="<%= h.id %>" <%= h.id === prestamo.herramienta_id ? 'selected' : '' %>><%= h.nombre %></option>
+        <% }) %>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Profesor</label>
+      <input type="text" class="form-control" name="profesor" value="<%= prestamo.profesor %>">
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Fecha de Préstamo</label>
+      <input type="date" class="form-control" name="fecha_prestamo" value="<%= prestamo.fecha_prestamo.toISOString().split('T')[0] %>">
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Fecha de Devolución</label>
+      <input type="date" class="form-control" name="fecha_devolucion" value="<%= prestamo.fecha_devolucion.toISOString().split('T')[0] %>">
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Estado</label>
+      <select class="form-control" name="estado">
+        <option value="Pendiente" <%= prestamo.estado === 'Pendiente' ? 'selected' : '' %>>Pendiente</option>
+        <option value="Devuelto" <%= prestamo.estado === 'Devuelto' ? 'selected' : '' %>>Devuelto</option>
+      </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Actualizar</button>
+  </form>
+</div>
