@@ -7,11 +7,11 @@ module.exports = (sequelize, DataTypes) => {
     curso: DataTypes.STRING,
     telefono: DataTypes.INTEGER
   }, {
-    tableName: 'estudiantes'
+    tableName: 'estudiantes',  timestamps: false
   });
 
   Estudiante.associate = function(models) {
-    Estudiante.hasMany(models.Prestamo, { foreignKey: 'estudiante_id', as: 'prestamos' });
+    Estudiante.hasMany(models.Prestamos, { foreignKey: 'estudiante_id', as: 'prestamos' });
   };
 
   return Estudiante;

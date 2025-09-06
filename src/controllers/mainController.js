@@ -10,8 +10,8 @@ const controller = {
         })
         console.log(prestamos)
         res.render("index",{
-            prestamos,
-            usuario: req.session.userLogged,
+            prestamos: prestamos,
+            //usuario: req.session.userLogged,
         })
     }catch(e){
         console.log("Error " + e)

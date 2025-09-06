@@ -7,7 +7,7 @@ module.exports = (sequelize, DataTypes) => {
             autoIncrement: true,
             allowNull: false
         },
-        esutiante_id:{
+        estudiante_id:{
             type: DataTypes.INTEGER,
             allowNull: false
         },
@@ -35,12 +35,7 @@ module.exports = (sequelize, DataTypes) => {
     }
     config = {
         tableName : "prestamos",
-        timestamps: true,
-        underscored: true,
-        createdAt: 'created_at',
-        updatedAt: 'updated_at',
-        deletedAt: 'deleted_at',
-        paranoid: true,
+        timestamps: false,
     }
     const Prestamos = sequelize.define(Alias,cols,config);
 
@@ -52,4 +47,5 @@ module.exports = (sequelize, DataTypes) => {
             as: 'herramientas'
         });
     };
+    return Prestamos;
 }

@@ -5,10 +5,10 @@ module.exports = (sequelize, DataTypes) => {
     descripcion: DataTypes.TEXT,
     cantidad: DataTypes.INTEGER,
     estado: DataTypes.STRING
-  }, { tableName: 'herramientas' });
+  }, { tableName: 'herramientas',  timestamps: false });
 
   Herramienta.associate = function(models) {
-    Herramienta.belongsToMany(models.Prestamo, {
+    Herramienta.belongsToMany(models.Prestamos, {
       through: models.PrestamoItem,
       foreignKey: 'herramienta_id',
       otherKey: 'prestamo_id',
