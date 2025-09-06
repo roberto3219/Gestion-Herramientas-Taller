@@ -1,10 +1,18 @@
 // Controlador del index
-/* const db = require("../database/models/index.js");
- */
+const db = require("../database/models/index.js");
+
 const controller = {
   index: async (req, res) => {
     try{
-        res.render("index")
+        const prestamos = await db.Prestamos.findAll({
+            include: [{association: "herramientas"}],
+            order: [["created_at", "DESC"]]
+        })
+        console.log(prestamos)
+        res.render("index",{
+            prestamos,
+            usuario: req.session.userLogged,
+        })
     }catch(e){
         console.log("Error " + e)
     }
