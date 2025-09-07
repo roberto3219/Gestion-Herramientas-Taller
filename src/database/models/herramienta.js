@@ -6,15 +6,15 @@ module.exports = (sequelize, DataTypes) => {
     cantidad: DataTypes.INTEGER,
     estado: DataTypes.STRING
   }, { tableName: 'herramientas',  timestamps: false });
-
   Herramienta.associate = function(models) {
-    Herramienta.belongsToMany(models.Prestamos, {
-      through: models.PrestamoItem,
-      foreignKey: 'herramienta_id',
-      otherKey: 'prestamo_id',
-      as: 'prestamos'
+    Herramienta.hasMany(models.Prestamos, {
+      as: "prestamos",
+      foreignKey: "herramientas_id",
+      timestamps: false,
+      onDelete: "CASCADE",
+      onUpdate: "CASCADE"
     });
-  };
+  }
 
   return Herramienta;
 };

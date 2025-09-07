@@ -11,9 +11,21 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.INTEGER,
             allowNull: false
         },
+        herramientas_id:{
+            type: DataTypes.INTEGER,
+            allowNull:false,
+        },
+        cantidad_herramientas:{
+            type: DataTypes.INTEGER,
+            allowNull: false,
+        },
         profesor_encargado:{
             type: DataTypes.STRING,
             allowNull: false
+        },
+        fecha_prestamo:{
+            type: DataTypes.DATE,
+            allowNull: false,
         },
         fecha_devolucion_estimada:{
             type: DataTypes.DATE,
@@ -40,12 +52,21 @@ module.exports = (sequelize, DataTypes) => {
     const Prestamos = sequelize.define(Alias,cols,config);
 
     Prestamos.associate = function(models) {
-        Prestamos.belongsToMany(models.Herramienta, {
-            through: models.PrestamoItem,
-            foreignKey: 'prestamo_id',
-            otherKey: 'herramienta_id',
-            as: 'herramientas'
+        Prestamos.belongsTo(models.Estudiante, {
+            as: "estudiantes",
+            foreignKey: "estudiante_id",
+            timestamps: false,
+            onDelete: "CASCADE",
+            onUpdate: "CASCADE"
         });
+        Prestamos.belongsTo(models.Herramienta, {
+            as: "herramientas",
+            foreignKey: "herramientas_id",
+            timestamps: false,
+            onDelete: "CASCADE",
+            onUpdate: "CASCADE"
+        });
+
     };
     return Prestamos;
 }

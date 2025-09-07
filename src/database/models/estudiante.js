@@ -11,7 +11,12 @@ module.exports = (sequelize, DataTypes) => {
   });
 
   Estudiante.associate = function(models) {
-    Estudiante.hasMany(models.Prestamos, { foreignKey: 'estudiante_id', as: 'prestamos' });
+    Estudiante.hasMany(models.Prestamos, { 
+      foreignKey: 'estudiante_id',
+      as: 'prestamos',
+      timestamps: false,
+      onDelete: "CASCADE",
+      onUpdate: "CASCADE" });
   };
 
   return Estudiante;

@@ -5,7 +5,11 @@ const controller = {
   index: async (req, res) => {
     try{
         const prestamos = await db.Prestamos.findAll({
-            include: [{association: "herramientas"}],
+            include: [
+                //{association: "herramientas"}
+                {model: db.Estudiante, attributes: ["nombre"], as: "estudiantes"},
+                {model: db.Herramienta, attributes: ["nombre"], as: "herramientas"}
+            ],
             order: [["created_at", "DESC"]]
         })
         console.log(prestamos)
