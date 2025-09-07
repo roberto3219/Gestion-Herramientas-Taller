@@ -12,7 +12,7 @@ const controller = {
             ],
             order: [["created_at", "DESC"]]
         })
-        console.log(prestamos)
+        //console.log(prestamos)
         res.render("index",{
             prestamos: prestamos,
             //usuario: req.session.userLogged,

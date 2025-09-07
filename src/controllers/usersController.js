@@ -18,13 +18,13 @@ const controller = {
         const hashedPassword = await bcrypt.hashSync(req.body.password, 10);
 
         await db.Usuario.create({
+          user_name: req.body.username,
           nombre: req.body.name,
-          apellido: req.body.lastName,
           correo: req.body.correo,
           clave: hashedPassword,
           img_usuario:
-          saveImage != undefined ? saveImage.filename : "default.jpg",
-          id_rol: 1,
+          saveImage != undefined ? saveImage.filename : "default.png",
+          role_id: 3,
         });
 
         // Responder con algún mensaje o redirigir a otra página
@@ -65,7 +65,7 @@ const controller = {
             apellido: usuario.apellido,
             correo: usuario.correo,
             img_usuario: usuario.img_usuario,
-            id_rol: usuario.id_rol
+            role_id: usuario.id_rol
           }
 
           let carrito = usuario.carritos.find((cart) => cart.status == true);

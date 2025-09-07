@@ -5,28 +5,28 @@ const { body } = require("express-validator");
 const { Usuario } = require("../database/models");
 
 const registerValidator = [
-  body("name")
+  body("nombre")
     .notEmpty()
     .withMessage("El nombre es obligatorio.")
     .isLength({ min: 2 })
     .withMessage("El nombre debe tener al menos 2 caracteres."),
-  body("lastName")
+  body("username")
     .notEmpty()
-    .withMessage("El apellido es obligatorio.")
-    .isLength({ min: 2 })
-    .withMessage("El apellido debe tener al menos 2 caracteres."),
-  body("correo")
+    .withMessage("El nombre de usuario es obligatorio.")
+    .isLength({ min: 3 })
+    .withMessage("El nombre debe tener al menos 3 caracteres."),,
+  body("email")
     .notEmpty()
     .withMessage("El correo es obligatorio.")
     .isEmail()
     .withMessage("Debe ser un formato de e-mail válido.")
     .custom(async (value, { req }) => {
-      const existingUser = await Usuario.findOne({ where: { correo: value } });
+      const existingUser = await Usuario.findOne({ where: { email: value } });
       if (existingUser) {
         throw new Error("El correo electrónico ya está registrado.");
       }
-      return true;
-    }),
+      return true; 
+    }), ,
   body("password")
     .notEmpty()
     .withMessage("La contraseña es obligatoria.")
@@ -37,7 +37,7 @@ const registerValidator = [
       throw new Error("Password confirmation does not match password");
     }
   }), */
-  body("userImage").custom((value, { req }) => {
+  /*body("userImage").custom((value, { req }) => {
     if (!req.file) {
       throw new Error("Debe subir una imagen.");
     }
@@ -49,7 +49,7 @@ const registerValidator = [
       );
     }
     return true;
-  }),
+  }),*/
 ];
 
 module.exports = registerValidator;
