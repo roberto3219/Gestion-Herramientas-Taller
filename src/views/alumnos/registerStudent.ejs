@@ -1,8 +1,12 @@
-<%- include('../partials/header') %>
-
+<!DOCTYPE html>
+<html lang="es">
+<%- include('../partials/head.ejs') %>
+<body>
+<%- include('../partials/header.ejs') %>
+<div class="container mt-4">
 <div class="container mt-4 col-md-8">
   <h2 class="mb-3">Registrar Alumno</h2>
-  <form method="POST" action="/alumnos">
+  <form method="POST" action="/estudiantes/add">
     <div class="mb-3">
       <label for="nombre" class="form-label">Nombre completo</label>
       <input type="text" id="nombre" name="nombre" class="form-control" required>
@@ -29,8 +33,8 @@
     </div>
 
     <button class="btn btn-success">Registrar Alumno</button>
-    <a href="/alumnos" class="btn btn-secondary">Cancelar</a>
+    <a href="/estudiantes" class="btn btn-secondary">Cancelar</a>
   </form>
 </div>
-
-<%- include('../partials/footer') %>
+</body>
+</html>

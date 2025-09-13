@@ -1,11 +1,21 @@
+<!DOCTYPE html>
+<html lang="es">
+<%- include('../partials/head.ejs') %>
+<body>
+<%- include('../partials/header.ejs') %>
 <div class="container mt-4">
   <h2 class="mb-3">Registro de Herramientas</h2>
-  <form method="POST" action="/herramientas/guardar">
+  <form method="POST" action="/herramientas/add">
     <div class="mb-3">
       <label for="nombre" class="form-label">Nombre de la Herramienta</label>
       <input type="text" class="form-control" id="nombre" name="nombre" required>
     </div>
-
+    
+    <div class="mb-3">
+      <label for="descripcion" class="form-label">Descripcion</label>
+      <input type="text" class="form-control" id="descripcion" name="descripcion" required>
+    </div>
+    
     <div class="mb-3">
       <label for="categoria" class="form-label">Categoría</label>
       <select class="form-select" id="categoria" name="categoria" required>
@@ -33,3 +43,5 @@
     <a href="/herramientas" class="btn btn-secondary">Cancelar</a>
   </form>
 </div>
+</body>
+</html>

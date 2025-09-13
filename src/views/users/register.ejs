@@ -4,7 +4,7 @@
 <body>
 <div class="container mt-5 col-md-6">
   <h2 class="text-center mb-4">Registro de Usuario</h2>
-  <form method="POST" action="/users/register">
+  <form method="POST" action="/users/register" enctype="multipart/form-data">
     <div class="mb-3">
        <% if(locals.errores && errores.username){ %>
             <p class="errorText"><%= errores.username.msg %></p>
@@ -45,6 +45,7 @@
     </div>
 
     <button type="submit" class="btn btn-success w-100">Registrarse</button>
+    <p class="text-center mt-3">¿Ya tienes una cuenta? <a href="/users/login">Inicia sesión</a></p>
   </form>
 </div>
 </body>

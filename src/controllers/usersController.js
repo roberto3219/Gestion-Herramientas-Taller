@@ -19,9 +19,9 @@ const controller = {
 
         await db.Usuario.create({
           user_name: req.body.username,
-          nombre: req.body.name,
-          correo: req.body.correo,
-          clave: hashedPassword,
+          nombre: req.body.nombre,
+          email: req.body.email,
+          password_hash: hashedPassword,
           img_usuario:
           saveImage != undefined ? saveImage.filename : "default.png",
           role_id: 3,
@@ -50,37 +50,24 @@ const controller = {
   loadLogin: async function (req, res) {
     try {
       const usuario = await db.Usuario.findOne({
-        where: { correo: req.body.correo },
-        include: [{ model: db.Carrito, as: "carritos" }],
+        where: { email: req.body.email },
       });
+      console.log(usuario)
       if (usuario) {
         const validarPass = await bcrypt.compare(
           req.body.password,
-          usuario.clave
+          usuario.password_hash
         );
         if (validarPass) {
           let loginData = {
-            id_usuario: usuario.id_usuario,
+            user_name: usuario.user_name,
             nombre: usuario.nombre,
-            apellido: usuario.apellido,
-            correo: usuario.correo,
-            img_usuario: usuario.img_usuario,
-            role_id: usuario.id_rol
+            correo: usuario.email,
+            img_usuario: usuario.img_user,
+            role_id: usuario.role_id
           }
-
-          let carrito = usuario.carritos.find((cart) => cart.status == true);
-
-          if (carrito) {
-            loginData.id_carrito = carrito.id_carrito;
-          } else {
-            const carrito = await db.Carrito.create({
-              status: 1,
-              id_usuario: usuario.id_usuario,
-            });
-            loginData.id_carrito = carrito.id_carrito;
-          }
-
           req.session.userLogged = loginData;
+          console.log(req.session.userLogged)
           res.redirect("/");
         } else {
           res.render("users/login", {

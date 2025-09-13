@@ -37,19 +37,18 @@ const registerValidator = [
       throw new Error("Password confirmation does not match password");
     }
   }), */
-  /*body("userImage").custom((value, { req }) => {
-    if (!req.file) {
-      throw new Error("Debe subir una imagen.");
-    }
-    const allowedExtensions = [".jpg", ".jpeg", ".png", ".gif", ".webp"];
-    const fileExtension = path.extname(req.file.originalname).toLowerCase();
-    if (!allowedExtensions.includes(fileExtension)) {
-      throw new Error(
-        "La imagen debe tener una extensión válida (JPG, JPEG, PNG, GIF, WEBP)."
-      );
+  body("imagen").custom((value, { req }) => {
+    if (req.file) {
+      const allowedExtensions = [".jpg", ".jpeg", ".png", ".gif", ".webp"];
+      const fileExtension = path.extname(req.file.originalname).toLowerCase();
+      if (!allowedExtensions.includes(fileExtension)) {
+        throw new Error(
+          "La imagen debe tener una extensión válida (JPG, JPEG, PNG, GIF, WEBP)."
+        );
+      }
     }
     return true;
-  }),*/
+  }),
 ];
 
 module.exports = registerValidator;

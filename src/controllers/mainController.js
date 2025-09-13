@@ -15,6 +15,7 @@ const controller = {
         //console.log(prestamos)
         res.render("index",{
             prestamos: prestamos,
+            usuario: req.session.userLogged
             //usuario: req.session.userLogged,
         })
     }catch(e){

@@ -8,12 +8,7 @@ const { validationResult } = require("express-validator");
 const controller = {
   detail: async (req, res) => {
     try {
-      const producto = await db.Producto.findByPk(req.params.id, {
-        include: [
-          { model: db.Plataforma, as: "plataformas" },
-          { model: db.Categoria, as: "categorias" },
-        ],
-      });
+      const producto = await db.Producto.findByPk(req.params.id);
 
       res.render("productDetail", {
         producto: producto,
@@ -26,11 +21,15 @@ const controller = {
   },
   index: async (req, res) => {
     try {
-      const alumnos = await db.Estudiante.findAll({
-      });
-      res.render("alumnos/listStudents", {
-        titulo: null,
-        alumnos: alumnos,
+      const prestamos = await db.Prestamos.findAll({
+        include: [
+                        //{association: "herramientas"}
+                        {model: db.Estudiante, attributes: ["nombre"], as: "estudiantes"},
+                        {model: db.Herramienta, attributes: ["nombre"], as: "herramientas"}
+                    ],
+    });
+      res.render("prestamos/listPrestamos", {
+        prestamos: prestamos,
         usuario: req.session.userLogged,
       });
     } catch (error) {
@@ -40,10 +39,14 @@ const controller = {
   },
   create: async (req, res) => {
     try {
-      res.render("alumnos/registerStudent", {
+        const estudiantes = await db.Estudiante.findAll();
+        const herramientas = await db.Herramienta.findAll();
+      res.render("prestamos/registerPrestamos", {
         usuario: req.session.userLogged,
+        herramientas: herramientas,
+        estudiantes: estudiantes,
+        errores: null,
         imagen: null,
-        seleccionadas: null,
       });
     } catch (error) {
       console.error(error);
@@ -55,15 +58,19 @@ const controller = {
     console.log(errores + " errores")
     if (errores.isEmpty()) {
       try {
-        await db.Estudiante.create({
-          nombre: req.body.nombre,
-          dni: req.body.dni,
-          email: req.body.email,
-          curso: req.body.curso,
-          telefono: req.body.telefono,
+        await db.Prestamos.create({
+          estudiante_id: req.body.estudiante,
+          herramientas_id: req.body.herramienta,
+          cantidad_herramientas: req.body.cantidad,
+          profesor_encargado: req.body.profesor,
+          fecha_prestamo: req.body.fecha_prestamo,
+          fecha_devolucion_estimada: req.body.fecha_devolucion,
+          fecha_devolucion_real: null,
+          estado: "pendiente",
+          observaciones: req.body.observaciones,
         });
 
-        res.redirect("/estudiantes");
+        res.redirect("/prestamos");
       } catch (error) {
         console.error(error);
         res.render("error", {
@@ -72,7 +79,7 @@ const controller = {
       }
     } else {
       try {
-        res.render("productCreate", {
+        res.render("herramientas/registerHerramientas", {
           usuario: req.session.userLogged,
          errores: errores.mapped(),
           imagen: req.file != undefined ? req.file.filename : "204.jpg",
@@ -87,32 +94,9 @@ const controller = {
   edit: async (req, res) => {
     try {
       const id = req.params.id;
-      let categorias = await db.Categoria.findAll();
-      const plataformas = await db.Plataforma.findAll();
-      const producto = await db.Producto.findByPk(id, {
-        include: [
-          {
-            model: db.Plataforma,
-            as: "plataformas",
-          },
-          {
-            model: db.Categoria,
-            as: "categorias",
-          },
-        ],
-      });
-
-      const categoriasFiltradas = categorias.filter(
-        (categoria) =>
-          !producto.categorias.find(
-            (prodCategoria) =>
-              prodCategoria.id_categoria === categoria.id_categoria
-          )
-      );
+      const herramienta = await db.Herramienta.findByPk(id);
 
       res.render("productEdit", {
-        categorias: categoriasFiltradas,
-        plataformas: plataformas,
         usuario: req.session.userLogged,
         producto: producto,
         errores: null,
@@ -130,12 +114,7 @@ const controller = {
         where: {
           id_producto: id,
         },
-        include: [
-          {
-            model: db.Categoria,
-            as: "categorias",
-          },
-        ],
+
       });
       if (errores.isEmpty()) {
         await db.Producto.update(

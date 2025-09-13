@@ -4,11 +4,16 @@ const router = express.Router();
 
 // Controlador
 
-const mainController = require("../controllers/mainController");
+const estudiantesController = require("../controllers/studentsController");
 
 // Ruteos
 
-router.get("/listStudents", mainController.index);
+router.get("/", estudiantesController.index);
+router.get("/add", estudiantesController.create);
+router.post("/add", estudiantesController.store);
+/* router.get("/:id/editar", estudiantesController.editar);
+router.post("/:id/actualizar", estudiantesController.actualizar);
+router.get("/:id/eliminar", estudiantesController.eliminar); */
 
 
 module.exports = router;

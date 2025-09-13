@@ -1,3 +1,8 @@
+<!DOCTYPE html>
+<html lang="es">
+<%- include('../partials/head.ejs') %>
+<body>
+<%- include('../partials/header.ejs') %>
 <div class="container mt-4">
   <h2 class="mb-4">Lista de Alumnos</h2>
 
@@ -7,6 +12,11 @@
     <button class="btn btn-outline-primary" type="submit">Buscar</button>
   </form>
 
+  <!-- agregar nuevo alumno -->
+  <a href="/estudiantes/add" class="btn btn-primary mb-3">
+    Agregar  Alumno
+  </a>
+
   <!-- Tabla -->
   <table class="table table-hover table-bordered">
     <thead class="table-dark">
@@ -14,7 +24,8 @@
         <th>ID</th>
         <th>Nombre Completo</th>
         <th>Email</th>
-        <th>Rol</th>
+        <th>Curso</th>
+        <th>Teléfono</th>
         <th>Acción</th>
       </tr>
     </thead>
@@ -24,7 +35,8 @@
           <td><%= a.id %></td>
           <td><%= a.nombre %></td>
           <td><%= a.email %></td>
-          <td><%= a.rol %></td>
+          <td><%= a.curso %></td>
+          <td><%= a.telefono %></td>
           <td>
             <a href="/alumnos/<%= a.id %>/editar" class="btn btn-sm btn-warning">Editar</a>
             <a href="/alumnos/<%= a.id %>/eliminar" class="btn btn-sm btn-danger">Eliminar</a>
@@ -34,3 +46,5 @@
     </tbody>
   </table>
 </div>
+</body>
+</html>

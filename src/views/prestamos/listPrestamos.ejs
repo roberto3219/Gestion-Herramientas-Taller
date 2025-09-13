@@ -1,19 +1,17 @@
 <!DOCTYPE html>
 <html lang="es">
-<%- include('partials/head.ejs') %>
+<%- include('../partials/head.ejs') %>
 <body>
-<%- include('partials/header') %>
+<%- include('../partials/header') %>
   <div class="container mt-4">
-    <h1 class="text-center">Gestión de Herramientas</h1>
-  </div>
-  <div class="container mt-4">
-  <h2 class="mb-4">Préstamos de Herramientas</h2>
-
+  <h2 class="mb-4">Lista de Préstamos</h2>
+     
   <!-- Buscador -->
   <form class="d-flex mb-3" method="GET" action="/prestamos/buscar">
     <input class="form-control me-2" type="search" placeholder="Buscar por alumno o herramienta" name="q">
     <button class="btn btn-outline-primary" type="submit">Buscar</button>
   </form>
+  <a href="/prestamos/add" class="btn btn-primary mb-3">Agregar Nuevo Préstamo</a>
 
   <!-- Tabla -->
   <table class="table table-hover table-bordered">
@@ -26,11 +24,7 @@
         <th>Fecha Préstamo</th>
         <th>Fecha Devolución</th>
         <th>Estado</th>
-        <% if(usuario){ %>
-        <% if(usuario.role_id != 3 && usuario.role_id != 2){  %>
         <th>Acción</th>
-        <% } %>
-        <% } %>
       </tr>
     </thead>
     <tbody>
@@ -49,9 +43,6 @@
               <span class="badge bg-danger">Pendiente</span>
             <% } %>
           </td>
-                  <% if(usuario) {%>
-                  <% if(usuario.role_id != 3 && usuario.role_id != 2){  %>
-
           <td>
             <form action="" method="post">
             <a href="/prestamos/<%= p.id %>/editar" class="btn btn-sm btn-warning">Editar</a>
@@ -60,8 +51,6 @@
             <a href="/prestamos/<%= p.id %>/eliminar" class="btn btn-sm btn-danger">Eliminar</a>
           </form>
           </td>
-          <% } %>
-          <% } %>
         </tr>
       <% }) %>
     </tbody>

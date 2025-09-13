@@ -38,7 +38,7 @@ router.get("/login", guestMiddleware, userController.login);
 router.post("/login", guestMiddleware,userController.loadLogin);
 router.get("/register", guestMiddleware, userController.register);
 router.post("/register",guestMiddleware,
-fileUpload.single("userImage"),registerValidator,
+fileUpload.single("imagen"),registerValidator,
   logUserMiddleware,
   userController.saveRegister
 );

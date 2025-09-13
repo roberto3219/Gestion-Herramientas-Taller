@@ -1,3 +1,8 @@
+<!DOCTYPE html>
+<html lang="es">
+<%- include('../partials/head.ejs') %>
+<body>
+<%- include('../partials/header.ejs') %>
 <div class="container mt-4">
   <h2 class="mb-4">Lista de Herramientas</h2>
 
@@ -7,6 +12,9 @@
     <button class="btn btn-outline-primary" type="submit">Buscar</button>
   </form>
 
+  <a href="/herramientas/add" class="btn btn-primary mb-3">
+    Agregar  Herramienta
+  </a>
   <!-- Tabla -->
   <table class="table table-hover table-bordered">
     <thead class="table-dark">
@@ -42,3 +50,5 @@
     </tbody>
   </table>
 </div>
+</body>
+</html>
