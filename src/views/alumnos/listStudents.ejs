@@ -7,9 +7,9 @@
   <h2 class="mb-4">Lista de Alumnos</h2>
 
   <!-- Buscador -->
-  <form class="d-flex mb-3" method="GET" action="/alumnos/buscar">
+  <form class="d-flex mb-3" method="POST" action="/estudiantes">
     <input class="form-control me-2" type="search" placeholder="Buscar alumno por nombre o correo" name="q">
-    <button class="btn btn-outline-primary" type="submit">Buscar</button>
+    <input class="btn btn-outline-primary" type="submit" value="Buscar">
   </form>
 
   <!-- agregar nuevo alumno -->
@@ -38,8 +38,8 @@
           <td><%= a.curso %></td>
           <td><%= a.telefono %></td>
           <td>
-            <a href="/alumnos/<%= a.id %>/editar" class="btn btn-sm btn-warning">Editar</a>
-            <a href="/alumnos/<%= a.id %>/eliminar" class="btn btn-sm btn-danger">Eliminar</a>
+            <a href="/estudiantes/editar/<%= a.id %>" class="btn btn-sm btn-warning">Editar</a>
+            <a href="/estudiantes/eliminar/<%= a.id %>" class="btn btn-sm btn-danger">Eliminar</a>
           </td>
         </tr>
       <% }) %>

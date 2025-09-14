@@ -16,7 +16,6 @@ const estudiantesRouter = require("./src/routes/estudiantesRoutes")
 // Servir Bootstrap desde node_modules
 app.use('/bootstrap', express.static(path.join(__dirname, 'node_modules/bootstrap/dist')));
 
-
 //Configuracion HTTP
 app.use(methodOverride("_method"))
 
@@ -52,6 +51,12 @@ app.use("/users",userRouter)
 app.use("/herramientas",herramientaRouter)
 app.use("/prestamos", prestamoRouter)
 app.use("/estudiantes", estudiantesRouter)
+
+
+app.use((req, res, next) => {
+  console.log("👉", req.method, req.url);
+  next();
+});
 
 
 app.use((req,res,next) => {

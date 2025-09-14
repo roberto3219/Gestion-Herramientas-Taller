@@ -8,28 +8,43 @@
   <h2 class="mb-3">Registrar Alumno</h2>
   <form method="POST" action="/estudiantes/add">
     <div class="mb-3">
+      <% if(locals.errores && errores.nombre){ %>
+            <p class="errorText"><%= errores.nombre.msg %></p>
+          <% } %>
       <label for="nombre" class="form-label">Nombre completo</label>
-      <input type="text" id="nombre" name="nombre" class="form-control" required>
+      <input type="text" id="nombre" name="nombre" class="form-control" value="<%- old.nombre %>" required>
     </div>
 
     <div class="mb-3">
+      <% if(locals.errores && errores.dni){ %>
+            <p class="errorText"><%= errores.dni.msg %></p>
+          <% } %>
       <label for="dni" class="form-label">DNI</label>
-      <input type="text" id="dni" name="dni" class="form-control">
+      <input type="text" id="dni" name="dni" value="<%- old.dni %>" class="form-control">
     </div>
 
     <div class="mb-3">
+      <% if(locals.errores && errores.email){ %>
+            <p class="errorText"><%= errores.email.msg %></p>
+          <% } %>
       <label for="email" class="form-label">Email</label>
-      <input type="email" id="email" name="email" class="form-control" required>
+      <input type="email" id="email" name="email" value="<%- old.email %>" class="form-control" required>
     </div>
 
     <div class="mb-3">
+      <% if(locals.errores && errores.curso){ %>
+            <p class="errorText"><%= errores.curso.msg %></p>
+          <% } %>
       <label for="curso" class="form-label">Curso / Año</label>
-      <input type="text" id="curso" name="curso" class="form-control">
+      <input type="text" id="curso" name="curso" value="<%- old.curso %>" class="form-control">
     </div>
 
     <div class="mb-3">
+      <% if(locals.errores && errores.telefono){ %>
+            <p class="errorText"><%= errores.telefono.msg %></p>
+          <% } %>
       <label for="telefono" class="form-label">Teléfono</label>
-      <input type="text" id="telefono" name="telefono" class="form-control">
+      <input type="text" id="telefono" name="telefono" value="<%- old.telefono %>" class="form-control">
     </div>
 
     <button class="btn btn-success">Registrar Alumno</button>
