@@ -77,14 +77,14 @@ const controller = {
       }
     }
   },
-  edit: async (req, res) => {
+  editar: async (req, res) => {
     try {
       const id = req.params.id;
       const herramienta = await db.Herramienta.findByPk(id);
 
-      res.render("productEdit", {
+      res.render("herramientas/editTools", {
         usuario: req.session.userLogged,
-        producto: producto,
+        herramienta: herramienta,
         errores: null,
       });
     } catch (error) {
@@ -95,73 +95,28 @@ const controller = {
   actualizar: async (req, res) => {
     try {
       let errores = validationResult(req);
-      const id = req.params.id;
-      const oldProduct = await db.Producto.findOne({
-        where: {
-          id_producto: id,
-        },
-
-      });
+      const id = req.params.id
+      const oldProduct = await db.Herramienta.findByPk(id);
       if (errores.isEmpty()) {
-        await db.Producto.update(
+        await db.Herramienta.update(
           {
             nombre: req.body.nombre,
-            precio: req.body.precio,
-            cant_desc: req.body.descuento,
-            descripcion: req.body.detalle,
-            img_prod:
-              req.file != undefined ? req.file.filename : oldProduct.img_prod,
-            id_plataforma: req.body.plataforma,
+            categoria: req.body.categoria,
+            descripcion: req.body.descripcion,
+            cantidad: req.body.cantidad,
+            estado: req.body.estado,
           },
           {
             where: {
-              id_producto: id,
+              id: id,
             },
           }
         );
-
-        for (let i = 0; i < oldProduct.categorias.length; i++) {
-          const idCategoria = oldProduct.categorias[i].id_categoria;
-          await db.ProductoCategoria.destroy({
-            where: {
-              id: idCategoria,
-            },
-          });
-        }
-
-        for (let i = 0; i < req.body.tag.length; i++) {
-          const idCategoria = req.body.tag[i];
-          await oldProduct.addCategorias(Number(idCategoria));
-        }
-
-        res.redirect("/products/detail/" + id);
+        res.redirect("/herramientas");
       } else {
-        const plataformas = await db.Plataforma.findAll();
-        const categorias = await db.Categoria.findAll();
-        const seleccionadas =
-          req.body.tag != undefined
-            ? req.body.tag.map((tag) => Number(tag))
-            : undefined;
-        let categoriasFiltradas;
-        let categoriasSeleccionadas;
-        if (seleccionadas != undefined) {
-          categoriasFiltradas = categorias.filter(
-            (categoria) => !seleccionadas.includes(categoria.id_categoria)
-          );
-          categoriasSeleccionadas = categorias.filter((categoria) =>
-            seleccionadas.includes(categoria.id_categoria)
-          );
-        }
-
-        res.render("productEdit", {
-          categorias:
-            categoriasFiltradas != undefined ? categoriasFiltradas : categorias,
-          plataformas: plataformas,
+        res.render("herramientas/editTools", {
           usuario: req.session.userLogged,
-          seleccionadas: categoriasSeleccionadas,
           old: req.body,
-          imagen:
-            req.file != undefined ? req.file.filename : oldProduct.img_prod,
           producto: oldProduct,
           id: id,
           errores: errores.mapped(),
@@ -174,18 +129,17 @@ const controller = {
   },
   borrar: async (req, res) => {
     try {
-      const producto = await db.Producto.findOne({
+      const herramienta = await db.Herramienta.findOne({
         where: {
-          id_producto: req.params.id,
+          id: req.params.id,
         },
       });
-      await fs.unlink(path.join(__dirname, "../../public/images/products/" + producto.img_prod));
-      await db.Producto.destroy({
+      await db.Herramienta.destroy({
         where: {
-          id_producto: req.params.id,
+          id: req.params.id,
         },
       });
-      res.redirect("/products");
+      res.redirect("/herramientas");
     } catch (error) {
       console.error(error);
       res.render("error", { error: "Problema conectando a la base de datos" });
@@ -193,22 +147,16 @@ const controller = {
   },
   search: async (req, res) => {
     try {
-      const titulo = req.body.searcher;
-      const productos = await db.Producto.findAll({
+      const titulo = req.body.q;
+      const Herramienta = await db.Herramienta.findAll({
         where: {
           nombre: { [Op.like]: `%${titulo}%` },
-        },
-        include: [
-          {
-            model: db.Plataforma,
-            as: "plataformas",
-          },
-        ],
+        }
       });
 
-      res.render("products", {
+      res.render("herramientas/listTools", {
         titulo: titulo,
-        productos: productos,
+        herramientas: Herramienta,
         usuario: req.session.userLogged,
       });
     } catch (error) {
@@ -216,47 +164,7 @@ const controller = {
       res.render("error", { error: "Problema conectando a la base de datos" });
     }
   },
-  agregar: async (req, res) => {
-    try {
-      const idProducto = req.params.id;
-
-      const carrito = await db.Carrito.findByPk(req.session.userLogged.id_carrito, {
-        include: [
-          {
-            model: db.Producto,
-            as: "productos",
-          },
-        ],
-      });
-
-      let productoEncontrado = carrito.productos.find(
-        (p) => p.id_producto == idProducto
-      );
-
-      if (productoEncontrado) {
-        await db.CarritoProducto.update(
-          {
-            cantidad: productoEncontrado.CarritoProducto.cantidad + 1,
-          },
-          {
-            where: {
-              id_carrito: req.session.userLogged.id_carrito,
-              id_producto: idProducto,
-            },
-          }
-        );
-
-        res.redirect("/products");
-      } else {
-        await carrito.addProducto(idProducto, { through: { cantidad: 1 }})
-        
-        res.redirect("/products")
-      }
-    } catch (error) {
-      console.error(error);
-      res.render("error", { error: "Problema conectando a la base de datos" });
-    }
-  },
+  
 };
 
 module.exports = controller;

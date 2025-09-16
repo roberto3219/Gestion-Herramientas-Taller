@@ -11,8 +11,9 @@ const prestamosController = require("../controllers/prestamosController");
 router.get("/", prestamosController.index);
 router.get("/add", prestamosController.create);
 router.post("/add", prestamosController.store); 
-/* router.get("/:id/editar", estudiantesController.editar);
-router.post("/:id/actualizar", estudiantesController.actualizar);
+router.get("/:id/editar", prestamosController.editar);
+router.post("/:id/editar", prestamosController.actualizar);
+/*
 router.get("/:id/eliminar", estudiantesController.eliminar); */
 
 

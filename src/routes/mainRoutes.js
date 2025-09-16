@@ -8,7 +8,7 @@ const mainController = require("../controllers/mainController");
 
 // Ruteos
 
-router.get("/", mainController.index);
+router.get("/",mainController.index);
 
 
 module.exports = router;

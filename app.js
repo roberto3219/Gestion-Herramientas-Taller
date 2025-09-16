@@ -12,6 +12,7 @@ const userRouter = require("./src/routes/usersRoutes")
 const herramientaRouter = require("./src/routes/herramientasRoutes")
 const prestamoRouter = require("./src/routes/prestamosRoutes")
 const estudiantesRouter = require("./src/routes/estudiantesRoutes")
+const authMiddleware = require("./src/middlewares/authMiddleware")
 
 // Servir Bootstrap desde node_modules
 app.use('/bootstrap', express.static(path.join(__dirname, 'node_modules/bootstrap/dist')));
@@ -54,10 +55,9 @@ app.use("/estudiantes", estudiantesRouter)
 
 
 app.use((req, res, next) => {
-  console.log("👉", req.method, req.url);
+  console.log(`${new Date().toISOString()} - ${req.method} ${req.url}`);
   next();
 });
-
 
 app.use((req,res,next) => {
     res.status(404).render("not-found")

@@ -91,14 +91,19 @@ const controller = {
       }
     }
   },
-  edit: async (req, res) => {
+  editar: async (req, res) => {
     try {
       const id = req.params.id;
-      const herramienta = await db.Herramienta.findByPk(id);
-
-      res.render("productEdit", {
+      const prestamo = await db.Prestamos.findByPk(id);
+      const alumnos = await db.Estudiante.findAll();
+      const herramientas = await db.Herramienta.findAll();
+      console.log(prestamo + " prestamo a editar")
+      res.render("prestamos/editarPrestamos", {
         usuario: req.session.userLogged,
-        producto: producto,
+        prestamo: prestamo,
+        alumnos: alumnos,
+        herramientas: herramientas,
+        id: id,
         errores: null,
       });
     } catch (error) {
