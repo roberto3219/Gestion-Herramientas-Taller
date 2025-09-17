@@ -6,19 +6,6 @@ const { Op } = require("sequelize");
 const { validationResult } = require("express-validator");
 
 const controller = {
-  detail: async (req, res) => {
-    try {
-      const producto = await db.Producto.findByPk(req.params.id);
-
-      res.render("productDetail", {
-        producto: producto,
-        usuario: req.session.userLogged,
-      });
-    } catch (error) {
-      console.error(error);
-      res.render("error", { error: "Problema conectando a la base de datos" });
-    }
-  },
   index: async (req, res) => {
     try {
       const prestamos = await db.Prestamos.findAll({
@@ -63,10 +50,10 @@ const controller = {
           herramientas_id: req.body.herramienta,
           cantidad_herramientas: req.body.cantidad,
           profesor_encargado: req.body.profesor,
-          fecha_prestamo: req.body.fecha_prestamo,
+          fecha_prestamo: Date.now(),
           fecha_devolucion_estimada: req.body.fecha_devolucion,
           fecha_devolucion_real: null,
-          estado: "pendiente",
+          estado: "Pendiente",
           observaciones: req.body.observaciones,
         });
 
@@ -115,22 +102,24 @@ const controller = {
     try {
       let errores = validationResult(req);
       const id = req.params.id;
-      const oldProduct = await db.Producto.findOne({
+      const oldProduct = await db.Prestamos.findOne({
         where: {
-          id_producto: id,
+          id: id,
         },
 
       });
       if (errores.isEmpty()) {
-        await db.Producto.update(
+        await db.Prestamos.update(
           {
-            nombre: req.body.nombre,
-            precio: req.body.precio,
-            cant_desc: req.body.descuento,
-            descripcion: req.body.detalle,
-            img_prod:
-              req.file != undefined ? req.file.filename : oldProduct.img_prod,
-            id_plataforma: req.body.plataforma,
+            estudiante_id: req.body.estudiante,
+            herramientas_id: req.body.herramienta,
+            cantidad_herramientas: req.body.cantidad,
+            profesor_encargado: req.body.profesor,
+            fecha_prestamo: req.body.fecha_prestamo,
+            estado : "pendiente",
+            observaciones: req.body.observaciones,
+            fecha_devolucion_estimada: req.body.fecha_devolucion,
+            fecha_devolucion_real: null,
           },
           {
             where: {
@@ -138,49 +127,11 @@ const controller = {
             },
           }
         );
-
-        for (let i = 0; i < oldProduct.categorias.length; i++) {
-          const idCategoria = oldProduct.categorias[i].id_categoria;
-          await db.ProductoCategoria.destroy({
-            where: {
-              id: idCategoria,
-            },
-          });
-        }
-
-        for (let i = 0; i < req.body.tag.length; i++) {
-          const idCategoria = req.body.tag[i];
-          await oldProduct.addCategorias(Number(idCategoria));
-        }
-
-        res.redirect("/products/detail/" + id);
+        res.redirect("/prestamos");
       } else {
-        const plataformas = await db.Plataforma.findAll();
-        const categorias = await db.Categoria.findAll();
-        const seleccionadas =
-          req.body.tag != undefined
-            ? req.body.tag.map((tag) => Number(tag))
-            : undefined;
-        let categoriasFiltradas;
-        let categoriasSeleccionadas;
-        if (seleccionadas != undefined) {
-          categoriasFiltradas = categorias.filter(
-            (categoria) => !seleccionadas.includes(categoria.id_categoria)
-          );
-          categoriasSeleccionadas = categorias.filter((categoria) =>
-            seleccionadas.includes(categoria.id_categoria)
-          );
-        }
-
-        res.render("productEdit", {
-          categorias:
-            categoriasFiltradas != undefined ? categoriasFiltradas : categorias,
-          plataformas: plataformas,
+        res.render("prestamos/registerPrestamos", {
           usuario: req.session.userLogged,
-          seleccionadas: categoriasSeleccionadas,
           old: req.body,
-          imagen:
-            req.file != undefined ? req.file.filename : oldProduct.img_prod,
           producto: oldProduct,
           id: id,
           errores: errores.mapped(),
@@ -193,18 +144,12 @@ const controller = {
   },
   borrar: async (req, res) => {
     try {
-      const producto = await db.Producto.findOne({
+      await db.Prestamos.destroy({
         where: {
-          id_producto: req.params.id,
+          id: req.params.id,
         },
       });
-      await fs.unlink(path.join(__dirname, "../../public/images/products/" + producto.img_prod));
-      await db.Producto.destroy({
-        where: {
-          id_producto: req.params.id,
-        },
-      });
-      res.redirect("/products");
+      res.redirect("/prestamos");
     } catch (error) {
       console.error(error);
       res.render("error", { error: "Problema conectando a la base de datos" });
@@ -212,65 +157,29 @@ const controller = {
   },
   search: async (req, res) => {
     try {
-      const titulo = req.body.searcher;
-      const productos = await db.Producto.findAll({
-        where: {
-          nombre: { [Op.like]: `%${titulo}%` },
-        },
+      const titulo = req.body.q;
+      const prestamos = await db.Prestamos.findAll({
         include: [
-          {
-            model: db.Plataforma,
-            as: "plataformas",
-          },
+          { model: db.Estudiante, attributes: ["nombre"], as: "estudiantes" },
+          { model: db.Herramienta, attributes: ["nombre"], as: "herramientas" },
         ],
+        where: {
+          [Op.or]: [
+            { '$estudiantes.nombre$': { [Op.like]: `%${titulo}%` } },
+            { '$herramientas.nombre$': { [Op.like]: `%${titulo}%` } },
+             { profesor_encargado: { [Op.like]: `%${titulo}%` } },
+             { estado: { [Op.like]: `%${titulo}%` } },
+          ],
+        },
       });
-
-      res.render("products", {
+      console.log(prestamos + " prestamos encontrados")
+      
+      // Uno los dos resultados
+      res.render("prestamos/listPrestamos", {
         titulo: titulo,
-        productos: productos,
+        prestamos: prestamos,
         usuario: req.session.userLogged,
       });
-    } catch (error) {
-      console.error(error);
-      res.render("error", { error: "Problema conectando a la base de datos" });
-    }
-  },
-  agregar: async (req, res) => {
-    try {
-      const idProducto = req.params.id;
-
-      const carrito = await db.Carrito.findByPk(req.session.userLogged.id_carrito, {
-        include: [
-          {
-            model: db.Producto,
-            as: "productos",
-          },
-        ],
-      });
-
-      let productoEncontrado = carrito.productos.find(
-        (p) => p.id_producto == idProducto
-      );
-
-      if (productoEncontrado) {
-        await db.CarritoProducto.update(
-          {
-            cantidad: productoEncontrado.CarritoProducto.cantidad + 1,
-          },
-          {
-            where: {
-              id_carrito: req.session.userLogged.id_carrito,
-              id_producto: idProducto,
-            },
-          }
-        );
-
-        res.redirect("/products");
-      } else {
-        await carrito.addProducto(idProducto, { through: { cantidad: 1 }})
-        
-        res.redirect("/products")
-      }
     } catch (error) {
       console.error(error);
       res.render("error", { error: "Problema conectando a la base de datos" });

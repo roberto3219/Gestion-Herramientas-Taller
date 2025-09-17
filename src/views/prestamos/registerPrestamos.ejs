@@ -30,18 +30,18 @@
     </div>
     <div class="mb-3">
       <label for="cantidad" class="form-label">Cantidad de herramientas a prestar</label>
-      <input type="text" class="form-control" id="cantidad" name="cantidad" required>
+      <input type="number" class="form-control" id="cantidad" name="cantidad" required>
     </div>
 
     <div class="mb-3">
       <label for="observaciones" class="form-label">observaciones</label>
       <input type="text" class="form-control" id="observaciones" name="observaciones" required>
     </div>
-  <div class="mb-3">
-      <label for="fecha_prestamo" class="form-label">Fecha de Préstamo</label>
-      <input type="datetime" class="form-control" id="fecha_prestamo" name="fecha_prestamo" required>
-    </div>
-
+    <div class="mb-3">
+        <label for="fecha_devolucion" class="form-label">Fecha de devolucion estimada</label>
+        <input type="datetime" class="form-control" id="fecha_devolucion" name="fecha_devolucion" required>
+      </div>
+    
     <button type="submit" class="btn btn-primary">Registrar Préstamo</button>
     <a href="/prestamos" class="btn btn-secondary">Cancelar</a>
   </form>

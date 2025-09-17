@@ -43,7 +43,6 @@ const controller = {
       res.render("alumnos/registerStudent", {
         usuario: req.session.userLogged,
         imagen: null,
-        seleccionadas: null,
       });
     } catch (error) {
       console.error(error);
