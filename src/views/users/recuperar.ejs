@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<%- include('../partials/head') %>
+<body>
+  <div class="container mt-4">
+    <h2>Recuperar Contraseña</h2>
+
+    <% if(error){ %>
+      <div class="alert alert-danger"><%= error %></div>
+    <% } %>
+    <% if(msg){ %>
+      <div class="alert alert-success"><%= msg %></div>
+    <% } %>
+
+    <form method="POST" action="/users/recuperar-password">
+      <div class="mb-3">
+        <label for="email" class="form-label">Correo electrónico</label>
+        <input type="email" class="form-control" name="email" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Enviar</button>
+    </form>
+  </div>
+
+  <script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

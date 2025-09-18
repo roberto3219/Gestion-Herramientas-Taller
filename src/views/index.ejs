@@ -55,7 +55,8 @@
 
           <td>
               <% if(p.estado == "Pendiente") {%>
-            <form action="" method="post">
+            <form action="/<%= p.id%>/devolver" method="post">
+              <input type="hidden" name="id" value="<%= p.id %>">
               <input type="submit" value="Devolver" class="btn btn-primary">
             </form>
             <% }else{ %>

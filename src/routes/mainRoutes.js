@@ -9,8 +9,8 @@ const mainController = require("../controllers/mainController");
 // Ruteos
 
 router.get("/",mainController.index);
-router.post("/",mainController.devolver);
-router.get("/buscar",mainController.search);
+router.post("/:id/devolver",mainController.devolver);
+router.post("/",mainController.search);
 
 
 

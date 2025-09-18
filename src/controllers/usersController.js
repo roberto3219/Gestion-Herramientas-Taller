@@ -1,6 +1,8 @@
 const bcrypt = require("bcryptjs");
 const { validationResult } = require("express-validator");
 const db = require("../database/models/index.js");
+const { jsPDF } = require("jspdf"); // librería para PDF
+const nodemailer = require("nodemailer");
 
 // Controlador de usuarios
 
@@ -52,8 +54,8 @@ const controller = {
       const usuario = await db.Usuario.findOne({
         where: { email: req.body.email },
       });
-      console.log(usuario)
-      if (usuario) {
+/*       console.log(usuario)
+ */      if (usuario) {
         const validarPass = await bcrypt.compare(
           req.body.password,
           usuario.password_hash
@@ -89,12 +91,11 @@ const controller = {
     try {
       const usuario = await db.Usuario.findOne({
         where: {
-          correo: req.session.userLogged.correo,
-        },
-        include: [{ model: db.Carrito, as: "carritos" }],
+          email: req.session.userLogged.correo,
+        }
       });
-
-      res.render("users/profile", { usuario: usuario });
+      console.log(usuario + "usuario")
+      res.render("users/perfil", { usuario: usuario });
     } catch (error) {
       res.render("error", { error: "Problema conectando a la base de datos" });
     }
@@ -105,7 +106,9 @@ const controller = {
       res.redirect("/users/login");
     });
   },
-
+  page_change: (req, res) => {
+    res.render("users/changePassword", { error: null, usuario: req.session.userLogged,msg:null });
+  },
   changePassword: async (req, res) => {
     try {
       const usuario = await db.Usuario.findOne({
@@ -137,6 +140,68 @@ const controller = {
       res.render("error", { error: "Problema conectando a la base de datos" });
     }
   },
+  backupJSON: async (req, res) => {
+  const prestamos = await db.Prestamos.findAll({
+    include: ["estudiantes", "herramientas"]
+  });
+
+  // Mapeamos solo lo importante (estructura simple)
+  const backup = prestamos.map(p => ({
+    id: p.id,
+    estudiante: p.estudiantes.nombre,
+    herramienta: p.herramientas.nombre,
+    cantidad_herramientas: p.cantidad_herramientas,
+    profesor: p.profesor_encargado,
+    fecha_prestamo: p.fecha_prestamo,
+    fecha_devolucion_estimada: p.fecha_devolucion_estimada,
+    fecha_devolucion_real: p.fecha_devolucion_real,
+    estado: p.estado,
+    observaciones: p.observaciones,
+  }));
+
+  res.setHeader("Content-Disposition", "attachment; filename=backup.json");
+  res.json(backup);
+},
+   recuperarForm: (req, res) => {
+    res.render("users/recuperar" , { error: null , msg:null});
+  },
+  enviarRecuperacion: async (req, res) => {
+    const { email } = req.body;
+
+    // Buscar usuario
+    const user = await db.Usuario.findOne({ where: { email } });
+    if (!user) {
+      return res.render("users/recuperar", { error: "Correo no registrado", msg:null });
+    }
+
+    // Generar token temporal (ejemplo simple, mejor usar JWT en la práctica)
+    const token = Math.random().toString(36).slice(2);
+
+    // Guardar token en DB (ejemplo: columna reset_token)
+    user.reset_token = token;
+    await user.save();
+
+    // Configurar mailer
+    const transporter = nodemailer.createTransport({
+      service: "gmail",
+      auth: {
+        user: "tu_correo@gmail.com",
+        pass: "tu_contraseña_de_app"
+      }
+    });
+
+    const link = `http://localhost:3000/reset/${token}`;
+
+    await transporter.sendMail({
+      from: "tu_correo@gmail.com",
+      to: email,
+      subject: "Recuperación de Contraseña",
+      text: `Haz click en este enlace para recuperar tu contraseña: ${link}`
+    });
+
+    res.render("usuario/recuperar", { msg: "Correo enviado con instrucciones" });
+  }
+
 };
 
 module.exports = controller;

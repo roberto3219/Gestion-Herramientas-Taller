@@ -17,7 +17,8 @@ const controller = {
         //console.log(prestamos)
         res.render("index",{
             prestamos: prestamos,
-            usuario: req.session.userLogged
+            usuario: req.session.userLogged,
+            id:null
             //usuario: req.session.userLogged,
         })
     }catch(e){
@@ -26,9 +27,11 @@ const controller = {
 },
 devolver: async (req, res) => {
     try {
-      
       await db.Prestamos.update(
-        { estado: "Devuelto" },
+        { 
+          estado: "Devuelto",
+          fecha_devolucion_real: new Date()
+         },
         {
           where: {
             id: req.params.id,
@@ -40,8 +43,6 @@ devolver: async (req, res) => {
       console.error(error);
       res.render("error", { error: "Problema conectando a la base de datos" });
     }
-},
-search_page: async (req, res) => {
 },
 search: async (req, res) => {
     try {

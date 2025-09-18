@@ -14,8 +14,8 @@ router.get("/add", prestamosController.create);
 router.post("/add", prestamosController.store); 
 router.get("/:id/editar", prestamosController.editar);
 router.post("/:id/editar", prestamosController.actualizar);
-router.get("/:id/eliminar", prestamosController.borrar); 
-
+router.get("/:id/eliminar", prestamosController.borrar);
+router.post("/reporte", prestamosController.reportePDF); 
 
 
 module.exports = router;

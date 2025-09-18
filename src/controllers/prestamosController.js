@@ -4,6 +4,8 @@ const path = require("path")
 const db = require("../database/models/index.js");
 const { Op } = require("sequelize");
 const { validationResult } = require("express-validator");
+const { jsPDF } = require("jspdf"); // librería para PDF
+const nodemailer = require("nodemailer");
 
 const controller = {
   index: async (req, res) => {
@@ -184,6 +186,25 @@ const controller = {
       console.error(error);
       res.render("error", { error: "Problema conectando a la base de datos" });
     }
+  },
+    reportePDF: async (req, res) => {
+    const prestamos = await db.Prestamos.findAll ({
+      include: [
+              {model: db.Estudiante, attributes: ["nombre"], as: "estudiantes"},
+              {model: db.Herramienta, attributes: ["nombre"], as: "herramientas"}
+      ]
+    });
+    const doc = new jsPDF();
+
+    doc.text("Lista de Prestamos", 10, 10);
+    prestamos.forEach((h, i) => {
+      doc.text(`${i + 1}. ${h.estudiantes.nombre} - ${h.herramientas.nombre}`, 10, 20 + i * 10);
+    });
+
+    const pdfBuffer = doc.output("arraybuffer");
+    res.setHeader("Content-Disposition", "attachment; filename=prestamos.pdf");
+    res.setHeader("Content-Type", "application/pdf");
+    res.send(Buffer.from(pdfBuffer));
   },
 };
 
