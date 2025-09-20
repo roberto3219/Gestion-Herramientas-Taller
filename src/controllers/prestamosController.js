@@ -5,7 +5,6 @@ const db = require("../database/models/index.js");
 const { Op } = require("sequelize");
 const { validationResult } = require("express-validator");
 const { jsPDF } = require("jspdf"); // librería para PDF
-const nodemailer = require("nodemailer");
 
 const controller = {
   index: async (req, res) => {
@@ -206,6 +205,8 @@ const controller = {
     res.setHeader("Content-Type", "application/pdf");
     res.send(Buffer.from(pdfBuffer));
   },
+
+
 };
 
 module.exports = controller;

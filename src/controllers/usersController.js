@@ -3,6 +3,7 @@ const { validationResult } = require("express-validator");
 const db = require("../database/models/index.js");
 const { jsPDF } = require("jspdf"); // librería para PDF
 const nodemailer = require("nodemailer");
+const { generateAllPDFs } = require("../scripts/generate_pdfs"); // Importamos la función
 
 // Controlador de usuarios
 
@@ -200,7 +201,15 @@ const controller = {
     });
 
     res.render("usuario/recuperar", { msg: "Correo enviado con instrucciones" });
-  }
+  },
+  generarReportes: async (req, res) => {
+    try {
+      await generateAllPDFs(); // Llamamos a la función para generar todos los PDFs
+      res.send("Reportes PDF generados correctamente.");
+    } catch (error) {
+      console.error(error);
+      res.status(500).send("Error al generar los reportes PDF.");
+    }}
 
 };
 

@@ -2,7 +2,7 @@
 const PDFDocument = require('pdfkit');
 const fs = require('fs');
 const path = require('path');
-const { sequelize, Estudiante, Herramienta, Prestamo, PrestamoItem } = require('../models');
+const { sequelize, Estudiante, Herramienta, Prestamos } = require("../database/models");
 
 async function generateListPDF(filename, title, rows, columns) {
   const doc = new PDFDocument({ margin: 40, size: 'A4' });
@@ -14,11 +14,7 @@ async function generateListPDF(filename, title, rows, columns) {
   doc.fontSize(18).text(title, { align: 'center' });
   doc.moveDown();
 
-  // encabezado
-  doc.fontSize(10);
-  const colWidths = columns.map(() => 140);
-  // simple table-like listing
-  rows.forEach((row, idx) => {
+  rows.forEach((row) => {
     columns.forEach((col, cIdx) => {
       const text = String(row[col.key] !== undefined ? row[col.key] : '');
       doc.font('Helvetica').text(text, { continued: cIdx < columns.length - 1 });
@@ -28,10 +24,11 @@ async function generateListPDF(filename, title, rows, columns) {
   });
 
   doc.end();
-  console.log('PDF creado:', filePath);
+  return filePath; // 👈 devolvemos la ruta del archivo creado
 }
 
-async function main() {
+// 👇 Nueva función para generar todo el listado de PDFs
+async function generateAllPDFs() {
   await sequelize.authenticate();
 
   const estudiantes = await Estudiante.findAll({ raw: true });
@@ -49,15 +46,10 @@ async function main() {
     { key: 'cantidad', label: 'Cantidad' }
   ]);
 
-  // prestamos: incluir items y estudiante
-  const prestamos = await Prestamo.findAll({
-    include: [
-      { model: PrestamoItem, as: 'items' }
-    ],
+  const prestamos = await Prestamos.findAll({
     raw: false
   });
 
-  // transformar prestamos para lista simple
   const prestamosRows = prestamos.map(p => ({
     id: p.id,
     estudiante: p.estudiante_id,
@@ -75,8 +67,6 @@ async function main() {
     { key: 'fecha_devolucion', label: 'Fecha devolución' },
     { key: 'estado', label: 'Estado' }
   ]);
-
-  process.exit(0);
 }
 
-main().catch(err => { console.error(err); process.exit(1); });
+module.exports = { generateAllPDFs };

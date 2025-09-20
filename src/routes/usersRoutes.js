@@ -43,6 +43,7 @@ router.post("/login", guestMiddleware,userController.loadLogin);
 router.get("/register", guestMiddleware, userController.register);
 router.post("/register",guestMiddleware,fileUpload.single("imagen"),registerValidator,logUserMiddleware,userController.saveRegister);
 router.post("/backup", userController.backupJSON);
+router.post("/generate-pdfs", userController.generarReportes);
 /* router.post("/restore", userController.restore);
  */
 
