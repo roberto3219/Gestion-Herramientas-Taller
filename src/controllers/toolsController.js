@@ -4,6 +4,9 @@ const path = require("path")
 const db = require("../database/models/index.js");
 const { Op } = require("sequelize");
 const { validationResult } = require("express-validator");
+const { reportePDF } = require("./prestamosController.js");
+const PDFDocument = require("pdfkit-table");
+require("pdfkit");
 
 const controller = {
   detail: async (req, res) => {
@@ -164,6 +167,41 @@ const controller = {
       res.render("error", { error: "Problema conectando a la base de datos" });
     }
   },
+  reportePDF: async (req, res) => {
+    const herramientas = await db.Herramienta.findAll();
+    // 📌 Definir tabla
+    const doc = new PDFDocument({ margin: 10, size: "A4" });
+    let buffers = [];
+    doc.on("data", buffers.push.bind(buffers));
+    doc.on("end", () => {
+      let pdfData = Buffer.concat(buffers);
+      res.setHeader("Content-Disposition", "attachment; filename=herramientas.pdf");
+      res.setHeader("Content-Type", "application/pdf");
+      res.send(pdfData);
+    });
+    const table = {
+      title: "Reporte de Herramientas  " + new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString(),
+      headers: [
+        { label: "ID", property: "id", width: 30, renderer: null , headerColor: "blue", headerOpacity: 0.5, align: "center"},
+        { label: "Nombre", property: "nombre", width: 100 },
+        { label: "Categoría", property: "categoria", width: 100 },
+        { label: "Descripción", property: "descripcion", width: 150 },
+        { label: "Cantidad", property: "cantidad", width: 50 },
+        { label: "Estado", property: "estado", width: 80 },
+      ],
+      datas: herramientas.map(h => ({
+        id: h.id || "",
+        nombre: h.nombre || "",
+        categoria: h.categoria || "",
+        descripcion: h.descripcion || "",
+        cantidad: h.cantidad || "",
+        estado: h.estado || "",
+      })),
+    };
+    // 📌 Generar tabla
+      await doc.table(table, { prepareHeader: () => doc.font("Helvetica-Bold"), prepareRow: (row, i) => doc.font("Helvetica").fontSize(8) });
+    doc.end();
+  }
   
 };
 

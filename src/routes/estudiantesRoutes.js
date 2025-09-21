@@ -18,6 +18,7 @@ router.post("/add",alumnosValidator, estudiantesController.store);
 router.get("/editar/:id", estudiantesController.editar);
 router.post("/editar/:id", estudiantesController.actualizar);
 router.get("/eliminar/:id", estudiantesController.borrar);
+router.post("/reporte", estudiantesController.reportePDF);
 
 
 module.exports = router;

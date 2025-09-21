@@ -15,6 +15,7 @@ router.post("/add", herramientasController.store);
 router.get("/:id/editar", herramientasController.editar);
 router.post("/:id/editar", herramientasController.actualizar);
 router.get("/:id/eliminar", herramientasController.borrar); 
+router.post("/reportePDF", herramientasController.reportePDF);
 
 
 module.exports = router;

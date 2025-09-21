@@ -11,10 +11,15 @@
     <input class="form-control me-2" type="search" placeholder="Buscar herramienta por nombre o categoría" name="q">
     <button class="btn btn-outline-primary" type="submit">Buscar</button>
   </form>
+  <div class="button_sd" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
 
   <a href="/herramientas/add" class="btn btn-primary mb-3">
     Agregar  Herramienta
   </a>
+   <form action="/herramientas/reportePDF" method="post">
+    <input type="submit" value="Generar Reporte PDF" class="btn btn-danger mb-3">
+  </form>
+  </div>
   <!-- Tabla -->
   <table class="table table-hover table-bordered">
     <thead class="table-dark">

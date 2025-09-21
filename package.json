@@ -22,6 +22,7 @@
     "express-session": "^1.18.2",
     "express-validator": "^7.2.1",
     "jspdf": "^3.0.3",
+    "jspdf-autotable": "^5.0.2",
     "method-override": "^3.0.0",
     "multer": "^2.0.2",
     "mysql": "^2.18.1",
@@ -29,6 +30,7 @@
     "nodemailer": "^7.0.6",
     "nodemon": "^3.1.10",
     "pdfkit": "^0.17.2",
+    "pdfkit-table": "^0.1.99",
     "sequelize": "^6.37.7",
     "sqlite3": "^5.1.7"
   },

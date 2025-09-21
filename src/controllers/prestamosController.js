@@ -1,10 +1,12 @@
 // Controlador de productos
-const fs = require("fs").promises;
+const fs = require("fs");
 const path = require("path")
 const db = require("../database/models/index.js");
 const { Op } = require("sequelize");
 const { validationResult } = require("express-validator");
-const { jsPDF } = require("jspdf"); // librería para PDF
+const PDFDocument = require("pdfkit-table");
+require("pdfkit");
+
 
 const controller = {
   index: async (req, res) => {
@@ -186,25 +188,59 @@ const controller = {
       res.render("error", { error: "Problema conectando a la base de datos" });
     }
   },
-    reportePDF: async (req, res) => {
-    const prestamos = await db.Prestamos.findAll ({
-      include: [
-              {model: db.Estudiante, attributes: ["nombre"], as: "estudiantes"},
-              {model: db.Herramienta, attributes: ["nombre"], as: "herramientas"}
-      ]
-    });
-    const doc = new jsPDF();
+reportePDF: async (req, res) => {
+  const prestamos = await db.Prestamos.findAll({
+    include: [
+      { model: db.Estudiante, attributes: ["nombre"], as: "estudiantes" },
+      { model: db.Herramienta, attributes: ["nombre"], as: "herramientas" }
+    ]
+  });
 
-    doc.text("Lista de Prestamos", 10, 10);
-    prestamos.forEach((h, i) => {
-      doc.text(`${i + 1}. ${h.estudiantes.nombre} - ${h.herramientas.nombre}`, 10, 20 + i * 10);
-    });
+  const doc = new PDFDocument({ margin: 10, size: "A4" });
 
-    const pdfBuffer = doc.output("arraybuffer");
+  let buffers = [];
+  doc.on("data", buffers.push.bind(buffers));
+  doc.on("end", () => {
+    let pdfData = Buffer.concat(buffers);
     res.setHeader("Content-Disposition", "attachment; filename=prestamos.pdf");
     res.setHeader("Content-Type", "application/pdf");
-    res.send(Buffer.from(pdfBuffer));
-  },
+    res.send(pdfData);
+  });
+
+  // 📌 Definir tabla
+  const table = {
+    title: "Reporte de Préstamos  " + new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString(),
+    headers: [
+      { label: "ID", property: "id", width: 30, renderer: null , headerColor: "blue", headerOpacity: 0.5, align: "center"},
+      { label: "Estudiante", property: "estudiante", width: 100 },
+      { label: "Herramienta", property: "herramienta", width: 100 },
+      { label: "Cantidad", property: "cantidad", width: 50 },
+      { label: "Profesor", property: "profesor", width: 80 },
+      { label: "F. Préstamo", property: "fecha_prestamo", width: 80 },
+      { label: "F. Devol. Real", property: "fecha_devolucion_real", width: 80 },
+      { label: "F. Devol. Estimada", property: "fecha_devolucion_estimada", width: 80 },
+      { label: "Estado", property: "estado", width: 60 },
+      { label: "Obs.", property: "observaciones", width: 100 }
+    ],
+    datas: prestamos.map(p => ({
+      id: p.id,
+      estudiante: p.estudiantes?.nombre || "",
+      herramienta: p.herramientas?.nombre || "",
+      cantidad: p.cantidad_herramientas || 0,
+      profesor: p.profesor_encargado || "",
+      fecha_prestamo: p.fecha_prestamo?.toISOString().split("T")[0] || "",
+      fecha_devolucion_real: p.fecha_devolucion_real?.toISOString().split("T")[0] || "",
+      fecha_devolucion_estimada: p.fecha_devolucion_estimada?.toISOString().split("T")[0] || "",
+      estado: p.estado || "",
+      observaciones: p.observaciones || ""
+    }))
+  };
+
+  // 📌 Renderizar tabla
+  await doc.table(table, { prepareHeader: () => doc.font("Helvetica-Bold"), prepareRow: (row, i) => doc.font("Helvetica").fontSize(8) });
+
+  doc.end();
+}
 
 
 };
