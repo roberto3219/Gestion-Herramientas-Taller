@@ -1,71 +1,76 @@
 // scripts/generate_pdfs.js
-const PDFDocument = require('pdfkit');
-const fs = require('fs');
-const path = require('path');
+const PDFDocument = require("pdfkit-table");
+const fs = require("fs");
+const path = require("path");
 const { sequelize, Estudiante, Herramienta, Prestamos } = require("../database/models");
 
-async function generateListPDF(filename, title, rows, columns) {
-  const doc = new PDFDocument({ margin: 40, size: 'A4' });
-  const outDir = path.join(__dirname, '..', 'exports');
+async function generateTablePDF(filename, title, rows, columns) {
+  const doc = new PDFDocument({ margin: 30, size: "A4" });
+  const outDir = path.join(__dirname, "..", "exports");
   if (!fs.existsSync(outDir)) fs.mkdirSync(outDir);
   const filePath = path.join(outDir, filename);
   doc.pipe(fs.createWriteStream(filePath));
 
-  doc.fontSize(18).text(title, { align: 'center' });
-  doc.moveDown();
+  // Definimos la tabla
+  const table = {
+    title: title,
+    headers: columns.map(col => ({ label: col.label, property: col.key, width: 80 })),
+    datas: rows
+  };
 
-  rows.forEach((row) => {
-    columns.forEach((col, cIdx) => {
-      const text = String(row[col.key] !== undefined ? row[col.key] : '');
-      doc.font('Helvetica').text(text, { continued: cIdx < columns.length - 1 });
-      if (cIdx < columns.length - 1) doc.text('  |  ', { continued: true });
-    });
-    doc.moveDown(0.5);
+  await doc.table(table, {
+    prepareHeader: () => doc.font("Helvetica-Bold").fontSize(10),
+    prepareRow: (row, i) => doc.font("Helvetica").fontSize(9)
   });
 
   doc.end();
-  return filePath; // 👈 devolvemos la ruta del archivo creado
+  return filePath;
 }
 
-// 👇 Nueva función para generar todo el listado de PDFs
 async function generateAllPDFs() {
   await sequelize.authenticate();
 
+  // Estudiantes
   const estudiantes = await Estudiante.findAll({ raw: true });
-  await generateListPDF('estudiantes.pdf', 'Listado de Estudiantes', estudiantes, [
-    { key: 'id', label: 'ID' },
-    { key: 'nombre', label: 'Nombre' },
-    { key: 'email', label: 'Email' }
+  await generateTablePDF("estudiantes.pdf", "Listado de Estudiantes", estudiantes, [
+    { key: "id", label: "ID" },
+    { key: "nombre", label: "Nombre" },
+    { key: "email", label: "Email" },
   ]);
 
+  // Herramientas
   const herramientas = await Herramienta.findAll({ raw: true });
-  await generateListPDF('herramientas.pdf', 'Listado de Herramientas', herramientas, [
-    { key: 'id', label: 'ID' },
-    { key: 'nombre', label: 'Nombre' },
-    { key: 'categoria', label: 'Categoría' },
-    { key: 'cantidad', label: 'Cantidad' }
+  await generateTablePDF("herramientas.pdf", "Listado de Herramientas", herramientas, [
+    { key: "id", label: "ID" },
+    { key: "nombre", label: "Nombre" },
+    { key: "categoria", label: "Categoría" },
+    { key: "cantidad", label: "Cantidad" }
   ]);
 
-  const prestamos = await Prestamos.findAll({
-    raw: false
-  });
-
+  // Préstamos
+  const prestamos = await Prestamos.findAll({ raw: false });
   const prestamosRows = prestamos.map(p => ({
     id: p.id,
     estudiante: p.estudiante_id,
+    herramienta: p.herramientas_id,
     profesor: p.profesor_encargado,
-    fecha_prestamo: p.fecha_prestamo,
-    fecha_devolucion: p.fecha_devolucion_real || p.fecha_devolucion_estimada,
+    fecha_prestamo: p.fecha_prestamo ? p.fecha_prestamo.toISOString().split("T")[0] : "",
+    fecha_devolucion: p.fecha_devolucion_real
+      ? p.fecha_devolucion_real.toISOString().split("T")[0]
+      : p.fecha_devolucion_estimada
+      ? p.fecha_devolucion_estimada.toISOString().split("T")[0]
+      : "",
     estado: p.estado
   }));
 
-  await generateListPDF('prestamos.pdf', 'Listado de Préstamos', prestamosRows, [
-    { key: 'id', label: 'ID' },
-    { key: 'estudiante', label: 'Estudiante' },
-    { key: 'profesor', label: 'Profesor' },
-    { key: 'fecha_prestamo', label: 'Fecha préstamo' },
-    { key: 'fecha_devolucion', label: 'Fecha devolución' },
-    { key: 'estado', label: 'Estado' }
+  await generateTablePDF("prestamos.pdf", "Listado de Préstamos", prestamosRows, [
+    { key: "id", label: "ID" },
+    { key: "estudiante", label: "Estudiante" },
+    { key: "herramienta", label: "Herramienta" },
+    { key: "profesor", label: "Profesor" },
+    { key: "fecha_prestamo", label: "Fecha préstamo" },
+    { key: "fecha_devolucion", label: "Fecha devolución" },
+    { key: "estado", label: "Estado" }
   ]);
 }
 
