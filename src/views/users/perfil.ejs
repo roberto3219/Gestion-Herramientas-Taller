@@ -18,13 +18,8 @@
         <form action="/users/profile" method="post">
             <input type="submit" value="Cerrar Sesión" class="btn btn-danger">
         </form>
-        <a  class="btn btn-dark" href="/users/change-password">Cambiar Contraseña</a>
-        <form action="" method="post">
-            <input type="submit" value="Eliminar Cuenta" class="btn btn-dark">
-        </form>
-        <form action="" method="post">
-            <input type="submit" value="Editar Perfil" class="btn btn-info">
-        </form>
+        <button class="btn btn-dark" id="btnTogglePassword">Cambiar Contraseña</button>
+        <a  class="btn btn-info" href="#" id="btnEditarPerfil">Editar Perfil</a>
         <form action="/users/backup" method="post">
             <input type="submit" value="Copia de Seguridad(JSON)" class="btn btn-success">
         </form>
@@ -32,6 +27,44 @@
             <input type="submit" value="Restaurar Copia de Seguridad(JSON)" class="btn btn-primary">
         </form>
         <button class="btn btn-dark" id="btnGenerarPDF">Generar PDFs</button>
+    </div>
+
+    <!-- 🔹 Formulario oculto para cambiar contraseña -->
+    <div id="formPassword" class="card p-3 mt-3" style="display:none; max-width: 500px; margin:auto;">
+      <h5>Cambiar Contraseña</h5>
+      <form action="/users/change-password" method="post">
+        <div class="mb-3">
+          <% if (error != undefined) {%>
+          <div class="alert alert-danger"><%= error %></div>
+          <% } %>
+            <label for="currentPassword" class="form-label">Contraseña actual</label>
+          <input type="password" name="currentPassword" id="currentPassword" class="form-control" required>
+        </div>
+        <div class="mb-3">
+          <label for="newPassword" class="form-label">Nueva contraseña</label>
+          <input type="password" name="newPassword" id="newPassword" class="form-control" required>
+        </div>
+        <div class="mb-3">
+          <label for="confirmPassword" class="form-label">Confirmar nueva contraseña</label>
+          <input type="password" name="confirmPassword" id="confirmPassword" class="form-control" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Guardar cambios</button>
+      </form>
+    </div>
+    
+    <div id="formEditarPerfil" style="display:none; margin-top:20px;">
+      <form action="/users/edit" method="post" class="card p-3">
+        <h5>Editar Perfil</h5>
+        <div class="mb-3">
+          <label for="nombre" class="form-label">Nombre</label>
+          <input type="text" class="form-control" id="nombre" name="nombre" value="<%= usuario.nombre %>" required>
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Correo Electrónico</label>
+          <input type="email" class="form-control" id="email" name="email" value="<%= usuario.email %>" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+      </form>
     </div>
 
   </div>

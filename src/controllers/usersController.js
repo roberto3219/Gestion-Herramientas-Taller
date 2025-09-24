@@ -96,7 +96,7 @@ const controller = {
         }
       });
       console.log(usuario + "usuario")
-      res.render("users/perfil", { usuario: usuario });
+      res.render("users/perfil", { usuario: usuario , error: null });
     } catch (error) {
       res.render("error", { error: "Problema conectando a la base de datos" });
     }
@@ -107,35 +107,34 @@ const controller = {
       res.redirect("/users/login");
     });
   },
-  page_change: (req, res) => {
-    res.render("users/changePassword", { error: null, usuario: req.session.userLogged,msg:null });
-  },
   changePassword: async (req, res) => {
     try {
       const usuario = await db.Usuario.findOne({
         where: {
-          correo: req.session.userLogged.correo,
-        },
-        include: [{ model: db.Carrito, as: "carritos" }],
+          email: req.session.userLogged.correo,
+        }
       });
 
       const validarPass = await bcrypt.compare(
         req.body.currentPassword,
-        usuario.clave
+        usuario.password_hash
       );
+      console.log(validarPass + "validarPass: es para ver si la contra actual es correcta")
 
       if (validarPass) {
         const hashedPassword = bcrypt.hashSync(req.body.newPassword, 10);
         await db.Usuario.update(
-          { clave: hashedPassword },
-          { where: { correo: req.session.userLogged.correo } }
+          { password_hash: hashedPassword },
+          { where: { email: req.session.userLogged.correo } }
         );
         res.redirect("/users/profile");
+        console.log("Contraseña actualizada");
       } else {
-        res.render("users/profile", {
+        res.render("users/perfil", {
           usuario: usuario,
           error: "La contraseña actual es incorrecta.",
         });
+        console.log("La contraseña actual es incorrecta.");
       }
     } catch (error) {
       res.render("error", { error: "Problema conectando a la base de datos" });
