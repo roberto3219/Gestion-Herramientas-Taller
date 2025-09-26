@@ -25,9 +25,39 @@ const controller = {
   index: async (req, res) => {
     try {
       const herramientas = await db.Herramienta.findAll({
+        include: [
+    {
+      model: db.Prestamos,
+      as: "prestamos",
+      attributes: ["id", "cantidad_herramientas", "estado"]
+    }
+  ]
       });
+       const herramientasProcesadas = herramientas.map(h => {
+  // prestamos con estado pendiente (no devueltos todavía)
+  const prestamosPendientes = h.prestamos.filter(p => p.estado === "Pendiente");
+
+  // sumamos la cantidad de herramientas prestadas
+  const cantidadPrestada = prestamosPendientes.reduce((acc, p) => acc + (p.cantidad_herramientas || 0), 0);
+
+  // calculamos la disponible
+  const cantidadDisponible = h.cantidad - cantidadPrestada;
+
+  return {
+    id: h.id,
+    nombre: h.nombre,
+    categoria: h.categoria,
+    cantidad: h.cantidad,
+    cantidadPrestada,
+    cantidadDisponible,
+    estado: h.estado
+  };
+});
+      console.log("Herramientas procesadas:....------------------------------------")
+      console.log(herramientasProcesadas)
+      
       res.render("herramientas/listTools", {
-        herramientas: herramientas,
+        herramientas: herramientasProcesadas,
         usuario: req.session.userLogged,
       });
     } catch (error) {

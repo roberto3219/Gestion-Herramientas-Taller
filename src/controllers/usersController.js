@@ -4,6 +4,7 @@ const db = require("../database/models/index.js");
 const { jsPDF } = require("jspdf"); // librería para PDF
 const nodemailer = require("nodemailer");
 const { generateAllPDFs } = require("../scripts/generate_pdfs"); // Importamos la función
+const { save } = require("pdfkit");
 
 // Controlador de usuarios
 
@@ -15,6 +16,7 @@ const controller = {
   saveRegister: async (req, res) => {
     let errores = validationResult(req);
     let saveImage = req.file;
+    console.log(saveImage)
     console.log(errores)
     if (errores.isEmpty()) {
       try {
@@ -25,7 +27,7 @@ const controller = {
           nombre: req.body.nombre,
           email: req.body.email,
           password_hash: hashedPassword,
-          img_usuario:
+          img_user:
           saveImage != undefined ? saveImage.filename : "default.png",
           role_id: 3,
         });
@@ -102,6 +104,32 @@ const controller = {
     }
   },
 
+  editarPerfil: async (req, res) => {
+    try {
+      const usuario = await db.Usuario.findOne({
+        where: {
+          email: req.session.userLogged.correo,
+        }
+      });
+      console.log(usuario + "usuario para editar")
+      await db.Usuario.update(
+        {
+          user_name: req.body.username,
+          nombre: req.body.nombre,
+          email: req.body.email,
+          img_user: req.file != undefined ? req.file.filename : usuario.img_usuario,
+        },
+        {
+          where: {
+            email: req.session.userLogged.correo,
+          }
+        }
+      );
+      res.redirect("/users/profile");
+    } catch (error) {
+      res.render("error", { error: "Problema conectando a la base de datos" });
+    }
+  },
   logout: async (req, res) => {
     req.session.destroy(() => {
       res.redirect("/users/login");

@@ -15,14 +15,13 @@ const guestMiddleware = require("../middlewares/guestMiddleware");
 const authMiddleware = require("../middlewares/authMiddleware");
 
 const multer = require("multer");
-const { route } = require("./mainRoutes");
 const multerDiskStorage = multer.diskStorage({
   destination: (req, file, callback) => {
     let folder = path.join(__dirname, "../../public/img/users/");
     callback(null, folder);
   },
   filename: (req, file, callback) => {
-    //console.log(file)
+    console.log(file)
     let imageName = "user-" + Date.now() + path.extname(file.originalname);
     callback(null, imageName);
   },
@@ -43,8 +42,8 @@ router.get("/register", guestMiddleware, userController.register);
 router.post("/register",guestMiddleware,fileUpload.single("imagen"),registerValidator,logUserMiddleware,userController.saveRegister);
 router.post("/backup", userController.backupJSON);
 router.post("/generate-pdfs", userController.generarReportes);
-/* router.post("/edit-profile",fileUpload.single("imagen"),userController.editarPerfil);
- *//* router.post("/restore", userController.restore);
+router.post("/edit",fileUpload.single("imagen"),userController.editarPerfil);
+/* router.post("/restore", userController.restore);
  */
 
 module.exports = router;

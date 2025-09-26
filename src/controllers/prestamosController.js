@@ -48,6 +48,32 @@ const controller = {
     console.log(errores + " errores")
     if (errores.isEmpty()) {
       try {
+         const herramienta = await db.Herramienta.findByPk(req.body.herramienta, {
+        include: [{ model: db.Prestamos, as: "prestamos" }]
+      });
+
+      // calcular cantidad ya prestada
+      const cantidadPrestada = herramienta.prestamos
+        .filter(p => p.estado === "Pendiente")
+        .reduce((acc, p) => acc + (p.cantidad_herramientas || 0), 0);
+
+      const cantidadDisponible = herramienta.cantidad - cantidadPrestada;
+      if(cantidadDisponible == 0){
+        mensajeHerramientasCero = `No hay herramientas disponibles`;
+      }else{
+        mensajeHerramientasCero = `No hay suficientes herramientas disponibles. solo quedan ${cantidadDisponible}`
+      }
+
+      if (req.body.cantidad > cantidadDisponible) {
+        return res.render("prestamos/registerPrestamos", {
+          usuario: req.session.userLogged,
+          herramientas: await db.Herramienta.findAll(),
+          estudiantes: await db.Estudiante.findAll(),
+          errores: { cantidad: { msg: mensajeHerramientasCero } },
+          old: req.body
+        });
+      }
+
         await db.Prestamos.create({
           estudiante_id: req.body.estudiante,
           herramientas_id: req.body.herramienta,

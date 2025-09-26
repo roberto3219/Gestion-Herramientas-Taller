@@ -3,7 +3,8 @@
 <%- include('../partials/head.ejs') %>
 <body>
 <%- include('../partials/header.ejs') %>
-<div class="container mt-4">
+<div class=" mt-4">
+  <div class="container">
   <h2 class="mb-4">Lista de Herramientas</h2>
 
   <!-- Buscador -->
@@ -20,13 +21,17 @@
     <input type="submit" value="Generar Reporte PDF" class="btn btn-danger mb-3">
   </form>
   </div>
+  </div>
   <!-- Tabla -->
+    <div class="table-responsive">
   <table class="table table-hover table-bordered">
     <thead class="table-dark">
       <tr>
         <th>ID</th>
         <th>Nombre</th>
         <th>Categoría</th>
+        <th>Cantidad </th>
+        <th>Cantidad Prestada</th>
         <th>Cantidad Disponible</th>
         <th>Estado</th>
         <th>Acción</th>
@@ -39,6 +44,8 @@
           <td><%= h.nombre %></td>
           <td><%= h.categoria %></td>
           <td><%= h.cantidad %></td>
+          <td><%= h.cantidadPrestada %></td>
+          <td><%= h.cantidadDisponible %></td>
           <td>
             <% if(h.estado === 'Disponible'){ %>
               <span class="badge bg-success">Disponible</span>
@@ -54,6 +61,7 @@
       <% }) %>
     </tbody>
   </table>
+  </div>
 </div>
 </body>
 </html>

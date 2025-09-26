@@ -29,6 +29,9 @@
       <input type="text" class="form-control" id="profesor" name="profesor" required>
     </div>
     <div class="mb-3">
+      <% if (errores && errores.cantidad) { %>
+    <p class="text-danger"><%= errores.cantidad.msg %></p>
+  <% } %>
       <label for="cantidad" class="form-label">Cantidad de herramientas a prestar</label>
       <input type="number" class="form-control" id="cantidad" name="cantidad" required>
     </div>
@@ -46,5 +49,7 @@
     <a href="/prestamos" class="btn btn-secondary">Cancelar</a>
   </form>
 </div>
+  <script src="/js/prestamosRegister.js"></script>
 </body>
 </html>
+

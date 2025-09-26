@@ -6,6 +6,10 @@
   <div class="container mt-4">
     <h2>Perfil del Usuario</h2>
 
+    <!-- Foto de perfil -->
+    <div class="text-center mb-3">
+      <img src="<%= usuario.img_user ? '/img/users/' + usuario.img_user : '/img/default.png' %>" alt="Foto de perfil" class="rounded-circle" style="width: 150px; height: 150px; object-fit: cover;">
+    </div>
     <!-- Información -->
     <div class="card p-3">
       <p><strong>Nombre:</strong> <%= usuario.nombre %></p>
@@ -53,15 +57,23 @@
     </div>
     
     <div id="formEditarPerfil" style="display:none; margin-top:20px;">
-      <form action="/users/edit" method="post" class="card p-3">
+      <form action="/users/edit" method="post" class="card p-3" enctype="multipart/form-data" style="max-width: 600px; margin:auto;">
         <h5>Editar Perfil</h5>
         <div class="mb-3">
-          <label for="nombre" class="form-label">Nombre</label>
+          <label for="username" class="form-label">Nombre de usuario</label>
+          <input type="text" class="form-control" id="username" name="username" value="<%= usuario.user_name %>" required>
+        </div>
+        <div class="mb-3">
+          <label for="nombre" class="form-label">Nombre Completo</label>
           <input type="text" class="form-control" id="nombre" name="nombre" value="<%= usuario.nombre %>" required>
         </div>
         <div class="mb-3">
           <label for="email" class="form-label">Correo Electrónico</label>
           <input type="email" class="form-control" id="email" name="email" value="<%= usuario.email %>" required>
+        </div>
+        <div class="mb-3">
+          <label for="imagen" class="form-label">Foto de Perfil</label>
+          <input type="file" class="form-control" id="imagen" name="imagen" value="<%= usuario.img_usuario %>">          
         </div>
         <button type="submit" class="btn btn-primary">Guardar Cambios</button>
       </form>

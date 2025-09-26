@@ -3,7 +3,8 @@
 <%- include('../partials/head.ejs') %>
 <body>
 <%- include('../partials/header') %>
-  <div class="container mt-4">
+  <div class="mt-4">
+  <div class="container">
   <h2 class="mb-4">Lista de Préstamos</h2>
      
   <!-- Buscador -->
@@ -17,13 +18,16 @@
     <input type="submit" value="Generar Reporte PDF" class="btn btn-danger mb-3">
   </form>
   </div>
+  </div>
   <!-- Tabla -->
+   <div class="table-responsive">
   <table class="table table-hover table-bordered">
     <thead class="table-dark">
       <tr>
         <th>ID</th>
         <th>Alumno</th>
         <th>Herramienta</th>
+        <th>Cantidad de Herramientas Prestadas</th>
         <th>Profesor</th>
         <th>Fecha Préstamo</th>
         <th>Fecha Devolución</th>
@@ -37,6 +41,7 @@
           <td><%= p.id %></td>
           <td><%= p.estudiantes.nombre %></td>
           <td><%= p.herramientas.nombre %></td>
+          <td><%= p.cantidad_herramientas %></td>
           <td><%= p.profesor_encargado %></td>
           <td><%= p.fecha_prestamo %></td>
           <td><%= p.fecha_devolucion_real %></td>
@@ -59,6 +64,7 @@
       <% }) %>
     </tbody>
   </table>
+  </div>
 </div>
 
   <!-- Bootstrap JS -->
