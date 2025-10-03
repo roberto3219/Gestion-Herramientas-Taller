@@ -74,6 +74,18 @@
     </tbody>
   </table>
   </div>
+  <!-- Reproductor de música -->
+  <div id="music-player" style="position:fixed; bottom:10px; left:10px; background:#222; color:#fff; padding:10px; border-radius:8px;">
+    <audio id="player" controls loop>
+      <source src="/music/default.mp3" type="audio/mp3">
+      Tu navegador no soporta el reproductor de audio.
+    </audio>
+    <br>
+    <form id="musicForm" method="POST" enctype="multipart/form-data" action="/music_upload">
+      <input type="file" name="song" accept="audio/*" required>
+      <button type="submit">Subir música</button>
+    </form>
+  </div>
   <!-- Bootstrap JS -->
   <script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>

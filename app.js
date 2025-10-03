@@ -5,6 +5,9 @@ const path = require("path")
 const session = require("express-session")
 const cookieParser = require("cookie-parser")
 const methodOverride = require("method-override")
+const multer = require("multer");
+const upload = multer({ dest: "public/music/" });
+
 
 //Otros modulos
 const mainRouter = require("./src/routes/mainRoutes")
@@ -51,6 +54,12 @@ app.use("/users",userRouter)
 app.use("/herramientas",herramientaRouter)
 app.use("/prestamos", prestamoRouter)
 app.use("/estudiantes", estudiantesRouter)
+
+app.post("/music_upload", upload.single("song"), (req, res) => {
+  // Aquí guardas el nombre del archivo subido
+  console.log("Nueva música subida:", req.file.filename);
+  res.redirect("/"); // Vuelve a la página donde estaba el usuario
+});
 
 
 app.use((req, res, next) => {

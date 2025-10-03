@@ -5,6 +5,8 @@ const { jsPDF } = require("jspdf"); // librería para PDF
 const nodemailer = require("nodemailer");
 const { generateAllPDFs } = require("../scripts/generate_pdfs"); // Importamos la función
 const { save } = require("pdfkit");
+const path = require("path");
+const fs = require("fs");
 
 // Controlador de usuarios
 
@@ -168,28 +170,51 @@ const controller = {
       res.render("error", { error: "Problema conectando a la base de datos" });
     }
   },
-  backupJSON: async (req, res) => {
-  const prestamos = await db.Prestamos.findAll({
-    include: ["estudiantes", "herramientas"]
-  });
+  restore: async (req, res) => {
+  try {
+    const mode = req.body.mode || "merge"; // viene del input hidden
+    const filePath = path.join(__dirname, "../backups/backup-2025-10-03T17-20-42-605Z.json");
+    const backupData = JSON.parse(fs.readFileSync(filePath, "utf8"));
 
-  // Mapeamos solo lo importante (estructura simple)
-  const backup = prestamos.map(p => ({
-    id: p.id,
-    estudiante: p.estudiantes.nombre,
-    herramienta: p.herramientas.nombre,
-    cantidad_herramientas: p.cantidad_herramientas,
-    profesor: p.profesor_encargado,
-    fecha_prestamo: p.fecha_prestamo,
-    fecha_devolucion_estimada: p.fecha_devolucion_estimada,
-    fecha_devolucion_real: p.fecha_devolucion_real,
-    estado: p.estado,
-    observaciones: p.observaciones,
-  }));
+    if (mode === "replace") {
+      // 🔹 BORRAR datos anteriores en orden (respetando FK si existen)
+      await db.Prestamos.destroy({ where: {} });
+      await db.Herramienta.destroy({ where: {} });
+      await db.Estudiante.destroy({ where: {} });
 
-  res.setHeader("Content-Disposition", "attachment; filename=backup.json");
-  res.json(backup);
-},
+      // 🔹 INSERTAR datos del backup
+      await db.Estudiante.bulkCreate(backupData.estudiantes);
+      await db.Herramienta.bulkCreate(backupData.herramientas);
+      await db.Prestamos.bulkCreate(backupData.prestamos);
+
+      return res.json({
+        msg: "Backup restaurado (modo REPLACE, se reemplazaron los datos anteriores) ✅"
+      });
+    }
+
+    // 🔹 MERGE (solo agrega lo que falta)
+    for (const e of backupData.estudiantes) {
+      await db.Estudiante.findOrCreate({ where: { id: e.id }, defaults: e });
+    }
+
+    for (const h of backupData.herramientas) {
+      await db.Herramienta.findOrCreate({ where: { id: h.id }, defaults: h });
+    }
+
+    for (const p of backupData.prestamos) {
+      await db.Prestamos.findOrCreate({ where: { id: p.id }, defaults: p });
+    }
+
+    res.json({
+      msg: "Backup restaurado (modo MERGE, solo se agregaron los que faltaban) ✅"
+    });
+
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Error restaurando backup" });
+  }
+}
+  ,
    recuperarForm: (req, res) => {
     res.render("users/recuperar" , { error: null , msg:null});
   },

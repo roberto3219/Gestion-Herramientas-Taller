@@ -24,12 +24,45 @@
         </form>
         <button class="btn btn-dark" id="btnTogglePassword">Cambiar Contraseña</button>
         <a  class="btn btn-info" href="#" id="btnEditarPerfil">Editar Perfil</a>
-        <form action="/users/backup" method="post">
+        <form action="/users/backup" method="get">
             <input type="submit" value="Copia de Seguridad(JSON)" class="btn btn-success">
         </form>
-        <form action="" method="post">
-            <input type="submit" value="Restaurar Copia de Seguridad(JSON)" class="btn btn-primary">
+        
+
+
+        <form id="restoreForm" action="/users/restore" method="post">
+        <input type="hidden" name="mode" id="modeInput">
+        <button type="button" class="btn btn-primary" onclick="openRestoreDialog()">
+          Restaurar Copia de Seguridad (JSON)
+        </button>
         </form>
+        <!-- Ventanita de confirmación -->
+      <!-- Modal de Bootstrap -->
+<div class="modal fade" id="restoreModal" tabindex="-1" aria-labelledby="restoreModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="restoreModalLabel">Restaurar Copia de Seguridad</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body text-center">
+        <p><strong>¿Qué desea hacer con los datos existentes?</strong></p>
+        <p class="text-muted">Puedes mantener los datos (Merge) o reemplazarlos completamente (Replace).</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" onclick="submitRestore('merge')">Mantener (Merge)</button>
+        <button type="button" class="btn btn-danger" onclick="submitRestore('replace')">Eliminar (Replace)</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
         <button class="btn btn-dark" id="btnGenerarPDF">Generar PDFs</button>
     </div>
 
@@ -82,5 +115,6 @@
   </div>
   <script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="/js/perfil.js"></script>
+  <script src="/js/restore.js"></script>
 </body>
 </html>

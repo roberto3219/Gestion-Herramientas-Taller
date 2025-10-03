@@ -11,7 +11,7 @@
   const btnEditarPerfil = document.getElementById("btnEditarPerfil");
   const formEditarPerfil = document.getElementById("formEditarPerfil");
   const formChangePassword = document.getElementById("formChangePassword");
-
+  
   btnToggle.addEventListener("click", () => {
     if (formPassword.style.display === "none") {
       formPassword.style.display = "block";

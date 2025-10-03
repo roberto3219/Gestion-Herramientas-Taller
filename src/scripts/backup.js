@@ -1,27 +1,45 @@
-// scripts/backup.js
-const fs = require('fs');
-const path = require('path');
-const { sequelize, Estudiante, Herramienta, Prestamo, PrestamoItem, User } = require('../models'); // ajusta path
+// controllers/backupController.js
+const fs = require("fs");
+const path = require("path");
+const { sequelize, Estudiante, Herramienta, Prestamos } = require("../database/models");
 
-async function makeBackup() {
-  await sequelize.authenticate();
+const backupController = {
+  async makeBackup(req, res) {
+    try {
+      await sequelize.authenticate();
 
-  const estudiantes = await Estudiante.findAll({ raw: true });
-  const herramientas = await Herramienta.findAll({ raw: true });
-  const prestamos = await Prestamo.findAll({ include: [{ model: PrestamoItem, as: 'items' }], nest: true });
+      const estudiantes = await Estudiante.findAll({ raw: true });
+      const herramientas = await Herramienta.findAll({ raw: true });
+      const prestamos = await Prestamos.findAll({
+        nest: true,
+      });
 
-  const data = { estudiantes, herramientas, prestamos, generatedAt: new Date().toISOString() };
+      const data = {
+        estudiantes,
+        herramientas,
+        prestamos,
+        generatedAt: new Date().toISOString(),
+      };
 
-  const outDir = path.join(__dirname, '..', 'backups');
-  if (!fs.existsSync(outDir)) fs.mkdirSync(outDir);
+      // Crear carpeta backups si no existe
+      const outDir = path.join(__dirname, "..", "backups");
+      if (!fs.existsSync(outDir)) fs.mkdirSync(outDir);
 
-  const filename = `backup-${new Date().toISOString().replace(/[:.]/g,'-')}.json`;
-  fs.writeFileSync(path.join(outDir, filename), JSON.stringify(data, null, 2));
-  console.log('Backup creado en', path.join(outDir, filename));
-  process.exit(0);
-}
+      const filename = `backup-${new Date()
+        .toISOString()
+        .replace(/[:.]/g, "-")}.json`;
+      const filepath = path.join(outDir, filename);
 
-makeBackup().catch(err => {
-  console.error(err);
-  process.exit(1);
-});
+      fs.writeFileSync(filepath, JSON.stringify(data, null, 2));
+
+      // Para descargar directamente en el navegador:
+      res.download(filepath, filename);
+
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ error: "Error generando backup" });
+    }
+  },
+};
+
+module.exports = backupController;

@@ -3,6 +3,7 @@ const db = require("../database/models/index.js");
 const { Op } = require("sequelize");
 
 
+
 const controller = {
   index: async (req, res) => {
     try{

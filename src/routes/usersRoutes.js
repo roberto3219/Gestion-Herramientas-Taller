@@ -6,6 +6,7 @@ const path = require("path");
 // Controlador
 
 const userController = require("../controllers/usersController");
+const backupController = require("../scripts/backup");
 
 // Middlewares
 
@@ -13,6 +14,7 @@ const logUserMiddleware = require("../middlewares/logUserMiddleware");
 const registerValidator = require("../middlewares/registerValidator");
 const guestMiddleware = require("../middlewares/guestMiddleware"); 
 const authMiddleware = require("../middlewares/authMiddleware");
+
 
 const multer = require("multer");
 const multerDiskStorage = multer.diskStorage({
@@ -40,11 +42,11 @@ router.get("/login", guestMiddleware, userController.login);
 router.post("/login", guestMiddleware,userController.loadLogin);
 router.get("/register", guestMiddleware, userController.register);
 router.post("/register",guestMiddleware,fileUpload.single("imagen"),registerValidator,logUserMiddleware,userController.saveRegister);
-router.post("/backup", userController.backupJSON);
+router.get("/backup", backupController.makeBackup);
 router.post("/generate-pdfs", userController.generarReportes);
 router.post("/edit",fileUpload.single("imagen"),userController.editarPerfil);
-/* router.post("/restore", userController.restore);
- */
+router.post("/restore", userController.restore);
+
 
 module.exports = router;
 
