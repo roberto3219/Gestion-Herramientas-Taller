@@ -55,12 +55,6 @@ app.use("/herramientas",herramientaRouter)
 app.use("/prestamos", prestamoRouter)
 app.use("/estudiantes", estudiantesRouter)
 
-app.post("/music_upload", upload.single("song"), (req, res) => {
-  // Aquí guardas el nombre del archivo subido
-  console.log("Nueva música subida:", req.file.filename);
-  res.redirect("/"); // Vuelve a la página donde estaba el usuario
-});
-
 
 app.use((req, res, next) => {
   console.log(`${new Date().toISOString()} - ${req.method} ${req.url}`);

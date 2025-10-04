@@ -219,40 +219,51 @@ const controller = {
     res.render("users/recuperar" , { error: null , msg:null});
   },
   enviarRecuperacion: async (req, res) => {
-    const { email } = req.body;
+    try {
+      const { email } = req.body;
 
-    // Buscar usuario
-    const user = await db.Usuario.findOne({ where: { email } });
-    if (!user) {
-      return res.render("users/recuperar", { error: "Correo no registrado", msg:null });
-    }
-
-    // Generar token temporal (ejemplo simple, mejor usar JWT en la práctica)
-    const token = Math.random().toString(36).slice(2);
-
-    // Guardar token en DB (ejemplo: columna reset_token)
-    user.reset_token = token;
-    await user.save();
-
-    // Configurar mailer
-    const transporter = nodemailer.createTransport({
-      service: "gmail",
-      auth: {
-        user: "tu_correo@gmail.com",
-        pass: "tu_contraseña_de_app"
+      // Buscar usuario
+      const user = await db.Usuario.findOne({ where: { email } });
+      if (!user) {
+        return res.render("users/recuperar", { error: "Correo no registrado", msg: null });
       }
-    });
 
-    const link = `http://localhost:3000/reset/${token}`;
+      // Generar nueva contraseña aleatoria
+      const nuevaPass = Math.random().toString(36).slice(2, 10);
 
-    await transporter.sendMail({
-      from: "tu_correo@gmail.com",
-      to: email,
-      subject: "Recuperación de Contraseña",
-      text: `Haz click en este enlace para recuperar tu contraseña: ${link}`
-    });
+      // Hashearla
+      const hashed = await bcrypt.hash(nuevaPass, 10);
+      user.password_hash = hashed;
+      await user.save();
 
-    res.render("usuario/recuperar", { msg: "Correo enviado con instrucciones" });
+      // Configurar transporte
+      const transporter = nodemailer.createTransport({
+        host: "smtp.gmail.com",
+        port:587,
+        auth: {
+          user: "",
+          pass: "" // recuerda, no la de Gmail directo
+        }
+      });
+
+      // Enviar correo
+      await transporter.sendMail({
+        from: "",
+        to: email,
+        subject: "Recuperación de contraseña",
+        html: `
+          <h2>Recuperación de cuenta</h2>
+          <p>Tu nueva contraseña temporal es:</p>
+          <h3>${nuevaPass}</h3>
+          <p>Por favor, inicia sesión y cámbiala cuanto antes.</p>
+        `
+      });
+
+      res.redirect("/")
+    } catch (error) {
+      console.error(error);
+      res.render("users/recuperar", { error: "Error enviando el correo", msg: null });
+    }
   },
   generarReportes: async (req, res) => {
     try {

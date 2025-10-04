@@ -1,0 +1,129 @@
+{
+  "estudiantes": [
+    {
+      "id": 1,
+      "nombre": "Carlos Gómez",
+      "dni": null,
+      "email": "carlos@mail.com",
+      "curso": "5to A",
+      "telefono": null
+    },
+    {
+      "id": 4,
+      "nombre": "Roberto Alfredo Llampa",
+      "dni": 2147483647,
+      "email": "123e@gmail.com",
+      "curso": "6to 2ra",
+      "telefono": 2147483647
+    },
+    {
+      "id": 8,
+      "nombre": "paula nahir llampa",
+      "dni": 46543234,
+      "email": "robert@gmail.com",
+      "curso": "6to 2ra",
+      "telefono": 2147483647
+    },
+    {
+      "id": 9,
+      "nombre": "tiago muños",
+      "dni": 12345678,
+      "email": "sdad@asdsad.com",
+      "curso": "4to 3ra",
+      "telefono": 2147483647
+    },
+    {
+      "id": 10,
+      "nombre": "Laime Agustin",
+      "dni": 479319823,
+      "email": "g@gmail.com",
+      "curso": "6to 2ra",
+      "telefono": 2147483647
+    }
+  ],
+  "herramientas": [
+    {
+      "id": 1,
+      "nombre": "Martillo",
+      "categoria": "Manuales",
+      "descripcion": null,
+      "cantidad": 10,
+      "estado": "Disponible"
+    },
+    {
+      "id": 2,
+      "nombre": "Taladro",
+      "categoria": "Eléctricas",
+      "descripcion": null,
+      "cantidad": 5,
+      "estado": "Disponible"
+    },
+    {
+      "id": 3,
+      "nombre": "Llave Inglesa",
+      "categoria": "Manuales",
+      "descripcion": null,
+      "cantidad": 8,
+      "estado": "Disponible"
+    },
+    {
+      "id": 7,
+      "nombre": "Taladro",
+      "categoria": "Manuales",
+      "descripcion": "Es una herramienta",
+      "cantidad": 10,
+      "estado": "Disponible"
+    }
+  ],
+  "prestamos": [
+    {
+      "id": 23,
+      "estudiante_id": 9,
+      "herramientas_id": 2,
+      "cantidad_herramientas": 5,
+      "profesor_encargado": "Carlos Pablo",
+      "fecha_prestamo": "2025-09-18T20:31:19.000Z",
+      "fecha_devolucion_estimada": "2007-09-04T12:40:00.000Z",
+      "fecha_devolucion_real": "2025-09-18T20:31:23.000Z",
+      "estado": "Devuelto",
+      "observaciones": "Holaaa"
+    },
+    {
+      "id": 24,
+      "estudiante_id": 1,
+      "herramientas_id": 1,
+      "cantidad_herramientas": 5,
+      "profesor_encargado": "Analia flores",
+      "fecha_prestamo": "2025-09-26T20:18:53.000Z",
+      "fecha_devolucion_estimada": "2007-09-04T08:43:00.000Z",
+      "fecha_devolucion_real": "2025-09-27T20:17:08.000Z",
+      "estado": "Devuelto",
+      "observaciones": "hhghjhjkhjkkhj"
+    },
+    {
+      "id": 25,
+      "estudiante_id": 8,
+      "herramientas_id": 1,
+      "cantidad_herramientas": 5,
+      "profesor_encargado": "Analia flores",
+      "fecha_prestamo": "2025-09-26T20:34:30.000Z",
+      "fecha_devolucion_estimada": "2007-09-04T08:43:00.000Z",
+      "fecha_devolucion_real": "2025-09-26T20:35:08.000Z",
+      "estado": "Devuelto",
+      "observaciones": "sadsadasd"
+    },
+    {
+      "id": 29,
+      "estudiante_id": 10,
+      "herramientas_id": 3,
+      "cantidad_herramientas": 6,
+      "profesor_encargado": "Analia flores",
+      "fecha_prestamo": "2025-09-30T13:37:38.000Z",
+      "fecha_devolucion_estimada": "2007-09-04T08:43:00.000Z",
+      "fecha_devolucion_real": "2025-09-30T13:38:22.000Z",
+      "estado": "Devuelto",
+      "observaciones": "holaaaa"
+    }
+  ],
+  "generatedAt": "2025-10-04T19:28:51.587Z"
+}

@@ -69,21 +69,22 @@
     <!-- 🔹 Formulario oculto para cambiar contraseña -->
     <div id="formPassword" class="card p-3 mt-3" style="display:none; max-width: 500px; margin:auto;">
       <h5>Cambiar Contraseña</h5>
-      <form action="/users/change-password" method="post">
+      <form class="form-change-pass" action="/users/change-password" method="post">
         <div class="mb-3">
           <% if (error != undefined) {%>
           <div class="alert alert-danger"><%= error %></div>
           <% } %>
+          <div class="errores"></div>
             <label for="currentPassword" class="form-label">Contraseña actual</label>
-          <input type="password" name="currentPassword" id="currentPassword" class="form-control" required>
+          <input type="password" name="currentPassword" id="currentPassword" class="form-control currentPassword1" required>
         </div>
         <div class="mb-3">
           <label for="newPassword" class="form-label">Nueva contraseña</label>
-          <input type="password" name="newPassword" id="newPassword" class="form-control" required>
+          <input type="password" name="newPassword" id="newPassword" class="form-control newPassword1" required>
         </div>
         <div class="mb-3">
           <label for="confirmPassword" class="form-label">Confirmar nueva contraseña</label>
-          <input type="password" name="confirmPassword" id="confirmPassword" class="form-control" required>
+          <input type="password" name="confirmPassword" id="confirmPassword" class="form-control confirmPassword1" required>
         </div>
         <button type="submit" class="btn btn-primary">Guardar cambios</button>
       </form>
@@ -115,6 +116,7 @@
   </div>
   <script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="/js/perfil.js"></script>
+  <script src="/js/changePass.js"></script>
   <script src="/js/restore.js"></script>
 </body>
 </html>
