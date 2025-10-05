@@ -1,4 +1,13 @@
 -- schema.sql
+
+/* Backups */
+CREATE TABLE backups (
+  id INTEGER PRIMARY KEY AUTO_INCREMENT,
+  filename VARCHAR(255) NOT NULL,
+  fecha_create DATETIME DEFAULT CURRENT_TIMESTAMP,
+);
+
+
 -- Roles (para usuarios)
 CREATE TABLE roles (
   id INTEGER PRIMARY KEY AUTO_INCREMENT,
@@ -11,7 +20,9 @@ CREATE TABLE roles (
 -- Usuarios (para login)
 CREATE TABLE users (
   id INTEGER PRIMARY KEY AUTO_INCREMENT,
+  user_name VARCHAR(100) NOT NULL UNIQUE,
   nombre VARCHAR(150) NOT NULL,
+  img_user VARCHAR(255),
   email VARCHAR(150) NOT NULL UNIQUE,
   password_hash VARCHAR(255) NOT NULL,
   role_id INTEGER,
@@ -48,6 +59,8 @@ CREATE TABLE herramientas (
 CREATE TABLE prestamos (
   id INTEGER PRIMARY KEY AUTO_INCREMENT,
   estudiante_id INTEGER NOT NULL,
+  herramientas_id INTEGER NOT NULL,
+  cantidad_herramientas INTEGER DEFAULT 1,
   profesor_encargado VARCHAR(150),
   fecha_prestamo DATETIME NOT NULL,
   fecha_devolucion_estimada DATETIME,
@@ -59,21 +72,9 @@ CREATE TABLE prestamos (
   FOREIGN KEY (estudiante_id) REFERENCES estudiantes(id) ON DELETE CASCADE
 );
 
--- Items del préstamo (para múltiples herramientas por préstamo)
-CREATE TABLE prestamo_items (
-  id INTEGER PRIMARY KEY AUTO_INCREMENT,
-  prestamo_id INTEGER NOT NULL,
-  herramienta_id INTEGER NOT NULL,
-  cantidad INTEGER DEFAULT 1,
-  estado_item VARCHAR(50) DEFAULT 'Prestado',
-  created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-  updated_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-  FOREIGN KEY (prestamo_id) REFERENCES prestamos(id) ON DELETE CASCADE,
-  FOREIGN KEY (herramienta_id) REFERENCES herramientas(id) ON DELETE RESTRICT
-);
 
 -- Log de acciones (archivo también, pero guardamos referencia)
-CREATE TABLE audit_logs (
+/* CREATE TABLE audit_logs (
   id INTEGER PRIMARY KEY AUTO_INCREMENT,
   usuario_id INTEGER,
   usuario_nombre VARCHAR(150),
@@ -83,4 +84,4 @@ CREATE TABLE audit_logs (
   datos TEXT,
   created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
   FOREIGN KEY (usuario_id) REFERENCES users(id) ON DELETE SET NULL
-);
+); */

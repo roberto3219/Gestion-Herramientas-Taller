@@ -1,5 +1,10 @@
 module.exports = (sequelize, DataTypes) => {
   const Herramienta = sequelize.define('Herramienta', {
+    id: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true
+    },
     nombre: DataTypes.STRING,
     categoria: DataTypes.STRING,
     descripcion: DataTypes.TEXT,
