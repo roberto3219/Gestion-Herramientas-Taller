@@ -15,6 +15,7 @@ const userRouter = require("./src/routes/usersRoutes")
 const herramientaRouter = require("./src/routes/herramientasRoutes")
 const prestamoRouter = require("./src/routes/prestamosRoutes")
 const estudiantesRouter = require("./src/routes/estudiantesRoutes")
+const insumosRouter = require("./src/routes/insumosRoutes")
 
 // Servir Bootstrap desde node_modules
 app.use('/bootstrap', express.static(path.join(__dirname, 'node_modules/bootstrap/dist')));
@@ -54,6 +55,7 @@ app.use("/users",userRouter)
 app.use("/herramientas",herramientaRouter)
 app.use("/prestamos", prestamoRouter)
 app.use("/estudiantes", estudiantesRouter)
+app.use("/insumos", insumosRouter)
 
 
 app.use((req, res, next) => {

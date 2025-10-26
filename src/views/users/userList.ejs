@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../partials/head.ejs') %>
+<body>
+<%- include('../partials/header') %>
+  <div class=" mt-4">
+  <div class="container mt-4">
+  <h2 class="mb-4">Listado de Usuarios</h2>
+    
+ <form class="d-flex mb-3" method="POST" action="/herramientas">
+    <input class="form-control me-2" type="search" placeholder="Buscar herramienta por nombre o categoría" name="q">
+    <button class="btn btn-outline-primary" type="submit">Buscar</button>
+  </form>
+  <div class="button_sd" style="display: flex; justify-content: flex-end; align-items: center; margin-bottom: 20px;">
+
+   <form action="/herramientas/reportePDF" method="post">
+    <input type="submit" value="Generar Reporte PDF" class="btn btn-danger mb-3">
+  </form>
+  </div>
+
+
+</div>
+  <div class="table-responsive">
+<table class="table table-hover table-bordered">
+  <thead class="table-dark">
+    <tr>
+      <th>ID</th>
+      <th>Nombre</th>
+      <th>Email</th>
+      <th>Rol</th>
+      <th>Estado</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% usuarios.forEach(u => { %>
+      <tr data-id="<%= u.id %>">
+        <td><%= u.id %></td>
+        <td><%= u.nombre %></td>
+        <td><%= u.email %></td>
+        <td><%= u.role_id %></td>
+        <td>
+          <% if (u.bloqueado) { %>
+            <span class="text-danger">Bloqueado</span>
+          <% } else { %>
+            <span class="text-success">Activo</span>
+          <% } %>
+        </td>
+        <td>
+          <button class="bloquear-btn btn btn-warning">
+            <%= u.bloqueado ? "Desbloquear" : "Bloquear" %>
+          </button>
+          <button class="eliminar-btn btn btn-danger">Eliminar</button>
+        </td>
+      </tr>
+    <% }) %>
+  </tbody>
+</table>
+
+<script src="/js/usuarios.js"></script>
+
+</body>
+</html>

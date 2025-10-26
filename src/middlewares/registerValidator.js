@@ -14,7 +14,14 @@ const registerValidator = [
     .notEmpty()
     .withMessage("El nombre de usuario es obligatorio.")
     .isLength({ min: 3 })
-    .withMessage("El nombre debe tener al menos 3 caracteres."),,
+    .withMessage("El nombre debe tener al menos 3 caracteres.")
+    .custom(async (value, { req }) => {
+      const existingUser = await Usuario.findOne({ where: { user_name: value } });
+      if (existingUser) {
+        throw new Error("El nombre de usuario ya está en uso.");
+      }
+      return true;
+    }),
   body("email")
     .notEmpty()
     .withMessage("El correo es obligatorio.")
@@ -32,18 +39,14 @@ const registerValidator = [
     .withMessage("La contraseña es obligatoria.")
     .isLength({ min: 8 })
     .withMessage("La contraseña debe tener al menos 8 caracteres."),
-  /* body("repass").custom((value, { req }) => {
-    if (value != req.body.password) {
-      throw new Error("Password confirmation does not match password");
-    }
-  }), */
-  body("imagen").custom((value, { req }) => {
+  body("imagen")
+  .custom((value, { req }) => {
     if (req.file) {
-      const allowedExtensions = [".jpg", ".jpeg", ".png", ".gif", ".webp"];
+      const allowedExtensions = [".jpg", ".jpeg", ".png"];
       const fileExtension = path.extname(req.file.originalname).toLowerCase();
       if (!allowedExtensions.includes(fileExtension)) {
         throw new Error(
-          "La imagen debe tener una extensión válida (JPG, JPEG, PNG, GIF, WEBP)."
+          "La imagen debe tener una extensión válida (JPG, JPEG, PNG)."
         );
       }
     }

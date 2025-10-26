@@ -39,6 +39,15 @@ module.exports = (sequelize, DataTypes) => {
                 model: "roles",
                 key: "id"
             }
+        },
+        bloqueado:{
+            type: DataTypes.BOOLEAN,
+            allowNull: false,
+            defaultValue: false
+        },
+        fecha_eliminacion_programada:{
+            type: DataTypes.DATE,
+            allowNull: true
         }
     };
     config = {

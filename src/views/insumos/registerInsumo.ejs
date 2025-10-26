@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<%- include('../partials/head') %>  
+<body class="bg-light">
+<%- include('../partials/header') %>
+  <div class="container py-5">
+    <h3 class="fw-bold mb-4">Registrar Insumo</h3>
+
+    <form id="formInsumo" class="bg-white p-4 rounded shadow-sm" method="post" action="/insumos/add">
+      <div class="mb-3">
+        <label class="form-label">Nombre del Insumo</label>
+        <input type="text" name="nombre" class="form-control" required>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Descripción</label>
+        <textarea name="descripcion" class="form-control" rows="3"></textarea>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Cantidad Disponible</label>
+        <input type="number" name="cantidad" class="form-control" required>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Unidad</label>
+        <input type="text" name="unidad" class="form-control" required>
+      </div>
+
+      
+      <div class="mb-3">
+        <label class="form-label">Ubicacion</label>
+        <input type="text" name="ubicacion" class="form-control" required>
+      </div>
+
+
+
+      <!-- <div class="mb-3">
+        <label class="form-label">Estado</label>
+        <select name="estado" class="form-select">
+          <option value="Disponible">Disponible</option>
+          <option value="En reparación">En reparación</option>
+          <option value="Agotado">Agotado</option>
+        </select>
+      </div> -->
+
+      <button type="submit" class="btn btn-primary">Registrar</button>
+      <a href="/insumos" class="btn btn-secondary">Cancelar</a>
+    </form>
+  </div>
+
+  <script src="/js/insumos.js"></script>
+</body>
+</html>

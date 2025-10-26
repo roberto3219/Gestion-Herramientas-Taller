@@ -31,6 +31,8 @@ CREATE TABLE users (
   email VARCHAR(150) NOT NULL UNIQUE,
   password_hash VARCHAR(255) NOT NULL,
   role_id INTEGER,
+  bloqueado BOOLEAN DEFAULT FALSE,
+  fecha_eliminacion DATETIME NULL,
   created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
   updated_at DATETIME DEFAULT CURRENT_TIMESTAMP,
   FOREIGN KEY (role_id) REFERENCES roles(id) ON DELETE SET NULL
@@ -97,4 +99,30 @@ CREATE TABLE audit_logs (
   datos TEXT,
   created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
   FOREIGN KEY (usuario_id) REFERENCES users(id) ON DELETE SET NULL
+);
+
+CREATE TABLE insumos (
+  id_insumo INT AUTO_INCREMENT PRIMARY KEY,
+  nombre VARCHAR(100) NOT NULL,
+  descripcion TEXT,
+  cantidad INT DEFAULT 0,
+  unidad VARCHAR(50), -- Ej: unidades, metros, kilos
+  ubicacion VARCHAR(100),
+  fecha_ingreso DATE DEFAULT (CURRENT_DATE),
+  estado ENUM('disponible', 'agotado', 'en reparación') DEFAULT 'disponible'
+);
+
+CREATE TABLE asignaciones (
+  id_asignacion INT AUTO_INCREMENT PRIMARY KEY,
+  alumno_id INT NOT NULL,
+  profesor_id INT,
+  herramienta_id INT NOT NULL,
+  fecha_prestamo DATETIME DEFAULT CURRENT_TIMESTAMP,
+  fecha_devolucion DATETIME,
+  estado ENUM('prestado', 'devuelto', 'atrasado') DEFAULT 'prestado',
+  observaciones TEXT,
+
+  FOREIGN KEY (alumno_id) REFERENCES estudiantes(id),
+  FOREIGN KEY (profesor_id) REFERENCES users(id),
+  FOREIGN KEY (herramienta_id) REFERENCES herramientas(id)
 );

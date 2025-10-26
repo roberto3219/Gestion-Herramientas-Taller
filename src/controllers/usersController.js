@@ -11,6 +11,15 @@ const fs = require("fs");
 // Controlador de usuarios
 
 const controller = {
+  list: async (req, res) => {
+    try {
+      const usuarios = await db.Usuario.findAll();
+      res.render("users/userList", { usuarios: usuarios, usuario: req.session.userLogged });
+    } catch (error) {
+      console.log(error);
+      res.render("error", { error: "Problema conectando a la base de datos" });
+    }
+  },
   register: (req, res) => {
     res.render("users/register", { imagen: null });
   },
@@ -32,6 +41,8 @@ const controller = {
           img_user:
           saveImage != undefined ? saveImage.filename : "default.png",
           role_id: 3,
+          bloqueado: false,
+          fecha_eliminacion_programada: null
         });
 
         // Responder con algún mensaje o redirigir a otra página
@@ -59,8 +70,8 @@ const controller = {
       const usuario = await db.Usuario.findOne({
         where: { email: req.body.email },
       });
-/*       console.log(usuario)
- */      if (usuario) {
+      console.log(usuario)
+      if (usuario) {
         const validarPass = await bcrypt.compare(
           req.body.password,
           usuario.password_hash

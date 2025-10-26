@@ -10,24 +10,6 @@ require("pdfkit");
 
 
 const controller = {
-  detail: async (req, res) => {
-    try {
-      const producto = await db.Producto.findByPk(req.params.id, {
-        include: [
-          { model: db.Plataforma, as: "plataformas" },
-          { model: db.Categoria, as: "categorias" },
-        ],
-      });
-
-      res.render("productDetail", {
-        producto: producto,
-        usuario: req.session.userLogged,
-      });
-    } catch (error) {
-      console.error(error);
-      res.render("error", { error: "Problema conectando a la base de datos" });
-    }
-  },
   index: async (req, res) => {
     try {
       const alumnos = await db.Estudiante.findAll({

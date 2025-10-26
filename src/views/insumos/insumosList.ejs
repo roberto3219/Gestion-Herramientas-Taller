@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../partials/head.ejs') %>
+<body>
+    
+<%- include('../partials/header') %>
+  <div class=" mt-4">
+  <div class="container mt-4">
+  <h2 class="mb-4">Listado de Insumos</h2>
+
+  <!-- Buscador -->
+  <form class="d-flex mb-3" method="POST" action="/insumos">
+    <input class="form-control me-2" type="search" placeholder="Buscar por insumo" name="q">
+    <button class="btn btn-outline-primary" type="submit">Buscar</button>
+  </form>
+
+
+  <div class="button_sd" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+
+  <a href="/insumos/add" class="btn btn-primary mb-3">
+    Agregar  insumo
+  </a>
+   <form action="/" method="post">
+    <input type="submit" value="Generar Reporte PDF" class="btn btn-danger mb-3">
+  </form>
+  </div>
+
+</div>
+
+  <div class="table-responsive">
+<table id="tablaInsumos" class="table table-hover table-bordered">
+  <thead class="table-dark">
+    <tr>
+      <th>ID</th>
+      <th>Nombre</th>
+      <th>Descripción</th>
+      <th>Cantidad</th>
+      <th>Estado</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% insumos.forEach(i => { %>
+      <tr data-id="<%= i.id %>">
+        <td><%= i.id_insumo %></td>
+        <td><%= i.nombre %></td>
+        <td><%= i.descripcion %></td>
+        <td><%= i.cantidad %></td>
+        <td><%= i.estado %></td>
+        <td>
+          <button class="editar-btn btn btn-warning">Editar</button>
+          <button class="eliminar-btn btn btn-danger">Eliminar</button>
+        </td>
+      </tr>
+    <% }) %>
+  </tbody>
+</table></div>
+
+<!-- MODAL DE EDICIÓN DE INSUMO -->
+<div id="modal-editar" class="modal-overlay" style="display: none;">
+  <div class="modal-box animate">
+    <h3 class="modal-title">Editar Insumo</h3>
+    <form id="formEditarInsumo">
+      <input type="hidden" id="editarId">
+
+      <div class="form-group">
+        <label>Nombre</label>
+        <input type="text" id="editarNombre" class="form-input" required>
+      </div>
+
+      <div class="form-group">
+        <label>Descripción</label>
+        <textarea id="editarDescripcion" class="form-input" rows="3"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label>Cantidad</label>
+        <input type="number" id="editarCantidad" class="form-input" min="0" required>
+      </div>
+
+      <div class="form-group">
+        <label>Estado</label>
+        <select id="editarEstado" class="form-input">
+          <option value="disponible">Disponible</option>
+          <option value="agotado">Agotado</option>
+          <option value="en reparación">En reparación</option>
+        </select>
+      </div>
+
+      <div class="modal-buttons">
+        <button type="submit" class="btn btn-success">💾 Guardar cambios</button>
+        <button type="button" id="cancelarEdicion" class="btn btn-cancel">Cancelar</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script src="/js/insumos.js"></script>
+</body>
+</html>
