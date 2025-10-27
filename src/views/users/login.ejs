@@ -5,6 +5,13 @@
 <div class="container mt-5 col-md-6">
   <h2 class="text-center mb-4">Iniciar Sesión</h2>
   <form method="POST" action="/users/login">
+    <div class="error">
+      <% if (typeof error !== 'undefined') { %>
+        <div class="alert"><%= error %></div>
+      <% }else{ %>
+        <div></div>
+      <% } %>
+    </div>
     <div class="mb-3"> 
       <label for="email" class="form-label">Correo electrónico</label>
       <input type="email" class="form-control" id="email" name="email" required>

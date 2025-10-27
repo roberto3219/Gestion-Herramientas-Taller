@@ -7,6 +7,10 @@ const { generateAllPDFs } = require("../scripts/generate_pdfs"); // Importamos l
 const { save } = require("pdfkit");
 const path = require("path");
 const fs = require("fs");
+const {Op} = require("sequelize");
+const PDFDocument = require("pdfkit-table");
+require("pdfkit");
+
 
 // Controlador de usuarios
 
@@ -70,6 +74,12 @@ const controller = {
       const usuario = await db.Usuario.findOne({
         where: { email: req.body.email },
       });
+      if(usuario.bloqueado){
+        return  res.render("users/login", {
+          old: req.body,
+          error: "Usuario bloqueado. Contacte al administrador.",
+        });
+      }
       console.log(usuario)
       if (usuario) {
         const validarPass = await bcrypt.compare(
@@ -283,8 +293,76 @@ const controller = {
     } catch (error) {
       console.error(error);
       res.status(500).send("Error al generar los reportes PDF.");
-    }}
+    }},
+    search: async (req, res) => {
+      try {
+        const query = req.body.q;
+        const usuarios = await db.Usuario.findAll({
+          where: {
+            nombre: { [Op.like]: `%${query}%` },
+          },
+        });
+        res.render("users/userList", { usuarios: usuarios, usuario: req.session.userLogged });
+      } catch (error) {
+        console.log(error);
+        res.render("error", { error: "Problema conectando a la base de datos" });
+      }
+    },
+    generarPDF: async (req, res) => {
+      const usuarios = await db.Usuario.findAll();
+      const doc = new PDFDocument({ margin:10, size: "A4"});
+      let buffers = [];
+      doc.on("data", buffers.push.bind(buffers));
+      doc.on("end", () => {
+        let pdfData = Buffer.concat(buffers);
+        res
+          .writeHead(200, {
+            "Content-Length": Buffer.byteLength(pdfData),
+            "Content-Type": "application/pdf",
+            "Content-Disposition": 'attachment;filename="usuarios.pdf"',
+          })
+          .end(pdfData);
+      });
+      const table = {
+        headers: ["ID", "Nombre de Usuario", "Nombre", "Email", "Rol"],
+        rows: usuarios.map((u) => [
+          u.id,
+          u.user_name,
+          u.nombre,
+          u.email,
+          u.role_id,
+        ]),
+      };
+      await doc.table(table, {
+        prepareHeader: () => doc.font("Helvetica-Bold").fontSize(12),
+        prepareRow: (row, i) => doc.font("Helvetica").fontSize(10),
+      });
+      doc.end();
+    },
+    bloquear: async (req, res) => {
+    const id = req.params.id;
+    const usuario = await db.Usuario.findByPk(id);
+    usuario.bloqueado = !usuario.bloqueado;
+    await usuario.save();
+    res.json({ msg: usuario.bloqueado ? "Usuario bloqueado" : "Usuario desbloqueado" });
+  },
 
+  eliminar: async (req, res) => {
+    const id = req.params.id;
+    const usuario = await db.Usuario.findByPk(id);
+    const fecha = new Date();
+    fecha.setDate(fecha.getDate() + 2);
+    usuario.fecha_eliminacion_programada = fecha;
+    await usuario.save();
+    res.json({ msg: "Eliminación programada en 2 días" });
+  },
+  cancelarEliminacion: async (req, res) => {
+    const id = req.params.id;
+    const usuario = await db.Usuario.findByPk(id);
+    usuario.fecha_eliminacion_programada = null;
+    await usuario.save();
+    res.json({ msg: "Eliminación programada cancelada" });
+  }
 };
 
 module.exports = controller;

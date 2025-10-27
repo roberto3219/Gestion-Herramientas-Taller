@@ -7,13 +7,13 @@
   <div class="container mt-4">
   <h2 class="mb-4">Listado de Usuarios</h2>
     
- <form class="d-flex mb-3" method="POST" action="/herramientas">
+ <form class="d-flex mb-3" method="POST" action="/users">
     <input class="form-control me-2" type="search" placeholder="Buscar herramienta por nombre o categoría" name="q">
     <button class="btn btn-outline-primary" type="submit">Buscar</button>
   </form>
   <div class="button_sd" style="display: flex; justify-content: flex-end; align-items: center; margin-bottom: 20px;">
 
-   <form action="/herramientas/reportePDF" method="post">
+   <form action="/users/generate-pdf-users" method="post">
     <input type="submit" value="Generar Reporte PDF" class="btn btn-danger mb-3">
   </form>
   </div>
@@ -29,6 +29,7 @@
       <th>Email</th>
       <th>Rol</th>
       <th>Estado</th>
+      <th>Fecha de Eliminacion</th>
       <th>Acciones</th>
     </tr>
   </thead>
@@ -46,11 +47,16 @@
             <span class="text-success">Activo</span>
           <% } %>
         </td>
+        <td><%= u.fecha_eliminacion_programada ? u.fecha_eliminacion_programada : "Ninguna"  %></td>
         <td>
           <button class="bloquear-btn btn btn-warning">
             <%= u.bloqueado ? "Desbloquear" : "Bloquear" %>
           </button>
-          <button class="eliminar-btn btn btn-danger">Eliminar</button>
+          <% if(!u.fecha_eliminacion_programada){ %>
+            <button class="eliminar-btn btn btn-danger">Eliminar</button>
+            <% }else{ %>
+              <button class="cancelar-btn btn btn-danger">Cancelar</button>
+            <% } %>
         </td>
       </tr>
     <% }) %>

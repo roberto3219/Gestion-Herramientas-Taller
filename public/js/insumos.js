@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
     btn.addEventListener("click", (e) => {
       const tr = e.target.closest("tr");
       const id = tr.dataset.id;
+      console.log(id);
       const nombre = tr.children[1].textContent;
       const descripcion = tr.children[2].textContent;
       const cantidad = tr.children[3].textContent;
@@ -36,7 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
       estado: document.getElementById("editarEstado").value,
     };
 
-    const res = await fetch(`/insumos/${id}`, {
+    const res = await fetch(`/insumos/${id}/edit`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
@@ -54,7 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const id = tr.dataset.id;
 
       if (confirm("¿Seguro que deseas eliminar este insumo?")) {
-        await fetch(`/insumos/${id}`, { method: "DELETE" });
+        await fetch(`/insumos/${id}/delete`, { method: "DELETE" });
         tr.remove();
       }
     });

@@ -34,6 +34,7 @@ let fileUpload = multer({ storage: multerDiskStorage });
 // Ruteos
 
 router.get("/",userController.list);
+router.post("/",userController.search);
 router.post("/change-password",userController.changePassword);
 router.get("/profile",userController.mostrarPerfil);
 router.post("/profile",userController.logout)
@@ -47,6 +48,10 @@ router.get("/backup", backupController.makeBackup);
 router.post("/generate-pdfs", userController.generarReportes);
 router.post("/edit",fileUpload.single("imagen"),userController.editarPerfil);
 router.post("/restore", userController.restore);
+router.post("/generate-pdf-users", userController.generarPDF);
+router.put("/:id/bloquear", userController.bloquear);
+router.delete("/:id/eliminar", userController.eliminar);
+router.put("/:id/cancelar-eliminacion", userController.cancelarEliminacion);
 
 
 module.exports = router;

@@ -20,7 +20,7 @@
   <a href="/insumos/add" class="btn btn-primary mb-3">
     Agregar  insumo
   </a>
-   <form action="/" method="post">
+   <form action="/insumos/reportes" method="post">
     <input type="submit" value="Generar Reporte PDF" class="btn btn-danger mb-3">
   </form>
   </div>
@@ -41,7 +41,7 @@
   </thead>
   <tbody>
     <% insumos.forEach(i => { %>
-      <tr data-id="<%= i.id %>">
+      <tr data-id="<%= i.id_insumo %>">
         <td><%= i.id_insumo %></td>
         <td><%= i.nombre %></td>
         <td><%= i.descripcion %></td>
@@ -61,26 +61,27 @@
   <div class="modal-box animate">
     <h3 class="modal-title">Editar Insumo</h3>
     <form id="formEditarInsumo">
-      <input type="hidden" id="editarId">
+      <label for="">ID</label>
+      <input type="text" id="editarId">
 
       <div class="form-group">
         <label>Nombre</label>
-        <input type="text" id="editarNombre" class="form-input" required>
+        <input type="text" name="nombre" id="editarNombre" class="form-input" required>
       </div>
 
       <div class="form-group">
         <label>Descripción</label>
-        <textarea id="editarDescripcion" class="form-input" rows="3"></textarea>
+        <textarea id="editarDescripcion" name="descripcion" class="form-input" rows="3"></textarea>
       </div>
 
       <div class="form-group">
         <label>Cantidad</label>
-        <input type="number" id="editarCantidad" class="form-input" min="0" required>
+        <input type="number" id="editarCantidad" name="cantidad" class="form-input" min="0" required>
       </div>
 
       <div class="form-group">
         <label>Estado</label>
-        <select id="editarEstado" class="form-input">
+        <select id="editarEstado" class="form-input" name="estado">
           <option value="disponible">Disponible</option>
           <option value="agotado">Agotado</option>
           <option value="en reparación">En reparación</option>
