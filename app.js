@@ -5,8 +5,6 @@ const path = require("path")
 const session = require("express-session")
 const cookieParser = require("cookie-parser")
 const methodOverride = require("method-override")
-const multer = require("multer");
-const upload = multer({ dest: "public/music/" });
 
 
 //Otros modulos
@@ -16,6 +14,12 @@ const herramientaRouter = require("./src/routes/herramientasRoutes")
 const prestamoRouter = require("./src/routes/prestamosRoutes")
 const estudiantesRouter = require("./src/routes/estudiantesRoutes")
 const insumosRouter = require("./src/routes/insumosRoutes")
+const auditRoutes = require('./src/routes/auditRoutes');
+const usosInsumosRoutes = require("./src/routes/usosInsumosRoutes");
+
+
+
+const auditMiddleware = require("./src/middlewares/logger.js")
 
 // Servir Bootstrap desde node_modules
 app.use('/bootstrap', express.static(path.join(__dirname, 'node_modules/bootstrap/dist')));
@@ -45,18 +49,24 @@ app.use(
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-const port = 3002
+const port = 3003
 
 app.listen(port, () => console.log(`[server] Corriendo en el puerto ${port}`))
+
+
+//Middleware de auditoria
+app.use(auditMiddleware);
+
 
 //Routes
 app.use("/",mainRouter)
 app.use("/users",userRouter)
 app.use("/herramientas",herramientaRouter)
-app.use("/prestamos", prestamoRouter)
 app.use("/estudiantes", estudiantesRouter)
 app.use("/insumos", insumosRouter)
-
+app.use('/audit', auditRoutes);
+app.use("/prestamos", prestamoRouter)
+app.use("/usosInsumos", usosInsumosRoutes);
 
 app.use((req, res, next) => {
   console.log(`${new Date().toISOString()} - ${req.method} ${req.url}`);

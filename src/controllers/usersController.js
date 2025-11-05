@@ -49,6 +49,9 @@ const controller = {
           fecha_eliminacion_programada: null
         });
 
+
+        await req.logAction('Registrar usuario', { username: req.body.username, email: req.body.email });
+
         // Responder con algún mensaje o redirigir a otra página
         res.redirect("/users/login");
       } catch (error) {
@@ -88,6 +91,7 @@ const controller = {
         );
         if (validarPass) {
           let loginData = {
+            id: usuario.id,
             user_name: usuario.user_name,
             nombre: usuario.nombre,
             correo: usuario.email,
@@ -95,6 +99,9 @@ const controller = {
             role_id: usuario.role_id
           }
           req.session.userLogged = loginData;
+          
+          await req.logAction('Iniciar sesión', { userId: usuario.id, email: usuario.email });
+
           console.log(req.session.userLogged)
           res.redirect("/");
         } else {
@@ -148,12 +155,17 @@ const controller = {
           }
         }
       );
+
+      await req.logAction('Actualizar perfil', { userId: usuario.id, email: usuario.email });
+
       res.redirect("/users/profile");
     } catch (error) {
       res.render("error", { error: "Problema conectando a la base de datos" });
     }
   },
   logout: async (req, res) => {
+
+    await req.logAction('Cerrar sesión', { userId: req.session.userLogged.id, email: req.session.userLogged.correo });
     req.session.destroy(() => {
       res.redirect("/users/login");
     });
@@ -178,6 +190,9 @@ const controller = {
           { password_hash: hashedPassword },
           { where: { email: req.session.userLogged.correo } }
         );
+
+        await req.logAction('Cambiar contraseña', { userId: usuario.id, email: usuario.email });
+
         res.redirect("/users/profile");
         console.log("Contraseña actualizada");
       } else {
@@ -226,6 +241,8 @@ const controller = {
       await db.Prestamos.findOrCreate({ where: { id: p.id }, defaults: p });
     }
 
+    await req.logAction('Restaurar backup', { mode: mode, file: filePath });
+
     res.json({
       msg: "Backup restaurado (modo MERGE, solo se agregaron los que faltaban) ✅"
     });
@@ -262,8 +279,8 @@ const controller = {
         host: "smtp.gmail.com",
         port:587,
         auth: {
-          user: "",
-          pass: "" // recuerda, no la de Gmail directo
+          user: "llamparoberto5@gmail.com",
+          pass: "yztf ydmt gvkp rzhn" // recuerda, no la de Gmail directo
         }
       });
 
@@ -280,6 +297,8 @@ const controller = {
         `
       });
 
+      await req.logAction('Recuperar contraseña', { userId: user.id, email: user.email });
+      
       res.redirect("/")
     } catch (error) {
       console.error(error);
@@ -289,6 +308,7 @@ const controller = {
   generarReportes: async (req, res) => {
     try {
       await generateAllPDFs(); // Llamamos a la función para generar todos los PDFs
+      await req.logAction('Generar reportes PDF', { userId: req.session.userLogged.id });
       res.send("Reportes PDF generados correctamente.");
     } catch (error) {
       console.error(error);
@@ -338,11 +358,13 @@ const controller = {
         prepareRow: (row, i) => doc.font("Helvetica").fontSize(10),
       });
       doc.end();
+      await req.logAction('Generar listado de usuarios en PDF', { userId: req.session.userLogged.id });
     },
     bloquear: async (req, res) => {
     const id = req.params.id;
     const usuario = await db.Usuario.findByPk(id);
     usuario.bloqueado = !usuario.bloqueado;
+    await req.logAction(usuario.bloqueado ? 'Bloquear usuario' : 'Desbloquear usuario', { userId: usuario.id, email: usuario.email });
     await usuario.save();
     res.json({ msg: usuario.bloqueado ? "Usuario bloqueado" : "Usuario desbloqueado" });
   },
@@ -353,6 +375,7 @@ const controller = {
     const fecha = new Date();
     fecha.setDate(fecha.getDate() + 2);
     usuario.fecha_eliminacion_programada = fecha;
+    await req.logAction('Programar eliminación de usuario', { userId: usuario.id, email: usuario.email, fecha_eliminacion: fecha });
     await usuario.save();
     res.json({ msg: "Eliminación programada en 2 días" });
   },
@@ -360,6 +383,7 @@ const controller = {
     const id = req.params.id;
     const usuario = await db.Usuario.findByPk(id);
     usuario.fecha_eliminacion_programada = null;
+    await req.logAction('Cancelar eliminación de usuario', { userId: usuario.id, email: usuario.email });
     await usuario.save();
     res.json({ msg: "Eliminación programada cancelada" });
   }

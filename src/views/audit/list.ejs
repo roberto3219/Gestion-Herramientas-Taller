@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<%- include('../partials/head.ejs') %>
+
+<body>
+    <%- include ('../partials/header.ejs') %>
+  <div class="container py-4">
+    <h3>Historial de Acciones</h3>
+
+    <form class="d-flex mb-3" method="get" action="/audit">
+      <input class="form-control me-2" type="search" placeholder="Buscar por usuario, acción o ruta" name="q" value="<%= q %>">
+      <button class="btn btn-outline-primary">Buscar</button>
+    </form>
+
+    <div class="table-responsive">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Usuario</th>
+          <th>Acción</th>
+          <th>Ruta</th>
+          <th>IP</th>
+          <th>Fecha</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% logs.forEach(l => { %>
+          <tr data-id="<%= l.id %>" class="log-row" style="cursor:pointer">
+            <td><%= l.id %></td>
+            <td><%= l.usuario_nombre || 'anon' %></td>
+            <td><%= l.accion %></td>
+            <td><%= l.ruta %></td>
+            <td><%= l.ip %></td>
+            <td><%= l.created_at.toLocaleString() %></td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+    </div>
+
+    <!-- paginación simple -->
+    <nav>
+      <ul class="pagination">
+        <% for(let p=1; p<=pages; p++) { %>
+          <li class="page-item <%= p===page ? 'active' : '' %>">
+            <a class="page-link" href="/audit?q=<%= q %>&page=<%= p %>"><%= p %></a>
+          </li>
+        <% } %>
+      </ul>
+    </nav>
+  </div>
+
+  <!-- Modal detalle -->
+  <div class="modal fade" id="logModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Detalle de la acción</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" id="logDetailBody">
+          <!-- contenido via JS -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.querySelectorAll('.log-row').forEach(row => {
+      row.addEventListener('click', async () => {
+        const id = row.dataset.id;
+        const res = await fetch(`/audit/${id}/json`);
+        if (!res.ok) return alert('Error al obtener detalle');
+        const data = await res.json();
+
+        const body = document.getElementById('logDetailBody');
+        body.innerHTML = `
+          <dl class="row">
+            <dt class="col-sm-3">ID</dt><dd class="col-sm-9">${data.id}</dd>
+            <dt class="col-sm-3">Usuario</dt><dd class="col-sm-9">${data.usuario_nombre || 'anon'}</dd>
+            <dt class="col-sm-3">Acción</dt><dd class="col-sm-9">${data.accion}</dd>
+            <dt class="col-sm-3">Ruta</dt><dd class="col-sm-9">${data.ruta}</dd>
+            <dt class="col-sm-3">IP</dt><dd class="col-sm-9">${data.ip}</dd>
+            <dt class="col-sm-3">Datos</dt><dd class="col-sm-9"><pre>${JSON.stringify(data.datos, null, 2)}</pre></dd>
+            <dt class="col-sm-3">Fecha</dt><dd class="col-sm-9">${new Date(data.createdAt).toLocaleString()}</dd>
+          </dl>
+        `;
+        const modal = new bootstrap.Modal(document.getElementById('logModal'));
+        modal.show();
+      });
+    });
+  </script>
+</body>
+</html>

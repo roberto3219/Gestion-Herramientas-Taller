@@ -88,7 +88,7 @@ const controller = {
           cantidad: req.body.cantidad,
           estado: req.body.estado,
         });
-
+        await req.logAction('Crear herramienta', { nombre: req.body.nombre, categoria: req.body.categoria });
         res.redirect("/herramientas");
       } catch (error) {
         console.error(error);
@@ -145,6 +145,7 @@ const controller = {
             },
           }
         );
+        await req.logAction('Actualizar herramienta', { id: id, nombre: req.body.nombre, categoria: req.body.categoria });
         res.redirect("/herramientas");
       } else {
         res.render("herramientas/editTools", {
@@ -172,6 +173,7 @@ const controller = {
           id: req.params.id,
         },
       });
+      await req.logAction('Borrar herramienta', { id: req.params.id, nombre: herramienta.nombre, categoria: herramienta.categoria });
       res.redirect("/herramientas");
     } catch (error) {
       console.error(error);
@@ -186,7 +188,7 @@ const controller = {
           nombre: { [Op.like]: `%${titulo}%` },
         }
       });
-
+      await req.logAction('Buscar herramienta', { termino: titulo });
       res.render("herramientas/listTools", {
         titulo: titulo,
         herramientas: Herramienta,
@@ -231,6 +233,7 @@ const controller = {
     // 📌 Generar tabla
       await doc.table(table, { prepareHeader: () => doc.font("Helvetica-Bold"), prepareRow: (row, i) => doc.font("Helvetica").fontSize(8) });
     doc.end();
+    await req.logAction('Generar reporte PDF de herramientas', { totalHerramientas: herramientas.length });
   }
   
 };

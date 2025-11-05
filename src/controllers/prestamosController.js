@@ -1,16 +1,18 @@
 // Controlador de productos
-const fs = require("fs");
-const path = require("path")
 const db = require("../database/models/index.js");
+console.log(db)
 const { Op } = require("sequelize");
 const { validationResult } = require("express-validator");
 const PDFDocument = require("pdfkit-table");
 require("pdfkit");
+console.log("🟢 Modelos disponibles:", Object.keys(db));
 
 
 const controller = {
   index: async (req, res) => {
     try {
+      console.log("🔍 Modelos disponibles en db:");
+    console.log(Object.keys(db));
       const prestamos = await db.Prestamos.findAll({
         include: [
                         //{association: "herramientas"}
@@ -18,6 +20,7 @@ const controller = {
                         {model: db.Herramienta, attributes: ["nombre"], as: "herramientas"}
                     ],
     });
+    console.log(prestamos)
       res.render("prestamos/listPrestamos", {
         prestamos: prestamos,
         usuario: req.session.userLogged,

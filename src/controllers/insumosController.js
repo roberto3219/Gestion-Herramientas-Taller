@@ -28,6 +28,7 @@ const controller = {
                     }
                 }
             });
+            await req.logAction('Buscar insumo', { termino: titulo });
             res.render("insumos/insumosList", {
                 titulo: titulo,
                 insumos: insumos,
@@ -53,6 +54,7 @@ const controller = {
                 fecha_ingreso: Date.now(),
                 estado: "Disponible"
             });
+            await req.logAction('Crear insumo', { nombre: req.body.nombre });
             res.redirect("/insumos");
         } catch (e) {
             console.log("Error " + e);
@@ -61,12 +63,14 @@ const controller = {
     actualizar: async (req, res) => {
     const id = req.params.id;
     await db.Insumo.update(req.body, { where: { id_insumo:id } });
+    await req.logAction('Actualizar insumo', { id: id, nombre: req.body.nombre });
     res.json({ msg: "Insumo actualizado correctamente" });
   },
 
   eliminar: async (req, res) => {
     const id = req.params.id;
     await db.Insumo.destroy({ where: { id_insumo:id } });
+    await req.logAction('Borrar insumo', { id: id });
     res.json({ msg: "Insumo eliminado correctamente" });
   },
     reportePDF: async (req, res) => {
@@ -116,6 +120,7 @@ const controller = {
                 prepareRow: (row, i) => doc.font("Helvetica").fontSize(8)
             });
             doc.end();
+            await req.logAction('Generar reporte PDF de insumos', { totalInsumos: insumos.length });
     }
 };
 

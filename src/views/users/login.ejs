@@ -7,7 +7,7 @@
   <form method="POST" action="/users/login">
     <div class="error">
       <% if (typeof error !== 'undefined') { %>
-        <div class="alert"><%= error %></div>
+        <div class="alert" style="color: red;"><%= error %></div>
       <% }else{ %>
         <div></div>
       <% } %>
@@ -31,3 +31,4 @@
 </div>
 </body>
 </html>
+   

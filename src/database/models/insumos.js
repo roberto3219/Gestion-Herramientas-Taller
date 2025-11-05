@@ -26,13 +26,11 @@ module.exports = (sequelize, DataTypes) => {
   }, { tableName: 'insumos',  timestamps: false });
 
   Insumo.associate = function(models) {
-    Insumo.hasMany(models.Asignacion, {
-      as: "asignaciones",
+    Insumo.hasMany(models.UsosInsumos, {
+      as: "usos",
       foreignKey: "insumo_id",
-        timestamps: false,
-        onDelete: "CASCADE",
-        onUpdate: "CASCADE"
-    });
+});
+
   }
 
     return Insumo;

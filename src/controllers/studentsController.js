@@ -1,6 +1,7 @@
 // Controlador de productos
 const fs = require("fs").promises;
 const path = require("path")
+
 const db = require("../database/models/index.js");
 const { Op } = require("sequelize");
 const { validationResult } = require("express-validator");
@@ -12,6 +13,8 @@ require("pdfkit");
 const controller = {
   index: async (req, res) => {
     try {
+      console.log("🔍 Modelos disponibles en db:");
+    console.log(Object.keys(db));
       const alumnos = await db.Estudiante.findAll({
       });
       res.render("alumnos/listStudents", {
@@ -47,6 +50,8 @@ const controller = {
           curso: req.body.curso,
           telefono: req.body.telefono,
         });
+
+        await req.logAction('Crear alumno', { nombre: req.body.nombre, dni: req.body.dni });
 
         res.redirect("/estudiantes");
       } catch (error) {
@@ -109,6 +114,9 @@ const controller = {
           }
         );
 
+
+        await req.logAction('Actualizar alumno', { id: id, nombre: req.body.nombre, dni: req.body.dni, telefono: req.body.telefono });
+
         res.redirect("/estudiantes");
       } else {
         res.render("alumnos/editStudents", {
@@ -130,6 +138,7 @@ const controller = {
           id: req.params.id,
         },
       });
+      await req.logAction('Borrar alumno', { id: req.params.id });
       res.redirect("/estudiantes");
     } catch (error) {
       console.error(error);
@@ -144,6 +153,8 @@ const controller = {
           nombre: { [Op.like]: `%${titulo}%` },
         },
       });
+
+      await req.logAction('Buscar alumno', { termino: titulo });
 
       res.render("alumnos/listStudents", {
         titulo: titulo,
@@ -190,6 +201,8 @@ const controller = {
      await doc.table(table, { prepareHeader: () => doc.font("Helvetica-Bold"), prepareRow: (row, i) => doc.font("Helvetica").fontSize(8) });
 
   doc.end();
+
+  await req.logAction('Generar reporte PDF de estudiantes', { totalEstudiantes: estudiantes.length });
   }
 };
 

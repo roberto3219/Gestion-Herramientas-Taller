@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../partials/head') %>
+<body>
+    
+    <%- include('../partials/header') %>
+<h2>Registro de Usos de Insumos</h2>
+
+<a href="/usosInsumos/create" class="btn btn-primary">Registrar nuevo uso</a>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Insumo</th>
+      <th>Estudiante</th>
+      <th>Profesor Encargado</th>
+      <th>Cantidad usada</th>
+      <th>Descripción</th>
+      <th>Fecha</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% usos.forEach(uso => { %>
+      <tr>
+        <td><%= uso.id %></td>
+        <td><%= uso.insumos.nombre %></td>
+        <td><%= uso.estudiantes.nombre %></td>
+        <td><%= uso.profesor_encargado %></td>
+        <td><%= uso.cantidad_usada %></td>
+        <td><%= uso.descripcion %></td>
+        <td><%= new Date(uso.fecha_uso).toLocaleString() %></td>
+      </tr>
+    <% }) %>
+  </tbody>
+</table>
+
+</body>
+</html>

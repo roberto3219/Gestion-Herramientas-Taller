@@ -22,6 +22,13 @@ module.exports = (sequelize, DataTypes) => {
       timestamps: false,
       onDelete: "CASCADE",
       onUpdate: "CASCADE" });
+
+    Estudiante.hasMany(models.UsosInsumos, {
+      foreignKey: 'estudiante_id',
+      as: 'usos_insumos',
+      timestamps: false,
+      onDelete: "CASCADE",
+      onUpdate: "CASCADE" });
   };
 
   return Estudiante;

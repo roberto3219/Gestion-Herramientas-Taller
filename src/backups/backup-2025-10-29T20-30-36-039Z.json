@@ -1,0 +1,125 @@
+{
+  "estudiantes": [
+    {
+      "id": 1,
+      "nombre": "Roberto Llampa",
+      "dni": "47931986",
+      "email": "roberto@gmail.com",
+      "curso": "4to 3ra",
+      "telefono": "3884177043"
+    },
+    {
+      "id": 2,
+      "nombre": "Oscar llampa",
+      "dni": "34212345",
+      "email": "oscar@gmail.com",
+      "curso": "6to 2da",
+      "telefono": "4213213"
+    },
+    {
+      "id": 3,
+      "nombre": "Gaston Lopez",
+      "dni": "34315325",
+      "email": "gaston@gmail.com",
+      "curso": "5to 2da",
+      "telefono": ""
+    },
+    {
+      "id": 4,
+      "nombre": "Laime Agustin",
+      "dni": "34354325",
+      "email": "laime@gmail.com",
+      "curso": "5to 2da",
+      "telefono": ""
+    },
+    {
+      "id": 5,
+      "nombre": "Hualpa",
+      "dni": "1234636",
+      "email": "hualpa@gmail.com",
+      "curso": "4to 3ra",
+      "telefono": ""
+    }
+  ],
+  "herramientas": [
+    {
+      "id": 1,
+      "nombre": "Martillo",
+      "categoria": "Manuales",
+      "descripcion": "sadsadasdasdas",
+      "cantidad": 4,
+      "estado": "Disponible"
+    },
+    {
+      "id": 2,
+      "nombre": "Taladro",
+      "categoria": "Eléctricas",
+      "descripcion": "sdafsdgfdhbvbdfgb",
+      "cantidad": 7,
+      "estado": "Disponible"
+    },
+    {
+      "id": 3,
+      "nombre": "Kit de Herramientas",
+      "categoria": "Manuales",
+      "descripcion": "Hola aqui estan las herramientas necesarios para hacer algo XD",
+      "cantidad": 17,
+      "estado": "Disponible"
+    },
+    {
+      "id": 4,
+      "nombre": "Destornillador",
+      "categoria": "Manuales",
+      "descripcion": "sadasdasd",
+      "cantidad": 12,
+      "estado": "Disponible"
+    },
+    {
+      "id": 5,
+      "nombre": "Llave francesa",
+      "categoria": "Manuales",
+      "descripcion": "asdasd",
+      "cantidad": 12,
+      "estado": "Disponible"
+    }
+  ],
+  "prestamos": [
+    {
+      "id": 1,
+      "estudiante_id": 1,
+      "herramientas_id": 1,
+      "cantidad_herramientas": 4,
+      "profesor_encargado": "Analia flores",
+      "fecha_prestamo": "2025-10-14T16:54:07.000Z",
+      "fecha_devolucion_estimada": "2007-09-04T03:00:00.000Z",
+      "fecha_devolucion_real": null,
+      "estado": "Pendiente",
+      "observaciones": "sadsadasd"
+    },
+    {
+      "id": 2,
+      "estudiante_id": 2,
+      "herramientas_id": 3,
+      "cantidad_herramientas": 16,
+      "profesor_encargado": "Analia flores",
+      "fecha_prestamo": "2025-10-23T19:29:32.000Z",
+      "fecha_devolucion_estimada": "2007-09-04T03:00:00.000Z",
+      "fecha_devolucion_real": null,
+      "estado": "Pendiente",
+      "observaciones": "Holaaa"
+    },
+    {
+      "id": 3,
+      "estudiante_id": 1,
+      "herramientas_id": 5,
+      "cantidad_herramientas": 4,
+      "profesor_encargado": "Pablo Martines",
+      "fecha_prestamo": "2025-10-23T19:30:00.000Z",
+      "fecha_devolucion_estimada": "2007-09-04T12:40:00.000Z",
+      "fecha_devolucion_real": null,
+      "estado": "Pendiente",
+      "observaciones": "hola el quien lo retira es ella, son 8 equipos"
+    }
+  ],
+  "generatedAt": "2025-10-29T20:30:36.038Z"
+}
