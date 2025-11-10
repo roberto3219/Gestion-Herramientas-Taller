@@ -12,10 +12,13 @@ module.exports = {
 
       const where = q ? {
         [Op.or]: [
+          { created_at: { [Op.like]: `%${q}%` } },
           { usuario_nombre: { [Op.like]: `%${q}%` } },
           { accion: { [Op.like]: `%${q}%` } },
           { ruta: { [Op.like]: `%${q}%` } },
-          { datos: { [Op.like]: `%${q}%` } }
+          { datos: { [Op.like]: `%${q}%` } },
+          { ip: { [Op.like]: `%${q}%` } },
+          { id: { [Op.like]: `%${q}%` } }
         ]
       } : {};
 

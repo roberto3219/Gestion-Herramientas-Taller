@@ -151,3 +151,9 @@ header {
     }
   }
 
+
+  .td_descripcion{
+
+    white-space: pre-line;
+    word-wrap: break-word;
+  }

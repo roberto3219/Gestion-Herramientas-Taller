@@ -1,12 +1,11 @@
 // Controlador de productos
-const db = require("../database/models/index.js");
-console.log(db)
+const db = require("../database/models");
 const { Op } = require("sequelize");
 const { validationResult } = require("express-validator");
 const PDFDocument = require("pdfkit-table");
 require("pdfkit");
 console.log("🟢 Modelos disponibles:", Object.keys(db));
-
+console.log("🟢 PrestamosController cargado");
 
 const controller = {
   index: async (req, res) => {
@@ -33,10 +32,37 @@ const controller = {
   create: async (req, res) => {
     try {
         const estudiantes = await db.Estudiante.findAll();
-        const herramientas = await db.Herramienta.findAll();
+        const herramientas = await db.Herramienta.findAll({
+          include: [{ model: db.Prestamos, as: "prestamos", attributes: ["id","cantidad_herramientas", "estado"] }]
+        });
+       /*  console.log("Herramientas obtenidas para create:", JSON.stringify(herramientas, null, 2)); */
+       const herramientasProcesadas = herramientas.map(h => {
+  // prestamos con estado pendiente (no devueltos todavía)
+  console.log("Procesando herramienta ID:", h.id);
+  console.log("Estado asociados:", h.prestamos.map(p => p.estado));
+  const prestamosPendientes = h.prestamos.filter(p => p.estado == "pendiente");
+console.log("Prestamos pendientes:", prestamosPendientes);
+  // sumamos la cantidad de herramientas prestadas
+  const cantidadPrestada = prestamosPendientes.reduce((acc, p) => acc + (p.cantidad_herramientas || 0), 0);
+
+  // calculamos la disponible
+  const cantidadDisponible = h.cantidad - cantidadPrestada;
+
+  return {
+    id: h.id,
+    nombre: h.nombre,
+    categoria: h.categoria,
+    cantidad: h.cantidad,
+    cantidadPrestada,
+    cantidadDisponible,
+    estado: h.estado
+  };
+});
+
+    console.log(herramientasProcesadas + " herramientas procesadas");
       res.render("prestamos/registerPrestamos", {
         usuario: req.session.userLogged,
-        herramientas: herramientas,
+        herramientas: herramientasProcesadas,
         estudiantes: estudiantes,
         errores: null,
         imagen: null,

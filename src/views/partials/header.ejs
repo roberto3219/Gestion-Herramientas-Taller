@@ -14,7 +14,7 @@
     <a href="/usosInsumos" class="btn btn-light btn-sm">Usos de insumos</a>
     <a href="/users/" class="btn btn-light btn-sm">Usuarios</a>
     <a href="/users/profile" class="btn btn-light btn-sm m-2"><span class="me-2">Hola, <%= usuario.nombre %>!</span>
-      <img src="<%= usuario.imagen ? '/images/users/' + usuario.imagen : '/images/users/default-user.png' %>" alt="Avatar" class="rounded-circle" width="30" height="30">
+      <img src="<%= usuario.img_user ? '/img/users/' + usuario.img_user : '/img/users/default-user.png' %>" alt="Avatar" class="rounded-circle" width="30" height="30">
 </a>
     <% } %>
   </nav>

@@ -44,6 +44,11 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: true,
             defaultValue: "Sin observaciones"
         },
+        retraso:{
+            type: DataTypes.BOOLEAN,
+            allowNull: false,
+            defaultValue: false
+        }
     }
     config = {
         tableName : "prestamos",

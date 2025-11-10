@@ -3,52 +3,56 @@
     <%- include('../partials/head') %>
 <body>
     <%- include('../partials/header') %>
-<h2>Registrar uso de insumo</h2>
+    <div class="container mt-4">
+      <h2 class="mb-3">Registrar uso de insumo</h2>
+      <form action="/usosInsumos/store" method="POST">
+        <div class="mb-3">
+          <label for="insumo">Insumo</label>
+          <select name="insumo_id" id="insumo" class="form-control" required>
+            <summary>Seleccione</summary>
+            <option value="">Seleccione:</option>
+            <% insumos.forEach(insumo => { %>
+              <option value="<%= insumo.id_insumo %>"><%= insumo.nombre %> - <%= insumo.cantidad %></option>
+            <% }) %>
+          </select>
+        </div>
+      
+        <div class="mb-3">
+          <label for="alumno">Estudiante</label>
+          <select name="estudiante_id" id="alumno" class="form-control" required>
+              <% alumnos.forEach(alumno => { %>
+                  <option value="<%= alumno.id %>"><%= alumno.nombre %></option>
+              <% }) %>
+          </select>
+        </div>
+      
+      <div class="mb-3">
+        <label for="profesor">Profesor</label>
+        <input type="text" name="profesor_encargado" class="form-control" required id="profesor">
+      </div>
+      
+        <div class="mb-3">
+          <% if(error != undefined){ %>
+          <p style="color: red;"><%= 
+              error
+            %></p>
+            <% } %>
+          <label for="cantidad">Cantidad usada</label>
+          <input type="number" name="cantidad_usada" class="form-control" required>
+        </div>
+      
+        <div class="mb-3">
+          <label for="descripcion">Descripción</label>
+          <textarea name="descripcion" class="form-control"></textarea>
+        </div>
+      
+        <button type="submit" class="btn btn-success">Guardar</button>
+        <a href="/usosInsumos" class="btn btn-secondary">Cancelar</a>
+      </form>
+      
 
-<form action="/usosInsumos/store" method="POST">
-  <div class="mb-3">
-    <label for="insumo">Insumo</label>
-    <select name="insumo_id" id="insumo" class="form-control" required>
-      <summary>Seleccione</summary>
-      <option value="">Seleccione:</option>
-      <% insumos.forEach(insumo => { %>
-        <option value="<%= insumo.id_insumo %>"><%= insumo.nombre %> - <%= insumo.cantidad %></option>
-      <% }) %>
-    </select>
-  </div>
+    </div>
 
-  <div class="mb-3">
-    <label for="alumno">Estudiante</label>
-    <select name="estudiante_id" id="alumno" class="form-control" required>
-        <% alumnos.forEach(alumno => { %>
-            <option value="<%= alumno.id %>"><%= alumno.nombre %></option>
-        <% }) %>
-    </select>
-  </div>
-
-<div class="mb-3">
-  <label for="profesor">Profesor</label>
-  <input type="text" name="profesor_encargado" class="form-control" required id="profesor">
-</div>
-
-  <div class="mb-3">
-    <% if(error != undefined){ %>
-    <p style="color: red;"><%= 
-        error
-      %></p>
-      <% } %>
-    <label for="cantidad">Cantidad usada</label>
-    <input type="number" name="cantidad_usada" class="form-control" required>
-  </div>
-
-  <div class="mb-3">
-    <label for="descripcion">Descripción</label>
-    <textarea name="descripcion" class="form-control"></textarea>
-  </div>
-
-  <button type="submit" class="btn btn-success">Guardar</button>
-  <a href="/usosInsumos" class="btn btn-secondary">Cancelar</a>
-</form>
 
 </body>
 </html>

@@ -26,6 +26,7 @@
         <th>Profesor</th>
         <th>Fecha Préstamo</th>
         <th>Fecha Devolución</th>
+        <th>Fecha Devolucion Estimada</th>
         <th>Estado</th>
         <% if(usuario){ %>
           <!--  != 3 && usuario.role_id != 2 -->
@@ -42,9 +43,46 @@
           <td><%= p.estudiantes.nombre %></td>
           <td><%= p.herramientas.nombre %></td>
           <td><%= p.profesor_encargado %></td>
-          <td><%= p.fecha_prestamo %></td>
-          <td><%= p.fecha_devolucion_real %></td>
           <td>
+  <% if (p.fecha_prestamo) { %>
+    <%= new Date(p.fecha_prestamo).toLocaleString("es-AR", {
+      day: "2-digit",
+      month: "2-digit",
+      year: "numeric",
+      hour: "2-digit",
+      minute: "2-digit"
+    }) %>
+  <% } else { %>
+    -
+  <% } %>
+</td>
+<td>
+  <% if (p.fecha_devolucion_real) { %>
+    <%= new Date(p.fecha_devolucion_real).toLocaleString("es-AR", {
+      day: "2-digit",
+      month: "2-digit",
+      year: "numeric",
+      hour: "2-digit",
+      minute: "2-digit"
+    }) %>
+  <% } else { %>
+    -
+  <% } %>
+</td>   
+<td>
+  <% if (p.fecha_devolucion_estimada) { %>
+    <%= new Date(p.fecha_devolucion_estimada).toLocaleString("es-AR", {
+      day: "2-digit",
+      month: "2-digit",
+      year: "numeric",
+      hour: "2-digit",
+      minute: "2-digit"
+    }) %>
+  <% } else { %>
+    -
+  <% } %>
+</td>
+<td>
             <% if(p.estado === 'Devuelto'){ %>
               <span class="badge bg-success">Devuelto</span>
             <% } else { %>

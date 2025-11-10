@@ -2,38 +2,56 @@
 <html lang="en">
     <%- include('../partials/head') %>
 <body>
-    
     <%- include('../partials/header') %>
-<h2>Registro de Usos de Insumos</h2>
+<div class="mt-4">
+  <div class="container">
+    <h2 class="mb-4">Lista de  Usos de Insumos</h2>
 
-<a href="/usosInsumos/create" class="btn btn-primary">Registrar nuevo uso</a>
+    <form action="/usosInsumos" class="d-flex mb-3" method="post">
+      <input type="search" name="q" class="form-control me-2" placeholder="Buscar uso por insumo, estudiante o profesor">
+      <button type="submit" class="btn btn-outline-primary">Buscar</button>
+    </form>
+    <div class="button_sd" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2opx;">
+      <a href="/usosInsumos/create" class="btn btn-primary">Registrar nuevo uso</a>
+      <form action="/usosInsumos/reportePDF" method="post">
+        <input type="submit" value="Generar Reporte PDF" class="btn btn-danger mb-3">
+      </form>      
+    </div>
+  </div>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>Insumo</th>
-      <th>Estudiante</th>
-      <th>Profesor Encargado</th>
-      <th>Cantidad usada</th>
-      <th>Descripción</th>
-      <th>Fecha</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% usos.forEach(uso => { %>
-      <tr>
-        <td><%= uso.id %></td>
-        <td><%= uso.insumos.nombre %></td>
-        <td><%= uso.estudiantes.nombre %></td>
-        <td><%= uso.profesor_encargado %></td>
-        <td><%= uso.cantidad_usada %></td>
-        <td><%= uso.descripcion %></td>
-        <td><%= new Date(uso.fecha_uso).toLocaleString() %></td>
-      </tr>
-    <% }) %>
-  </tbody>
-</table>
+  <div class="table-responsive">
+
+    <table class="table table-hover table-bordered">
+      <thead class="table-dark">
+        <tr>
+          <th>ID</th>
+          <th>Insumo</th>
+          <th>Estudiante</th>
+          <th>Profesor Encargado</th>
+          <th>Cantidad usada</th>
+          <th>Descripción</th>
+          <th>Fecha</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% usos.forEach(uso => { %>
+          <tr>
+            <td><%= uso.id %></td>
+            <td><%= uso.insumos.nombre %></td>
+            <td><%= uso.estudiantes.nombre %></td>
+            <td><%= uso.profesor_encargado %></td>
+            <td><%= uso.cantidad_usada %></td>
+            <td class="td_descripcion" style="max-width: 200px;"><%= uso.descripcion %></td>
+            <td style="width: 100px;"><%= new Date(uso.fecha_uso).toLocaleString() %></td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+
+  </div>  
+</div>
+
+
 
 </body>
 </html>

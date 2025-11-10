@@ -7,7 +7,7 @@ const { validationResult } = require("express-validator");
 const { reportePDF } = require("./prestamosController.js");
 const PDFDocument = require("pdfkit-table");
 require("pdfkit");
-
+console.log("🟢 Modelos disponibles:", Object.keys(db));
 const controller = {
   detail: async (req, res) => {
     try {
@@ -31,12 +31,20 @@ const controller = {
       as: "prestamos",
       attributes: ["id", "cantidad_herramientas", "estado"]
     }
-  ]
+  ],
+    order:[["id", "ASC"]]
+  
       });
+/*       console.log("Herramientas obtenidas:", JSON.stringify(herramientas, null, 2));
+ */
+     /*  console.log("Herramientas con prestamos cargados:....------------------------------------")
+      console.log(herramientas) */
        const herramientasProcesadas = herramientas.map(h => {
   // prestamos con estado pendiente (no devueltos todavía)
-  const prestamosPendientes = h.prestamos.filter(p => p.estado === "Pendiente");
-
+  /* console.log("Procesando herramienta ID:", h.id);
+  console.log("Estado asociados:", h.prestamos.map(p => p.estado));
+   */const prestamosPendientes = h.prestamos.filter(p => p.estado == "pendiente");
+/* console.log("Prestamos pendientes:", prestamosPendientes); */
   // sumamos la cantidad de herramientas prestadas
   const cantidadPrestada = prestamosPendientes.reduce((acc, p) => acc + (p.cantidad_herramientas || 0), 0);
 
@@ -53,9 +61,9 @@ const controller = {
     estado: h.estado
   };
 });
-      console.log("Herramientas procesadas:....------------------------------------")
+      /* console.log("Herramientas procesadas:....------------------------------------")
       console.log(herramientasProcesadas)
-      
+       */
       res.render("herramientas/listTools", {
         herramientas: herramientasProcesadas,
         usuario: req.session.userLogged,
