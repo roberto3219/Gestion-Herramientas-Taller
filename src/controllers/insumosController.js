@@ -45,6 +45,7 @@ const controller = {
     },
     store: async (req, res) => {
         try {
+            console.log(req.body);
             await db.Insumo.create({
                 nombre: req.body.nombre,
                 descripcion: req.body.descripcion,
@@ -94,15 +95,15 @@ const controller = {
                 title: "Reporte de Insumos " + new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString(),
                 headers: [
                     { label:"ID", property: "id_insumo", width:30, renderer:null, headerColor: "blue", headerOpacity: 0.5, align: "center"},
-                    { label: "Nombre", property: "nombre", width:150 },
-                    { label: "Descripcion", property: "descripcion", width:200},
-                    { label: "Cantidad", property: "cantidad", width:70, align: "right"},
-                    { label: "Unidad", property: "unidad", width:70, align: "right"},
-                    { label: "Ubicacion", property: "ubicacion", width:100},
-                    { label: "Estado", property: "estado", width:80, align: "center"},
+                    { label: "Nombre", property: "nombre", width:50 },
+                    { label: "Descripcion", property: "descripcion", width:140},
+                    { label: "Cantidad", property: "cantidad", width:50, align: "right"},
+                    { label: "Unidad", property: "unidad", width:40, align: "right"},
+                    { label: "Ubicacion", property: "ubicacion", width:100, align: "center"},
+                    { label: "Estado", property: "estado", width:40, align: "center"},
                     { label: "Fecha de Ingreso", property: "fecha_ingreso", width:100, renderer: (value) => {
                         return new Date(value).toLocaleDateString();
-                    } }
+                    }, align: "center"},
                 ],
                 datas: insumos.map((e) => ({
                     id_insumo: e.id_insumo,

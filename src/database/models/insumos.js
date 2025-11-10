@@ -18,6 +18,19 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       defaultValue: 0,
     },
+    unidad: {
+      type: DataTypes.STRING(50),
+      allowNull: false,
+    },
+    ubicacion: {
+      type: DataTypes.STRING(100),
+      allowNull: true,
+    },
+    fecha_ingreso: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      defaultValue: DataTypes.NOW,
+    },
     estado: {
       type: DataTypes.STRING(20),
       allowNull: false,

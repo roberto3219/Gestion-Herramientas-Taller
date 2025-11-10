@@ -102,8 +102,8 @@ const controller = {
           
           await req.logAction('Iniciar sesión', { userId: usuario.id, email: usuario.email });
 
-          console.log(req.session.userLogged)
-          res.redirect("/");
+/*           console.log(req.session.userLogged)
+ */          res.redirect("/");
         } else {
           res.render("users/login", {
             old: req.body,

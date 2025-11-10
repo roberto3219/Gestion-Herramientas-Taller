@@ -118,7 +118,7 @@ require("pdfkit");
       title: "Reporte de Usos de Insumos" + new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString(),
       headers: [
         { label: "ID", property: "id", width: 30, align: "center",renderer: null ,headerColor: "blue", headerOpacity: 0.5},
-        { label: "Insumo", property: "insumo", width: 100 },
+        { label: "Insumo", property: "insumo", width: 70, align: "center" },
         { label: "Estudiante", property: "estudiante", width: 100 },
         { label: "Profesor Encargado", property: "profesor_encargado", width: 100 },
         { label: "Cantidad Usada", property: "cantidad_usada", width: 80 },

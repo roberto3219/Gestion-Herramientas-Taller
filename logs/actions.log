@@ -518,3 +518,37 @@
 2025-11-08T21:23:09.468Z | userId:10 | user:dsadsad | ruta:/users/login | accion:Iniciar sesión | ip:::1 | datos:{"userId":10,"email":"c@gmail.com"}
 2025-11-10T15:18:07.158Z | userId:anon | user:anon | ruta:/users/login | accion:POST /users/login | ip:::1 | datos:{"body":{"email":"c@gmail.com","password":"12345678"}}
 2025-11-10T15:18:07.267Z | userId:10 | user:dsadsad | ruta:/users/login | accion:Iniciar sesión | ip:::1 | datos:{"userId":10,"email":"c@gmail.com"}
+2025-11-10T15:25:33.797Z | userId:anon | user:anon | ruta:/users/login | accion:POST /users/login | ip:::1 | datos:{"body":{"email":"c@gmail.com","password":"12345678"}}
+2025-11-10T15:25:33.861Z | userId:10 | user:dsadsad | ruta:/users/login | accion:Iniciar sesión | ip:::1 | datos:{"userId":10,"email":"c@gmail.com"}
+2025-11-10T15:29:49.709Z | userId:anon | user:anon | ruta:/insumos/reportes | accion:POST /insumos/reportes | ip:::1 | datos:{"body":{}}
+2025-11-10T15:29:49.747Z | userId:anon | user:anon | ruta:/insumos/reportes | accion:Generar reporte PDF de insumos | ip:::1 | datos:{"totalInsumos":2}
+2025-11-10T15:29:59.034Z | userId:anon | user:anon | ruta:/users/login | accion:POST /users/login | ip:::1 | datos:{"body":{"email":"c@gmail.com","password":"12345678"}}
+2025-11-10T15:29:59.092Z | userId:10 | user:dsadsad | ruta:/users/login | accion:Iniciar sesión | ip:::1 | datos:{"userId":10,"email":"c@gmail.com"}
+2025-11-10T15:30:02.001Z | userId:10 | user:dsadsad | ruta:/insumos/reportes | accion:POST /insumos/reportes | ip:::1 | datos:{"body":{}}
+2025-11-10T15:30:02.010Z | userId:10 | user:dsadsad | ruta:/insumos/reportes | accion:Generar reporte PDF de insumos | ip:::1 | datos:{"totalInsumos":2}
+2025-11-10T15:31:25.585Z | userId:10 | user:dsadsad | ruta:/insumos/add | accion:POST /insumos/add | ip:::1 | datos:{"body":{"nombre":"Cables","descripcion":"hola buenas esta es solo una descripcion del producto, el que quiere agregue","cantidad":"61","unidad":"10cm","ubicacion":"en el sotano"}}
+2025-11-10T15:31:25.593Z | userId:10 | user:dsadsad | ruta:/insumos/add | accion:Crear insumo | ip:::1 | datos:{"nombre":"Cables"}
+2025-11-10T15:32:01.104Z | userId:10 | user:dsadsad | ruta:/insumos/4/edit | accion:POST /insumos/4/edit | ip:::1 | datos:{"body":{"nombre":"Cables","descripcion":"hola buenas esta es solo una descripcion del producto, el que quiere agregue","cantidad":"61","estado":"disponible"}}
+2025-11-10T15:32:01.109Z | userId:10 | user:dsadsad | ruta:/insumos/4/edit | accion:Actualizar insumo | ip:::1 | datos:{"id":"4","nombre":"Cables"}
+2025-11-10T15:35:20.570Z | userId:anon | user:anon | ruta:/insumos/add | accion:POST /insumos/add | ip:::1 | datos:{"body":{"nombre":"tornillos","descripcion":"dasdasd","cantidad":"100","unidad":"5gr","ubicacion":"en el sotano"}}
+2025-11-10T15:35:20.595Z | userId:anon | user:anon | ruta:/insumos/add | accion:Crear insumo | ip:::1 | datos:{"nombre":"tornillos"}
+2025-11-10T15:36:01.419Z | userId:anon | user:anon | ruta:/insumos/add | accion:POST /insumos/add | ip:::1 | datos:{"body":{"nombre":"tuerca","descripcion":"dasdad","cantidad":"43","unidad":"10cm","ubicacion":"en el sotano"}}
+2025-11-10T15:36:01.446Z | userId:anon | user:anon | ruta:/insumos/add | accion:Crear insumo | ip:::1 | datos:{"nombre":"tuerca"}
+2025-11-10T15:39:57.293Z | userId:anon | user:anon | ruta:/users/login | accion:POST /users/login | ip:::1 | datos:{"body":{"email":"c@gmail.com","password":"12345678"}}
+2025-11-10T15:39:57.355Z | userId:10 | user:dsadsad | ruta:/users/login | accion:Iniciar sesión | ip:::1 | datos:{"userId":10,"email":"c@gmail.com"}
+2025-11-10T15:41:34.581Z | userId:anon | user:anon | ruta:/insumos/add | accion:POST /insumos/add | ip:::1 | datos:{"body":{"nombre":"castaño","descripcion":"sdadsada","cantidad":"12","unidad":"20cm","ubicacion":"1dasfsfv"}}
+2025-11-10T15:41:34.606Z | userId:anon | user:anon | ruta:/insumos/add | accion:Crear insumo | ip:::1 | datos:{"nombre":"castaño"}
+2025-11-10T15:44:44.847Z | userId:anon | user:anon | ruta:/insumos/reportes | accion:POST /insumos/reportes | ip:::1 | datos:{"body":{}}
+2025-11-10T15:44:44.889Z | userId:anon | user:anon | ruta:/insumos/reportes | accion:Generar reporte PDF de insumos | ip:::1 | datos:{"totalInsumos":6}
+2025-11-10T15:45:49.163Z | userId:anon | user:anon | ruta:/insumos/reportes | accion:POST /insumos/reportes | ip:::1 | datos:{"body":{}}
+2025-11-10T15:45:49.223Z | userId:anon | user:anon | ruta:/insumos/reportes | accion:Generar reporte PDF de insumos | ip:::1 | datos:{"totalInsumos":6}
+2025-11-10T15:46:32.777Z | userId:anon | user:anon | ruta:/insumos/reportes | accion:POST /insumos/reportes | ip:::1 | datos:{"body":{}}
+2025-11-10T15:46:32.825Z | userId:anon | user:anon | ruta:/insumos/reportes | accion:Generar reporte PDF de insumos | ip:::1 | datos:{"totalInsumos":6}
+2025-11-10T15:47:21.561Z | userId:anon | user:anon | ruta:/insumos/reportes | accion:POST /insumos/reportes | ip:::1 | datos:{"body":{}}
+2025-11-10T15:47:21.614Z | userId:anon | user:anon | ruta:/insumos/reportes | accion:Generar reporte PDF de insumos | ip:::1 | datos:{"totalInsumos":6}
+2025-11-10T15:47:57.486Z | userId:anon | user:anon | ruta:/users/login | accion:POST /users/login | ip:::1 | datos:{"body":{"email":"c@gmail.com","password":"12345678"}}
+2025-11-10T15:47:57.546Z | userId:10 | user:dsadsad | ruta:/users/login | accion:Iniciar sesión | ip:::1 | datos:{"userId":10,"email":"c@gmail.com"}
+2025-11-10T15:48:01.303Z | userId:10 | user:dsadsad | ruta:/usosInsumos/reportePDF | accion:POST /usosInsumos/reportePDF | ip:::1 | datos:{"body":{}}
+2025-11-10T15:48:01.317Z | userId:10 | user:dsadsad | ruta:/usosInsumos/reportePDF | accion:Generar reporte PDF de usos de insumos | ip:::1 | datos:{"totalUsos":4}
+2025-11-10T15:49:03.031Z | userId:anon | user:anon | ruta:/usosInsumos/reportePDF | accion:POST /usosInsumos/reportePDF | ip:::1 | datos:{"body":{}}
+2025-11-10T15:49:03.085Z | userId:anon | user:anon | ruta:/usosInsumos/reportePDF | accion:Generar reporte PDF de usos de insumos | ip:::1 | datos:{"totalUsos":4}
