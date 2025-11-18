@@ -1,6 +1,7 @@
 const db = require('../database/models');
 const { Op } = require('sequelize');
-const { search } = require('./insumosController');
+const PDFDocument = require('pdfkit-table');
+require('pdfkit');
 
 module.exports = {
   // lista con busqueda por usuario_nombre, accion, ruta, fecha
@@ -55,70 +56,100 @@ module.exports = {
       res.status(500).json({ error: 'Error' });
     }
   },
-  reportePDF: async (req, res) => {
-    const logs = await db.AuditLog.findAll({
-      order: [['created_at', 'DESC']]
+reportePDF: async (req, res) => {
+  const logs = await db.AuditLog.findAll();
+
+  const PDFDocument = require("pdfkit");
+  const doc = new PDFDocument({
+    size: "A4",
+    margin: 40
+  });
+
+  let buffers = [];
+  doc.on("data", buffers.push.bind(buffers));
+  doc.on("end", () => {
+    let pdfData = Buffer.concat(buffers);
+    res.setHeader("Content-Disposition", "attachment; filename=reporte_audit_logs.pdf");
+    res.setHeader("Content-Type", "application/pdf");
+    res.send(pdfData);
+  });
+
+  // --- TÍTULO ---
+  doc.fontSize(16).text("Reporte de Audit Logs", { align: "center" });
+  doc.moveDown(1);
+
+  // --- CONFIG TABLA ---
+  const columnWidths = [30, 60, 80, 70, 90, 150, 50, 50];
+  const startX = 40;
+  let y = doc.y;
+
+  // --- DIBUJAR HEADERS ---
+  doc.font("Helvetica-Bold").fontSize(9);
+
+  const headers = [
+    "ID", "Usuario",
+    "Nombre Usuario",
+    "Acción", "Ruta", "Datos", "IP", "Fecha"
+  ];
+
+  headers.forEach((h, i) => {
+    doc.text(h, startX + columnWidths.slice(0, i).reduce((a, b) => a + b, 0), y, {
+      width: columnWidths[i]
+    });
+  });
+
+  y += 20;
+
+  doc.font("Helvetica").fontSize(8);
+
+  // --- FUNCIÓN PARA CREAR PÁGINA Y REDIBUJAR HEADER ---
+  const nuevaPagina = () => {
+    doc.addPage();
+    y = 50;
+
+    doc.font("Helvetica-Bold").fontSize(9);
+    headers.forEach((h, i) => {
+      doc.text(h, startX + columnWidths.slice(0, i).reduce((a, b) => a + b, 0), y, {
+        width: columnWidths[i]
+      });
     });
 
-    const doc = new PDFDocument({margin: 10, size: "A4"});
-    let filename = "reporte_audit_logs.pdf";
+    y += 20;
+    doc.font("Helvetica").fontSize(8);
+  };
 
-    let buffers = [];
-    doc.on('data', buffers.push.bind(buffers));
-    doc.on('end', () => {
-      let pdfData = Buffer.concat(buffers);
-      res
-        .writeHead(200, {
-          'Content-Length': Buffer.byteLength(pdfData),
-          'Content-Type': 'application/pdf',
-          'Content-Disposition': `attachment;filename=${filename}`,
-        })
-        .end(pdfData);
+  // --- FILAS ---
+  for (let log of logs) {
+    const rowHeight = 40;
+
+    // Si no entra en la página, hacemos nueva
+    if (y + rowHeight > doc.page.height - 40) {
+      nuevaPagina();
+    }
+
+    const row = [
+      log.id ?? "-",
+      log.usuario_id ?? "-",
+      log.usuario_nombre ?? "-",
+      log.accion ?? "-",
+      log.ruta ?? "-",
+      log.datos ?? "-",
+      log.ip ?? "-",
+      log.created_at
+        ? new Date(log.created_at).toLocaleString()
+        : "-"
+    ];
+
+    row.forEach((cell, i) => {
+      doc.text(cell, startX + columnWidths.slice(0, i).reduce((a, b) => a + b, 0), y, {
+        width: columnWidths[i]
+      });
     });
-    const table = {
-      title: "Reporte de Audit Logs" + new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString(),
-      headers: [
-        { label: "ID", property: "id", width: 30, align: "center" },
-        { label: "Usuario", property: "usuario_nombre", width: 100 },
-        { label: "Acción", property: "accion", width: 100 },
-        { label: "Ruta", property: "ruta", width: 100 },
-        { label: "Datos", property: "datos", width: 150 },
-        { label: "IP", property: "ip", width: 80, align: "center" },
-        { label: "Fecha", property: "created_at", width: 100, renderer: (value) => {
-            return new Date(value).toLocaleString();
-          }, align: "center" },
-      ],
-      datas: logs.map((e) => ({
-        id: e.id,
-        usuario_nombre: e.usuario_nombre,
-        accion: e.accion,
-        ruta: e.ruta,
-        datos: e.datos,
-        ip: e.ip,
-        created_at: e.created_at,
-      })),
-    };
-    await doc.table(table, {
-      prepareHeader: () => doc.font("Helvetica-Bold").fontSize(8),
-      prepareRow: (row, i) => doc.font("Helvetica").fontSize(8),
-    });
-    doc.end();
-    await req.logAction('Generar reporte PDF de audit logs', { totalLogs: logs.length });
-  },
-  search : async (query) => {
-    return await db.AuditLog.findAll({
-      where: {
-        [Op.or]: [
-          { usuario_nombre: { [Op.like]: `%${query}%` } },
-          { accion: { [Op.like]: `%${query}%` } },
-          { ruta: { [Op.like]: `%${query}%` } },
-          { datos: { [Op.like]: `%${query}%` } },
-          { ip: { [Op.like]: `%${query}%` } },
-          { id: { [Op.like]: `%${query}%` } }
-        ]
-      },
-      order: [['created_at','DESC']]
-    });
+
+    y += rowHeight;
   }
+
+  doc.end();
+}
 
 };

@@ -79,7 +79,7 @@ const controller = {
           fecha_prestamo: Date.now(),
           fecha_devolucion_estimada: req.body.fecha_devolucion,
           fecha_devolucion_real: null,
-          estado: "Pendiente",
+          estado: "pendiente",
           observaciones: req.body.observaciones,
         });
 
@@ -135,7 +135,40 @@ const controller = {
           id: id,
         },
       });
+      
       if (errores.isEmpty()) {
+
+        const id = req.params.id;
+      const prestamo = await db.Prestamos.findByPk(id);
+        
+         const herramienta = await db.Herramienta.findByPk(req.body.herramienta, {
+        include: [{ model: db.Prestamos, as: "prestamos" }]
+      });
+
+
+        // calcular cantidad ya prestada
+      const cantidadPrestada = herramienta.prestamos
+        .filter(p => p.estado === "Pendiente")
+        .reduce((acc, p) => acc + (p.cantidad_herramientas || 0), 0);
+
+      const cantidadDisponible = herramienta.cantidad - cantidadPrestada;
+      if(cantidadDisponible == 0){
+        mensajeHerramientasCero = `No hay herramientas disponibles`;
+      }else{
+        mensajeHerramientasCero = `No hay suficientes herramientas disponibles. solo quedan ${cantidadDisponible}`
+      }
+
+      if (req.body.cantidad > cantidadDisponible) {
+        return res.render("prestamos/editarPrestamos", {
+          prestamo: prestamo,
+          usuario: req.session.userLogged,
+          herramientas: await db.Herramienta.findAll(),
+          alumnos: await db.Estudiante.findAll(),
+          errores: { cantidad: { msg: mensajeHerramientasCero } },
+          old: req.body
+        });
+      }
+
         console.log(req.body.fecha_devolucion_estimada + " fecha devolucion estimada")
         console.log(req.body.fecha_prestamo + " fecha prestamo" )
         await db.Prestamos.update(
@@ -156,6 +189,10 @@ const controller = {
             },
           }
         );
+
+
+
+          await req.logAction('Actualizar préstamo', { id: id, estudiante_id: req.body.alumno_id, herramientas_id: req.body.herramienta });
         res.redirect("/prestamos");
       } else {
         res.render("prestamos/registerPrestamos", {

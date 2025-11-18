@@ -40,14 +40,14 @@ const controller = {
   // prestamos con estado pendiente (no devueltos todavía)
   console.log("Procesando herramienta ID:", h.id);
   console.log("Estado asociados:", h.prestamos.map(p => p.estado));
-  const prestamosPendientes = h.prestamos.filter(p => p.estado == "pendiente");
+  const prestamosPendientes = h.prestamos.filter(p => p.estado.toLowerCase() == "pendiente");
 console.log("Prestamos pendientes:", prestamosPendientes);
   // sumamos la cantidad de herramientas prestadas
   const cantidadPrestada = prestamosPendientes.reduce((acc, p) => acc + (p.cantidad_herramientas || 0), 0);
 
   // calculamos la disponible
   const cantidadDisponible = h.cantidad - cantidadPrestada;
-
+  console.log(cantidadDisponible + " cantidad disponible para herramienta ID " + h.id);
   return {
     id: h.id,
     nombre: h.nombre,
@@ -94,14 +94,35 @@ console.log("Prestamos pendientes:", prestamosPendientes);
       }
 
       if (req.body.cantidad > cantidadDisponible) {
-        return res.render("prestamos/registerPrestamos", {
-          usuario: req.session.userLogged,
-          herramientas: await db.Herramienta.findAll(),
-          estudiantes: await db.Estudiante.findAll(),
-          errores: { cantidad: { msg: mensajeHerramientasCero } },
-          old: req.body
-        });
-      }
+
+  const herramientasDB = await db.Herramienta.findAll({
+    include: [{ model: db.Prestamos, as: "prestamos" }]
+  });
+
+  const herramientasProcesadas = herramientasDB.map(h => {
+    const prestamosPendientes = h.prestamos.filter(p => p.estado === "Pendiente");
+    const cantidadPrestada = prestamosPendientes.reduce((acc, p) => acc + (p.cantidad_herramientas || 0), 0);
+    const cantidadDisponible = h.cantidad - cantidadPrestada;
+
+    return {
+      id: h.id,
+      nombre: h.nombre,
+      categoria: h.categoria,
+      cantidad: h.cantidad,
+      cantidadPrestada,
+      cantidadDisponible,
+      estado: h.estado
+    };
+  });
+
+  return res.render("prestamos/registerPrestamos", {
+    usuario: req.session.userLogged,
+    herramientas: herramientasProcesadas,
+    estudiantes: await db.Estudiante.findAll(),
+    errores: { cantidad: { msg: mensajeHerramientasCero } },
+    old: req.body
+  });
+}
 
         await db.Prestamos.create({
           estudiante_id: req.body.estudiante,

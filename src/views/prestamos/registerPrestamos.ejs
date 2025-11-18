@@ -20,13 +20,12 @@
       <select class="form-select" id="herramienta" name="herramienta" required>
         <option value="">Seleccione una herramienta</option>
         <% herramientas.forEach(h => { %>
-          <option value="<%= h.id %>"><%= h.nombre %> - <%= h.cantidadDisponible %></option>
+          <option value="<%= h.id %>"><%= h.nombre %> </option>
         <% }) %>
       </select>
     </div>
-<% herramientas.forEach(h => { %>
-          <p value="<%= h.id %>"><%= h.nombre %> - <%= h.cantidadPrestada %></p>
-        <% }) %>
+
+
     <div class="mb-3">
       <label for="profesor" class="form-label">Profesor a cargo</label>
       <input type="text" class="form-control" id="profesor" name="profesor" placeholder="Designe a un Profesor" required>

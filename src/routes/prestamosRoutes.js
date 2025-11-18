@@ -17,7 +17,7 @@ router.get("/", prestamosController.index);
 router.get("/add", prestamosController.create);
 router.post("/add" ,checkStockMiddleware,prestamosController.store); 
 router.get("/:id/editar", prestamosController.editar);
-router.post("/:id/editar",checkStockMiddleware, prestamosController.actualizar);
+router.post("/:id/editar", prestamosController.actualizar);
 /*
 router.get("/:id/eliminar", prestamosController.borrar);
 router.post("/reporte", prestamosController.reportePDF); 

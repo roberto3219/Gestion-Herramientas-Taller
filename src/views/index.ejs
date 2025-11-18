@@ -93,7 +93,7 @@
                   <% if(usuario.role_id){  %>
 
           <td>
-              <% if(p.estado == "Pendiente") {%>
+              <% if(p.estado == "Pendiente" || p.estado == "pendiente") {%>
             <form action="/<%= p.id%>/devolver" method="post">
               <input type="hidden" name="id" value="<%= p.id %>">
               <input type="submit" value="Devolver" class="btn btn-primary">

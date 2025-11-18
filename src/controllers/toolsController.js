@@ -43,7 +43,7 @@ const controller = {
   // prestamos con estado pendiente (no devueltos todavía)
   /* console.log("Procesando herramienta ID:", h.id);
   console.log("Estado asociados:", h.prestamos.map(p => p.estado));
-   */const prestamosPendientes = h.prestamos.filter(p => p.estado == "pendiente");
+   */const prestamosPendientes = h.prestamos.filter(p => p.estado == "pendiente" || p.estado == "Pendiente");
 /* console.log("Prestamos pendientes:", prestamosPendientes); */
   // sumamos la cantidad de herramientas prestadas
   const cantidadPrestada = prestamosPendientes.reduce((acc, p) => acc + (p.cantidad_herramientas || 0), 0);

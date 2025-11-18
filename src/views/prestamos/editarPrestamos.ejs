@@ -25,6 +25,14 @@
     </div>
 
     <div class="mb-3">
+      <% if(errores){ %>
+          <ul>
+            <p style="color: red;"> 
+              <%= errores.cantidad.msg %>
+            </p>
+          </ul>
+        
+      <% } %>  
       <label class="form-label">Cantidad de Herramientas</label>
       <input type="number" class="form-control" name="cantidad" value="<%= prestamo.cantidad_herramientas %>">
     </div>
@@ -36,32 +44,14 @@
 
     <div class="mb-3">
       <label class="form-label">Fecha de Préstamo</label>
-      <input type="datetime" class="form-control" name="fecha_prestamo" value="<% if (prestamo.fecha_prestamo) { %>
-    <%= new Date(prestamo.fecha_prestamo).toLocaleString('es-AR', {
-      month: '2-digit',
-      day: '2-digit',
-      year: 'numeric',
-      hour: '2-digit',
-      minute: '2-digit'
-    }) %>
-  <% } else { %>
-    -
-  <% } %>" placeholder="MM/DD/YYYY HH:MM">
+      <input type="datetime" class="form-control" name="fecha_prestamo" value="
+    <%= prestamo.fecha_prestamo %>" placeholder="MM/DD/YYYY HH:MM">
     </div>
 
     <div class="mb-3">
       <label class="form-label">Fecha de Devolución</label>
-      <input type="datetime" class="form-control" name="fecha_devolucion_estimada" value= "<% if (prestamo.fecha_devolucion_estimada) { %>
-    <%= new Date(prestamo.fecha_devolucion_estimada).toLocaleString('es-AR', {
-      month: '2-digit',
-      day: '2-digit',
-      year: 'numeric',
-      hour: '2-digit',
-      minute: '2-digit'
-    }) %>
-  <% } else { %>
-    -
-  <% } %>" placeholder="MM/DD/YYYY HH:MM">
+      <input type="datetime" class="form-control" name="fecha_devolucion_estimada" value= "
+    <%= prestamo.fecha_devolucion_estimada %>" placeholder="MM/DD/YYYY HH:MM">
     </div>
 
     <div class="mb-3">
