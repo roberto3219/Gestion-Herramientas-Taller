@@ -33,6 +33,7 @@ CREATE TABLE users (
   role_id INTEGER,
   bloqueado BOOLEAN DEFAULT FALSE,
   fecha_eliminacion DATETIME NULL,
+  puedeEliminarse BOOLEAN DEFAULT FALSE,
   created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
   updated_at DATETIME DEFAULT CURRENT_TIMESTAMP,
   FOREIGN KEY (role_id) REFERENCES roles(id) ON DELETE SET NULL
@@ -80,6 +81,8 @@ CREATE TABLE prestamos (
   fecha_devolucion_real DATETIME,
   estado VARCHAR(50) DEFAULT 'Pendiente', -- Pendiente | Devuelto | Retrasado
   observaciones TEXT,
+  retraso BOOLEAN DEFAULT False, -- Días de retraso
+  vencido TINYINT DEFAULT 0, -- 0: No vencido, 1: Vencido
   created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
   updated_at DATETIME DEFAULT CURRENT_TIMESTAMP,
   FOREIGN KEY (estudiante_id) REFERENCES estudiantes(id) ON DELETE CASCADE,
@@ -112,17 +115,16 @@ CREATE TABLE insumos (
   estado ENUM('disponible', 'agotado', 'en reparación') DEFAULT 'disponible'
 );
 
-CREATE TABLE asignaciones (
-  id_asignacion INT AUTO_INCREMENT PRIMARY KEY,
-  alumno_id INT NOT NULL,
-  profesor_id INT,
-  herramienta_id INT NOT NULL,
-  fecha_prestamo DATETIME DEFAULT CURRENT_TIMESTAMP,
-  fecha_devolucion DATETIME,
-  estado ENUM('prestado', 'devuelto', 'atrasado') DEFAULT 'prestado',
-  observaciones TEXT,
+CREATE TABLE usos_insumos (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  insumo_id INT NOT NULL,
+  estudiante_id INT NOT NULL,
+  cantidad_usada INT NOT NULL,
+  profesor_encargado STRING(150),
+  descripcion_uso TEXT,
+  fecha_uso DATETIME DEFAULT CURRENT_TIMESTAMP,
+  
 
-  FOREIGN KEY (alumno_id) REFERENCES estudiantes(id),
-  FOREIGN KEY (profesor_id) REFERENCES users(id),
-  FOREIGN KEY (herramienta_id) REFERENCES herramientas(id)
+  FOREIGN KEY (estudiante_id) REFERENCES estudiantes(id),
+  FOREIGN KEY (insumo_id) REFERENCES insumo(id_insumo)
 );
