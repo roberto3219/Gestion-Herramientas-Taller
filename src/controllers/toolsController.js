@@ -64,6 +64,7 @@ const controller = {
       /* console.log("Herramientas procesadas:....------------------------------------")
       console.log(herramientasProcesadas)
        */
+      await req.logAction('Listar herramientas', { totalHerramientas: herramientas.length });
       res.render("herramientas/listTools", {
         herramientas: herramientasProcesadas,
         usuario: req.session.userLogged,
@@ -75,6 +76,7 @@ const controller = {
   },
   create: async (req, res) => {
     try {
+      await req.logAction('Mostrar formulario de creación de herramienta', {  });
       res.render("herramientas/registerHerramientas", {
         usuario: req.session.userLogged,
         imagen: null,
@@ -122,7 +124,7 @@ const controller = {
     try {
       const id = req.params.id;
       const herramienta = await db.Herramienta.findByPk(id);
-
+      await req.logAction('Mostrar formulario de edición de herramienta', { id: herramienta.id, nombre: herramienta.nombre, categoria: herramienta.categoria });
       res.render("herramientas/editTools", {
         usuario: req.session.userLogged,
         herramienta: herramienta,
@@ -193,7 +195,13 @@ const controller = {
       const titulo = req.body.q;
       const Herramienta = await db.Herramienta.findAll({
         where: {
-          nombre: { [Op.like]: `%${titulo}%` },
+          [Op.or]: [
+            { id: { [Op.like]: `%${titulo}%` } },
+            { nombre: { [Op.like]: `%${titulo}%` } },
+            { categoria: { [Op.like]: `%${titulo}%` } },
+            { descripcion: { [Op.like]: `%${titulo}%` } },
+            { estado: { [Op.like]: `%${titulo}%` } },
+          ]
         }
       });
       await req.logAction('Buscar herramienta', { termino: titulo });

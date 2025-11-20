@@ -10,6 +10,7 @@ const controller = {
             const insumos = await db.Insumo.findAll({
                 order: [["nombre", "DESC"]]
             })
+            await req.logAction('Acceder a la lista de insumos', {  });
             res.render("insumos/insumosList",{
                 insumos: insumos,
                 usuario: req.session.userLogged
@@ -23,8 +24,12 @@ const controller = {
             const titulo = req.body.q;
             const insumos = await db.Insumo.findAll({
                 where: {
-                    nombre: {
-                        [Op.like]: `%${titulo}%`
+                    [Op.or]: {
+                        id_insumo: { [Op.like]: `%${titulo}%` },
+                        nombre: { [Op.like]: `%${titulo}%` },
+                        descripcion: { [Op.like]: `%${titulo}%` },
+                        ubicacion: { [Op.like]: `%${titulo}%` },
+                        estado: { [Op.like]: `%${titulo}%` }
                     }
                 }
             });
@@ -38,7 +43,8 @@ const controller = {
             console.log("Error " + e);
         }
     },
-    add: (req, res) => {
+    add: async (req, res) => {
+        await req.logAction('Acceder al formulario de registro de insumo', {  });
         res.render("insumos/registerInsumo", {
             usuario: req.session.userLogged
         });

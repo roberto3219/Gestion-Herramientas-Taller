@@ -6,7 +6,7 @@ const PDFDocument = require("pdfkit-table");
 require("pdfkit");
 console.log("🟢 Modelos disponibles:", Object.keys(db));
 console.log("🟢 PrestamosController cargado");
-
+/* Funciona incorrectamente */
 const controller = {
   index: async (req, res) => {
     try {
@@ -244,6 +244,7 @@ console.log("Prestamos pendientes:", prestamosPendientes);
         ],
         where: {
           [Op.or]: [
+            { id: { [Op.like]: `%${titulo}%` } },
             { '$estudiantes.nombre$': { [Op.like]: `%${titulo}%` } },
             { '$herramientas.nombre$': { [Op.like]: `%${titulo}%` } },
              { profesor_encargado: { [Op.like]: `%${titulo}%` } },

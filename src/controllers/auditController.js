@@ -29,6 +29,7 @@ module.exports = {
         order: [['created_at','DESC']],
         limit, offset
       });
+      await req.logAction('Listar audit logs', { termino: q, pagina: page });
 
       res.render('audit/list', {
         usuario: req.session.userLogged,
@@ -49,6 +50,7 @@ module.exports = {
     try {
       const id = req.params.id;
       const log = await db.AuditLog.findByPk(id);
+      await req.logAction('Ver detalle de audit log', { id: id });
       if (!log) return res.status(404).json({ error: 'No encontrado' });
       res.json(log);
     } catch (err) {
@@ -150,6 +152,7 @@ reportePDF: async (req, res) => {
   }
 
   doc.end();
+  await req.logAction('Generar reporte PDF de audit logs', { total_logs: logs.length });
 }
 
 };

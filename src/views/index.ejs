@@ -9,9 +9,17 @@
   <div class="container mt-4">
   <h2 class="mb-4">Préstamos de Herramientas</h2>
 
+  <% if ( usuario ) { %>
+
+    <% if (prestamosVencidos > 0 && usuario.role_id == 1) { %>
+    <div class="alert alert-danger">
+      ⚠ Hay <%= prestamosVencidos %> préstamos vencidos que pueden eliminarse.
+    </div>
+  <% } %>
+    <% } %>
   <!-- Buscador -->
   <form class="d-flex mb-3" method="POST" action="/">
-    <input class="form-control me-2" type="search" placeholder="Buscar por alumno o herramienta" name="q">
+    <input class="form-control me-2" type="search" placeholder="Buscar por id,alumno, herramienta,profesor o estado" name="q">
     <button class="btn btn-outline-primary" type="submit">Buscar</button>
   </form>
 </div>
@@ -38,7 +46,7 @@
     </thead>
     <tbody>
       <% prestamos.forEach(p => { %>
-        <tr>
+        <tr class="<%= new Date(p.fecha_devolucion_estimada) < new Date() && p.estado == 'pendiente' || p.estado == 'Pendiente' ? 'table-danger' : '' %>">
           <td><%= p.id %></td>
           <td><%= p.estudiantes.nombre %></td>
           <td><%= p.herramientas.nombre %></td>

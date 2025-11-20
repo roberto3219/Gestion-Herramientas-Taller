@@ -10,7 +10,7 @@
 
   <!-- Buscador -->
   <form class="d-flex mb-3" method="POST" action="/insumos">
-    <input class="form-control me-2" type="search" placeholder="Buscar por insumo" name="q">
+    <input class="form-control me-2" type="search" placeholder="Buscar por id,nombre,descripcion,estado y ubicacion" name="q">
     <button class="btn btn-outline-primary" type="submit">Buscar</button>
   </form>
 
@@ -67,8 +67,7 @@
   <div class="modal-box animate">
     <h3 class="modal-title">Editar Insumo</h3>
     <form id="formEditarInsumo">
-      <label for="">ID</label>
-      <input type="text" id="editarId">
+      <input type="hidden" id="editarId">
 
       <div class="form-group">
         <label>Nombre</label>

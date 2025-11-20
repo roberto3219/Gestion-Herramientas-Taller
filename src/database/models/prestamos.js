@@ -48,6 +48,11 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.BOOLEAN,
             allowNull: false,
             defaultValue: false
+        },
+        vencido:{
+            type: DataTypes.TINYINT,
+            allowNull: false,
+            defaultValue: 0
         }
     }
     config = {

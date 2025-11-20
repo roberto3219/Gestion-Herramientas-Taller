@@ -9,7 +9,7 @@
 
   <!-- Buscador -->
   <form class="d-flex mb-3" method="POST" action="/estudiantes">
-    <input class="form-control me-2" type="search" placeholder="Buscar alumno por nombre o correo" name="q">
+    <input class="form-control me-2" type="search" placeholder="Buscar alumno por id,nombre,correo, dni o curso" name="q">
     <input class="btn btn-outline-primary" type="submit" value="Buscar">
   </form>
 
@@ -31,6 +31,7 @@
         <th>ID</th>
         <th>Nombre Completo</th>
         <th>Email</th>
+        <th>D.N.I</th>
         <th>Curso</th>
         <th>Teléfono</th>
         <th>Acción</th>
@@ -42,6 +43,7 @@
           <td><%= a.id %></td>
           <td><%= a.nombre %></td>
           <td><%= a.email %></td>
+          <td><%= a.dni %></td>
           <td><%= a.curso %></td>
           <td><%= a.telefono %></td>
           <td>

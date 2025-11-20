@@ -22,6 +22,7 @@
       <thead>
         <tr>
           <th>ID</th>
+          <th>Id Usuario</th>
           <th>Usuario</th>
           <th>Acción</th>
           <th>Ruta</th>
@@ -33,6 +34,7 @@
         <% logs.forEach(l => { %>
           <tr data-id="<%= l.id %>" class="log-row" style="cursor:pointer">
             <td><%= l.id %></td>
+            <td><%= l.usuario_id || 'anon' %></td>
             <td><%= l.usuario_nombre || 'anon' %></td>
             <td><%= l.accion %></td>
             <td><%= l.ruta %></td>
@@ -84,6 +86,7 @@
         body.innerHTML = `
           <dl class="row">
             <dt class="col-sm-3">ID</dt><dd class="col-sm-9">${data.id}</dd>
+            <dt class="col-sm-3">Id Usuario</dt><dd class="col-sm-9">${data.usuario_id || 'anon'}</dd>
             <dt class="col-sm-3">Usuario</dt><dd class="col-sm-9">${data.usuario_nombre || 'anon'}</dd>
             <dt class="col-sm-3">Acción</dt><dd class="col-sm-9">${data.accion}</dd>
             <dt class="col-sm-3">Ruta</dt><dd class="col-sm-9">${data.ruta}</dd>

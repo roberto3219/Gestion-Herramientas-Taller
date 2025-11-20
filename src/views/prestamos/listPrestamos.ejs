@@ -6,10 +6,19 @@
   <div class="mt-4">
   <div class="container">
   <h2 class="mb-4">Lista de Préstamos</h2>
-     
+    <% if ( usuario ) { %>
+    
+      <% if (prestamosVencidos > 0 && usuario.role_id == 1) { %>
+   <div class="alert alert-danger">
+     ⚠ Hay <%= prestamosVencidos %> préstamos vencidos que pueden eliminarse.
+   </div>
+ <% } %>
+    
+      <% } %>
+
   <!-- Buscador -->
   <form class="d-flex mb-3" method="POST" action="/prestamos">
-    <input class="form-control me-2" type="search" placeholder="Buscar por alumno o herramienta" name="q">
+    <input class="form-control me-2" type="search" placeholder="Buscar por id,alumno, herramienta,profesor, estado o vencido" name="q">
     <button class="btn btn-outline-primary" type="submit">Buscar</button>
   </form>
   <div class="button_sd" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
@@ -33,12 +42,14 @@
         <th>Fecha Devolución</th>
         <th>Fecha Devolucion Estimada</th>
         <th>Estado</th>
+        <th>Vencido</th>
         <th>Acción</th>
       </tr>
     </thead>
     <tbody>
       <% prestamos.forEach(p => { %>
-        <tr>
+        <tr class="<%= new Date(p.fecha_devolucion_estimada) < new Date() && p.estado == 'pendiente' || p.estado == 'Pendiente' ? 'table-danger' : '' %>">
+
           <td><%= p.id %></td>
           <td><%= p.estudiantes.nombre %></td>
           <td><%= p.herramientas.nombre %></td>
@@ -86,13 +97,26 @@
               <span class="badge bg-danger">Pendiente</span>
             <% } %>
           </td>
+          <td> 
+            <% if(p.vencido == 1){ %>
+              <span class="badge bg-danger">Sí</span>
+            <% } else { %>
+              <span class="badge bg-success">No</span>
+            <% } %> 
+          </td>
           <td>
             <form action="" method="post">
             <a href="/prestamos/<%= p.id %>/editar" class="btn btn-sm btn-warning">Editar</a>
             </form>
-            <form action="" method="post">
+            <% if (p.vencido == 1 && ( p.estado == "pendiente" || p.estado == "Pendiente")) { %>
+  <form action="/prestamos/<%= p.id %>/eliminar" method="POST">
+    <button class="btn btn-danger btn-sm">Eliminar por vencimiento</button>
+  </form>
+<% } %>
+
+            <!-- <form action="" method="post">
             <a href="/prestamos/<%= p.id %>/eliminar" class="btn btn-sm btn-danger">Eliminar</a>
-          </form>
+          </form> -->
           </td>
         </tr>
       <% }) %>

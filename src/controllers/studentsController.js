@@ -15,6 +15,7 @@ const controller = {
     try {
       console.log("🔍 Modelos disponibles en db:");
     console.log(Object.keys(db));
+    await req.logAction('Listar estudiantes', {  });
       const alumnos = await db.Estudiante.findAll({
       });
       res.render("alumnos/listStudents", {
@@ -29,6 +30,7 @@ const controller = {
   },
   create: async (req, res) => {
     try {
+      await req.logAction('Mostrar formulario de creación de alumno', {  });
       res.render("alumnos/registerStudent", {
         usuario: req.session.userLogged,
         imagen: null,
@@ -78,7 +80,7 @@ const controller = {
     try {
       const id = req.params.id;
       const alumno = await db.Estudiante.findByPk(id);
-
+      await req.logAction('Mostrar formulario de edición de alumno', { id: alumno.id, nombre: alumno.nombre, dni: alumno.dni, telefono: alumno.telefono });
       res.render("alumnos/editStudents", {
         usuario: req.session.userLogged,
         alumno: alumno,
@@ -150,7 +152,15 @@ const controller = {
       const titulo = req.body.q;
       const estudiantes = await db.Estudiante.findAll({
         where: {
-          nombre: { [Op.like]: `%${titulo}%` },
+          [Op.or]: [
+          { id: { [Op.like]: `%${titulo}%` } },
+          { nombre: { [Op.like]: `%${titulo}%` } },
+          { dni: { [Op.like]: `%${titulo}%` } },
+          { email: { [Op.like]: `%${titulo}%` } },
+          { curso: { [Op.like]: `%${titulo}%` } },
+          { telefono: { [Op.like]: `%${titulo}%` } },
+        ]
+          
         },
       });
 

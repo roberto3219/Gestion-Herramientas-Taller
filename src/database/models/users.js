@@ -48,7 +48,13 @@ module.exports = (sequelize, DataTypes) => {
         fecha_eliminacion_programada:{
             type: DataTypes.DATE,
             allowNull: true
+        },
+        puedeEliminarse:{
+            type: DataTypes.BOOLEAN,
+            allowNull: false,
+            defaultValue: false
         }
+
     };
     config = {
         tableName: "users",

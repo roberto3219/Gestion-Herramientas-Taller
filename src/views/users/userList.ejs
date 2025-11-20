@@ -7,8 +7,14 @@
   <div class="container mt-4">
   <h2 class="mb-4">Listado de Usuarios</h2>
     
+  <% if (adminNotificacion && usuario.role_id == 1) { %>
+<div class="alert alert-warning mt-3">
+    Hay usuarios cuya fecha de eliminación ya venció. Puedes eliminarlos definitivamente.
+</div>
+<% } %>
+
  <form class="d-flex mb-3" method="POST" action="/users">
-    <input class="form-control me-2" type="search" placeholder="Buscar herramienta por nombre o categoría" name="q">
+    <input class="form-control me-2" type="search" placeholder="Buscar Usuario por id,nombre de usuario, nombre,correo, rol o estado" name="q">
     <button class="btn btn-outline-primary" type="submit">Buscar</button>
   </form>
   <div class="button_sd" style="display: flex; justify-content: flex-end; align-items: center; margin-bottom: 20px;">
@@ -25,6 +31,7 @@
   <thead class="table-dark">
     <tr>
       <th>ID</th>
+      <th>Nombre de Usuario</th>
       <th>Nombre</th>
       <th>Email</th>
       <th>Rol</th>
@@ -35,8 +42,9 @@
   </thead>
   <tbody>
     <% usuarios.forEach(u => { %>
-      <tr data-id="<%= u.id %>">
+      <tr class="<%= u.puedeEliminarse ? 'table-danger' : '' %>" data-id="<%= u.id %>">
         <td><%= u.id %></td>
+        <td><%= u.user_name %></td>
         <td><%= u.nombre %></td>
         <td><%= u.email %></td>
         <td><%= u.role_id %></td>
@@ -54,6 +62,10 @@
           </button>
           <% if(!u.fecha_eliminacion_programada){ %>
             <button class="eliminar-btn btn btn-danger">Eliminar</button>
+             <% }else if(u.puedeEliminarse){ %>
+              <form action="/users/eliminar-definitivo/<%= u.id%>" method="post">
+                <button class="btn btn-danger btn-sm">Eliminar definitivamente</button>
+              </form>
             <% }else{ %>
               <button class="cancelar-btn btn btn-danger">Cancelar</button>
             <% } %>

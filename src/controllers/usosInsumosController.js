@@ -15,6 +15,7 @@ require("pdfkit");
         ],
       });
       console.log(usos);
+      await req.logAction('Acceso a la lista de usos de insumos', { totalUsos: usos.length });
       res.render("usosInsumos/listUsos", { usos, usuario: req.session.userLogged });
     } catch (error) {
       console.error(error);
@@ -27,7 +28,7 @@ require("pdfkit");
       const insumos = await db.Insumo.findAll();
       const alumnos = await db.Estudiante.findAll();
 
-
+      await req.logAction('Acceso a formulario de registro de uso de insumo', { });
       res.render("usosInsumos/registerUso", {error:undefined,  alumnos,insumos, usuario: req.session.userLogged });
     } catch (error) {
       console.error(error);
@@ -64,7 +65,7 @@ require("pdfkit");
         { cantidad: insumo.cantidad - req.body.cantidad_usada },
         { where: { id_insumo: req.body.insumo_id } }
       );
-
+      await req.logAction('Registro de uso de insumo', { insumo_id: req.body.insumo_id, estudiante_id: req.body.estudiante_id, cantidad_usada: req.body.cantidad_usada });
       res.redirect("/usosInsumos");
     } catch (error) {
       console.error(error);
@@ -81,6 +82,7 @@ require("pdfkit");
         ],
         where: {
           [db.Sequelize.Op.or]: [
+            { id: { [db.Sequelize.Op.like]: `%${termino}%` } },
             { '$insumos.nombre$': { [db.Sequelize.Op.like]: `%${termino}%` } },
             { '$estudiantes.nombre$': { [db.Sequelize.Op.like]: `%${termino}%` } },
             { profesor_encargado: { [db.Sequelize.Op.like]: `%${termino}%` } },
@@ -92,6 +94,7 @@ require("pdfkit");
       if (usos.length === 0) {
         return res.render("usosInsumos/listUsos", { usos: [], usuario: req.session.userLogged, mensaje: "No se encontraron usos de insumos que coincidan con la búsqueda." });
       }
+      await req.logAction('Búsqueda de usos de insumos', { termino, resultados: usos.length });
       res.render("usosInsumos/listUsos", { usos, usuario: req.session.userLogged });
     } catch (error) {
       console.error(error);

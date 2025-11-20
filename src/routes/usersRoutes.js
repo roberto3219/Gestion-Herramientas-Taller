@@ -51,6 +51,7 @@ router.post("/restore", userController.restore);
 router.post("/generate-pdf-users", userController.generarPDF);
 router.put("/:id/bloquear", userController.bloquear);
 router.delete("/:id/eliminar", userController.eliminar);
+router.post("/eliminar-definitivo/:id", userController.eliminarDefinitivo);
 router.put("/:id/cancelar-eliminacion", userController.cancelarEliminacion);
 
 

@@ -686,3 +686,463 @@
 2025-11-18T21:47:56.444Z | userId:anon | user:anon | ruta:/prestamos/8/editar | accion:POST /prestamos/8/editar | ip:::1 | datos:{"body":{"alumno_id":"1","herramienta":"2","cantidad":"98","profesor":"Carlos Pablo","fecha_prestamo":"    Tue Nov 18 2025 18:18:36 GMT-0300 (hora estándar de Argentina)","fecha_devolucion_estimada":"    Tue Sep 04 2007 05:43:00 GMT-0300 (hora estándar de Argentina)","estado":"Pendiente"}}
 2025-11-18T21:54:48.535Z | userId:anon | user:anon | ruta:/users/login | accion:POST /users/login | ip:::1 | datos:{"body":{"email":"c@gmail.com","password":"12345678"}}
 2025-11-18T21:54:48.595Z | userId:10 | user:dsadsad | ruta:/users/login | accion:Iniciar sesión | ip:::1 | datos:{"userId":10,"email":"c@gmail.com"}
+2025-11-19T15:27:23.447Z | userId:anon | user:anon | ruta:/users/login | accion:POST /users/login | ip:::1 | datos:{"body":{"email":"c@gmail.com","password":"12345678"}}
+2025-11-19T15:27:23.510Z | userId:10 | user:dsadsad | ruta:/users/login | accion:Iniciar sesión | ip:::1 | datos:{"userId":10,"email":"c@gmail.com"}
+2025-11-19T15:28:06.831Z | userId:10 | user:dsadsad | ruta:/users/profile | accion:POST /users/profile | ip:::1 | datos:{"body":{}}
+2025-11-19T15:28:06.832Z | userId:10 | user:dsadsad | ruta:/users/profile | accion:Cerrar sesión | ip:::1 | datos:{"userId":10,"email":"c@gmail.com"}
+2025-11-19T15:29:12.483Z | userId:anon | user:anon | ruta:/users/login | accion:POST /users/login | ip:::1 | datos:{"body":{"email":"c@gmail.com","password":"12345678"}}
+2025-11-19T15:29:12.532Z | userId:10 | user:dsadsad | ruta:/users/login | accion:Iniciar sesión | ip:::1 | datos:{"userId":10,"email":"c@gmail.com"}
+2025-11-19T15:31:41.204Z | userId:10 | user:dsadsad | ruta:/users/profile | accion:POST /users/profile | ip:::1 | datos:{"body":{}}
+2025-11-19T15:31:41.205Z | userId:10 | user:dsadsad | ruta:/users/profile | accion:Cerrar sesión | ip:::1 | datos:{"userId":10,"email":"c@gmail.com"}
+2025-11-19T15:31:43.437Z | userId:anon | user:anon | ruta:/users/login | accion:POST /users/login | ip:::1 | datos:{"body":{"email":"c@gmail.com","password":"12345678"}}
+2025-11-19T15:31:43.486Z | userId:10 | user:dsadsad | ruta:/users/login | accion:Iniciar sesión | ip:::1 | datos:{"userId":10,"email":"c@gmail.com"}
+2025-11-19T15:36:53.798Z | userId:10 | user:dsadsad | ruta:/ | accion:POST / | ip:::1 | datos:{"body":{"q":"7"}}
+2025-11-19T15:37:05.944Z | userId:10 | user:dsadsad | ruta:/ | accion:POST / | ip:::1 | datos:{"body":{"q":""}}
+2025-11-19T15:38:25.892Z | userId:anon | user:anon | ruta:/ | accion:POST / | ip:::1 | datos:{"body":{"q":""}}
+2025-11-19T15:38:27.484Z | userId:anon | user:anon | ruta:/users/login | accion:POST /users/login | ip:::1 | datos:{"body":{"email":"c@gmail.com","password":"12345678"}}
+2025-11-19T15:38:27.543Z | userId:10 | user:dsadsad | ruta:/users/login | accion:Iniciar sesión | ip:::1 | datos:{"userId":10,"email":"c@gmail.com"}
+2025-11-19T15:38:29.865Z | userId:10 | user:dsadsad | ruta:/ | accion:POST / | ip:::1 | datos:{"body":{"q":"7"}}
+2025-11-19T15:39:25.655Z | userId:10 | user:dsadsad | ruta:/ | accion:POST / | ip:::1 | datos:{"body":{"q":"7"}}
+2025-11-19T15:39:29.922Z | userId:10 | user:dsadsad | ruta:/ | accion:POST / | ip:::1 | datos:{"body":{"q":"Roberto"}}
+2025-11-19T15:39:37.594Z | userId:10 | user:dsadsad | ruta:/ | accion:POST / | ip:::1 | datos:{"body":{"q":"Martillo"}}
+2025-11-19T15:39:41.138Z | userId:10 | user:dsadsad | ruta:/ | accion:POST / | ip:::1 | datos:{"body":{"q":"Analia"}}
+2025-11-19T15:39:45.426Z | userId:10 | user:dsadsad | ruta:/ | accion:POST / | ip:::1 | datos:{"body":{"q":"devuleto"}}
+2025-11-19T15:39:48.835Z | userId:10 | user:dsadsad | ruta:/ | accion:POST / | ip:::1 | datos:{"body":{"q":"devuelto"}}
+2025-11-19T15:40:00.890Z | userId:10 | user:dsadsad | ruta:/ | accion:POST / | ip:::1 | datos:{"body":{"q":"pendiente"}}
+2025-11-19T15:40:03.210Z | userId:10 | user:dsadsad | ruta:/ | accion:POST / | ip:::1 | datos:{"body":{"q":""}}
+2025-11-19T15:41:30.941Z | userId:10 | user:dsadsad | ruta:/estudiantes | accion:POST /estudiantes | ip:::1 | datos:{"body":{"q":"r"}}
+2025-11-19T15:41:30.946Z | userId:10 | user:dsadsad | ruta:/estudiantes | accion:Buscar alumno | ip:::1 | datos:{"termino":"r"}
+2025-11-19T15:41:37.477Z | userId:10 | user:dsadsad | ruta:/estudiantes | accion:POST /estudiantes | ip:::1 | datos:{"body":{"q":"roberto@"}}
+2025-11-19T15:41:37.479Z | userId:10 | user:dsadsad | ruta:/estudiantes | accion:Buscar alumno | ip:::1 | datos:{"termino":"roberto@"}
+2025-11-19T15:42:15.116Z | userId:anon | user:anon | ruta:/users/login | accion:POST /users/login | ip:::1 | datos:{"body":{"email":"c@gmail.com","password":"12345678"}}
+2025-11-19T15:42:15.179Z | userId:10 | user:dsadsad | ruta:/users/login | accion:Iniciar sesión | ip:::1 | datos:{"userId":10,"email":"c@gmail.com"}
+2025-11-19T15:42:19.806Z | userId:10 | user:dsadsad | ruta:/estudiantes | accion:POST /estudiantes | ip:::1 | datos:{"body":{"q":"roberto@"}}
+2025-11-19T15:42:19.809Z | userId:10 | user:dsadsad | ruta:/estudiantes | accion:Buscar alumno | ip:::1 | datos:{"termino":"roberto@"}
+2025-11-19T15:42:25.108Z | userId:10 | user:dsadsad | ruta:/estudiantes | accion:POST /estudiantes | ip:::1 | datos:{"body":{"q":""}}
+2025-11-19T15:42:25.111Z | userId:10 | user:dsadsad | ruta:/estudiantes | accion:Buscar alumno | ip:::1 | datos:{"termino":""}
+2025-11-19T15:42:42.790Z | userId:anon | user:anon | ruta:/estudiantes | accion:POST /estudiantes | ip:::1 | datos:{"body":{"q":""}}
+2025-11-19T15:42:42.819Z | userId:anon | user:anon | ruta:/estudiantes | accion:Buscar alumno | ip:::1 | datos:{"termino":""}
+2025-11-19T15:42:44.226Z | userId:anon | user:anon | ruta:/users/login | accion:POST /users/login | ip:::1 | datos:{"body":{"email":"c@gmail.com","password":"12345678"}}
+2025-11-19T15:42:44.287Z | userId:10 | user:dsadsad | ruta:/users/login | accion:Iniciar sesión | ip:::1 | datos:{"userId":10,"email":"c@gmail.com"}
+2025-11-19T15:42:52.007Z | userId:10 | user:dsadsad | ruta:/estudiantes | accion:POST /estudiantes | ip:::1 | datos:{"body":{"q":"roberto@"}}
+2025-11-19T15:42:52.010Z | userId:10 | user:dsadsad | ruta:/estudiantes | accion:Buscar alumno | ip:::1 | datos:{"termino":"roberto@"}
+2025-11-19T15:43:00.663Z | userId:10 | user:dsadsad | ruta:/estudiantes | accion:POST /estudiantes | ip:::1 | datos:{"body":{"q":"R"}}
+2025-11-19T15:43:00.666Z | userId:10 | user:dsadsad | ruta:/estudiantes | accion:Buscar alumno | ip:::1 | datos:{"termino":"R"}
+2025-11-19T15:43:51.287Z | userId:anon | user:anon | ruta:/estudiantes | accion:POST /estudiantes | ip:::1 | datos:{"body":{"q":"R"}}
+2025-11-19T15:43:51.313Z | userId:anon | user:anon | ruta:/estudiantes | accion:Buscar alumno | ip:::1 | datos:{"termino":"R"}
+2025-11-19T15:43:53.210Z | userId:anon | user:anon | ruta:/users/login | accion:POST /users/login | ip:::1 | datos:{"body":{"email":"c@gmail.com","password":"12345678"}}
+2025-11-19T15:43:53.271Z | userId:10 | user:dsadsad | ruta:/users/login | accion:Iniciar sesión | ip:::1 | datos:{"userId":10,"email":"c@gmail.com"}
+2025-11-19T15:43:56.471Z | userId:10 | user:dsadsad | ruta:/estudiantes | accion:POST /estudiantes | ip:::1 | datos:{"body":{"q":"r"}}
+2025-11-19T15:43:56.474Z | userId:10 | user:dsadsad | ruta:/estudiantes | accion:Buscar alumno | ip:::1 | datos:{"termino":"r"}
+2025-11-19T15:43:59.032Z | userId:10 | user:dsadsad | ruta:/estudiantes | accion:POST /estudiantes | ip:::1 | datos:{"body":{"q":"robert"}}
+2025-11-19T15:43:59.035Z | userId:10 | user:dsadsad | ruta:/estudiantes | accion:Buscar alumno | ip:::1 | datos:{"termino":"robert"}
+2025-11-19T15:44:03.680Z | userId:10 | user:dsadsad | ruta:/estudiantes | accion:POST /estudiantes | ip:::1 | datos:{"body":{"q":"roberto@"}}
+2025-11-19T15:44:03.682Z | userId:10 | user:dsadsad | ruta:/estudiantes | accion:Buscar alumno | ip:::1 | datos:{"termino":"roberto@"}
+2025-11-19T15:44:16.278Z | userId:anon | user:anon | ruta:/estudiantes | accion:POST /estudiantes | ip:::1 | datos:{"body":{"q":"roberto@"}}
+2025-11-19T15:44:16.305Z | userId:anon | user:anon | ruta:/estudiantes | accion:Buscar alumno | ip:::1 | datos:{"termino":"roberto@"}
+2025-11-19T15:44:17.561Z | userId:anon | user:anon | ruta:/users/login | accion:POST /users/login | ip:::1 | datos:{"body":{"email":"c@gmail.com","password":"12345678"}}
+2025-11-19T15:44:17.623Z | userId:10 | user:dsadsad | ruta:/users/login | accion:Iniciar sesión | ip:::1 | datos:{"userId":10,"email":"c@gmail.com"}
+2025-11-19T16:26:13.029Z | userId:anon | user:anon | ruta:/users/login | accion:POST /users/login | ip:::1 | datos:{"body":{"email":"c@gmail.com","password":"12345678"}}
+2025-11-19T16:26:13.093Z | userId:10 | user:dsadsad | ruta:/users/login | accion:Iniciar sesión | ip:::1 | datos:{"userId":10,"email":"c@gmail.com"}
+2025-11-19T16:27:54.524Z | userId:10 | user:dsadsad | ruta:/estudiantes | accion:POST /estudiantes | ip:::1 | datos:{"body":{"q":"1"}}
+2025-11-19T16:27:54.530Z | userId:10 | user:dsadsad | ruta:/estudiantes | accion:Buscar alumno | ip:::1 | datos:{"termino":"1"}
+2025-11-19T16:28:06.510Z | userId:10 | user:dsadsad | ruta:/estudiantes | accion:POST /estudiantes | ip:::1 | datos:{"body":{"q":"Roberto"}}
+2025-11-19T16:28:06.516Z | userId:10 | user:dsadsad | ruta:/estudiantes | accion:Buscar alumno | ip:::1 | datos:{"termino":"Roberto"}
+2025-11-19T16:28:11.062Z | userId:10 | user:dsadsad | ruta:/estudiantes | accion:POST /estudiantes | ip:::1 | datos:{"body":{"q":"Roberto"}}
+2025-11-19T16:28:11.065Z | userId:10 | user:dsadsad | ruta:/estudiantes | accion:Buscar alumno | ip:::1 | datos:{"termino":"Roberto"}
+2025-11-19T16:28:16.855Z | userId:10 | user:dsadsad | ruta:/estudiantes | accion:POST /estudiantes | ip:::1 | datos:{"body":{"q":"roberto@"}}
+2025-11-19T16:28:16.857Z | userId:10 | user:dsadsad | ruta:/estudiantes | accion:Buscar alumno | ip:::1 | datos:{"termino":"roberto@"}
+2025-11-19T16:28:22.326Z | userId:10 | user:dsadsad | ruta:/estudiantes | accion:POST /estudiantes | ip:::1 | datos:{"body":{"q":"47931"}}
+2025-11-19T16:28:22.328Z | userId:10 | user:dsadsad | ruta:/estudiantes | accion:Buscar alumno | ip:::1 | datos:{"termino":"47931"}
+2025-11-19T16:28:26.966Z | userId:10 | user:dsadsad | ruta:/estudiantes | accion:POST /estudiantes | ip:::1 | datos:{"body":{"q":"5to"}}
+2025-11-19T16:28:26.969Z | userId:10 | user:dsadsad | ruta:/estudiantes | accion:Buscar alumno | ip:::1 | datos:{"termino":"5to"}
+2025-11-19T16:28:31.606Z | userId:10 | user:dsadsad | ruta:/estudiantes | accion:POST /estudiantes | ip:::1 | datos:{"body":{"q":"4to"}}
+2025-11-19T16:33:06.358Z | userId:anon | user:anon | ruta:/users/login | accion:POST /users/login | ip:::1 | datos:{"body":{"email":"c@gmail.com","password":"12345678"}}
+2025-11-19T16:33:06.423Z | userId:10 | user:dsadsad | ruta:/users/login | accion:Iniciar sesión | ip:::1 | datos:{"userId":10,"email":"c@gmail.com"}
+2025-11-19T16:34:49.772Z | userId:10 | user:dsadsad | ruta:/estudiantes/eliminar/6 | accion:Borrar alumno | ip:::1 | datos:{"id":"6"}
+2025-11-19T16:34:59.088Z | userId:10 | user:dsadsad | ruta:/estudiantes/editar/5 | accion:POST /estudiantes/editar/5 | ip:::1 | datos:{"body":{"nombre":"Hualpa daiana","dni":"1234636","email":"hualpa@gmail.com","curso":"4to 3ra","telefono":""}}
+2025-11-19T16:34:59.095Z | userId:10 | user:dsadsad | ruta:/estudiantes/editar/5 | accion:Actualizar alumno | ip:::1 | datos:{"id":"5","nombre":"Hualpa daiana","dni":"1234636","telefono":""}
+2025-11-19T16:35:02.870Z | userId:10 | user:dsadsad | ruta:/estudiantes/editar/5 | accion:POST /estudiantes/editar/5 | ip:::1 | datos:{"body":{"nombre":"Hualpa daiana","dni":"1234636","email":"hualpa@gmail.com","curso":"4to 3ra","telefono":""}}
+2025-11-19T16:35:02.873Z | userId:10 | user:dsadsad | ruta:/estudiantes/editar/5 | accion:Actualizar alumno | ip:::1 | datos:{"id":"5","nombre":"Hualpa daiana","dni":"1234636","telefono":""}
+2025-11-19T16:35:18.904Z | userId:10 | user:dsadsad | ruta:/estudiantes/add | accion:POST /estudiantes/add | ip:::1 | datos:{"body":{"nombre":"Candela Tomas","dni":"23123123","email":"llamparoberto5@gmail.com","curso":"4to 3ra","telefono":"3884177043"}}
+2025-11-19T16:35:18.914Z | userId:10 | user:dsadsad | ruta:/estudiantes/add | accion:Crear alumno | ip:::1 | datos:{"nombre":"Candela Tomas","dni":"23123123"}
+2025-11-19T16:35:21.322Z | userId:10 | user:dsadsad | ruta:/estudiantes/reporte | accion:POST /estudiantes/reporte | ip:::1 | datos:{"body":{}}
+2025-11-19T16:35:21.353Z | userId:10 | user:dsadsad | ruta:/estudiantes/reporte | accion:Generar reporte PDF de estudiantes | ip:::1 | datos:{"totalEstudiantes":6}
+2025-11-19T16:38:19.684Z | userId:anon | user:anon | ruta:/users/login | accion:POST /users/login | ip:::1 | datos:{"body":{"email":"c@gmail.com","password":"12345678"}}
+2025-11-19T16:38:19.751Z | userId:10 | user:dsadsad | ruta:/users/login | accion:Iniciar sesión | ip:::1 | datos:{"userId":10,"email":"c@gmail.com"}
+2025-11-19T16:38:23.860Z | userId:10 | user:dsadsad | ruta:/herramientas | accion:POST /herramientas | ip:::1 | datos:{"body":{"q":"1"}}
+2025-11-19T16:38:23.863Z | userId:10 | user:dsadsad | ruta:/herramientas | accion:Buscar herramienta | ip:::1 | datos:{"termino":"1"}
+2025-11-19T16:38:27.821Z | userId:10 | user:dsadsad | ruta:/herramientas | accion:POST /herramientas | ip:::1 | datos:{"body":{"q":"Martillo"}}
+2025-11-19T16:38:27.823Z | userId:10 | user:dsadsad | ruta:/herramientas | accion:Buscar herramienta | ip:::1 | datos:{"termino":"Martillo"}
+2025-11-19T16:38:29.709Z | userId:10 | user:dsadsad | ruta:/herramientas | accion:POST /herramientas | ip:::1 | datos:{"body":{"q":""}}
+2025-11-19T16:38:29.711Z | userId:10 | user:dsadsad | ruta:/herramientas | accion:Buscar herramienta | ip:::1 | datos:{"termino":""}
+2025-11-19T16:38:34.748Z | userId:10 | user:dsadsad | ruta:/herramientas | accion:POST /herramientas | ip:::1 | datos:{"body":{"q":"manuales"}}
+2025-11-19T16:38:34.751Z | userId:10 | user:dsadsad | ruta:/herramientas | accion:Buscar herramienta | ip:::1 | datos:{"termino":"manuales"}
+2025-11-19T16:38:41.948Z | userId:10 | user:dsadsad | ruta:/herramientas | accion:POST /herramientas | ip:::1 | datos:{"body":{"q":"asdasdad"}}
+2025-11-19T16:38:41.951Z | userId:10 | user:dsadsad | ruta:/herramientas | accion:Buscar herramienta | ip:::1 | datos:{"termino":"asdasdad"}
+2025-11-19T16:38:49.372Z | userId:10 | user:dsadsad | ruta:/herramientas | accion:POST /herramientas | ip:::1 | datos:{"body":{"q":"disponible"}}
+2025-11-19T16:38:49.375Z | userId:10 | user:dsadsad | ruta:/herramientas | accion:Buscar herramienta | ip:::1 | datos:{"termino":"disponible"}
+2025-11-19T16:40:04.081Z | userId:10 | user:dsadsad | ruta:/herramientas/reportePDF | accion:POST /herramientas/reportePDF | ip:::1 | datos:{"body":{}}
+2025-11-19T16:40:04.102Z | userId:10 | user:dsadsad | ruta:/herramientas/reportePDF | accion:Generar reporte PDF de herramientas | ip:::1 | datos:{"totalHerramientas":6}
+2025-11-19T16:40:22.813Z | userId:10 | user:dsadsad | ruta:/herramientas/add | accion:POST /herramientas/add | ip:::1 | datos:{"body":{"nombre":"sdgdsgdfhd","descripcion":"sadsadasdasd","categoria":"Manuales","cantidad":"435","estado":"Disponible"}}
+2025-11-19T16:40:22.819Z | userId:10 | user:dsadsad | ruta:/herramientas/add | accion:Crear herramienta | ip:::1 | datos:{"nombre":"sdgdsgdfhd","categoria":"Manuales"}
+2025-11-19T16:40:29.263Z | userId:10 | user:dsadsad | ruta:/herramientas/7/editar | accion:POST /herramientas/7/editar | ip:::1 | datos:{"body":{"nombre":"sdgdsgdfhd","categoria":"Manuales","cantidad":"435321","estado":"Disponible","descripcion":"sadsadasdasd"}}
+2025-11-19T16:40:29.268Z | userId:10 | user:dsadsad | ruta:/herramientas/7/editar | accion:Actualizar herramienta | ip:::1 | datos:{"id":"7","nombre":"sdgdsgdfhd","categoria":"Manuales"}
+2025-11-19T16:40:32.994Z | userId:10 | user:dsadsad | ruta:/herramientas/7/eliminar | accion:Borrar herramienta | ip:::1 | datos:{"id":"7","nombre":"sdgdsgdfhd","categoria":"Manuales"}
+2025-11-19T16:41:45.717Z | userId:anon | user:anon | ruta:/prestamos | accion:POST /prestamos | ip:::1 | datos:{"body":{"q":"1"}}
+2025-11-19T16:41:51.182Z | userId:anon | user:anon | ruta:/users/login | accion:POST /users/login | ip:::1 | datos:{"body":{"email":"c@gmail.com","password":"12345678"}}
+2025-11-19T16:41:51.242Z | userId:10 | user:dsadsad | ruta:/users/login | accion:Iniciar sesión | ip:::1 | datos:{"userId":10,"email":"c@gmail.com"}
+2025-11-19T16:41:53.715Z | userId:10 | user:dsadsad | ruta:/prestamos | accion:POST /prestamos | ip:::1 | datos:{"body":{"q":"1"}}
+2025-11-19T16:42:05.890Z | userId:10 | user:dsadsad | ruta:/prestamos | accion:POST /prestamos | ip:::1 | datos:{"body":{"q":"Ma"}}
+2025-11-19T16:45:11.263Z | userId:anon | user:anon | ruta:/users/login | accion:POST /users/login | ip:::1 | datos:{"body":{"email":"c@gmail.com","password":"12345678"}}
+2025-11-19T16:45:11.329Z | userId:10 | user:dsadsad | ruta:/users/login | accion:Iniciar sesión | ip:::1 | datos:{"userId":10,"email":"c@gmail.com"}
+2025-11-19T16:45:14.143Z | userId:10 | user:dsadsad | ruta:/prestamos | accion:POST /prestamos | ip:::1 | datos:{"body":{"q":""}}
+2025-11-19T16:45:15.754Z | userId:10 | user:dsadsad | ruta:/prestamos | accion:POST /prestamos | ip:::1 | datos:{"body":{"q":""}}
+2025-11-19T16:45:46.532Z | userId:anon | user:anon | ruta:/users/login | accion:POST /users/login | ip:::1 | datos:{"body":{"email":"c@gmail.com","password":"12345678"}}
+2025-11-19T16:45:46.593Z | userId:10 | user:dsadsad | ruta:/users/login | accion:Iniciar sesión | ip:::1 | datos:{"userId":10,"email":"c@gmail.com"}
+2025-11-19T16:45:48.136Z | userId:10 | user:dsadsad | ruta:/prestamos | accion:POST /prestamos | ip:::1 | datos:{"body":{"q":""}}
+2025-11-19T16:45:55.591Z | userId:10 | user:dsadsad | ruta:/prestamos | accion:POST /prestamos | ip:::1 | datos:{"body":{"q":"id"}}
+2025-11-19T16:45:57.039Z | userId:10 | user:dsadsad | ruta:/prestamos | accion:POST /prestamos | ip:::1 | datos:{"body":{"q":""}}
+2025-11-19T16:45:58.463Z | userId:10 | user:dsadsad | ruta:/prestamos | accion:POST /prestamos | ip:::1 | datos:{"body":{"q":"1"}}
+2025-11-19T16:45:59.773Z | userId:10 | user:dsadsad | ruta:/prestamos | accion:POST /prestamos | ip:::1 | datos:{"body":{"q":""}}
+2025-11-19T16:46:03.103Z | userId:10 | user:dsadsad | ruta:/prestamos | accion:POST /prestamos | ip:::1 | datos:{"body":{"q":"rober"}}
+2025-11-19T16:46:04.224Z | userId:10 | user:dsadsad | ruta:/prestamos | accion:POST /prestamos | ip:::1 | datos:{"body":{"q":""}}
+2025-11-19T16:46:06.447Z | userId:10 | user:dsadsad | ruta:/prestamos | accion:POST /prestamos | ip:::1 | datos:{"body":{"q":"marti"}}
+2025-11-19T16:46:07.573Z | userId:10 | user:dsadsad | ruta:/prestamos | accion:POST /prestamos | ip:::1 | datos:{"body":{"q":""}}
+2025-11-19T16:46:11.943Z | userId:10 | user:dsadsad | ruta:/prestamos | accion:POST /prestamos | ip:::1 | datos:{"body":{"q":"ana"}}
+2025-11-19T16:46:13.208Z | userId:10 | user:dsadsad | ruta:/prestamos | accion:POST /prestamos | ip:::1 | datos:{"body":{"q":""}}
+2025-11-19T16:46:17.766Z | userId:10 | user:dsadsad | ruta:/prestamos | accion:POST /prestamos | ip:::1 | datos:{"body":{"q":"devuelto"}}
+2025-11-19T16:46:21.199Z | userId:10 | user:dsadsad | ruta:/prestamos | accion:POST /prestamos | ip:::1 | datos:{"body":{"q":"pendiente"}}
+2025-11-19T16:46:22.672Z | userId:10 | user:dsadsad | ruta:/prestamos | accion:POST /prestamos | ip:::1 | datos:{"body":{"q":""}}
+2025-11-19T16:46:47.263Z | userId:10 | user:dsadsad | ruta:/prestamos | accion:POST /prestamos | ip:::1 | datos:{"body":{"q":""}}
+2025-11-19T16:46:52.447Z | userId:10 | user:dsadsad | ruta:/prestamos | accion:POST /prestamos | ip:::1 | datos:{"body":{"q":"1 devuelto"}}
+2025-11-19T16:46:55.272Z | userId:10 | user:dsadsad | ruta:/prestamos | accion:POST /prestamos | ip:::1 | datos:{"body":{"q":""}}
+2025-11-19T16:47:34.010Z | userId:10 | user:dsadsad | ruta:/prestamos/reporte | accion:POST /prestamos/reporte | ip:::1 | datos:{"body":{}}
+2025-11-19T16:50:02.956Z | userId:anon | user:anon | ruta:/users/login | accion:POST /users/login | ip:::1 | datos:{"body":{"email":"c@gmail.com","password":"12345678"}}
+2025-11-19T16:50:03.018Z | userId:10 | user:dsadsad | ruta:/users/login | accion:Iniciar sesión | ip:::1 | datos:{"userId":10,"email":"c@gmail.com"}
+2025-11-19T16:50:05.517Z | userId:10 | user:dsadsad | ruta:/prestamos/reporte | accion:POST /prestamos/reporte | ip:::1 | datos:{"body":{}}
+2025-11-19T16:50:44.908Z | userId:anon | user:anon | ruta:/users/login | accion:POST /users/login | ip:::1 | datos:{"body":{"email":"c@gmail.com","password":"12345678"}}
+2025-11-19T16:50:44.973Z | userId:10 | user:dsadsad | ruta:/users/login | accion:Iniciar sesión | ip:::1 | datos:{"userId":10,"email":"c@gmail.com"}
+2025-11-19T16:51:30.642Z | userId:anon | user:anon | ruta:/users/login | accion:POST /users/login | ip:::1 | datos:{"body":{"email":"c@gmail.com","password":"12345678"}}
+2025-11-19T16:51:30.705Z | userId:10 | user:dsadsad | ruta:/users/login | accion:Iniciar sesión | ip:::1 | datos:{"userId":10,"email":"c@gmail.com"}
+2025-11-19T16:53:25.233Z | userId:10 | user:dsadsad | ruta:/prestamos/add | accion:POST /prestamos/add | ip:::1 | datos:{"body":{"estudiante":"1","herramienta":"4","profesor":"saddsad","cantidad":"75","observaciones":"sadsadasd","fecha_devolucion":"11/23/2025 12:00"}}
+2025-11-19T16:53:33.188Z | userId:10 | user:dsadsad | ruta:/prestamos/add | accion:POST /prestamos/add | ip:::1 | datos:{"body":{"estudiante":"1","herramienta":"4","profesor":"saddsad","cantidad":"11","observaciones":"sadsadasd","fecha_devolucion":"11/23/2025 12:00"}}
+2025-11-19T16:54:07.255Z | userId:10 | user:dsadsad | ruta:/prestamos/9/editar | accion:POST /prestamos/9/editar | ip:::1 | datos:{"body":{"alumno_id":"2","herramienta":"4","cantidad":"11","profesor":"saddsad","fecha_prestamo":"    Wed Nov 19 2025 13:53:33 GMT-0300 (hora estándar de Argentina)","fecha_devolucion_estimada":"    Sun Nov 23 2025 12:00:00 GMT-0300 (hora estándar de Argentina)","estado":"Pendiente"}}
+2025-11-19T16:54:07.265Z | userId:10 | user:dsadsad | ruta:/prestamos/9/editar | accion:Actualizar préstamo | ip:::1 | datos:{"id":"9","estudiante_id":"2","herramientas_id":"4"}
+2025-11-19T16:54:18.105Z | userId:10 | user:dsadsad | ruta:/prestamos/9/editar | accion:POST /prestamos/9/editar | ip:::1 | datos:{"body":{"alumno_id":"2","herramienta":"2","cantidad":"11","profesor":"saddsad","fecha_prestamo":"    Wed Nov 19 2025 13:53:33 GMT-0300 (hora estándar de Argentina)","fecha_devolucion_estimada":"    Sun Nov 23 2025 12:00:00 GMT-0300 (hora estándar de Argentina)","estado":"Pendiente"}}
+2025-11-19T16:54:21.622Z | userId:10 | user:dsadsad | ruta:/prestamos/9/editar | accion:POST /prestamos/9/editar | ip:::1 | datos:{"body":{"alumno_id":"2","herramienta":"5","cantidad":"11","profesor":"saddsad","fecha_prestamo":"    Wed Nov 19 2025 13:53:33 GMT-0300 (hora estándar de Argentina)","fecha_devolucion_estimada":"    Sun Nov 23 2025 12:00:00 GMT-0300 (hora estándar de Argentina)","estado":"Pendiente"}}
+2025-11-19T16:54:21.628Z | userId:10 | user:dsadsad | ruta:/prestamos/9/editar | accion:Actualizar préstamo | ip:::1 | datos:{"id":"9","estudiante_id":"2","herramientas_id":"5"}
+2025-11-19T16:54:30.073Z | userId:10 | user:dsadsad | ruta:/prestamos/9/editar | accion:POST /prestamos/9/editar | ip:::1 | datos:{"body":{"alumno_id":"2","herramienta":"5","cantidad":"11","profesor":"Analia flores","fecha_prestamo":"    Wed Nov 19 2025 13:53:33 GMT-0300 (hora estándar de Argentina)","fecha_devolucion_estimada":"    Sun Nov 23 2025 12:00:00 GMT-0300 (hora estándar de Argentina)","estado":"Pendiente"}}
+2025-11-19T16:54:30.079Z | userId:10 | user:dsadsad | ruta:/prestamos/9/editar | accion:Actualizar préstamo | ip:::1 | datos:{"id":"9","estudiante_id":"2","herramientas_id":"5"}
+2025-11-19T16:54:43.340Z | userId:10 | user:dsadsad | ruta:/prestamos/9/editar | accion:POST /prestamos/9/editar | ip:::1 | datos:{"body":{"alumno_id":"2","herramienta":"5","cantidad":"11","profesor":"Analia flores","fecha_prestamo":"    Wed Nov 19 2025 13:53:33 GMT-0300 (hora estándar de Argentina)","fecha_devolucion_estimada":"    Sun Nov 23 2025 12:00:00 GMT-0300 (hora estándar de Argentina)","estado":"Pendiente"}}
+2025-11-19T16:54:43.347Z | userId:10 | user:dsadsad | ruta:/prestamos/9/editar | accion:Actualizar préstamo | ip:::1 | datos:{"id":"9","estudiante_id":"2","herramientas_id":"5"}
+2025-11-19T16:54:58.291Z | userId:10 | user:dsadsad | ruta:/prestamos/8/editar | accion:POST /prestamos/8/editar | ip:::1 | datos:{"body":{"alumno_id":"1","herramienta":"2","cantidad":"5","profesor":"Carlos Pablo","fecha_prestamo":"    Mod Nov 18 2025 18:18:36 GMT-0300 (hora estándar de Argentina)","fecha_devolucion_estimada":"    Tue Sep 04 2007 05:43:00 GMT-0300 (hora estándar de Argentina)","estado":"Pendiente"}}
+2025-11-19T16:54:58.299Z | userId:10 | user:dsadsad | ruta:/prestamos/8/editar | accion:Actualizar préstamo | ip:::1 | datos:{"id":"8","estudiante_id":"1","herramientas_id":"2"}
+2025-11-19T16:55:21.158Z | userId:10 | user:dsadsad | ruta:/prestamos/8/editar | accion:POST /prestamos/8/editar | ip:::1 | datos:{"body":{"alumno_id":"1","herramienta":"2","cantidad":"5","profesor":"Carlos Pablo","fecha_prestamo":"    Moday Nov 18 2025 18:18:36 GMT-0300 (hora estándar de Argentina)","fecha_devolucion_estimada":"    Tue Sep 04 2007 05:43:00 GMT-0300 (hora estándar de Argentina)","estado":"Pendiente"}}
+2025-11-19T16:55:21.164Z | userId:10 | user:dsadsad | ruta:/prestamos/8/editar | accion:Actualizar préstamo | ip:::1 | datos:{"id":"8","estudiante_id":"1","herramientas_id":"2"}
+2025-11-19T16:55:38.092Z | userId:10 | user:dsadsad | ruta:/prestamos/8/editar | accion:POST /prestamos/8/editar | ip:::1 | datos:{"body":{"alumno_id":"1","herramienta":"2","cantidad":"5","profesor":"Carlos Pablo","fecha_prestamo":"    9 Nov 18 2025 18:18:36 GMT-0300 (hora estándar de Argentina)","fecha_devolucion_estimada":"    Tue Sep 04 2007 05:43:00 GMT-0300 (hora estándar de Argentina)","estado":"Pendiente"}}
+2025-11-19T16:55:38.100Z | userId:10 | user:dsadsad | ruta:/prestamos/8/editar | accion:Actualizar préstamo | ip:::1 | datos:{"id":"8","estudiante_id":"1","herramientas_id":"2"}
+2025-11-19T16:59:07.932Z | userId:10 | user:dsadsad | ruta:/prestamos/8/editar | accion:POST /prestamos/8/editar | ip:::1 | datos:{"body":{"alumno_id":"1","herramienta":"2","cantidad":"5","profesor":"Carlos Pablo","fecha_prestamo":"    Fri Nov 09 2018 18:18:36 GMT-0300 (hora estándar de Argentina)","fecha_devolucion_estimada":"    Tue Sep 04 2007 05:43:00 GMT-0300 (hora estándar de Argentina)","estado":"Pendiente"}}
+2025-11-19T16:59:07.944Z | userId:10 | user:dsadsad | ruta:/prestamos/8/editar | accion:Actualizar préstamo | ip:::1 | datos:{"id":"8","estudiante_id":"1","herramientas_id":"2"}
+2025-11-19T16:59:22.581Z | userId:10 | user:dsadsad | ruta:/prestamos/8/editar | accion:POST /prestamos/8/editar | ip:::1 | datos:{"body":{"alumno_id":"1","herramienta":"2","cantidad":"5","profesor":"Carlos Pablo","fecha_prestamo":"    Fri 3 09 2018 18:18:36 GMT-0300 (hora estándar de Argentina)","fecha_devolucion_estimada":"    Tue Sep 04 2007 05:43:00 GMT-0300 (hora estándar de Argentina)","estado":"Pendiente"}}
+2025-11-19T16:59:22.589Z | userId:10 | user:dsadsad | ruta:/prestamos/8/editar | accion:Actualizar préstamo | ip:::1 | datos:{"id":"8","estudiante_id":"1","herramientas_id":"2"}
+2025-11-19T17:02:16.511Z | userId:10 | user:dsadsad | ruta:/users/edit | accion:POST /users/edit | ip:::1 | datos:{}
+2025-11-19T17:02:16.522Z | userId:10 | user:dsadsad | ruta:/users/edit | accion:Actualizar perfil | ip:::1 | datos:{"userId":10,"email":"c@gmail.com"}
+2025-11-19T17:02:28.341Z | userId:10 | user:dsadsad | ruta:/herramientas/1/editar | accion:POST /herramientas/1/editar | ip:::1 | datos:{"body":{"nombre":"Martillo","categoria":"Manuales","cantidad":"48","estado":"Disponible","descripcion":"sadsadasdasdas"}}
+2025-11-19T17:02:28.345Z | userId:10 | user:dsadsad | ruta:/herramientas/1/editar | accion:Actualizar herramienta | ip:::1 | datos:{"id":"1","nombre":"Martillo","categoria":"Manuales"}
+2025-11-19T17:02:47.755Z | userId:10 | user:dsadsad | ruta:/users/profile | accion:POST /users/profile | ip:::1 | datos:{"body":{}}
+2025-11-19T17:02:47.755Z | userId:10 | user:dsadsad | ruta:/users/profile | accion:Cerrar sesión | ip:::1 | datos:{"userId":10,"email":"c@gmail.com"}
+2025-11-19T17:02:48.788Z | userId:anon | user:anon | ruta:/users/login | accion:POST /users/login | ip:::1 | datos:{"body":{"email":"c@gmail.com","password":"12345678"}}
+2025-11-19T17:02:48.838Z | userId:10 | user:pau | ruta:/users/login | accion:Iniciar sesión | ip:::1 | datos:{"userId":10,"email":"c@gmail.com"}
+2025-11-19T17:04:13.109Z | userId:10 | user:pau | ruta:/audit/reporte/pdf | accion:POST /audit/reporte/pdf | ip:::1 | datos:{"body":{}}
+2025-11-19T17:07:51.018Z | userId:10 | user:pau | ruta:/users/generate-pdf-users | accion:POST /users/generate-pdf-users | ip:::1 | datos:{"body":{}}
+2025-11-19T17:07:51.035Z | userId:10 | user:pau | ruta:/users/generate-pdf-users | accion:Generar listado de usuarios en PDF | ip:::1 | datos:{"userId":10}
+2025-11-19T17:09:10.041Z | userId:10 | user:pau | ruta:/users | accion:POST /users | ip:::1 | datos:{"body":{"q":"rober"}}
+2025-11-19T17:12:26.285Z | userId:anon | user:anon | ruta:/users/generate-pdf-users | accion:POST /users/generate-pdf-users | ip:::1 | datos:{"body":{}}
+2025-11-19T17:13:32.309Z | userId:anon | user:anon | ruta:/users | accion:POST /users | ip:::1 | datos:{"body":{"q":"rober"}}
+2025-11-19T17:13:47.181Z | userId:anon | user:anon | ruta:/users | accion:POST /users | ip:::1 | datos:{"body":{"q":"Robert"}}
+2025-11-19T17:13:51.933Z | userId:anon | user:anon | ruta:/users | accion:POST /users | ip:::1 | datos:{"body":{"q":"47"}}
+2025-11-19T17:13:53.610Z | userId:anon | user:anon | ruta:/users | accion:POST /users | ip:::1 | datos:{"body":{"q":""}}
+2025-11-19T17:13:57.821Z | userId:anon | user:anon | ruta:/users | accion:POST /users | ip:::1 | datos:{"body":{"q":"Roberto Llampa"}}
+2025-11-19T17:13:59.492Z | userId:anon | user:anon | ruta:/users | accion:POST /users | ip:::1 | datos:{"body":{"q":""}}
+2025-11-19T17:14:03.181Z | userId:anon | user:anon | ruta:/users | accion:POST /users | ip:::1 | datos:{"body":{"q":"roberto@"}}
+2025-11-19T17:14:04.309Z | userId:anon | user:anon | ruta:/users | accion:POST /users | ip:::1 | datos:{"body":{"q":""}}
+2025-11-19T17:14:08.390Z | userId:anon | user:anon | ruta:/users | accion:POST /users | ip:::1 | datos:{"body":{"q":"3"}}
+2025-11-19T17:14:10.941Z | userId:anon | user:anon | ruta:/users | accion:POST /users | ip:::1 | datos:{"body":{"q":"1"}}
+2025-11-19T17:14:13.542Z | userId:anon | user:anon | ruta:/users | accion:POST /users | ip:::1 | datos:{"body":{"q":""}}
+2025-11-19T17:14:42.003Z | userId:anon | user:anon | ruta:/users/login | accion:POST /users/login | ip:::1 | datos:{"body":{"email":"c@gmail.com","password":"12345678"}}
+2025-11-19T17:14:42.090Z | userId:10 | user:pau | ruta:/users/login | accion:Iniciar sesión | ip:::1 | datos:{"userId":10,"email":"c@gmail.com"}
+2025-11-19T17:14:46.696Z | userId:10 | user:pau | ruta:/users | accion:POST /users | ip:::1 | datos:{"body":{"q":"2"}}
+2025-11-19T17:14:51.663Z | userId:10 | user:pau | ruta:/users | accion:POST /users | ip:::1 | datos:{"body":{"q":"activo"}}
+2025-11-19T17:14:53.091Z | userId:10 | user:pau | ruta:/users | accion:POST /users | ip:::1 | datos:{"body":{"q":""}}
+2025-11-19T17:14:58.718Z | userId:10 | user:pau | ruta:/users | accion:POST /users | ip:::1 | datos:{"body":{"q":"bloqueado"}}
+2025-11-19T17:15:00.043Z | userId:10 | user:pau | ruta:/users | accion:POST /users | ip:::1 | datos:{"body":{"q":""}}
+2025-11-19T17:15:12.498Z | userId:10 | user:pau | ruta:/users | accion:POST /users | ip:::1 | datos:{"body":{"q":"1"}}
+2025-11-19T17:15:14.839Z | userId:10 | user:pau | ruta:/users | accion:POST /users | ip:::1 | datos:{"body":{"q":"0"}}
+2025-11-19T17:15:18.671Z | userId:10 | user:pau | ruta:/users | accion:POST /users | ip:::1 | datos:{"body":{"q":"1"}}
+2025-11-19T17:19:18.321Z | userId:anon | user:anon | ruta:/insumos | accion:POST /insumos | ip:::1 | datos:{"body":{"q":"6"}}
+2025-11-19T17:19:18.347Z | userId:anon | user:anon | ruta:/insumos | accion:Buscar insumo | ip:::1 | datos:{"termino":"6"}
+2025-11-19T17:19:19.702Z | userId:anon | user:anon | ruta:/insumos | accion:POST /insumos | ip:::1 | datos:{"body":{"q":""}}
+2025-11-19T17:19:19.706Z | userId:anon | user:anon | ruta:/insumos | accion:Buscar insumo | ip:::1 | datos:{"termino":""}
+2025-11-19T17:19:22.516Z | userId:anon | user:anon | ruta:/insumos | accion:POST /insumos | ip:::1 | datos:{"body":{"q":"Cable"}}
+2025-11-19T17:19:22.519Z | userId:anon | user:anon | ruta:/insumos | accion:Buscar insumo | ip:::1 | datos:{"termino":"Cable"}
+2025-11-19T17:19:29.580Z | userId:anon | user:anon | ruta:/insumos | accion:POST /insumos | ip:::1 | datos:{"body":{"q":"hola buenas esta"}}
+2025-11-19T17:19:29.583Z | userId:anon | user:anon | ruta:/insumos | accion:Buscar insumo | ip:::1 | datos:{"termino":"hola buenas esta"}
+2025-11-19T17:19:31.973Z | userId:anon | user:anon | ruta:/insumos | accion:POST /insumos | ip:::1 | datos:{"body":{"q":""}}
+2025-11-19T17:19:31.976Z | userId:anon | user:anon | ruta:/insumos | accion:Buscar insumo | ip:::1 | datos:{"termino":""}
+2025-11-19T17:19:40.954Z | userId:anon | user:anon | ruta:/insumos | accion:POST /insumos | ip:::1 | datos:{"body":{"q":"disponible"}}
+2025-11-19T17:19:40.956Z | userId:anon | user:anon | ruta:/insumos | accion:Buscar insumo | ip:::1 | datos:{"termino":"disponible"}
+2025-11-19T17:19:46.125Z | userId:anon | user:anon | ruta:/insumos | accion:POST /insumos | ip:::1 | datos:{"body":{"q":"1das"}}
+2025-11-19T17:19:46.127Z | userId:anon | user:anon | ruta:/insumos | accion:Buscar insumo | ip:::1 | datos:{"termino":"1das"}
+2025-11-19T17:19:47.429Z | userId:anon | user:anon | ruta:/insumos | accion:POST /insumos | ip:::1 | datos:{"body":{"q":""}}
+2025-11-19T17:19:47.432Z | userId:anon | user:anon | ruta:/insumos | accion:Buscar insumo | ip:::1 | datos:{"termino":""}
+2025-11-19T17:21:02.357Z | userId:anon | user:anon | ruta:/insumos/1/edit | accion:POST /insumos/1/edit | ip:::1 | datos:{"body":{"nombre":"afdfsd","descripcion":"2qasdasd","cantidad":"42","estado":""}}
+2025-11-19T17:21:02.363Z | userId:anon | user:anon | ruta:/insumos/1/edit | accion:Actualizar insumo | ip:::1 | datos:{"id":"1","nombre":"afdfsd"}
+2025-11-19T17:21:03.872Z | userId:anon | user:anon | ruta:/insumos | accion:POST /insumos | ip:::1 | datos:{"body":{"q":""}}
+2025-11-19T17:21:03.874Z | userId:anon | user:anon | ruta:/insumos | accion:Buscar insumo | ip:::1 | datos:{"termino":""}
+2025-11-19T17:21:40.350Z | userId:anon | user:anon | ruta:/insumos | accion:POST /insumos | ip:::1 | datos:{"body":{"q":""}}
+2025-11-19T17:21:40.355Z | userId:anon | user:anon | ruta:/insumos | accion:Buscar insumo | ip:::1 | datos:{"termino":""}
+2025-11-19T17:21:51.333Z | userId:anon | user:anon | ruta:/insumos | accion:POST /insumos | ip:::1 | datos:{"body":{"q":""}}
+2025-11-19T17:21:51.338Z | userId:anon | user:anon | ruta:/insumos | accion:Buscar insumo | ip:::1 | datos:{"termino":""}
+2025-11-19T17:21:55.821Z | userId:anon | user:anon | ruta:/insumos/1/edit | accion:POST /insumos/1/edit | ip:::1 | datos:{"body":{"nombre":"saddsa","descripcion":"2qasdasd","cantidad":"42","estado":""}}
+2025-11-19T17:21:55.823Z | userId:anon | user:anon | ruta:/insumos/1/edit | accion:Actualizar insumo | ip:::1 | datos:{"id":"1","nombre":"saddsa"}
+2025-11-19T17:21:56.665Z | userId:anon | user:anon | ruta:/insumos | accion:POST /insumos | ip:::1 | datos:{"body":{"q":""}}
+2025-11-19T17:21:56.667Z | userId:anon | user:anon | ruta:/insumos | accion:Buscar insumo | ip:::1 | datos:{"termino":""}
+2025-11-19T17:22:14.109Z | userId:anon | user:anon | ruta:/insumos/reportes | accion:POST /insumos/reportes | ip:::1 | datos:{"body":{}}
+2025-11-19T17:22:14.142Z | userId:anon | user:anon | ruta:/insumos/reportes | accion:Generar reporte PDF de insumos | ip:::1 | datos:{"totalInsumos":6}
+2025-11-19T17:22:36.676Z | userId:anon | user:anon | ruta:/insumos/add | accion:POST /insumos/add | ip:::1 | datos:{"body":{"nombre":"sadasda","descripcion":"dasfsdgdfhdfb","cantidad":"234","unidad":"cm","ubicacion":"1dasfsfv"}}
+2025-11-19T17:22:36.682Z | userId:anon | user:anon | ruta:/insumos/add | accion:Crear insumo | ip:::1 | datos:{"nombre":"sadasda"}
+2025-11-19T17:22:54.059Z | userId:anon | user:anon | ruta:/users/login | accion:POST /users/login | ip:::1 | datos:{"body":{"email":"c@gmail.com","password":"12345678"}}
+2025-11-19T17:22:54.122Z | userId:10 | user:pau | ruta:/users/login | accion:Iniciar sesión | ip:::1 | datos:{"userId":10,"email":"c@gmail.com"}
+2025-11-19T17:23:45.378Z | userId:anon | user:anon | ruta:/usosInsumos | accion:POST /usosInsumos | ip:::1 | datos:{"body":{"q":"1"}}
+2025-11-19T17:24:59.530Z | userId:anon | user:anon | ruta:/users/login | accion:POST /users/login | ip:::1 | datos:{"body":{"email":"c@gmail.com","password":"12345678"}}
+2025-11-19T17:24:59.592Z | userId:10 | user:pau | ruta:/users/login | accion:Iniciar sesión | ip:::1 | datos:{"userId":10,"email":"c@gmail.com"}
+2025-11-19T17:25:03.260Z | userId:10 | user:pau | ruta:/usosInsumos | accion:POST /usosInsumos | ip:::1 | datos:{"body":{"q":"ocar"}}
+2025-11-19T17:25:05.644Z | userId:10 | user:pau | ruta:/usosInsumos | accion:POST /usosInsumos | ip:::1 | datos:{"body":{"q":"oscar"}}
+2025-11-19T17:25:10.061Z | userId:10 | user:pau | ruta:/usosInsumos | accion:POST /usosInsumos | ip:::1 | datos:{"body":{"q":"saddsa"}}
+2025-11-19T17:25:12.908Z | userId:10 | user:pau | ruta:/usosInsumos | accion:POST /usosInsumos | ip:::1 | datos:{"body":{"q":"pablo"}}
+2025-11-19T17:25:15.308Z | userId:10 | user:pau | ruta:/usosInsumos | accion:POST /usosInsumos | ip:::1 | datos:{"body":{"q":"0"}}
+2025-11-19T17:25:17.892Z | userId:10 | user:pau | ruta:/usosInsumos | accion:POST /usosInsumos | ip:::1 | datos:{"body":{"q":"adassfdsgdfgsfdhg"}}
+2025-11-19T17:25:20.042Z | userId:10 | user:pau | ruta:/usosInsumos | accion:POST /usosInsumos | ip:::1 | datos:{"body":{"q":""}}
+2025-11-19T17:26:56.019Z | userId:10 | user:pau | ruta:/usosInsumos/store | accion:POST /usosInsumos/store | ip:::1 | datos:{"body":{"insumo_id":"4","estudiante_id":"3","profesor_encargado":"Analia","cantidad_usada":"345","descripcion":"sfafaqfas"}}
+2025-11-19T17:27:07.903Z | userId:10 | user:pau | ruta:/usosInsumos/store | accion:POST /usosInsumos/store | ip:::1 | datos:{"body":{"insumo_id":"2","estudiante_id":"1","profesor_encargado":"Pablo","cantidad_usada":"51","descripcion":"sadsadasd"}}
+2025-11-19T17:27:21.984Z | userId:10 | user:pau | ruta:/usosInsumos/store | accion:POST /usosInsumos/store | ip:::1 | datos:{"body":{"insumo_id":"4","estudiante_id":"1","profesor_encargado":"adsadasd","cantidad_usada":"51","descripcion":"sdadasd"}}
+2025-11-19T17:29:04.275Z | userId:10 | user:pau | ruta:/users/profile | accion:POST /users/profile | ip:::1 | datos:{"body":{}}
+2025-11-19T17:29:04.275Z | userId:10 | user:pau | ruta:/users/profile | accion:Cerrar sesión | ip:::1 | datos:{"userId":10,"email":"c@gmail.com"}
+2025-11-19T17:38:07.904Z | userId:anon | user:anon | ruta:/users/login | accion:POST /users/login | ip:::1 | datos:{"body":{"email":"c@gmail.com","password":"12345678"}}
+2025-11-19T17:38:07.960Z | userId:10 | user:pau | ruta:/users/login | accion:Iniciar sesión | ip:::1 | datos:{"userId":10,"email":"c@gmail.com"}
+2025-11-19T17:52:35.597Z | userId:anon | user:anon | ruta:/herramientas | accion:Listar herramientas | ip:::1 | datos:{"totalHerramientas":6}
+2025-11-19T17:53:20.590Z | userId:anon | user:anon | ruta:/ | accion:Acceder al índice | ip:::1 | datos:{}
+2025-11-19T17:56:18.298Z | userId:anon | user:anon | ruta:/ | accion:Acceder al índice | ip:::1 | datos:{}
+2025-11-19T17:56:20.079Z | userId:anon | user:anon | ruta:/users/login | accion:POST /users/login | ip:::1 | datos:{"body":{"email":"c@gmail.com","password":"12345678"}}
+2025-11-19T17:56:20.137Z | userId:10 | user:pau | ruta:/users/login | accion:Iniciar sesión | ip:::1 | datos:{"userId":10,"email":"c@gmail.com"}
+2025-11-19T17:56:20.148Z | userId:10 | user:pau | ruta:/ | accion:Acceder al índice | ip:::1 | datos:{}
+2025-11-19T17:56:21.305Z | userId:10 | user:pau | ruta:/ | accion:Acceder al índice | ip:::1 | datos:{}
+2025-11-19T17:56:40.200Z | userId:10 | user:pau | ruta:/estudiantes | accion:Listar estudiantes | ip:::1 | datos:{}
+2025-11-19T17:56:52.315Z | userId:10 | user:pau | ruta:/herramientas | accion:Listar herramientas | ip:::1 | datos:{"totalHerramientas":6}
+2025-11-19T17:57:06.092Z | userId:10 | user:pau | ruta:/prestamos | accion:Listar préstamos | ip:::1 | datos:{}
+2025-11-19T17:57:19.534Z | userId:10 | user:pau | ruta:/audit | accion:Listar audit logs | ip:::1 | datos:{"termino":"","pagina":1}
+2025-11-19T17:57:35.740Z | userId:10 | user:pau | ruta:/users/ | accion:Listar usuarios | ip:::1 | datos:{"userId":10}
+2025-11-19T17:57:44.792Z | userId:10 | user:pau | ruta:/users/ | accion:Listar usuarios | ip:::1 | datos:{"userId":10}
+2025-11-19T17:57:45.170Z | userId:10 | user:pau | ruta:/insumos | accion:Acceder a la lista de insumos | ip:::1 | datos:{}
+2025-11-19T17:58:06.134Z | userId:10 | user:pau | ruta:/usosInsumos | accion:Acceso a la lista de usos de insumos | ip:::1 | datos:{"totalUsos":5}
+2025-11-19T17:58:17.500Z | userId:10 | user:pau | ruta:/users/profile | accion:Ver perfil | ip:::1 | datos:{"userId":10,"email":"c@gmail.com"}
+2025-11-19T17:58:32.076Z | userId:10 | user:pau | ruta:/users/profile | accion:POST /users/profile | ip:::1 | datos:{"body":{}}
+2025-11-19T17:58:32.077Z | userId:10 | user:pau | ruta:/users/profile | accion:Cerrar sesión | ip:::1 | datos:{"userId":10,"email":"c@gmail.com"}
+2025-11-19T17:58:48.185Z | userId:anon | user:anon | ruta:/users/register | accion:Mostrar formulario de registro | ip:::1 | datos:{}
+2025-11-19T17:59:05.352Z | userId:anon | user:anon | ruta:/users/recuperar-password | accion:Mostrar formulario de recuperación de contraseña | ip:::1 | datos:{}
+2025-11-19T18:00:35.064Z | userId:anon | user:anon | ruta:/users/login | accion:POST /users/login | ip:::1 | datos:{"body":{"email":"c@gmail.com","password":"12345678"}}
+2025-11-19T18:00:35.120Z | userId:10 | user:pau | ruta:/users/login | accion:Iniciar sesión | ip:::1 | datos:{"userId":10,"email":"c@gmail.com"}
+2025-11-19T18:00:35.130Z | userId:10 | user:pau | ruta:/ | accion:Acceder al índice | ip:::1 | datos:{}
+2025-11-19T18:09:36.428Z | userId:anon | user:anon | ruta:/prestamos | accion:Listar préstamos | ip:::1 | datos:{}
+2025-11-19T18:09:37.922Z | userId:anon | user:anon | ruta:/users/login | accion:POST /users/login | ip:::1 | datos:{"body":{"email":"c@gmail.com","password":"12345678"}}
+2025-11-19T18:09:37.981Z | userId:10 | user:pau | ruta:/users/login | accion:Iniciar sesión | ip:::1 | datos:{"userId":10,"email":"c@gmail.com"}
+2025-11-19T18:09:37.992Z | userId:10 | user:pau | ruta:/ | accion:Acceder al índice | ip:::1 | datos:{}
+2025-11-19T18:09:39.306Z | userId:10 | user:pau | ruta:/prestamos | accion:Listar préstamos | ip:::1 | datos:{}
+2025-11-19T18:09:40.024Z | userId:10 | user:pau | ruta:/prestamos/add | accion:Mostrar formulario de creación de préstamo | ip:::1 | datos:{}
+2025-11-19T18:10:06.865Z | userId:10 | user:pau | ruta:/prestamos/add | accion:POST /prestamos/add | ip:::1 | datos:{"body":{"estudiante":"2","herramienta":"2","profesor":"saddsad","cantidad":"4","observaciones":"sadsadasd","fecha_devolucion":"12/11/2004 13:00"}}
+2025-11-19T18:11:22.150Z | userId:10 | user:pau | ruta:/prestamos/add | accion:POST /prestamos/add | ip:::1 | datos:{"body":{"estudiante":"2","herramienta":"2","profesor":"saddsad","cantidad":"4","observaciones":"sadsadasd","fecha_devolucion":"12/11/2004 13:00"}}
+2025-11-19T18:11:43.071Z | userId:10 | user:pau | ruta:/prestamos/add | accion:POST /prestamos/add | ip:::1 | datos:{"body":{"estudiante":"2","herramienta":"2","profesor":"saddsad","cantidad":"4","observaciones":"sadsadasd","fecha_devolucion":"12/11/2004 13:00"}}
+2025-11-19T18:11:59.134Z | userId:10 | user:pau | ruta:/prestamos/add | accion:POST /prestamos/add | ip:::1 | datos:{"body":{"estudiante":"2","herramienta":"2","profesor":"saddsad","cantidad":"4","observaciones":"sadsadasd","fecha_devolucion":"12/11/2004 13:00"}}
+2025-11-19T18:13:22.883Z | userId:anon | user:anon | ruta:/prestamos/add | accion:POST /prestamos/add | ip:::1 | datos:{"body":{"estudiante":"2","herramienta":"3","profesor":"Carlos Pablo","cantidad":"4","observaciones":"hhghjhjkhjkkhj","fecha_devolucion":"11/23/2025 12:00"}}
+2025-11-19T18:13:22.918Z | userId:anon | user:anon | ruta:/prestamos/add | accion:Crear préstamo | ip:::1 | datos:{"estudiante_id":"2","herramientas_id":"3"}
+2025-11-19T18:13:22.928Z | userId:anon | user:anon | ruta:/prestamos | accion:Listar préstamos | ip:::1 | datos:{}
+2025-11-19T18:13:26.022Z | userId:anon | user:anon | ruta:/prestamos/add | accion:Mostrar formulario de creación de préstamo | ip:::1 | datos:{}
+2025-11-19T18:14:05.688Z | userId:anon | user:anon | ruta:/prestamos/add | accion:Mostrar formulario de creación de préstamo | ip:::1 | datos:{}
+2025-11-19T18:14:25.056Z | userId:anon | user:anon | ruta:/prestamos/add | accion:POST /prestamos/add | ip:::1 | datos:{"body":{"estudiante":"1","herramienta":"1","profesor":"saddsad","cantidad":"4","observaciones":"sadsadasd","fecha_devolucion":"12/4/2008 12:00"}}
+2025-11-19T18:15:04.032Z | userId:anon | user:anon | ruta:/prestamos/add | accion:POST /prestamos/add | ip:::1 | datos:{"body":{"estudiante":"1","herramienta":"1","profesor":"saddsad","cantidad":"4","observaciones":"sadsadasd","fecha_devolucion":"12/4/2008 12:00"}}
+2025-11-19T18:17:38.788Z | userId:anon | user:anon | ruta:/users/login | accion:POST /users/login | ip:::1 | datos:{"body":{"email":"c@gmail.com","password":"12345678"}}
+2025-11-19T18:17:38.866Z | userId:10 | user:pau | ruta:/users/login | accion:Iniciar sesión | ip:::1 | datos:{"userId":10,"email":"c@gmail.com"}
+2025-11-19T18:17:38.869Z | userId:anon | user:anon | ruta:/users/login | accion:POST /users/login | ip:::1 | datos:{"body":{"email":"c@gmail.com","password":"12345678"}}
+2025-11-19T18:17:38.926Z | userId:10 | user:pau | ruta:/users/login | accion:Iniciar sesión | ip:::1 | datos:{"userId":10,"email":"c@gmail.com"}
+2025-11-19T18:17:38.952Z | userId:10 | user:pau | ruta:/ | accion:Acceder al índice | ip:::1 | datos:{}
+2025-11-19T18:17:39.928Z | userId:10 | user:pau | ruta:/prestamos | accion:Listar préstamos | ip:::1 | datos:{}
+2025-11-19T18:17:40.765Z | userId:10 | user:pau | ruta:/prestamos/add | accion:Mostrar formulario de creación de préstamo | ip:::1 | datos:{}
+2025-11-19T18:18:06.234Z | userId:10 | user:pau | ruta:/prestamos/add | accion:Mostrar formulario de creación de préstamo | ip:::1 | datos:{}
+2025-11-19T18:18:57.727Z | userId:anon | user:anon | ruta:/prestamos/add | accion:Mostrar formulario de creación de préstamo | ip:::1 | datos:{}
+2025-11-19T18:19:25.326Z | userId:anon | user:anon | ruta:/prestamos/add | accion:POST /prestamos/add | ip:::1 | datos:{"body":{"estudiante":"1","herramienta":"1","profesor":"Carlos Pablo","cantidad":"4","observaciones":"hhghjhjkhjkkhj","fecha_devolucion":"11/23/2008 12:00"}}
+2025-11-19T18:19:41.254Z | userId:anon | user:anon | ruta:/prestamos/add | accion:POST /prestamos/add | ip:::1 | datos:{"body":{"estudiante":"4","herramienta":"1","profesor":"Carlos Pablo","cantidad":"4","observaciones":"hhghjhjkhjkkhj","fecha_devolucion":"11/23/2025 12:00"}}
+2025-11-19T18:19:41.263Z | userId:anon | user:anon | ruta:/prestamos/add | accion:Crear préstamo | ip:::1 | datos:{"estudiante_id":"4","herramientas_id":"1"}
+2025-11-19T18:19:41.270Z | userId:anon | user:anon | ruta:/prestamos | accion:Listar préstamos | ip:::1 | datos:{}
+2025-11-19T18:20:02.311Z | userId:anon | user:anon | ruta:/prestamos/add | accion:Mostrar formulario de creación de préstamo | ip:::1 | datos:{}
+2025-11-19T18:21:20.452Z | userId:anon | user:anon | ruta:/prestamos/add | accion:Mostrar formulario de creación de préstamo | ip:::1 | datos:{}
+2025-11-19T18:21:29.669Z | userId:anon | user:anon | ruta:/prestamos/add | accion:POST /prestamos/add | ip:::1 | datos:{"body":{"estudiante":"1","herramienta":"2","profesor":"Carlos Pablo","cantidad":"4","observaciones":"hhghjhjkhjkkhj","fecha_devolucion":"9/4/2007 5:43"}}
+2025-11-19T18:23:10.745Z | userId:anon | user:anon | ruta:/prestamos | accion:Listar préstamos | ip:::1 | datos:{}
+2025-11-19T18:24:22.249Z | userId:anon | user:anon | ruta:/prestamos | accion:Listar préstamos | ip:::1 | datos:{}
+2025-11-19T18:24:23.032Z | userId:anon | user:anon | ruta:/prestamos | accion:Listar préstamos | ip:::1 | datos:{}
+2025-11-19T18:24:25.591Z | userId:anon | user:anon | ruta:/users/login | accion:POST /users/login | ip:::1 | datos:{"body":{"email":"c@gmail.com","password":"12345678"}}
+2025-11-19T18:24:25.654Z | userId:10 | user:pau | ruta:/users/login | accion:Iniciar sesión | ip:::1 | datos:{"userId":10,"email":"c@gmail.com"}
+2025-11-19T18:24:25.664Z | userId:10 | user:pau | ruta:/ | accion:Acceder al índice | ip:::1 | datos:{}
+2025-11-19T18:24:27.627Z | userId:10 | user:pau | ruta:/prestamos | accion:Listar préstamos | ip:::1 | datos:{}
+2025-11-19T18:24:47.577Z | userId:10 | user:pau | ruta:/prestamos | accion:Listar préstamos | ip:::1 | datos:{}
+2025-11-19T18:24:56.448Z | userId:10 | user:pau | ruta:/prestamos | accion:Listar préstamos | ip:::1 | datos:{}
+2025-11-19T18:25:33.569Z | userId:10 | user:pau | ruta:/prestamos | accion:Listar préstamos | ip:::1 | datos:{}
+2025-11-19T18:25:34.360Z | userId:10 | user:pau | ruta:/prestamos | accion:Listar préstamos | ip:::1 | datos:{}
+2025-11-19T18:31:45.867Z | userId:anon | user:anon | ruta:/prestamos | accion:Listar préstamos | ip:::1 | datos:{}
+2025-11-19T18:31:56.504Z | userId:anon | user:anon | ruta:/prestamos | accion:Listar préstamos | ip:::1 | datos:{}
+2025-11-19T18:34:17.169Z | userId:anon | user:anon | ruta:/prestamos | accion:Listar préstamos | ip:::1 | datos:{}
+2025-11-19T18:34:17.238Z | userId:anon | user:anon | ruta:/prestamos | accion:Listar préstamos | ip:::1 | datos:{}
+2025-11-19T18:34:35.425Z | userId:anon | user:anon | ruta:/prestamos | accion:Listar préstamos | ip:::1 | datos:{}
+2025-11-19T18:34:58.303Z | userId:anon | user:anon | ruta:/prestamos | accion:Listar préstamos | ip:::1 | datos:{}
+2025-11-19T18:36:12.705Z | userId:anon | user:anon | ruta:/prestamos | accion:Listar préstamos | ip:::1 | datos:{}
+2025-11-19T18:36:52.426Z | userId:anon | user:anon | ruta:/prestamos | accion:Listar préstamos | ip:::1 | datos:{}
+2025-11-19T18:36:52.992Z | userId:anon | user:anon | ruta:/prestamos | accion:Listar préstamos | ip:::1 | datos:{}
+2025-11-19T18:37:31.409Z | userId:anon | user:anon | ruta:/users/login | accion:POST /users/login | ip:::1 | datos:{"body":{"email":"c@gmail.com","password":"12345678"}}
+2025-11-19T18:37:31.490Z | userId:10 | user:pau | ruta:/users/login | accion:Iniciar sesión | ip:::1 | datos:{"userId":10,"email":"c@gmail.com"}
+2025-11-19T18:37:31.522Z | userId:10 | user:pau | ruta:/ | accion:Acceder al índice | ip:::1 | datos:{}
+2025-11-19T18:37:32.172Z | userId:10 | user:pau | ruta:/prestamos | accion:Listar préstamos | ip:::1 | datos:{}
+2025-11-19T18:41:17.450Z | userId:anon | user:anon | ruta:/ | accion:Acceder al índice | ip:::1 | datos:{}
+2025-11-19T18:41:19.282Z | userId:anon | user:anon | ruta:/users/login | accion:POST /users/login | ip:::1 | datos:{"body":{"email":"c@gmail.com","password":"12345678"}}
+2025-11-19T18:41:19.343Z | userId:10 | user:pau | ruta:/users/login | accion:Iniciar sesión | ip:::1 | datos:{"userId":10,"email":"c@gmail.com"}
+2025-11-19T18:41:19.354Z | userId:10 | user:pau | ruta:/ | accion:Acceder al índice | ip:::1 | datos:{}
+2025-11-19T18:41:20.176Z | userId:10 | user:pau | ruta:/prestamos | accion:Listar préstamos | ip:::1 | datos:{}
+2025-11-19T18:42:51.518Z | userId:10 | user:pau | ruta:/prestamos | accion:Listar préstamos | ip:::1 | datos:{}
+2025-11-19T18:43:40.223Z | userId:anon | user:anon | ruta:/prestamos | accion:Listar préstamos | ip:::1 | datos:{}
+2025-11-19T18:43:45.160Z | userId:anon | user:anon | ruta:/prestamos | accion:POST /prestamos | ip:::1 | datos:{"body":{"q":"0"}}
+2025-11-19T18:43:45.165Z | userId:anon | user:anon | ruta:/prestamos | accion:Buscar préstamos | ip:::1 | datos:{"terminoBusqueda":"0","resultadosEncontrados":9}
+2025-11-19T18:44:55.944Z | userId:anon | user:anon | ruta:/prestamos | accion:POST /prestamos | ip:::1 | datos:{"body":{"q":"0"}}
+2025-11-19T18:44:55.977Z | userId:anon | user:anon | ruta:/prestamos | accion:Buscar préstamos | ip:::1 | datos:{"terminoBusqueda":"0","resultadosEncontrados":9}
+2025-11-19T18:44:59.721Z | userId:anon | user:anon | ruta:/prestamos | accion:POST /prestamos | ip:::ffff:127.0.0.1 | datos:{"body":{"q":"0"}}
+2025-11-19T18:44:59.726Z | userId:anon | user:anon | ruta:/prestamos | accion:Buscar préstamos | ip:::ffff:127.0.0.1 | datos:{"terminoBusqueda":"0","resultadosEncontrados":9}
+2025-11-19T18:45:05.714Z | userId:anon | user:anon | ruta:/prestamos | accion:POST /prestamos | ip:::1 | datos:{"body":{"q":"1"}}
+2025-11-19T18:45:05.720Z | userId:anon | user:anon | ruta:/prestamos | accion:Buscar préstamos | ip:::1 | datos:{"terminoBusqueda":"1","resultadosEncontrados":4}
+2025-11-19T18:45:41.237Z | userId:anon | user:anon | ruta:/prestamos | accion:POST /prestamos | ip:::1 | datos:{"body":{"q":""}}
+2025-11-19T18:45:41.244Z | userId:anon | user:anon | ruta:/prestamos | accion:Buscar préstamos | ip:::1 | datos:{"terminoBusqueda":"","resultadosEncontrados":10}
+2025-11-19T18:45:43.298Z | userId:anon | user:anon | ruta:/users/login | accion:POST /users/login | ip:::1 | datos:{"body":{"email":"c@gmail.com","password":"12345678"}}
+2025-11-19T18:45:43.358Z | userId:10 | user:pau | ruta:/users/login | accion:Iniciar sesión | ip:::1 | datos:{"userId":10,"email":"c@gmail.com"}
+2025-11-19T18:45:43.369Z | userId:10 | user:pau | ruta:/ | accion:Acceder al índice | ip:::1 | datos:{}
+2025-11-19T18:45:48.210Z | userId:10 | user:pau | ruta:/prestamos | accion:Listar préstamos | ip:::1 | datos:{}
+2025-11-19T18:45:49.228Z | userId:10 | user:pau | ruta:/ | accion:Acceder al índice | ip:::1 | datos:{}
+2025-11-19T18:45:56.794Z | userId:10 | user:pau | ruta:/prestamos | accion:Listar préstamos | ip:::1 | datos:{}
+2025-11-19T18:47:25.873Z | userId:anon | user:anon | ruta:/ | accion:Acceder al índice | ip:::1 | datos:{}
+2025-11-19T18:47:47.927Z | userId:anon | user:anon | ruta:/ | accion:Acceder al índice | ip:::1 | datos:{}
+2025-11-19T18:47:53.061Z | userId:anon | user:anon | ruta:/users/login | accion:POST /users/login | ip:::1 | datos:{"body":{"email":"c@gmail.com","password":"12345678"}}
+2025-11-19T18:47:53.122Z | userId:10 | user:pau | ruta:/users/login | accion:Iniciar sesión | ip:::1 | datos:{"userId":10,"email":"c@gmail.com"}
+2025-11-19T18:47:53.135Z | userId:10 | user:pau | ruta:/ | accion:Acceder al índice | ip:::1 | datos:{}
+2025-11-19T18:47:55.188Z | userId:10 | user:pau | ruta:/prestamos | accion:Listar préstamos | ip:::1 | datos:{}
+2025-11-19T18:48:00.661Z | userId:10 | user:pau | ruta:/prestamos/8/editar | accion:Mostrar formulario de edición de préstamo | ip:::1 | datos:{"id":8,"estudiante_id":1,"herramientas_id":2}
+2025-11-19T18:49:09.434Z | userId:anon | user:anon | ruta:/prestamos/8/editar | accion:POST /prestamos/8/editar | ip:::1 | datos:{"body":{"alumno_id":"1","herramienta":"2","cantidad":"5","profesor":"Carlos Pablo","fecha_prestamo":"    Fri Mar 09 2018 18:18:36 GMT-0300 (hora estándar de Argentina)","fecha_devolucion_estimada":"    Tue Sep 04 2007 05:43:00 GMT-0300 (hora estándar de Argentina)","estado":"Pendiente"}}
+2025-11-19T18:49:09.469Z | userId:anon | user:anon | ruta:/prestamos/8/editar | accion:Actualizar préstamo | ip:::1 | datos:{"id":"8","estudiante_id":"1","herramientas_id":"2"}
+2025-11-19T18:49:09.481Z | userId:anon | user:anon | ruta:/prestamos | accion:Listar préstamos | ip:::1 | datos:{}
+2025-11-19T18:49:12.205Z | userId:anon | user:anon | ruta:/users/login | accion:POST /users/login | ip:::1 | datos:{"body":{"email":"c@gmail.com","password":"12345678"}}
+2025-11-19T18:49:12.265Z | userId:10 | user:pau | ruta:/users/login | accion:Iniciar sesión | ip:::1 | datos:{"userId":10,"email":"c@gmail.com"}
+2025-11-19T18:49:12.280Z | userId:10 | user:pau | ruta:/ | accion:Acceder al índice | ip:::1 | datos:{}
+2025-11-19T18:49:13.813Z | userId:10 | user:pau | ruta:/prestamos | accion:Listar préstamos | ip:::1 | datos:{}
+2025-11-19T18:49:18.133Z | userId:10 | user:pau | ruta:/prestamos/8/editar | accion:Mostrar formulario de edición de préstamo | ip:::1 | datos:{"id":8,"estudiante_id":1,"herramientas_id":2}
+2025-11-19T18:50:14.259Z | userId:anon | user:anon | ruta:/prestamos/8/editar | accion:Mostrar formulario de edición de préstamo | ip:::1 | datos:{"id":8,"estudiante_id":1,"herramientas_id":2}
+2025-11-19T18:50:18.015Z | userId:anon | user:anon | ruta:/prestamos/8/editar | accion:POST /prestamos/8/editar | ip:::1 | datos:{"body":{"alumno_id":"1","herramienta":"2","cantidad":"5","profesor":"Carlos Pablo","fecha_prestamo":"    Fri Mar 09 2017 18:18:36 GMT-0300 (hora estándar de Argentina)","fecha_devolucion_estimada":"    Tue Sep 04 2007 05:43:00 GMT-0300 (hora estándar de Argentina)","estado":"Pendiente"}}
+2025-11-19T18:50:18.031Z | userId:anon | user:anon | ruta:/prestamos/8/editar | accion:Actualizar préstamo | ip:::1 | datos:{"id":"8","estudiante_id":"1","herramientas_id":"2"}
+2025-11-19T18:50:18.040Z | userId:anon | user:anon | ruta:/prestamos | accion:Listar préstamos | ip:::1 | datos:{}
+2025-11-19T18:50:23.157Z | userId:anon | user:anon | ruta:/users/login | accion:POST /users/login | ip:::1 | datos:{"body":{"email":"c@gmail.com","password":"12345678"}}
+2025-11-19T18:50:23.216Z | userId:10 | user:pau | ruta:/users/login | accion:Iniciar sesión | ip:::1 | datos:{"userId":10,"email":"c@gmail.com"}
+2025-11-19T18:50:23.229Z | userId:10 | user:pau | ruta:/ | accion:Acceder al índice | ip:::1 | datos:{}
+2025-11-19T18:50:27.701Z | userId:10 | user:pau | ruta:/prestamos | accion:Listar préstamos | ip:::1 | datos:{}
+2025-11-19T18:50:44.167Z | userId:10 | user:pau | ruta:/prestamos/8/editar | accion:Mostrar formulario de edición de préstamo | ip:::1 | datos:{"id":8,"estudiante_id":1,"herramientas_id":2}
+2025-11-19T18:52:03.127Z | userId:10 | user:pau | ruta:/prestamos/8/editar | accion:POST /prestamos/8/editar | ip:::1 | datos:{"body":{"alumno_id":"1","herramienta":"2","cantidad":"5","profesor":"Carlos Pablo","fecha_prestamo":"    Thu Mar 09 2007 18:18:36 GMT-0300 (hora estándar de Argentina)","fecha_devolucion_estimada":"    Tue Sep 04 20010 05:43:00 GMT-0300 (hora estándar de Argentina)","estado":"Pendiente"}}
+2025-11-19T18:52:03.135Z | userId:10 | user:pau | ruta:/prestamos/8/editar | accion:Actualizar préstamo | ip:::1 | datos:{"id":"8","estudiante_id":"1","herramientas_id":"2"}
+2025-11-19T18:52:03.142Z | userId:10 | user:pau | ruta:/prestamos | accion:Listar préstamos | ip:::1 | datos:{}
+2025-11-19T18:52:12.852Z | userId:10 | user:pau | ruta:/prestamos | accion:Listar préstamos | ip:::1 | datos:{}
+2025-11-19T18:52:17.053Z | userId:10 | user:pau | ruta:/prestamos/8/editar | accion:Mostrar formulario de edición de préstamo | ip:::1 | datos:{"id":8,"estudiante_id":1,"herramientas_id":2}
+2025-11-19T18:52:34.895Z | userId:10 | user:pau | ruta:/prestamos/8/editar | accion:POST /prestamos/8/editar | ip:::1 | datos:{"body":{"alumno_id":"1","herramienta":"2","cantidad":"5","profesor":"Carlos Pablo","fecha_prestamo":"    Fri Mar 09 2007 18:18:36 GMT-0300 (hora estándar de Argentina)","fecha_devolucion_estimada":"11/9/2018 12:00","estado":"Pendiente"}}
+2025-11-19T18:52:34.904Z | userId:10 | user:pau | ruta:/prestamos/8/editar | accion:Actualizar préstamo | ip:::1 | datos:{"id":"8","estudiante_id":"1","herramientas_id":"2"}
+2025-11-19T18:52:34.911Z | userId:10 | user:pau | ruta:/prestamos | accion:Listar préstamos | ip:::1 | datos:{}
+2025-11-19T18:56:27.767Z | userId:10 | user:pau | ruta:/prestamos | accion:Listar préstamos | ip:::1 | datos:{}
+2025-11-19T18:56:29.091Z | userId:10 | user:pau | ruta:/ | accion:Acceder al índice | ip:::1 | datos:{}
+2025-11-19T18:56:30.166Z | userId:10 | user:pau | ruta:/estudiantes | accion:Listar estudiantes | ip:::1 | datos:{}
+2025-11-19T18:56:31.352Z | userId:10 | user:pau | ruta:/prestamos | accion:Listar préstamos | ip:::1 | datos:{}
+2025-11-19T18:56:42.295Z | userId:10 | user:pau | ruta:/prestamos | accion:Listar préstamos | ip:::1 | datos:{}
+2025-11-20T02:21:57.735Z | userId:anon | user:anon | ruta:/prestamos | accion:Listar préstamos | ip:::1 | datos:{}
+2025-11-20T02:22:55.854Z | userId:anon | user:anon | ruta:/ | accion:Acceder al índice | ip:::1 | datos:{}
+2025-11-20T02:22:56.215Z | userId:anon | user:anon | ruta:/ | accion:Acceder al índice | ip:::1 | datos:{}
+2025-11-20T02:24:21.915Z | userId:anon | user:anon | ruta:/ | accion:Acceder al índice | ip:::1 | datos:{}
+2025-11-20T02:24:26.858Z | userId:anon | user:anon | ruta:/users/login | accion:POST /users/login | ip:::1 | datos:{"body":{"email":"c@gmail.com","password":"12345678"}}
+2025-11-20T02:24:26.917Z | userId:10 | user:pau | ruta:/users/login | accion:Iniciar sesión | ip:::1 | datos:{"userId":10,"email":"c@gmail.com"}
+2025-11-20T02:24:26.929Z | userId:10 | user:pau | ruta:/ | accion:Acceder al índice | ip:::1 | datos:{}
+2025-11-20T02:24:30.911Z | userId:10 | user:pau | ruta:/ | accion:Acceder al índice | ip:::1 | datos:{}
+2025-11-20T02:24:31.452Z | userId:10 | user:pau | ruta:/estudiantes | accion:Listar estudiantes | ip:::1 | datos:{}
+2025-11-20T02:24:31.886Z | userId:10 | user:pau | ruta:/herramientas | accion:Listar herramientas | ip:::1 | datos:{"totalHerramientas":6}
+2025-11-20T02:24:32.342Z | userId:10 | user:pau | ruta:/prestamos | accion:Listar préstamos | ip:::1 | datos:{}
+2025-11-20T02:25:11.477Z | userId:10 | user:pau | ruta:/prestamos | accion:Listar préstamos | ip:::1 | datos:{}
+2025-11-20T02:25:15.783Z | userId:10 | user:pau | ruta:/users/ | accion:Listar usuarios | ip:::1 | datos:{"userId":10}
+2025-11-20T02:35:33.806Z | userId:anon | user:anon | ruta:/ | accion:Acceder al índice | ip:::1 | datos:{}
+2025-11-20T02:35:35.474Z | userId:anon | user:anon | ruta:/users/login | accion:POST /users/login | ip:::1 | datos:{"body":{"email":"c@gmail.com","password":"12345678"}}
+2025-11-20T02:35:35.532Z | userId:10 | user:pau | ruta:/users/login | accion:Iniciar sesión | ip:::1 | datos:{"userId":10,"email":"c@gmail.com"}
+2025-11-20T02:35:35.543Z | userId:10 | user:pau | ruta:/ | accion:Acceder al índice | ip:::1 | datos:{}
+2025-11-20T02:35:36.529Z | userId:10 | user:pau | ruta:/audit | accion:Listar audit logs | ip:::1 | datos:{"termino":"","pagina":1}
+2025-11-20T02:35:37.702Z | userId:10 | user:pau | ruta:/users/ | accion:Listar usuarios | ip:::1 | datos:{"userId":10}
+2025-11-20T02:35:46.307Z | userId:10 | user:pau | ruta:/users/ | accion:Listar usuarios | ip:::1 | datos:{"userId":10}
+2025-11-20T02:35:57.541Z | userId:10 | user:pau | ruta:/users/ | accion:Listar usuarios | ip:::1 | datos:{"userId":10}
+2025-11-20T02:36:04.102Z | userId:10 | user:pau | ruta:/audit | accion:Listar audit logs | ip:::1 | datos:{"termino":"","pagina":1}
+2025-11-20T02:36:04.990Z | userId:10 | user:pau | ruta:/users/ | accion:Listar usuarios | ip:::1 | datos:{"userId":10}
+2025-11-20T02:36:37.118Z | userId:anon | user:anon | ruta:/prestamos | accion:Listar préstamos | ip:::1 | datos:{}
+2025-11-20T02:36:39.026Z | userId:anon | user:anon | ruta:/users/login | accion:POST /users/login | ip:::1 | datos:{"body":{"email":"c@gmail.com","password":"12345678"}}
+2025-11-20T02:36:39.083Z | userId:10 | user:pau | ruta:/users/login | accion:Iniciar sesión | ip:::1 | datos:{"userId":10,"email":"c@gmail.com"}
+2025-11-20T02:36:39.095Z | userId:10 | user:pau | ruta:/ | accion:Acceder al índice | ip:::1 | datos:{}
+2025-11-20T02:36:40.574Z | userId:10 | user:pau | ruta:/prestamos | accion:Listar préstamos | ip:::1 | datos:{}
+2025-11-20T02:36:41.478Z | userId:10 | user:pau | ruta:/audit | accion:Listar audit logs | ip:::1 | datos:{"termino":"","pagina":1}
+2025-11-20T02:36:42.855Z | userId:10 | user:pau | ruta:/users/ | accion:Listar usuarios | ip:::1 | datos:{"userId":10}
+2025-11-20T02:39:35.931Z | userId:anon | user:anon | ruta:/herramientas | accion:Listar herramientas | ip:::1 | datos:{"totalHerramientas":6}
+2025-11-20T02:39:37.647Z | userId:anon | user:anon | ruta:/users/login | accion:POST /users/login | ip:::1 | datos:{"body":{"email":"c@gmail.com","password":"12345678"}}
+2025-11-20T02:39:37.708Z | userId:10 | user:pau | ruta:/users/login | accion:Iniciar sesión | ip:::1 | datos:{"userId":10,"email":"c@gmail.com"}
+2025-11-20T02:39:37.730Z | userId:10 | user:pau | ruta:/ | accion:Acceder al índice | ip:::1 | datos:{}
+2025-11-20T02:39:38.537Z | userId:10 | user:pau | ruta:/users/ | accion:Listar usuarios | ip:::1 | datos:{"userId":10}
+2025-11-20T02:44:41.656Z | userId:anon | user:anon | ruta:/users/3/eliminar | accion:DELETE /users/3/eliminar | ip:::1 | datos:{}
+2025-11-20T02:44:41.681Z | userId:anon | user:anon | ruta:/users/3/eliminar | accion:Programar eliminación de usuario | ip:::1 | datos:{"userId":3,"email":"a@gmail.com","fecha_eliminacion":"2025-11-22T02:44:41.681Z"}
+2025-11-20T02:44:46.733Z | userId:anon | user:anon | ruta:/audit | accion:Listar audit logs | ip:::1 | datos:{"termino":"","pagina":1}
+2025-11-20T02:44:48.140Z | userId:anon | user:anon | ruta:/users/login | accion:POST /users/login | ip:::1 | datos:{"body":{"email":"c@gmail.com","password":"12345678"}}
+2025-11-20T02:44:48.195Z | userId:10 | user:pau | ruta:/users/login | accion:Iniciar sesión | ip:::1 | datos:{"userId":10,"email":"c@gmail.com"}
+2025-11-20T02:44:48.209Z | userId:10 | user:pau | ruta:/ | accion:Acceder al índice | ip:::1 | datos:{}
+2025-11-20T02:44:48.788Z | userId:10 | user:pau | ruta:/users/ | accion:Listar usuarios | ip:::1 | datos:{"userId":10}
+2025-11-20T02:45:29.243Z | userId:10 | user:pau | ruta:/users/ | accion:Listar usuarios | ip:::1 | datos:{"userId":10}
+2025-11-20T02:45:30.426Z | userId:10 | user:pau | ruta:/users/ | accion:Listar usuarios | ip:::1 | datos:{"userId":10}
+2025-11-20T02:45:31.134Z | userId:10 | user:pau | ruta:/audit | accion:Listar audit logs | ip:::1 | datos:{"termino":"","pagina":1}
+2025-11-20T02:45:31.949Z | userId:10 | user:pau | ruta:/users/ | accion:Listar usuarios | ip:::1 | datos:{"userId":10}
+2025-11-20T02:46:33.457Z | userId:anon | user:anon | ruta:/ | accion:Acceder al índice | ip:::1 | datos:{}
+2025-11-20T02:46:34.827Z | userId:anon | user:anon | ruta:/users/login | accion:POST /users/login | ip:::1 | datos:{"body":{"email":"c@gmail.com","password":"12345678"}}
+2025-11-20T02:46:34.883Z | userId:10 | user:pau | ruta:/users/login | accion:Iniciar sesión | ip:::1 | datos:{"userId":10,"email":"c@gmail.com"}
+2025-11-20T02:46:34.894Z | userId:10 | user:pau | ruta:/ | accion:Acceder al índice | ip:::1 | datos:{}
+2025-11-20T02:46:36.078Z | userId:10 | user:pau | ruta:/users/ | accion:Listar usuarios | ip:::1 | datos:{"userId":10}
+2025-11-20T02:47:03.467Z | userId:anon | user:anon | ruta:/estudiantes | accion:Listar estudiantes | ip:::1 | datos:{}
+2025-11-20T02:47:04.928Z | userId:anon | user:anon | ruta:/users/login | accion:POST /users/login | ip:::1 | datos:{"body":{"email":"c@gmail.com","password":"12345678"}}
+2025-11-20T02:47:04.984Z | userId:10 | user:pau | ruta:/users/login | accion:Iniciar sesión | ip:::1 | datos:{"userId":10,"email":"c@gmail.com"}
+2025-11-20T02:47:05.009Z | userId:10 | user:pau | ruta:/ | accion:Acceder al índice | ip:::1 | datos:{}
+2025-11-20T02:47:14.866Z | userId:anon | user:anon | ruta:/prestamos | accion:Listar préstamos | ip:::1 | datos:{}
+2025-11-20T02:47:16.712Z | userId:anon | user:anon | ruta:/users/login | accion:POST /users/login | ip:::1 | datos:{"body":{"email":"c@gmail.com","password":"12345678"}}
+2025-11-20T02:47:16.769Z | userId:10 | user:pau | ruta:/users/login | accion:Iniciar sesión | ip:::1 | datos:{"userId":10,"email":"c@gmail.com"}
+2025-11-20T02:47:16.781Z | userId:10 | user:pau | ruta:/ | accion:Acceder al índice | ip:::1 | datos:{}
+2025-11-20T02:47:50.597Z | userId:anon | user:anon | ruta:/herramientas | accion:Listar herramientas | ip:::1 | datos:{"totalHerramientas":6}
+2025-11-20T02:47:52.047Z | userId:anon | user:anon | ruta:/users/login | accion:POST /users/login | ip:::1 | datos:{"body":{"email":"c@gmail.com","password":"12345678"}}
+2025-11-20T02:47:52.104Z | userId:10 | user:pau | ruta:/users/login | accion:Iniciar sesión | ip:::1 | datos:{"userId":10,"email":"c@gmail.com"}
+2025-11-20T02:47:52.128Z | userId:10 | user:pau | ruta:/ | accion:Acceder al índice | ip:::1 | datos:{}
+2025-11-20T02:47:52.927Z | userId:10 | user:pau | ruta:/users/ | accion:Listar usuarios | ip:::1 | datos:{"userId":10}
+2025-11-20T02:48:28.199Z | userId:10 | user:pau | ruta:/users/profile | accion:Ver perfil | ip:::1 | datos:{"userId":10,"email":"c@gmail.com"}
+2025-11-20T02:48:29.534Z | userId:10 | user:pau | ruta:/users/ | accion:Listar usuarios | ip:::1 | datos:{"userId":10}
+2025-11-20T02:48:35.780Z | userId:10 | user:pau | ruta:/users/ | accion:Listar usuarios | ip:::1 | datos:{"userId":10}
+2025-11-20T02:48:49.982Z | userId:10 | user:pau | ruta:/users/ | accion:Listar usuarios | ip:::1 | datos:{"userId":10}
+2025-11-20T02:48:50.786Z | userId:10 | user:pau | ruta:/users/ | accion:Listar usuarios | ip:::1 | datos:{"userId":10}
+2025-11-20T02:49:39.477Z | userId:10 | user:pau | ruta:/users/ | accion:Listar usuarios | ip:::1 | datos:{"userId":10}
+2025-11-20T02:51:54.719Z | userId:10 | user:pau | ruta:/users/ | accion:Listar usuarios | ip:::1 | datos:{"userId":10}
+2025-11-20T02:51:59.099Z | userId:10 | user:pau | ruta:/users/eliminar-definitivo/2 | accion:POST /users/eliminar-definitivo/2 | ip:::1 | datos:{"body":{}}
+2025-11-20T02:51:59.103Z | userId:10 | user:pau | ruta:/users/eliminar-definitivo/2 | accion:Eliminar usuario definitivamente | ip:::1 | datos:{"userId":2,"email":"roberto@gmail.com"}
+2025-11-20T02:52:07.241Z | userId:10 | user:pau | ruta:/users/eliminar-definitivo/2 | accion:POST /users/eliminar-definitivo/2 | ip:::1 | datos:{"body":{}}
+2025-11-20T02:52:10.149Z | userId:10 | user:pau | ruta:/users/ | accion:Listar usuarios | ip:::1 | datos:{"userId":10}

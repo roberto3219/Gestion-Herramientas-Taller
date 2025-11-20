@@ -18,13 +18,33 @@ const controller = {
   list: async (req, res) => {
     try {
       const usuarios = await db.Usuario.findAll();
-      res.render("users/userList", { usuarios: usuarios, usuario: req.session.userLogged });
+
+      const hoy = new Date();
+
+      usuarios.forEach(u => {
+        if (u.fecha_eliminacion_programada) {
+          console.log(u.fecha_eliminacion_programada + "fecha de eliminacion programada del usuario")
+          const fechaLimite = new Date(u.fecha_eliminacion_programada)
+          console.log(fechaLimite + "fecha limite de eliminacion programada")
+          if(fechaLimite <= hoy){
+            console.log("la fecha limite es menor o igual que hoy")
+            u.puedeEliminarse = true;
+            
+          }
+          console.log(u.puedeEliminarse + "puede eliminarse?")
+        }})
+        const adminNotificacion = usuarios.some(u => u.puedeEliminarse);
+        console.log(adminNotificacion + "notificacion de admin")
+
+      res.render("users/userList", { usuarios: usuarios, adminNotificacion, usuario: req.session.userLogged });
+      await req.logAction('Listar usuarios', { userId: req.session.userLogged.id });
     } catch (error) {
       console.log(error);
       res.render("error", { error: "Problema conectando a la base de datos" });
     }
   },
-  register: (req, res) => {
+  register: async(req, res) => {
+    await req.logAction('Mostrar formulario de registro', {  });
     res.render("users/register", { imagen: null });
   },
 
@@ -127,6 +147,7 @@ const controller = {
           email: req.session.userLogged.correo,
         }
       });
+      await req.logAction('Ver perfil', { userId: usuario.id, email: usuario.email });
       console.log(usuario + "usuario")
       res.render("users/perfil", { usuario: usuario , error: null });
     } catch (error) {
@@ -253,8 +274,11 @@ const controller = {
   }
 }
   ,
-   recuperarForm: (req, res) => {
+   recuperarForm: async(req, res) => {
+        await req.logAction('Mostrar formulario de recuperación de contraseña', {  });
+
     res.render("users/recuperar" , { error: null , msg:null});
+
   },
   enviarRecuperacion: async (req, res) => {
     try {
@@ -319,9 +343,17 @@ const controller = {
         const query = req.body.q;
         const usuarios = await db.Usuario.findAll({
           where: {
-            nombre: { [Op.like]: `%${query}%` },
+            [Op.or]: [
+              { user_name: { [Op.like]: `%${query}%` } },
+              { nombre: { [Op.like]: `%${query}%` } },
+              { email: { [Op.like]: `%${query}%` } },
+              { role_id: { [Op.like]: `%${query}%` } },
+              { id: { [Op.like]: `%${query}%` } },
+              { bloqueado: { [Op.like]: `%${query}%` } }
+            ]
           },
         });
+        await req.logAction('Buscar usuarios', { query: query, userId: req.session.userLogged.id });
         res.render("users/userList", { usuarios: usuarios, usuario: req.session.userLogged });
       } catch (error) {
         console.log(error);
@@ -344,13 +376,14 @@ const controller = {
           .end(pdfData);
       });
       const table = {
-        headers: ["ID", "Nombre de Usuario", "Nombre", "Email", "Rol"],
+        headers: ["ID", "Nombre de Usuario", "Nombre", "Email", "Rol","¿Bloqueado?"],
         rows: usuarios.map((u) => [
           u.id,
           u.user_name,
           u.nombre,
           u.email,
           u.role_id,
+          u.bloqueado ? "Sí" : "No"
         ]),
       };
       await doc.table(table, {
@@ -386,6 +419,13 @@ const controller = {
     await req.logAction('Cancelar eliminación de usuario', { userId: usuario.id, email: usuario.email });
     await usuario.save();
     res.json({ msg: "Eliminación programada cancelada" });
+  },
+  eliminarDefinitivo: async (req, res) => {
+    const id = req.params.id;
+    const usuario = await db.Usuario.findByPk(id);
+    await req.logAction('Eliminar usuario definitivamente', { userId: usuario.id, email: usuario.email });
+    await usuario.destroy();
+    res.json({ msg: "Usuario eliminado definitivamente" });
   }
 };
 
