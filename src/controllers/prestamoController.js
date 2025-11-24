@@ -27,7 +27,7 @@ const controller = {
 
  */
 prestamos.forEach(p => {
-    if (new Date(p.fecha_devolucion_estimada) < p.fecha_prestamo && (p.estado == "pendiente" || p.estado == "Pendiente")) {
+    if (new Date(p.fecha_devolucion_estimada) < new Date() && (p.estado == "pendiente" || p.estado == "Pendiente")) {
         p.vencido = 1;
         p.save();
     }

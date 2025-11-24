@@ -48,7 +48,9 @@
     </thead>
     <tbody>
       <% prestamos.forEach(p => { %>
-        <tr class="<%= new Date(p.fecha_devolucion_estimada) < new Date() && p.estado == 'pendiente' || p.estado == 'Pendiente' ? 'table-danger' : '' %>">
+        <tr class="<%= new Date(p.fecha_devolucion_estimada) < new Date() && (p.estado == 'pendiente' || p.estado == 'Pendiente') ? 'table-danger' : '' %>
+          <%= (p.estado == 'Devuelto' || p.estado == 'devuelto') && p.vencido == 1 ? 'table-warning' : '' %>
+          ">
 
           <td><%= p.id %></td>
           <td><%= p.estudiantes.nombre %></td>

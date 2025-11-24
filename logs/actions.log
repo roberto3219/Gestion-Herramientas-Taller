@@ -1146,3 +1146,93 @@
 2025-11-20T02:51:59.103Z | userId:10 | user:pau | ruta:/users/eliminar-definitivo/2 | accion:Eliminar usuario definitivamente | ip:::1 | datos:{"userId":2,"email":"roberto@gmail.com"}
 2025-11-20T02:52:07.241Z | userId:10 | user:pau | ruta:/users/eliminar-definitivo/2 | accion:POST /users/eliminar-definitivo/2 | ip:::1 | datos:{"body":{}}
 2025-11-20T02:52:10.149Z | userId:10 | user:pau | ruta:/users/ | accion:Listar usuarios | ip:::1 | datos:{"userId":10}
+2025-11-24T15:07:38.456Z | userId:anon | user:anon | ruta:/ | accion:Acceder al índice | ip:::1 | datos:{}
+2025-11-24T15:07:46.303Z | userId:anon | user:anon | ruta:/users/login | accion:POST /users/login | ip:::1 | datos:{"body":{"email":"c@gmail.com","password":"12345678"}}
+2025-11-24T15:07:46.360Z | userId:10 | user:pau | ruta:/users/login | accion:Iniciar sesión | ip:::1 | datos:{"userId":10,"email":"c@gmail.com"}
+2025-11-24T15:08:15.187Z | userId:anon | user:anon | ruta:/users/login | accion:POST /users/login | ip:::1 | datos:{"body":{"email":"c@gmail.com","password":"12345678"}}
+2025-11-24T15:08:15.237Z | userId:10 | user:pau | ruta:/users/login | accion:Iniciar sesión | ip:::1 | datos:{"userId":10,"email":"c@gmail.com"}
+2025-11-24T15:08:36.354Z | userId:anon | user:anon | ruta:/users/login | accion:POST /users/login | ip:::1 | datos:{"body":{"email":"c@gmail.com","password":"12345678"}}
+2025-11-24T15:08:36.403Z | userId:10 | user:pau | ruta:/users/login | accion:Iniciar sesión | ip:::1 | datos:{"userId":10,"email":"c@gmail.com"}
+2025-11-24T15:08:37.470Z | userId:anon | user:anon | ruta:/users/login | accion:POST /users/login | ip:::1 | datos:{"body":{"email":"c@gmail.com","password":"12345678"}}
+2025-11-24T15:08:38.016Z | userId:anon | user:anon | ruta:/users/recuperar-password | accion:Mostrar formulario de recuperación de contraseña | ip:::1 | datos:{}
+2025-11-24T15:08:38.841Z | userId:anon | user:anon | ruta:/users/recuperar-password | accion:Mostrar formulario de recuperación de contraseña | ip:::1 | datos:{}
+2025-11-24T15:08:43.738Z | userId:anon | user:anon | ruta:/users/register | accion:Mostrar formulario de registro | ip:::1 | datos:{}
+2025-11-24T15:08:44.808Z | userId:anon | user:anon | ruta:/users/register | accion:Mostrar formulario de registro | ip:::1 | datos:{}
+2025-11-24T15:08:45.369Z | userId:anon | user:anon | ruta:/users/register | accion:Mostrar formulario de registro | ip:::1 | datos:{}
+2025-11-24T15:08:45.592Z | userId:anon | user:anon | ruta:/users/register | accion:Mostrar formulario de registro | ip:::1 | datos:{}
+2025-11-24T15:08:45.769Z | userId:anon | user:anon | ruta:/users/register | accion:Mostrar formulario de registro | ip:::1 | datos:{}
+2025-11-24T15:08:45.928Z | userId:anon | user:anon | ruta:/users/register | accion:Mostrar formulario de registro | ip:::1 | datos:{}
+2025-11-24T15:08:46.090Z | userId:anon | user:anon | ruta:/users/register | accion:Mostrar formulario de registro | ip:::1 | datos:{}
+2025-11-24T15:08:53.771Z | userId:anon | user:anon | ruta:/users/register | accion:Mostrar formulario de registro | ip:::1 | datos:{}
+2025-11-24T15:08:56.327Z | userId:anon | user:anon | ruta:/users/register | accion:Mostrar formulario de registro | ip:::1 | datos:{}
+2025-11-24T15:09:02.878Z | userId:anon | user:anon | ruta:/users/login | accion:POST /users/login | ip:::1 | datos:{"body":{"email":"c@gmail.com","password":"12345678"}}
+2025-11-24T15:09:02.942Z | userId:10 | user:pau | ruta:/users/login | accion:Iniciar sesión | ip:::1 | datos:{"userId":10,"email":"c@gmail.com"}
+2025-11-24T15:09:21.072Z | userId:anon | user:anon | ruta:/users/register | accion:Mostrar formulario de registro | ip:::1 | datos:{}
+2025-11-24T15:09:22.569Z | userId:anon | user:anon | ruta:/users/register | accion:Mostrar formulario de registro | ip:::1 | datos:{}
+2025-11-24T15:09:23.089Z | userId:anon | user:anon | ruta:/users/register | accion:Mostrar formulario de registro | ip:::1 | datos:{}
+2025-11-24T15:09:23.392Z | userId:anon | user:anon | ruta:/users/register | accion:Mostrar formulario de registro | ip:::1 | datos:{}
+2025-11-24T15:09:23.577Z | userId:anon | user:anon | ruta:/users/register | accion:Mostrar formulario de registro | ip:::1 | datos:{}
+2025-11-24T15:09:23.737Z | userId:anon | user:anon | ruta:/users/register | accion:Mostrar formulario de registro | ip:::1 | datos:{}
+2025-11-24T15:09:23.905Z | userId:anon | user:anon | ruta:/users/register | accion:Mostrar formulario de registro | ip:::1 | datos:{}
+2025-11-24T15:09:24.073Z | userId:anon | user:anon | ruta:/users/register | accion:Mostrar formulario de registro | ip:::1 | datos:{}
+2025-11-24T15:10:03.327Z | userId:anon | user:anon | ruta:/users/register | accion:Mostrar formulario de registro | ip:::1 | datos:{}
+2025-11-24T15:10:07.846Z | userId:anon | user:anon | ruta:/users/login | accion:POST /users/login | ip:::1 | datos:{"body":{"email":"c@gmail.com","password":"12345678"}}
+2025-11-24T15:10:07.907Z | userId:10 | user:pau | ruta:/users/login | accion:Iniciar sesión | ip:::1 | datos:{"userId":10,"email":"c@gmail.com"}
+2025-11-24T15:10:34.978Z | userId:anon | user:anon | ruta:/ | accion:Acceder al índice | ip:::ffff:127.0.0.1 | datos:{}
+2025-11-24T15:10:40.208Z | userId:anon | user:anon | ruta:/ | accion:POST / | ip:::1 | datos:{"body":{"q":"11"}}
+2025-11-24T15:10:40.214Z | userId:anon | user:anon | ruta:/ | accion:Búsqueda en el índice | ip:::1 | datos:{"termino":"11"}
+2025-11-24T15:10:53.380Z | userId:anon | user:anon | ruta:/ | accion:POST / | ip:::1 | datos:{"body":{"q":"Laime"}}
+2025-11-24T15:14:35.657Z | userId:anon | user:anon | ruta:/ | accion:POST / | ip:::1 | datos:{"body":{"q":"Laime"}}
+2025-11-24T15:14:48.112Z | userId:anon | user:anon | ruta:/ | accion:POST / | ip:::1 | datos:{"body":{"q":"Laime"}}
+2025-11-24T15:14:48.301Z | userId:anon | user:anon | ruta:/ | accion:Búsqueda en el índice | ip:::1 | datos:{"termino":"Laime"}
+2025-11-24T15:15:13.698Z | userId:anon | user:anon | ruta:/ | accion:POST / | ip:::1 | datos:{"body":{"q":"10"}}
+2025-11-24T15:15:13.710Z | userId:anon | user:anon | ruta:/ | accion:Búsqueda en el índice | ip:::1 | datos:{"termino":"10"}
+2025-11-24T15:15:16.251Z | userId:anon | user:anon | ruta:/ | accion:POST / | ip:::1 | datos:{"body":{"q":""}}
+2025-11-24T15:15:16.254Z | userId:anon | user:anon | ruta:/ | accion:Búsqueda en el índice | ip:::1 | datos:{"termino":""}
+2025-11-24T15:15:23.034Z | userId:anon | user:anon | ruta:/users/login | accion:POST /users/login | ip:::1 | datos:{"body":{"email":"c@gmail.com","password":"12345678"}}
+2025-11-24T15:15:23.091Z | userId:10 | user:pau | ruta:/users/login | accion:Iniciar sesión | ip:::1 | datos:{"userId":10,"email":"c@gmail.com"}
+2025-11-24T15:15:23.104Z | userId:10 | user:pau | ruta:/ | accion:Acceder al índice | ip:::1 | datos:{}
+2025-11-24T15:16:01.082Z | userId:10 | user:pau | ruta:/prestamos | accion:Listar préstamos | ip:::1 | datos:{}
+2025-11-24T15:16:09.530Z | userId:10 | user:pau | ruta:/ | accion:Acceder al índice | ip:::1 | datos:{}
+2025-11-24T15:19:16.211Z | userId:10 | user:pau | ruta:/ | accion:Acceder al índice | ip:::1 | datos:{}
+2025-11-24T15:19:17.106Z | userId:10 | user:pau | ruta:/ | accion:Acceder al índice | ip:::1 | datos:{}
+2025-11-24T15:19:18.249Z | userId:10 | user:pau | ruta:/ | accion:Acceder al índice | ip:::1 | datos:{}
+2025-11-24T15:19:18.544Z | userId:10 | user:pau | ruta:/ | accion:Acceder al índice | ip:::1 | datos:{}
+2025-11-24T15:19:18.897Z | userId:10 | user:pau | ruta:/ | accion:Acceder al índice | ip:::1 | datos:{}
+2025-11-24T15:19:20.281Z | userId:10 | user:pau | ruta:/ | accion:Acceder al índice | ip:::1 | datos:{}
+2025-11-24T15:19:20.601Z | userId:10 | user:pau | ruta:/ | accion:Acceder al índice | ip:::1 | datos:{}
+2025-11-24T15:19:21.273Z | userId:10 | user:pau | ruta:/ | accion:Acceder al índice | ip:::1 | datos:{}
+2025-11-24T15:19:32.028Z | userId:10 | user:pau | ruta:/ | accion:Acceder al índice | ip:::1 | datos:{}
+2025-11-24T15:19:32.409Z | userId:10 | user:pau | ruta:/ | accion:Acceder al índice | ip:::1 | datos:{}
+2025-11-24T15:19:32.679Z | userId:10 | user:pau | ruta:/ | accion:Acceder al índice | ip:::1 | datos:{}
+2025-11-24T15:19:57.262Z | userId:10 | user:pau | ruta:/ | accion:Acceder al índice | ip:::1 | datos:{}
+2025-11-24T15:20:05.003Z | userId:10 | user:pau | ruta:/prestamos | accion:Listar préstamos | ip:::1 | datos:{}
+2025-11-24T15:20:18.611Z | userId:10 | user:pau | ruta:/prestamos | accion:Listar préstamos | ip:::1 | datos:{}
+2025-11-24T15:21:33.012Z | userId:10 | user:pau | ruta:/prestamos | accion:Listar préstamos | ip:::1 | datos:{}
+2025-11-24T15:21:59.912Z | userId:10 | user:pau | ruta:/ | accion:Acceder al índice | ip:::1 | datos:{}
+2025-11-24T15:22:12.725Z | userId:10 | user:pau | ruta:/prestamos | accion:Listar préstamos | ip:::1 | datos:{}
+2025-11-24T15:22:46.202Z | userId:anon | user:anon | ruta:/prestamos | accion:Listar préstamos | ip:::1 | datos:{}
+2025-11-24T15:24:06.726Z | userId:anon | user:anon | ruta:/users/login | accion:POST /users/login | ip:::1 | datos:{"body":{"email":"c@gmail.com","password":"12345678"}}
+2025-11-24T15:24:06.784Z | userId:10 | user:pau | ruta:/users/login | accion:Iniciar sesión | ip:::1 | datos:{"userId":10,"email":"c@gmail.com"}
+2025-11-24T15:24:06.797Z | userId:10 | user:pau | ruta:/ | accion:Acceder al índice | ip:::1 | datos:{}
+2025-11-24T15:24:08.787Z | userId:10 | user:pau | ruta:/11/devolver | accion:POST /11/devolver | ip:::1 | datos:{"body":{"id":"11"}}
+2025-11-24T15:24:08.791Z | userId:10 | user:pau | ruta:/11/devolver | accion:Devolver préstamo | ip:::1 | datos:{"id":"11"}
+2025-11-24T15:24:08.801Z | userId:10 | user:pau | ruta:/ | accion:Acceder al índice | ip:::1 | datos:{}
+2025-11-24T15:24:17.952Z | userId:10 | user:pau | ruta:/prestamos | accion:Listar préstamos | ip:::1 | datos:{}
+2025-11-24T15:26:40.856Z | userId:10 | user:pau | ruta:/prestamos | accion:Listar préstamos | ip:::1 | datos:{}
+2025-11-24T15:26:48.589Z | userId:10 | user:pau | ruta:/prestamos | accion:Listar préstamos | ip:::1 | datos:{}
+2025-11-24T15:26:56.650Z | userId:10 | user:pau | ruta:/ | accion:Acceder al índice | ip:::1 | datos:{}
+2025-11-24T15:26:59.422Z | userId:10 | user:pau | ruta:/estudiantes | accion:Listar estudiantes | ip:::1 | datos:{}
+2025-11-24T15:27:00.352Z | userId:10 | user:pau | ruta:/herramientas | accion:Listar herramientas | ip:::1 | datos:{"totalHerramientas":6}
+2025-11-24T15:27:01.367Z | userId:10 | user:pau | ruta:/prestamos | accion:Listar préstamos | ip:::1 | datos:{}
+2025-11-24T15:27:15.773Z | userId:10 | user:pau | ruta:/ | accion:Acceder al índice | ip:::1 | datos:{}
+2025-11-24T15:27:22.624Z | userId:10 | user:pau | ruta:/ | accion:Acceder al índice | ip:::1 | datos:{}
+2025-11-24T15:27:26.489Z | userId:10 | user:pau | ruta:/users/ | accion:Listar usuarios | ip:::1 | datos:{"userId":10}
+2025-11-24T15:27:42.244Z | userId:10 | user:pau | ruta:/users/eliminar-definitivo/3 | accion:POST /users/eliminar-definitivo/3 | ip:::1 | datos:{"body":{}}
+2025-11-24T15:27:42.250Z | userId:10 | user:pau | ruta:/users/eliminar-definitivo/3 | accion:Eliminar usuario definitivamente | ip:::1 | datos:{"userId":3,"email":"a@gmail.com"}
+2025-11-24T15:27:45.782Z | userId:10 | user:pau | ruta:/users/ | accion:Listar usuarios | ip:::1 | datos:{"userId":10}
+2025-11-24T15:27:56.000Z | userId:10 | user:pau | ruta:/herramientas | accion:Listar herramientas | ip:::1 | datos:{"totalHerramientas":6}
+2025-11-24T15:27:56.478Z | userId:10 | user:pau | ruta:/estudiantes | accion:Listar estudiantes | ip:::1 | datos:{}
+2025-11-24T15:27:57.251Z | userId:10 | user:pau | ruta:/ | accion:Acceder al índice | ip:::1 | datos:{}
+2025-11-24T15:27:58.489Z | userId:10 | user:pau | ruta:/prestamos | accion:Listar préstamos | ip:::1 | datos:{}
+2025-11-24T15:28:03.205Z | userId:10 | user:pau | ruta:/ | accion:Acceder al índice | ip:::1 | datos:{}
