@@ -14,12 +14,16 @@
   </form>
   <div class="button_sd" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
 
+      <% if(usuario.role_id != 3){ %>
   <a href="/herramientas/add" class="btn btn-primary mb-3">
     Agregar  Herramienta
   </a>
+  <% } %>
+  <% if(usuario.role_id != 3){ %>
    <form action="/herramientas/reportePDF" method="post">
     <input type="submit" value="Generar Reporte PDF" class="btn btn-danger mb-3">
   </form>
+<% } %>
   </div>
   </div>
   <!-- Tabla -->
@@ -54,8 +58,13 @@
             <% } %>
           </td>
           <td>
-            <a href="/herramientas/<%= h.id %>/editar" class="btn btn-sm btn-warning">Editar</a>
-            <a href="/herramientas/<%= h.id %>/eliminar" class="btn btn-sm btn-danger">Eliminar</a>
+            <% if(usuario.role_id != 3){ %>
+              <a href="/herramientas/<%= h.id %>/editar" class="btn btn-sm btn-warning">Editar</a>
+            
+              <a href="/herramientas/<%= h.id %>/eliminar" class="btn btn-sm btn-danger">Eliminar</a>
+              <% }else{ %>
+                <span class="text-muted">No autorizado</span>
+                <% } %>
           </td>
         </tr>
       <% }) %>

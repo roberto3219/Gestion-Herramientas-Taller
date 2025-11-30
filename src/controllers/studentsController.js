@@ -16,7 +16,20 @@ const controller = {
       console.log("🔍 Modelos disponibles en db:");
     console.log(Object.keys(db));
     await req.logAction('Listar estudiantes', {  });
-      const alumnos = await db.Estudiante.findAll({
+      console.log(req.session.userLogged.role_id);
+      
+      if(req.session.userLogged.role_id == 3){
+        let alumnos = await db.Estudiante.findAll({
+          attributes: ['id', 'nombre', 'curso']
+        });
+        return res.render("alumnos/listStudents", {
+          titulo: null,
+          alumnos: alumnos,
+          usuario: req.session.userLogged,
+        });
+      }
+      
+      let alumnos = await db.Estudiante.findAll({
       });
       res.render("alumnos/listStudents", {
         titulo: null,

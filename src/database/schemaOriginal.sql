@@ -73,7 +73,7 @@ CREATE TABLE herramientas (
 CREATE TABLE prestamos (
   id INTEGER PRIMARY KEY AUTO_INCREMENT,
   estudiante_id INTEGER NOT NULL,
-  herramientas_id INTEGER NOT NULL,
+  herramientas_id INTEGER,
   cantidad_herramientas INTEGER DEFAULT 1,
   profesor_encargado VARCHAR(150),
   fecha_prestamo DATETIME NOT NULL,
@@ -120,11 +120,11 @@ CREATE TABLE usos_insumos (
   insumo_id INT NOT NULL,
   estudiante_id INT NOT NULL,
   cantidad_usada INT NOT NULL,
-  profesor_encargado STRING(150),
+  profesor_encargado varchar(150),
   descripcion_uso TEXT,
   fecha_uso DATETIME DEFAULT CURRENT_TIMESTAMP,
   
 
   FOREIGN KEY (estudiante_id) REFERENCES estudiantes(id),
-  FOREIGN KEY (insumo_id) REFERENCES insumo(id_insumo)
+  FOREIGN KEY (insumo_id) REFERENCES insumos(id_insumo)
 );

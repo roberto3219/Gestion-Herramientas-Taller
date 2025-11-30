@@ -83,6 +83,12 @@ search: async (req, res) => {
           ],
         },
       });
+      const prestamosVencidos = await db.Prestamos.count({
+              where: {
+                estado: "pendiente" || "Pendiente",
+                vencido : 1
+              }
+            })
       console.log(prestamos + " prestamos encontrados")
       await req.logAction('Búsqueda en el índice', { termino: titulo });
       // Uno los dos resultados
@@ -90,6 +96,8 @@ search: async (req, res) => {
         titulo: titulo,
         prestamos: prestamos,
         usuario: req.session.userLogged,
+        prestamosVencidos: prestamosVencidos,
+        id:null
       });
     } catch (error) {
       console.error(error);

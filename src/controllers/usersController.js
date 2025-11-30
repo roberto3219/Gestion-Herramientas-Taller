@@ -303,8 +303,8 @@ const controller = {
         host: "smtp.gmail.com",
         port:587,
         auth: {
-          user: "llamparoberto5@gmail.com",
-          pass: "yztf ydmt gvkp rzhn" // recuerda, no la de Gmail directo
+          user: "example@gmail.com", // correo del admin
+          pass: "yztf ydmt gvkp rzhn" // recuerda, no la de Gmail directo aca va una clave del correo no la contra
         }
       });
 
@@ -353,8 +353,10 @@ const controller = {
             ]
           },
         });
+         const adminNotificacion = usuarios.some(u => u.puedeEliminarse);
+        console.log(adminNotificacion + "notificacion de admin")
         await req.logAction('Buscar usuarios', { query: query, userId: req.session.userLogged.id });
-        res.render("users/userList", { usuarios: usuarios, usuario: req.session.userLogged });
+        res.render("users/userList", { usuarios: usuarios, usuario: req.session.userLogged , adminNotificacion});
       } catch (error) {
         console.log(error);
         res.render("error", { error: "Problema conectando a la base de datos" });

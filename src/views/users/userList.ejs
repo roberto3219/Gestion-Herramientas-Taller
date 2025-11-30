@@ -57,15 +57,18 @@
         </td>
         <td><%= u.fecha_eliminacion_programada ? u.fecha_eliminacion_programada : "Ninguna"  %></td>
         <td>
-          <button class="bloquear-btn btn btn-warning">
-            <%= u.bloqueado ? "Desbloquear" : "Bloquear" %>
-          </button>
-          <% if(!u.fecha_eliminacion_programada){ %>
+                    <% if(usuario.role_id != 3){ %>
+                      <button class="bloquear-btn btn btn-warning">
+                        <%= u.bloqueado ? "Desbloquear" : "Bloquear" %>
+                      </button>
+<% } %>
+          <% if(!u.fecha_eliminacion_programada && usuario.role_id != 3){ %>
             <button class="eliminar-btn btn btn-danger">Eliminar</button>
              <% }else if(u.puedeEliminarse){ %>
               <form action="/users/eliminar-definitivo/<%= u.id%>" method="post">
                 <button class="btn btn-danger btn-sm">Eliminar definitivamente</button>
               </form>
+                <button class="cancelar-btn btn btn-danger">Cancelar</button>
             <% }else{ %>
               <button class="cancelar-btn btn btn-danger">Cancelar</button>
             <% } %>

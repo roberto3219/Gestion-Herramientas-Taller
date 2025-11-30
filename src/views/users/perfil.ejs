@@ -14,7 +14,13 @@
     <div class="card p-3">
       <p><strong>Nombre:</strong> <%= usuario.nombre %></p>
       <p><strong>Email:</strong> <%= usuario.email %></p>
-      <p><strong>Rol:</strong> <%= usuario.role_id == 1 ? "Administrador" : "Usuario" %></p>
+      <% if(usuario.role_id == 1){ %>
+        <p><strong>Rol:</strong> Administrador</p>
+        <% }else if(usuario.role_id == 2){ %>
+          <p><strong>Rol:</strong> Maestro </p>
+        <% } else{ %> 
+            <p><strong>Rol:</strong> Usuario </p>
+          <% } %> 
     </div>
 
     <!-- Botones -->
@@ -24,20 +30,23 @@
         </form>
         <button class="btn btn-dark" id="btnTogglePassword">Cambiar Contraseña</button>
         <a  class="btn btn-info" href="#" id="btnEditarPerfil">Editar Perfil</a>
+<% if(usuario.role_id != 3){ %>
         <form action="/users/backup" method="get">
             <input type="submit" value="Copia de Seguridad(JSON)" class="btn btn-success">
         </form>
-        
+        <% } %>
 
-
+<% if(usuario.role_id != 3){%>
         <form id="restoreForm" action="/users/restore" method="post">
         <input type="hidden" name="mode" id="modeInput">
         <button type="button" class="btn btn-primary" onclick="openRestoreDialog()">
           Restaurar Copia de Seguridad (JSON)
         </button>
         </form>
+<% } %>
         <!-- Ventanita de confirmación -->
       <!-- Modal de Bootstrap -->
+<% if(usuario.role_id != 3){ %>
 <div class="modal fade" id="restoreModal" tabindex="-1" aria-labelledby="restoreModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
@@ -58,13 +67,15 @@
   </div>
 </div>
 
+<% } %>
 
 
 
-
+  <% if(usuario.role_id != 3){ %>
 
         <button class="btn btn-dark" id="btnGenerarPDF">Generar PDFs</button>
-    </div>
+<% } %>
+      </div>
 
     <!-- 🔹 Formulario oculto para cambiar contraseña -->
     <div id="formPassword" class="card p-3 mt-3" style="display:none; max-width: 500px; margin:auto;">

@@ -13,9 +13,11 @@
     </form>
     <div class="button_sd" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2opx;">
       <a href="/usosInsumos/create" class="btn btn-primary">Registrar nuevo uso</a>
+      <% if(usuario.role_id != 3){ %>
       <form action="/usosInsumos/reportePDF" method="post">
         <input type="submit" value="Generar Reporte PDF" class="btn btn-danger mb-3">
       </form>      
+      <% } %>
     </div>
   </div>
 

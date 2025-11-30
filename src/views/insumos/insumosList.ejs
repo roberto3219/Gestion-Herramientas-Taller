@@ -17,12 +17,16 @@
 
   <div class="button_sd" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
 
+      <% if(usuario.role_id != 3){ %>
   <a href="/insumos/add" class="btn btn-primary mb-3">
     Agregar  insumo
   </a>
+  <% } %>
+  <% if(usuario.role_id != 3){ %>
    <form action="/insumos/reportes" method="post">
     <input type="submit" value="Generar Reporte PDF" class="btn btn-danger mb-3">
   </form>
+  <% } %>
   </div>
 
 </div>
@@ -54,8 +58,12 @@
         <td><%= i.fecha_ingreso %></td>
         <td><%= i.estado %></td>
         <td>
-          <button class="editar-btn btn btn-warning">Editar</button>
-          <button class="eliminar-btn btn btn-danger">Eliminar</button>
+          <% if(usuario.role_id != 3){%>
+            <button class="editar-btn btn btn-warning">Editar</button>
+            <button class="eliminar-btn btn btn-danger">Eliminar</button>
+          <% }else{ %>
+            <span class="text-muted">No autorizado</span>
+          <% } %>      
         </td>
       </tr>
     <% }) %>
