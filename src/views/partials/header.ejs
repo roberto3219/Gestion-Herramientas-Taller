@@ -6,14 +6,17 @@
     <a href="/users/login" class="btn btn-light btn-sm">Iniciar Sesion</a>
     <% } %>
     <% if(usuario) { %>
+        <% if(usuario.role_id != 3){ %>
+      <a href="/estudiantes" class="btn btn-light btn-sm">Alumnos</a>
+      <% } %>
+      <a href="/herramientas" class="btn btn-light btn-sm">Herramientas</a>
+      <a href="/prestamos" class="btn btn-light btn-sm">Préstamos</a>
       
-    <a href="/estudiantes" class="btn btn-light btn-sm">Alumnos</a>
-    <a href="/herramientas" class="btn btn-light btn-sm">Herramientas</a>
-    <a href="/prestamos" class="btn btn-light btn-sm">Préstamos</a>
-  
-    <% if(usuario.role_id != 3){%>
+      <% if(usuario.role_id != 3){%>
       <a href="/audit" class="btn btn-light btn-sm">Acciones del Usuario</a>
+        <% if(usuario.role_id != 2){ %>
       <a href="/users/" class="btn btn-light btn-sm">Usuarios</a>
+      <% } %>
     <% } %>
     
     <a href="/insumos" class="btn btn-light btn-sm">Insumos</a>

@@ -23,15 +23,17 @@ module.exports = {
           { id: { [Op.like]: `%${q}%` } }
         ]
       } : {};
-
-      const { rows, count } = await db.AuditLog.findAndCountAll({
-        where,
+      if(req.session.userLogged.role_id != 1){
+        const { rows, count } = await db.AuditLog.findAndCountAll({
+        where: {
+          ...where,
+          usuario_id: req.session.userLogged.id
+        },
         order: [['created_at','DESC']],
         limit, offset
       });
-      await req.logAction('Listar audit logs', { termino: q, pagina: page });
 
-      res.render('audit/list', {
+         res.render('audit/list', {
         usuario: req.session.userLogged,
         logs: rows,
         total: count,
@@ -39,6 +41,25 @@ module.exports = {
         pages: Math.ceil(count / limit),
         q
       });
+      }else{
+         const { rows, count } = await db.AuditLog.findAndCountAll({
+        where,
+        order: [['created_at','DESC']],
+        limit, offset
+      });
+
+         res.render('audit/list', {
+        usuario: req.session.userLogged,
+        logs: rows,
+        total: count,
+        page,
+        pages: Math.ceil(count / limit),
+        q
+      });
+      }
+      await req.logAction('Listar audit logs', { termino: q, pagina: page });
+
+     
     } catch (err) {
       console.error(err);
       res.render('error', { error: 'Error obteniendo logs' });

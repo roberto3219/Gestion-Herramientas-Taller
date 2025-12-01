@@ -60,7 +60,9 @@
         <td>
           <% if(usuario.role_id != 3){%>
             <button class="editar-btn btn btn-warning">Editar</button>
+              <% if(usuario.role_id != 2){ %>
             <button class="eliminar-btn btn btn-danger">Eliminar</button>
+            <% } %>
           <% }else{ %>
             <span class="text-muted">No autorizado</span>
           <% } %>      

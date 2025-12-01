@@ -36,7 +36,7 @@
         </form>
         <% } %>
 
-<% if(usuario.role_id != 3){%>
+<% if(usuario.role_id != 3 && usuario.role_id != 2){%>
         <form id="restoreForm" action="/users/restore" method="post">
         <input type="hidden" name="mode" id="modeInput">
         <button type="button" class="btn btn-primary" onclick="openRestoreDialog()">
@@ -46,7 +46,7 @@
 <% } %>
         <!-- Ventanita de confirmación -->
       <!-- Modal de Bootstrap -->
-<% if(usuario.role_id != 3){ %>
+<% if(usuario.role_id != 3 && usuario.role_id != 2){ %>
 <div class="modal fade" id="restoreModal" tabindex="-1" aria-labelledby="restoreModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
@@ -71,7 +71,7 @@
 
 
 
-  <% if(usuario.role_id != 3){ %>
+  <% if(usuario.role_id != 3 && usuario.role_id != 2){ %>
 
         <button class="btn btn-dark" id="btnGenerarPDF">Generar PDFs</button>
 <% } %>

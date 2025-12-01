@@ -60,8 +60,9 @@
           <td>
             <% if(usuario.role_id != 3){ %>
               <a href="/herramientas/<%= h.id %>/editar" class="btn btn-sm btn-warning">Editar</a>
-            
+              <% if(usuario.role_id != 2){ %>
               <a href="/herramientas/<%= h.id %>/eliminar" class="btn btn-sm btn-danger">Eliminar</a>
+              <% } %>
               <% }else{ %>
                 <span class="text-muted">No autorizado</span>
                 <% } %>

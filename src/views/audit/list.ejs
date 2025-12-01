@@ -13,10 +13,11 @@
     </form>
     <br>
 
+      <% if( usuario.role_id != 2){ %>
     <form action="/audit/reporte/pdf" method="post">
       <button type="submit" class="btn btn-danger mb-3">Descargar Reporte PDF</button>
     </form>
-
+<% } %>        
     <div class="table-responsive">
     <table class="table table-striped">
       <thead>
@@ -48,7 +49,7 @@
 
     <!-- paginación simple -->
     <nav>
-      <ul class="pagination">
+      <ul class="pagination table-responsive">
         <% for(let p=1; p<=pages; p++) { %>
           <li class="page-item <%= p===page ? 'active' : '' %>">
             <a class="page-link" href="/audit?q=<%= q %>&page=<%= p %>"><%= p %></a>

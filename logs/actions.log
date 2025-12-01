@@ -1567,3 +1567,233 @@
 2025-11-30T21:11:30.186Z | userId:10 | user:pau | ruta:/insumos | accion:Acceder a la lista de insumos | ip:::1 | datos:{}
 2025-11-30T21:11:31.052Z | userId:10 | user:pau | ruta:/prestamos | accion:Listar préstamos | ip:::1 | datos:{}
 2025-11-30T21:12:08.375Z | userId:10 | user:pau | ruta:/usosInsumos | accion:Acceso a la lista de usos de insumos | ip:::1 | datos:{"totalUsos":5}
+2025-11-30T23:14:25.539Z | userId:anon | user:anon | ruta:/usosInsumos | accion:Acceso a la lista de usos de insumos | ip:::1 | datos:{"totalUsos":5}
+2025-11-30T23:14:30.483Z | userId:anon | user:anon | ruta:/ | accion:Acceder al índice | ip:::1 | datos:{}
+2025-11-30T23:14:37.653Z | userId:anon | user:anon | ruta:/users/login | accion:POST /users/login | ip:::1 | datos:{"body":{"email":"c@gmail.com","password":"12345678"}}
+2025-11-30T23:14:37.711Z | userId:10 | user:pau | ruta:/users/login | accion:Iniciar sesión | ip:::1 | datos:{"userId":10,"email":"c@gmail.com"}
+2025-11-30T23:14:37.726Z | userId:10 | user:pau | ruta:/ | accion:Acceder al índice | ip:::1 | datos:{}
+2025-11-30T23:14:38.942Z | userId:10 | user:pau | ruta:/ | accion:Acceder al índice | ip:::1 | datos:{}
+2025-11-30T23:14:39.522Z | userId:10 | user:pau | ruta:/estudiantes | accion:Listar estudiantes | ip:::1 | datos:{}
+2025-11-30T23:14:40.714Z | userId:10 | user:pau | ruta:/herramientas | accion:Listar herramientas | ip:::1 | datos:{"totalHerramientas":6}
+2025-11-30T23:14:42.339Z | userId:10 | user:pau | ruta:/prestamos | accion:Listar préstamos | ip:::1 | datos:{}
+2025-11-30T23:14:42.849Z | userId:10 | user:pau | ruta:/insumos | accion:Acceder a la lista de insumos | ip:::1 | datos:{}
+2025-11-30T23:14:43.339Z | userId:10 | user:pau | ruta:/usosInsumos | accion:Acceso a la lista de usos de insumos | ip:::1 | datos:{"totalUsos":5}
+2025-11-30T23:14:43.865Z | userId:10 | user:pau | ruta:/users/profile | accion:Ver perfil | ip:::1 | datos:{"userId":10,"email":"c@gmail.com"}
+2025-11-30T23:14:44.971Z | userId:10 | user:pau | ruta:/usosInsumos | accion:Acceso a la lista de usos de insumos | ip:::1 | datos:{"totalUsos":5}
+2025-11-30T23:14:49.258Z | userId:10 | user:pau | ruta:/insumos | accion:Acceder a la lista de insumos | ip:::1 | datos:{}
+2025-11-30T23:14:55.130Z | userId:10 | user:pau | ruta:/herramientas | accion:Listar herramientas | ip:::1 | datos:{"totalHerramientas":6}
+2025-11-30T23:14:55.836Z | userId:10 | user:pau | ruta:/ | accion:Acceder al índice | ip:::1 | datos:{}
+2025-11-30T23:14:56.448Z | userId:10 | user:pau | ruta:/estudiantes | accion:Listar estudiantes | ip:::1 | datos:{}
+2025-11-30T23:15:00.901Z | userId:10 | user:pau | ruta:/ | accion:Acceder al índice | ip:::1 | datos:{}
+2025-11-30T23:16:22.296Z | userId:10 | user:pau | ruta:/prestamos | accion:Listar préstamos | ip:::1 | datos:{}
+2025-11-30T23:19:05.333Z | userId:10 | user:pau | ruta:/users/profile | accion:Ver perfil | ip:::1 | datos:{"userId":10,"email":"c@gmail.com"}
+2025-11-30T23:19:10.736Z | userId:10 | user:pau | ruta:/users/profile | accion:POST /users/profile | ip:::1 | datos:{"body":{}}
+2025-11-30T23:19:10.737Z | userId:10 | user:pau | ruta:/users/profile | accion:Cerrar sesión | ip:::1 | datos:{"userId":10,"email":"c@gmail.com"}
+2025-11-30T23:19:15.981Z | userId:anon | user:anon | ruta:/users/login | accion:POST /users/login | ip:::1 | datos:{"body":{"email":"c@gmail.com","password":"12345678"}}
+2025-11-30T23:19:16.033Z | userId:10 | user:pau | ruta:/users/login | accion:Iniciar sesión | ip:::1 | datos:{"userId":10,"email":"c@gmail.com"}
+2025-11-30T23:19:16.043Z | userId:10 | user:pau | ruta:/ | accion:Acceder al índice | ip:::1 | datos:{}
+2025-11-30T23:19:17.706Z | userId:10 | user:pau | ruta:/estudiantes | accion:Listar estudiantes | ip:::1 | datos:{}
+2025-11-30T23:22:32.569Z | userId:10 | user:pau | ruta:/audit | accion:Listar audit logs | ip:::1 | datos:{"termino":"","pagina":1}
+2025-11-30T23:22:34.599Z | userId:10 | user:pau | ruta:/prestamos | accion:Listar préstamos | ip:::1 | datos:{}
+2025-11-30T23:22:35.533Z | userId:10 | user:pau | ruta:/herramientas | accion:Listar herramientas | ip:::1 | datos:{"totalHerramientas":6}
+2025-11-30T23:22:36.318Z | userId:10 | user:pau | ruta:/audit | accion:Listar audit logs | ip:::1 | datos:{"termino":"","pagina":1}
+2025-11-30T23:22:37.007Z | userId:10 | user:pau | ruta:/prestamos | accion:Listar préstamos | ip:::1 | datos:{}
+2025-11-30T23:23:25.475Z | userId:10 | user:pau | ruta:/audit | accion:Listar audit logs | ip:::1 | datos:{"termino":"","pagina":1}
+2025-11-30T23:24:44.606Z | userId:10 | user:pau | ruta:/estudiantes | accion:Listar estudiantes | ip:::1 | datos:{}
+2025-11-30T23:24:45.151Z | userId:10 | user:pau | ruta:/herramientas | accion:Listar herramientas | ip:::1 | datos:{"totalHerramientas":6}
+2025-11-30T23:24:45.765Z | userId:10 | user:pau | ruta:/estudiantes | accion:Listar estudiantes | ip:::1 | datos:{}
+2025-11-30T23:25:01.835Z | userId:10 | user:pau | ruta:/estudiantes | accion:Listar estudiantes | ip:::1 | datos:{}
+2025-11-30T23:25:17.768Z | userId:10 | user:pau | ruta:/users/profile | accion:Ver perfil | ip:::1 | datos:{"userId":10,"email":"c@gmail.com"}
+2025-11-30T23:25:19.315Z | userId:10 | user:pau | ruta:/ | accion:Acceder al índice | ip:::1 | datos:{}
+2025-11-30T23:25:20.264Z | userId:10 | user:pau | ruta:/users/profile | accion:Ver perfil | ip:::1 | datos:{"userId":10,"email":"c@gmail.com"}
+2025-11-30T23:25:21.814Z | userId:10 | user:pau | ruta:/users/profile | accion:Cerrar sesión | ip:::1 | datos:{"userId":10,"email":"c@gmail.com"}
+2025-11-30T23:25:21.814Z | userId:10 | user:pau | ruta:/users/profile | accion:POST /users/profile | ip:::1 | datos:{"body":{}}
+2025-11-30T23:25:30.665Z | userId:anon | user:anon | ruta:/users/login | accion:POST /users/login | ip:::1 | datos:{"body":{"email":"c@gmail.com","password":"12345678"}}
+2025-11-30T23:25:30.714Z | userId:10 | user:pau | ruta:/users/login | accion:Iniciar sesión | ip:::1 | datos:{"userId":10,"email":"c@gmail.com"}
+2025-11-30T23:25:30.725Z | userId:10 | user:pau | ruta:/ | accion:Acceder al índice | ip:::1 | datos:{}
+2025-11-30T23:25:32.947Z | userId:10 | user:pau | ruta:/ | accion:Acceder al índice | ip:::1 | datos:{}
+2025-11-30T23:25:33.367Z | userId:10 | user:pau | ruta:/herramientas | accion:Listar herramientas | ip:::1 | datos:{"totalHerramientas":6}
+2025-11-30T23:25:33.865Z | userId:10 | user:pau | ruta:/prestamos | accion:Listar préstamos | ip:::1 | datos:{}
+2025-11-30T23:25:34.183Z | userId:10 | user:pau | ruta:/insumos | accion:Acceder a la lista de insumos | ip:::1 | datos:{}
+2025-11-30T23:25:34.537Z | userId:10 | user:pau | ruta:/usosInsumos | accion:Acceso a la lista de usos de insumos | ip:::1 | datos:{"totalUsos":5}
+2025-11-30T23:25:35.255Z | userId:10 | user:pau | ruta:/users/profile | accion:Ver perfil | ip:::1 | datos:{"userId":10,"email":"c@gmail.com"}
+2025-11-30T23:25:36.081Z | userId:10 | user:pau | ruta:/herramientas | accion:Listar herramientas | ip:::1 | datos:{"totalHerramientas":6}
+2025-11-30T23:26:15.113Z | userId:10 | user:pau | ruta:/users/profile | accion:Ver perfil | ip:::1 | datos:{"userId":10,"email":"c@gmail.com"}
+2025-11-30T23:26:27.556Z | userId:10 | user:pau | ruta:/ | accion:Acceder al índice | ip:::1 | datos:{}
+2025-11-30T23:26:29.186Z | userId:10 | user:pau | ruta:/ | accion:Acceder al índice | ip:::1 | datos:{}
+2025-11-30T23:26:30.256Z | userId:10 | user:pau | ruta:/users/profile | accion:Ver perfil | ip:::1 | datos:{"userId":10,"email":"c@gmail.com"}
+2025-11-30T23:26:31.650Z | userId:10 | user:pau | ruta:/users/profile | accion:POST /users/profile | ip:::1 | datos:{"body":{}}
+2025-11-30T23:26:31.650Z | userId:10 | user:pau | ruta:/users/profile | accion:Cerrar sesión | ip:::1 | datos:{"userId":10,"email":"c@gmail.com"}
+2025-11-30T23:26:36.768Z | userId:anon | user:anon | ruta:/users/login | accion:POST /users/login | ip:::1 | datos:{"body":{"email":"c@gmail.com","password":"12345678"}}
+2025-11-30T23:26:36.817Z | userId:10 | user:pau | ruta:/users/login | accion:Iniciar sesión | ip:::1 | datos:{"userId":10,"email":"c@gmail.com"}
+2025-11-30T23:26:36.828Z | userId:10 | user:pau | ruta:/ | accion:Acceder al índice | ip:::1 | datos:{}
+2025-11-30T23:26:40.812Z | userId:10 | user:pau | ruta:/ | accion:Acceder al índice | ip:::1 | datos:{}
+2025-11-30T23:26:41.384Z | userId:10 | user:pau | ruta:/herramientas | accion:Listar herramientas | ip:::1 | datos:{"totalHerramientas":6}
+2025-11-30T23:26:45.066Z | userId:10 | user:pau | ruta:/prestamos | accion:Listar préstamos | ip:::1 | datos:{}
+2025-11-30T23:26:46.617Z | userId:10 | user:pau | ruta:/prestamos | accion:Listar préstamos | ip:::1 | datos:{}
+2025-11-30T23:26:47.033Z | userId:10 | user:pau | ruta:/herramientas | accion:Listar herramientas | ip:::1 | datos:{"totalHerramientas":6}
+2025-11-30T23:27:14.289Z | userId:10 | user:pau | ruta:/herramientas | accion:Listar herramientas | ip:::1 | datos:{"totalHerramientas":6}
+2025-11-30T23:27:15.271Z | userId:10 | user:pau | ruta:/estudiantes | accion:Listar estudiantes | ip:::1 | datos:{}
+2025-11-30T23:27:24.993Z | userId:10 | user:pau | ruta:/herramientas | accion:Listar herramientas | ip:::1 | datos:{"totalHerramientas":6}
+2025-11-30T23:27:26.450Z | userId:10 | user:pau | ruta:/prestamos | accion:Listar préstamos | ip:::1 | datos:{}
+2025-11-30T23:27:27.201Z | userId:10 | user:pau | ruta:/prestamos | accion:Listar préstamos | ip:::1 | datos:{}
+2025-11-30T23:27:35.404Z | userId:10 | user:pau | ruta:/audit | accion:Listar audit logs | ip:::1 | datos:{"termino":"","pagina":1}
+2025-11-30T23:28:29.124Z | userId:10 | user:pau | ruta:/audit | accion:Listar audit logs | ip:::1 | datos:{"termino":"","pagina":1}
+2025-11-30T23:31:35.606Z | userId:10 | user:pau | ruta:/audit | accion:Listar audit logs | ip:::1 | datos:{"termino":"","pagina":1}
+2025-11-30T23:31:57.336Z | userId:10 | user:pau | ruta:/audit?q=&page=19 | accion:Listar audit logs | ip:::1 | datos:{"termino":"","pagina":19}
+2025-11-30T23:32:00.844Z | userId:10 | user:pau | ruta:/audit?q=&page=1 | accion:Listar audit logs | ip:::1 | datos:{"termino":"","pagina":1}
+2025-11-30T23:39:06.527Z | userId:anon | user:anon | ruta:/ | accion:Acceder al índice | ip:::1 | datos:{}
+2025-11-30T23:39:14.429Z | userId:anon | user:anon | ruta:/users/login | accion:POST /users/login | ip:::1 | datos:{"body":{"email":"c@gmail.com","password":"12345678"}}
+2025-11-30T23:39:14.488Z | userId:10 | user:pau | ruta:/users/login | accion:Iniciar sesión | ip:::1 | datos:{"userId":10,"email":"c@gmail.com"}
+2025-11-30T23:39:14.501Z | userId:10 | user:pau | ruta:/ | accion:Acceder al índice | ip:::1 | datos:{}
+2025-11-30T23:39:15.804Z | userId:10 | user:pau | ruta:/audit | accion:Listar audit logs | ip:::1 | datos:{"termino":"","pagina":1}
+2025-11-30T23:39:16.320Z | userId:10 | user:pau | ruta:/insumos | accion:Acceder a la lista de insumos | ip:::1 | datos:{}
+2025-11-30T23:39:17.020Z | userId:10 | user:pau | ruta:/usosInsumos | accion:Acceso a la lista de usos de insumos | ip:::1 | datos:{"totalUsos":5}
+2025-11-30T23:39:17.610Z | userId:10 | user:pau | ruta:/audit | accion:Listar audit logs | ip:::1 | datos:{"termino":"","pagina":1}
+2025-11-30T23:39:20.869Z | userId:10 | user:pau | ruta:/audit?q=&page=19 | accion:Listar audit logs | ip:::1 | datos:{"termino":"","pagina":19}
+2025-11-30T23:39:24.292Z | userId:10 | user:pau | ruta:/audit?q=&page=14 | accion:Listar audit logs | ip:::1 | datos:{"termino":"","pagina":14}
+2025-11-30T23:39:26.716Z | userId:10 | user:pau | ruta:/audit?q=&page=12 | accion:Listar audit logs | ip:::1 | datos:{"termino":"","pagina":12}
+2025-11-30T23:39:29.645Z | userId:10 | user:pau | ruta:/audit?q=&page=10 | accion:Listar audit logs | ip:::1 | datos:{"termino":"","pagina":10}
+2025-11-30T23:40:08.923Z | userId:10 | user:pau | ruta:/insumos | accion:Acceder a la lista de insumos | ip:::1 | datos:{}
+2025-11-30T23:40:23.303Z | userId:10 | user:pau | ruta:/insumos | accion:Acceder a la lista de insumos | ip:::1 | datos:{}
+2025-11-30T23:40:26.045Z | userId:10 | user:pau | ruta:/audit | accion:Listar audit logs | ip:::1 | datos:{"termino":"","pagina":1}
+2025-11-30T23:40:31.216Z | userId:10 | user:pau | ruta:/users/profile | accion:Ver perfil | ip:::1 | datos:{"userId":10,"email":"c@gmail.com"}
+2025-11-30T23:40:32.641Z | userId:10 | user:pau | ruta:/users/profile | accion:POST /users/profile | ip:::1 | datos:{"body":{}}
+2025-11-30T23:40:32.642Z | userId:10 | user:pau | ruta:/users/profile | accion:Cerrar sesión | ip:::1 | datos:{"userId":10,"email":"c@gmail.com"}
+2025-11-30T23:40:55.224Z | userId:anon | user:anon | ruta:/users/login | accion:POST /users/login | ip:::1 | datos:{"body":{"email":"c@gmail.com","password":"12345678"}}
+2025-11-30T23:40:55.274Z | userId:10 | user:pau | ruta:/users/login | accion:Iniciar sesión | ip:::1 | datos:{"userId":10,"email":"c@gmail.com"}
+2025-11-30T23:40:55.287Z | userId:10 | user:pau | ruta:/ | accion:Acceder al índice | ip:::1 | datos:{}
+2025-11-30T23:40:57.003Z | userId:10 | user:pau | ruta:/audit | accion:Listar audit logs | ip:::1 | datos:{"termino":"","pagina":1}
+2025-11-30T23:41:25.384Z | userId:10 | user:pau | ruta:/estudiantes | accion:Listar estudiantes | ip:::1 | datos:{}
+2025-11-30T23:41:26.523Z | userId:10 | user:pau | ruta:/herramientas | accion:Listar herramientas | ip:::1 | datos:{"totalHerramientas":6}
+2025-11-30T23:41:26.939Z | userId:10 | user:pau | ruta:/prestamos | accion:Listar préstamos | ip:::1 | datos:{}
+2025-11-30T23:41:27.270Z | userId:10 | user:pau | ruta:/audit | accion:Listar audit logs | ip:::1 | datos:{"termino":"","pagina":1}
+2025-11-30T23:41:27.763Z | userId:10 | user:pau | ruta:/users/ | accion:Listar usuarios | ip:::1 | datos:{"userId":10}
+2025-11-30T23:41:30.521Z | userId:10 | user:pau | ruta:/insumos | accion:Acceder a la lista de insumos | ip:::1 | datos:{}
+2025-11-30T23:41:32.283Z | userId:10 | user:pau | ruta:/usosInsumos | accion:Acceso a la lista de usos de insumos | ip:::1 | datos:{"totalUsos":5}
+2025-11-30T23:41:34.153Z | userId:10 | user:pau | ruta:/users/profile | accion:Ver perfil | ip:::1 | datos:{"userId":10,"email":"c@gmail.com"}
+2025-11-30T23:42:16.633Z | userId:10 | user:pau | ruta:/estudiantes | accion:Listar estudiantes | ip:::1 | datos:{}
+2025-11-30T23:42:18.217Z | userId:10 | user:pau | ruta:/herramientas | accion:Listar herramientas | ip:::1 | datos:{"totalHerramientas":6}
+2025-11-30T23:42:20.147Z | userId:10 | user:pau | ruta:/prestamos | accion:Listar préstamos | ip:::1 | datos:{}
+2025-11-30T23:42:22.885Z | userId:10 | user:pau | ruta:/audit | accion:Listar audit logs | ip:::1 | datos:{"termino":"","pagina":1}
+2025-11-30T23:43:14.721Z | userId:10 | user:pau | ruta:/estudiantes | accion:Listar estudiantes | ip:::1 | datos:{}
+2025-11-30T23:43:15.878Z | userId:10 | user:pau | ruta:/audit | accion:Listar audit logs | ip:::1 | datos:{"termino":"","pagina":1}
+2025-11-30T23:43:17.267Z | userId:10 | user:pau | ruta:/audit | accion:Listar audit logs | ip:::1 | datos:{"termino":"","pagina":1}
+2025-11-30T23:43:17.971Z | userId:10 | user:pau | ruta:/audit | accion:Listar audit logs | ip:::1 | datos:{"termino":"","pagina":1}
+2025-11-30T23:45:25.744Z | userId:10 | user:pau | ruta:/usosInsumos | accion:Acceso a la lista de usos de insumos | ip:::1 | datos:{"totalUsos":5}
+2025-11-30T23:45:27.307Z | userId:10 | user:pau | ruta:/users/profile | accion:Ver perfil | ip:::1 | datos:{"userId":10,"email":"c@gmail.com"}
+2025-11-30T23:45:29.134Z | userId:10 | user:pau | ruta:/users/profile | accion:POST /users/profile | ip:::1 | datos:{"body":{}}
+2025-11-30T23:45:29.134Z | userId:10 | user:pau | ruta:/users/profile | accion:Cerrar sesión | ip:::1 | datos:{"userId":10,"email":"c@gmail.com"}
+2025-11-30T23:45:35.952Z | userId:anon | user:anon | ruta:/users/login | accion:POST /users/login | ip:::1 | datos:{"body":{"email":"c@gmail.com","password":"12345678"}}
+2025-11-30T23:45:35.999Z | userId:10 | user:pau | ruta:/users/login | accion:Iniciar sesión | ip:::1 | datos:{"userId":10,"email":"c@gmail.com"}
+2025-11-30T23:45:36.010Z | userId:10 | user:pau | ruta:/ | accion:Acceder al índice | ip:::1 | datos:{}
+2025-11-30T23:45:36.838Z | userId:10 | user:pau | ruta:/audit | accion:Listar audit logs | ip:::1 | datos:{"termino":"","pagina":1}
+2025-11-30T23:45:45.046Z | userId:10 | user:pau | ruta:/prestamos | accion:Listar préstamos | ip:::1 | datos:{}
+2025-11-30T23:45:45.838Z | userId:10 | user:pau | ruta:/audit | accion:Listar audit logs | ip:::1 | datos:{"termino":"","pagina":1}
+2025-11-30T23:45:46.502Z | userId:10 | user:pau | ruta:/users/ | accion:Listar usuarios | ip:::1 | datos:{"userId":10}
+2025-11-30T23:45:46.988Z | userId:10 | user:pau | ruta:/insumos | accion:Acceder a la lista de insumos | ip:::1 | datos:{}
+2025-11-30T23:45:48.102Z | userId:10 | user:pau | ruta:/usosInsumos | accion:Acceso a la lista de usos de insumos | ip:::1 | datos:{"totalUsos":5}
+2025-11-30T23:46:03.702Z | userId:10 | user:pau | ruta:/users/ | accion:Listar usuarios | ip:::1 | datos:{"userId":10}
+2025-11-30T23:46:04.602Z | userId:10 | user:pau | ruta:/users/ | accion:Listar usuarios | ip:::1 | datos:{"userId":10}
+2025-11-30T23:46:05.526Z | userId:10 | user:pau | ruta:/herramientas | accion:Listar herramientas | ip:::1 | datos:{"totalHerramientas":6}
+2025-11-30T23:46:06.401Z | userId:10 | user:pau | ruta:/herramientas | accion:Listar herramientas | ip:::1 | datos:{"totalHerramientas":6}
+2025-11-30T23:46:07.644Z | userId:10 | user:pau | ruta:/users/profile | accion:Ver perfil | ip:::1 | datos:{"userId":10,"email":"c@gmail.com"}
+2025-11-30T23:46:09.002Z | userId:10 | user:pau | ruta:/users/profile | accion:POST /users/profile | ip:::1 | datos:{"body":{}}
+2025-11-30T23:46:09.002Z | userId:10 | user:pau | ruta:/users/profile | accion:Cerrar sesión | ip:::1 | datos:{"userId":10,"email":"c@gmail.com"}
+2025-11-30T23:46:14.402Z | userId:anon | user:anon | ruta:/users/login | accion:POST /users/login | ip:::1 | datos:{"body":{"email":"c@gmail.com","password":"12345678"}}
+2025-11-30T23:46:14.451Z | userId:10 | user:pau | ruta:/users/login | accion:Iniciar sesión | ip:::1 | datos:{"userId":10,"email":"c@gmail.com"}
+2025-11-30T23:46:14.462Z | userId:10 | user:pau | ruta:/ | accion:Acceder al índice | ip:::1 | datos:{}
+2025-11-30T23:46:16.275Z | userId:10 | user:pau | ruta:/estudiantes | accion:Listar estudiantes | ip:::1 | datos:{}
+2025-11-30T23:46:17.580Z | userId:10 | user:pau | ruta:/herramientas | accion:Listar herramientas | ip:::1 | datos:{"totalHerramientas":6}
+2025-11-30T23:46:18.837Z | userId:10 | user:pau | ruta:/prestamos | accion:Listar préstamos | ip:::1 | datos:{}
+2025-11-30T23:46:20.863Z | userId:10 | user:pau | ruta:/audit | accion:Listar audit logs | ip:::1 | datos:{"termino":"","pagina":1}
+2025-11-30T23:46:23.679Z | userId:10 | user:pau | ruta:/insumos | accion:Acceder a la lista de insumos | ip:::1 | datos:{}
+2025-11-30T23:46:24.815Z | userId:10 | user:pau | ruta:/usosInsumos | accion:Acceso a la lista de usos de insumos | ip:::1 | datos:{"totalUsos":5}
+2025-11-30T23:46:25.764Z | userId:10 | user:pau | ruta:/insumos | accion:Acceder a la lista de insumos | ip:::1 | datos:{}
+2025-11-30T23:46:34.232Z | userId:10 | user:pau | ruta:/audit | accion:Listar audit logs | ip:::1 | datos:{"termino":"","pagina":1}
+2025-11-30T23:49:39.871Z | userId:10 | user:pau | ruta:/estudiantes | accion:Listar estudiantes | ip:::1 | datos:{}
+2025-11-30T23:49:40.342Z | userId:10 | user:pau | ruta:/herramientas | accion:Listar herramientas | ip:::1 | datos:{"totalHerramientas":6}
+2025-11-30T23:49:40.679Z | userId:10 | user:pau | ruta:/prestamos | accion:Listar préstamos | ip:::1 | datos:{}
+2025-11-30T23:49:41.010Z | userId:10 | user:pau | ruta:/audit | accion:Listar audit logs | ip:::1 | datos:{"termino":"","pagina":1}
+2025-11-30T23:51:55.427Z | userId:10 | user:pau | ruta:/users/profile | accion:Ver perfil | ip:::1 | datos:{"userId":10,"email":"c@gmail.com"}
+2025-11-30T23:52:00.330Z | userId:10 | user:pau | ruta:/users/profile | accion:POST /users/profile | ip:::1 | datos:{"body":{}}
+2025-11-30T23:52:00.331Z | userId:10 | user:pau | ruta:/users/profile | accion:Cerrar sesión | ip:::1 | datos:{"userId":10,"email":"c@gmail.com"}
+2025-11-30T23:52:06.981Z | userId:anon | user:anon | ruta:/users/login | accion:POST /users/login | ip:::1 | datos:{"body":{"email":"c@gmail.com","password":"12345678"}}
+2025-11-30T23:52:07.031Z | userId:10 | user:pau | ruta:/users/login | accion:Iniciar sesión | ip:::1 | datos:{"userId":10,"email":"c@gmail.com"}
+2025-11-30T23:52:07.042Z | userId:10 | user:pau | ruta:/ | accion:Acceder al índice | ip:::1 | datos:{}
+2025-11-30T23:52:08.491Z | userId:10 | user:pau | ruta:/audit | accion:Listar audit logs | ip:::1 | datos:{"termino":"","pagina":1}
+2025-11-30T23:54:37.303Z | userId:10 | user:pau | ruta:/audit | accion:Listar audit logs | ip:::1 | datos:{"termino":"","pagina":1}
+2025-11-30T23:54:38.210Z | userId:10 | user:pau | ruta:/estudiantes | accion:Listar estudiantes | ip:::1 | datos:{}
+2025-11-30T23:54:39.059Z | userId:10 | user:pau | ruta:/herramientas | accion:Listar herramientas | ip:::1 | datos:{"totalHerramientas":6}
+2025-11-30T23:54:39.572Z | userId:10 | user:pau | ruta:/prestamos | accion:Listar préstamos | ip:::1 | datos:{}
+2025-11-30T23:54:39.964Z | userId:10 | user:pau | ruta:/audit | accion:Listar audit logs | ip:::1 | datos:{"termino":"","pagina":1}
+2025-11-30T23:54:49.670Z | userId:10 | user:pau | ruta:/audit | accion:Listar audit logs | ip:::1 | datos:{"termino":"","pagina":1}
+2025-11-30T23:57:37.361Z | userId:10 | user:pau | ruta:/audit | accion:Listar audit logs | ip:::1 | datos:{"termino":"","pagina":1}
+2025-11-30T23:58:01.836Z | userId:10 | user:pau | ruta:/insumos | accion:Acceder a la lista de insumos | ip:::1 | datos:{}
+2025-11-30T23:58:03.733Z | userId:10 | user:pau | ruta:/usosInsumos | accion:Acceso a la lista de usos de insumos | ip:::1 | datos:{"totalUsos":5}
+2025-11-30T23:58:04.487Z | userId:10 | user:pau | ruta:/audit | accion:Listar audit logs | ip:::1 | datos:{"termino":"","pagina":1}
+2025-11-30T23:58:04.869Z | userId:10 | user:pau | ruta:/herramientas | accion:Listar herramientas | ip:::1 | datos:{"totalHerramientas":6}
+2025-11-30T23:58:05.594Z | userId:10 | user:pau | ruta:/estudiantes | accion:Listar estudiantes | ip:::1 | datos:{}
+2025-11-30T23:58:06.442Z | userId:10 | user:pau | ruta:/herramientas | accion:Listar herramientas | ip:::1 | datos:{"totalHerramientas":6}
+2025-11-30T23:58:06.779Z | userId:10 | user:pau | ruta:/prestamos | accion:Listar préstamos | ip:::1 | datos:{}
+2025-11-30T23:58:07.197Z | userId:10 | user:pau | ruta:/audit | accion:Listar audit logs | ip:::1 | datos:{"termino":"","pagina":1}
+2025-11-30T23:58:07.676Z | userId:10 | user:pau | ruta:/insumos | accion:Acceder a la lista de insumos | ip:::1 | datos:{}
+2025-11-30T23:58:08.325Z | userId:10 | user:pau | ruta:/usosInsumos | accion:Acceso a la lista de usos de insumos | ip:::1 | datos:{"totalUsos":5}
+2025-11-30T23:58:09.339Z | userId:10 | user:pau | ruta:/users/profile | accion:Ver perfil | ip:::1 | datos:{"userId":10,"email":"c@gmail.com"}
+2025-11-30T23:58:09.957Z | userId:10 | user:pau | ruta:/usosInsumos | accion:Acceso a la lista de usos de insumos | ip:::1 | datos:{"totalUsos":5}
+2025-11-30T23:58:43.894Z | userId:10 | user:pau | ruta:/herramientas | accion:Listar herramientas | ip:::1 | datos:{"totalHerramientas":6}
+2025-12-01T00:00:25.439Z | userId:10 | user:pau | ruta:/herramientas | accion:Listar herramientas | ip:::1 | datos:{"totalHerramientas":6}
+2025-12-01T00:00:27.876Z | userId:10 | user:pau | ruta:/estudiantes | accion:Listar estudiantes | ip:::1 | datos:{}
+2025-12-01T00:00:39.278Z | userId:10 | user:pau | ruta:/insumos | accion:Acceder a la lista de insumos | ip:::1 | datos:{}
+2025-12-01T00:01:08.654Z | userId:10 | user:pau | ruta:/insumos | accion:Acceder a la lista de insumos | ip:::1 | datos:{}
+2025-12-01T00:01:15.693Z | userId:10 | user:pau | ruta:/estudiantes | accion:Listar estudiantes | ip:::1 | datos:{}
+2025-12-01T00:02:29.850Z | userId:10 | user:pau | ruta:/prestamos | accion:Listar préstamos | ip:::1 | datos:{}
+2025-12-01T00:02:35.922Z | userId:10 | user:pau | ruta:/audit | accion:Listar audit logs | ip:::1 | datos:{"termino":"","pagina":1}
+2025-12-01T00:02:39.606Z | userId:10 | user:pau | ruta:/insumos | accion:Acceder a la lista de insumos | ip:::1 | datos:{}
+2025-12-01T00:02:41.216Z | userId:10 | user:pau | ruta:/usosInsumos | accion:Acceso a la lista de usos de insumos | ip:::1 | datos:{"totalUsos":5}
+2025-12-01T00:02:49.303Z | userId:10 | user:pau | ruta:/users/profile | accion:Ver perfil | ip:::1 | datos:{"userId":10,"email":"c@gmail.com"}
+2025-12-01T00:04:23.144Z | userId:10 | user:pau | ruta:/users/profile | accion:Ver perfil | ip:::1 | datos:{"userId":10,"email":"c@gmail.com"}
+2025-12-01T00:04:28.915Z | userId:10 | user:pau | ruta:/usosInsumos | accion:Acceso a la lista de usos de insumos | ip:::1 | datos:{"totalUsos":5}
+2025-12-01T00:04:29.479Z | userId:10 | user:pau | ruta:/users/profile | accion:Ver perfil | ip:::1 | datos:{"userId":10,"email":"c@gmail.com"}
+2025-12-01T00:04:43.926Z | userId:10 | user:pau | ruta:/users/profile | accion:Ver perfil | ip:::1 | datos:{"userId":10,"email":"c@gmail.com"}
+2025-12-01T00:04:44.799Z | userId:10 | user:pau | ruta:/users/profile | accion:Ver perfil | ip:::1 | datos:{"userId":10,"email":"c@gmail.com"}
+2025-12-01T00:05:09.374Z | userId:10 | user:pau | ruta:/users/profile | accion:Ver perfil | ip:::1 | datos:{"userId":10,"email":"c@gmail.com"}
+2025-12-01T00:05:44.078Z | userId:anon | user:anon | ruta:/users/generate-pdfs | accion:POST /users/generate-pdfs | ip:::1 | datos:{}
+2025-12-01T00:07:03.471Z | userId:anon | user:anon | ruta:/herramientas | accion:Listar herramientas | ip:::1 | datos:{"totalHerramientas":6}
+2025-12-01T00:07:09.564Z | userId:anon | user:anon | ruta:/ | accion:Acceder al índice | ip:::1 | datos:{}
+2025-12-01T00:07:14.882Z | userId:anon | user:anon | ruta:/users/login | accion:POST /users/login | ip:::1 | datos:{"body":{"email":"c@gmail.com","password":"12345678"}}
+2025-12-01T00:07:14.939Z | userId:10 | user:pau | ruta:/users/login | accion:Iniciar sesión | ip:::1 | datos:{"userId":10,"email":"c@gmail.com"}
+2025-12-01T00:07:14.955Z | userId:10 | user:pau | ruta:/ | accion:Acceder al índice | ip:::1 | datos:{}
+2025-12-01T00:07:16.077Z | userId:10 | user:pau | ruta:/usosInsumos | accion:Acceso a la lista de usos de insumos | ip:::1 | datos:{"totalUsos":5}
+2025-12-01T00:07:16.810Z | userId:10 | user:pau | ruta:/users/profile | accion:Ver perfil | ip:::1 | datos:{"userId":10,"email":"c@gmail.com"}
+2025-12-01T00:07:31.878Z | userId:10 | user:pau | ruta:/users/profile | accion:Ver perfil | ip:::1 | datos:{"userId":10,"email":"c@gmail.com"}
+2025-12-01T00:08:05.229Z | userId:10 | user:pau | ruta:/users/profile | accion:POST /users/profile | ip:::1 | datos:{"body":{}}
+2025-12-01T00:08:05.229Z | userId:10 | user:pau | ruta:/users/profile | accion:Cerrar sesión | ip:::1 | datos:{"userId":10,"email":"c@gmail.com"}
+2025-12-01T00:08:10.577Z | userId:anon | user:anon | ruta:/users/login | accion:POST /users/login | ip:::1 | datos:{"body":{"email":"c@gmail.com","password":"12345678"}}
+2025-12-01T00:08:10.625Z | userId:10 | user:pau | ruta:/users/login | accion:Iniciar sesión | ip:::1 | datos:{"userId":10,"email":"c@gmail.com"}
+2025-12-01T00:08:10.639Z | userId:10 | user:pau | ruta:/ | accion:Acceder al índice | ip:::1 | datos:{}
+2025-12-01T00:08:11.540Z | userId:10 | user:pau | ruta:/users/ | accion:Listar usuarios | ip:::1 | datos:{"userId":10}
+2025-12-01T00:08:21.436Z | userId:10 | user:pau | ruta:/users/4/eliminar | accion:DELETE /users/4/eliminar | ip:::1 | datos:{}
+2025-12-01T00:08:21.439Z | userId:10 | user:pau | ruta:/users/4/eliminar | accion:Programar eliminación de usuario | ip:::1 | datos:{"userId":4,"email":"b@gmail.com","fecha_eliminacion":"2025-12-03T00:08:21.439Z"}
+2025-12-01T00:08:23.235Z | userId:10 | user:pau | ruta:/users/ | accion:Listar usuarios | ip:::1 | datos:{"userId":10}
+2025-12-01T00:09:46.597Z | userId:10 | user:pau | ruta:/users/ | accion:Listar usuarios | ip:::1 | datos:{"userId":10}
+2025-12-01T00:09:50.077Z | userId:10 | user:pau | ruta:/users/4/cancelar-eliminacion | accion:PUT /users/4/cancelar-eliminacion | ip:::1 | datos:{}
+2025-12-01T00:09:50.080Z | userId:10 | user:pau | ruta:/users/4/cancelar-eliminacion | accion:Cancelar eliminación de usuario | ip:::1 | datos:{"userId":4,"email":"b@gmail.com"}
+2025-12-01T00:09:50.987Z | userId:10 | user:pau | ruta:/users/ | accion:Listar usuarios | ip:::1 | datos:{"userId":10}
+2025-12-01T00:10:02.813Z | userId:10 | user:pau | ruta:/users/4/eliminar | accion:DELETE /users/4/eliminar | ip:::1 | datos:{}
+2025-12-01T00:10:02.817Z | userId:10 | user:pau | ruta:/users/4/eliminar | accion:Programar eliminación de usuario | ip:::1 | datos:{"userId":4,"email":"b@gmail.com","fecha_eliminacion":"2025-12-03T00:10:02.817Z"}
+2025-12-01T00:10:03.483Z | userId:10 | user:pau | ruta:/users/ | accion:Listar usuarios | ip:::1 | datos:{"userId":10}
+2025-12-01T00:10:05.349Z | userId:10 | user:pau | ruta:/users/4/cancelar-eliminacion | accion:PUT /users/4/cancelar-eliminacion | ip:::1 | datos:{}
+2025-12-01T00:10:05.350Z | userId:10 | user:pau | ruta:/users/4/cancelar-eliminacion | accion:Cancelar eliminación de usuario | ip:::1 | datos:{"userId":4,"email":"b@gmail.com"}
+2025-12-01T00:10:06.324Z | userId:10 | user:pau | ruta:/users/ | accion:Listar usuarios | ip:::1 | datos:{"userId":10}
+2025-12-01T00:10:55.343Z | userId:10 | user:pau | ruta:/users/profile | accion:Ver perfil | ip:::1 | datos:{"userId":10,"email":"c@gmail.com"}
+2025-12-01T00:10:56.137Z | userId:10 | user:pau | ruta:/ | accion:Acceder al índice | ip:::1 | datos:{}
+2025-12-01T00:10:59.216Z | userId:10 | user:pau | ruta:/10/devolver | accion:POST /10/devolver | ip:::1 | datos:{"body":{"id":"10"}}
+2025-12-01T00:10:59.222Z | userId:10 | user:pau | ruta:/10/devolver | accion:Devolver préstamo | ip:::1 | datos:{"id":"10"}
+2025-12-01T00:10:59.233Z | userId:10 | user:pau | ruta:/ | accion:Acceder al índice | ip:::1 | datos:{}
+2025-12-01T00:11:00.832Z | userId:10 | user:pau | ruta:/9/devolver | accion:POST /9/devolver | ip:::1 | datos:{"body":{"id":"9"}}
+2025-12-01T00:11:00.835Z | userId:10 | user:pau | ruta:/9/devolver | accion:Devolver préstamo | ip:::1 | datos:{"id":"9"}
+2025-12-01T00:11:00.846Z | userId:10 | user:pau | ruta:/ | accion:Acceder al índice | ip:::1 | datos:{}
+2025-12-01T00:11:02.634Z | userId:10 | user:pau | ruta:/8/devolver | accion:POST /8/devolver | ip:::1 | datos:{"body":{"id":"8"}}
+2025-12-01T00:11:02.637Z | userId:10 | user:pau | ruta:/8/devolver | accion:Devolver préstamo | ip:::1 | datos:{"id":"8"}
+2025-12-01T00:11:02.648Z | userId:10 | user:pau | ruta:/ | accion:Acceder al índice | ip:::1 | datos:{}
