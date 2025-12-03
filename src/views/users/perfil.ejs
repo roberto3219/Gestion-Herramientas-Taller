@@ -39,6 +39,7 @@
 <% if(usuario.role_id != 3 && usuario.role_id != 2){%>
         <form id="restoreForm" action="/users/restore" method="post">
         <input type="hidden" name="mode" id="modeInput">
+        <input type="hidden" name="file" id="fileInput">
         <button type="button" class="btn btn-primary" onclick="openRestoreDialog()">
           Restaurar Copia de Seguridad (JSON)
         </button>
@@ -54,13 +55,25 @@
         <h5 class="modal-title" id="restoreModalLabel">Restaurar Copia de Seguridad</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
       </div>
+      <div class ="modal-body">
+        <p><strong>Seleccione el archivo de backup que desea restaurar:</strong></p>
+
+        <select id="backupSelect" class="form-select mb-3">
+          <option value="">-- Selecciona un backup --</option>
+
+          <% backups.forEach(file => { %>
+            <option value="<%= file %>"><%= file %></option>
+            <% }) %>
+
+        </select>
+      </div>
       <div class="modal-body text-center">
         <p><strong>¿Qué desea hacer con los datos existentes?</strong></p>
         <p class="text-muted">Puedes mantener los datos (Merge) o reemplazarlos completamente (Replace).</p>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-success" onclick="submitRestore('merge')">Mantener (Merge)</button>
-        <button type="button" class="btn btn-danger" onclick="submitRestore('replace')">Eliminar (Replace)</button>
+        <button type="button" id="mergeBtn" class="btn btn-success" onclick="submitRestore('merge')">Mantener (Merge)</button>
+        <button type="button" id="replaceBtn" class="btn btn-danger" onclick="submitRestore('replace')">Eliminar (Replace)</button>
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
       </div>
     </div>

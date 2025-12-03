@@ -1,0 +1,320 @@
+{
+  "estudiantes": [
+    {
+      "id": 1,
+      "nombre": "Carlos Gómez",
+      "dni": null,
+      "email": "carlos@mail.com",
+      "curso": "5to A",
+      "telefono": null
+    },
+    {
+      "id": 4,
+      "nombre": "Roberto Alfredo Llampa",
+      "dni": "2147483647",
+      "email": "123e@gmail.com",
+      "curso": "6to 2ra",
+      "telefono": "2147483647"
+    },
+    {
+      "id": 8,
+      "nombre": "paula nahir llampa",
+      "dni": "46543234",
+      "email": "robert@gmail.com",
+      "curso": "6to 2ra",
+      "telefono": "2147483647"
+    },
+    {
+      "id": 9,
+      "nombre": "tiago muños",
+      "dni": "12345678",
+      "email": "sdad@asdsad.com",
+      "curso": "4to 3ra",
+      "telefono": "2147483647"
+    },
+    {
+      "id": 10,
+      "nombre": "Laime Agustin",
+      "dni": "479319823",
+      "email": "g@gmail.com",
+      "curso": "6to 2ra",
+      "telefono": "2147483647"
+    }
+  ],
+  "herramientas": [
+    {
+      "id": 1,
+      "nombre": "Martillo",
+      "categoria": "Manuales",
+      "descripcion": null,
+      "cantidad": 10,
+      "estado": "Disponible"
+    },
+    {
+      "id": 2,
+      "nombre": "Taladro",
+      "categoria": "Eléctricas",
+      "descripcion": null,
+      "cantidad": 5,
+      "estado": "Disponible"
+    },
+    {
+      "id": 3,
+      "nombre": "Llave Inglesa",
+      "categoria": "Manuales",
+      "descripcion": null,
+      "cantidad": 8,
+      "estado": "Disponible"
+    },
+    {
+      "id": 7,
+      "nombre": "Taladro",
+      "categoria": "Manuales",
+      "descripcion": "Es una herramienta",
+      "cantidad": 10,
+      "estado": "Disponible"
+    }
+  ],
+  "prestamos": [
+    {
+      "id": 23,
+      "estudiante_id": 9,
+      "herramientas_id": 2,
+      "cantidad_herramientas": 5,
+      "profesor_encargado": "Carlos Pablo",
+      "fecha_prestamo": "2025-09-18T20:31:19.000Z",
+      "fecha_devolucion_estimada": "2007-09-04T12:40:00.000Z",
+      "fecha_devolucion_real": "2025-09-18T20:31:23.000Z",
+      "estado": "Devuelto",
+      "observaciones": "Holaaa",
+      "retraso": false,
+      "vencido": 0
+    },
+    {
+      "id": 24,
+      "estudiante_id": 1,
+      "herramientas_id": 1,
+      "cantidad_herramientas": 5,
+      "profesor_encargado": "Analia flores",
+      "fecha_prestamo": "2025-09-26T20:18:53.000Z",
+      "fecha_devolucion_estimada": "2007-09-04T08:43:00.000Z",
+      "fecha_devolucion_real": "2025-09-27T20:17:08.000Z",
+      "estado": "Devuelto",
+      "observaciones": "hhghjhjkhjkkhj",
+      "retraso": false,
+      "vencido": 0
+    },
+    {
+      "id": 25,
+      "estudiante_id": 8,
+      "herramientas_id": 1,
+      "cantidad_herramientas": 5,
+      "profesor_encargado": "Analia flores",
+      "fecha_prestamo": "2025-09-26T20:34:30.000Z",
+      "fecha_devolucion_estimada": "2007-09-04T08:43:00.000Z",
+      "fecha_devolucion_real": "2025-09-26T20:35:08.000Z",
+      "estado": "Devuelto",
+      "observaciones": "sadsadasd",
+      "retraso": false,
+      "vencido": 0
+    },
+    {
+      "id": 29,
+      "estudiante_id": 10,
+      "herramientas_id": 3,
+      "cantidad_herramientas": 6,
+      "profesor_encargado": "Analia flores",
+      "fecha_prestamo": "2025-09-30T13:37:38.000Z",
+      "fecha_devolucion_estimada": "2007-09-04T08:43:00.000Z",
+      "fecha_devolucion_real": "2025-09-30T13:38:22.000Z",
+      "estado": "Devuelto",
+      "observaciones": "holaaaa",
+      "retraso": false,
+      "vencido": 0
+    }
+  ],
+  "usuario": [
+    {
+      "id": 4,
+      "user_name": "47931986",
+      "nombre": "Roberto Llampa",
+      "img_user": "default.png",
+      "email": "b@gmail.com",
+      "password_hash": "$2b$10$LzL16U/diYSaFJICgcFXT.edSebKJWh62aPl4YRsQ84G1tjvPYw6q",
+      "role_id": 2,
+      "bloqueado": 0,
+      "fecha_eliminacion_programada": null,
+      "puedeEliminarse": 0
+    },
+    {
+      "id": 7,
+      "user_name": "Robert32ds2dasdasd",
+      "nombre": "paula nahir llampa",
+      "img_user": "user-1761508406465.jpg",
+      "email": "robert@gmail.com",
+      "password_hash": "$2b$10$IrpIFCoGZd8uAiFSYzSclO4jej9Jlc6FVVI2Lve8KMrgxWLg/JcYC",
+      "role_id": 3,
+      "bloqueado": 0,
+      "fecha_eliminacion_programada": null,
+      "puedeEliminarse": 0
+    },
+    {
+      "id": 8,
+      "user_name": "jfajknfkjang dg",
+      "nombre": "paula nahir llampa",
+      "img_user": "default.png",
+      "email": "paula@gmail.com",
+      "password_hash": "$2b$10$X1IvVGL2mE3bcmCcjAHWgu8f6jCrz0iZKvk434d.bPEHhF3ez1uFK",
+      "role_id": 3,
+      "bloqueado": 0,
+      "fecha_eliminacion_programada": null,
+      "puedeEliminarse": 0
+    },
+    {
+      "id": 9,
+      "user_name": "Robajdbskajbdja",
+      "nombre": "dasdsadasd",
+      "img_user": "default.png",
+      "email": "llamparoberto5@gmail.com",
+      "password_hash": "$2b$10$/v.9kBigv0nqixG4t84aF.kHi3rBCgHvRHuoLAs8rY22GuMrVNvgy",
+      "role_id": 2,
+      "bloqueado": 0,
+      "fecha_eliminacion_programada": null,
+      "puedeEliminarse": 0
+    },
+    {
+      "id": 10,
+      "user_name": "pau",
+      "nombre": "paula nahir llampa",
+      "img_user": "user-1762478038027.jpg",
+      "email": "c@gmail.com",
+      "password_hash": "$2b$10$XFWglahYJWaq5fySJH7RBeIyk3v2VPTRymzIstoXwBUtNYmREtqxe",
+      "role_id": 1,
+      "bloqueado": 0,
+      "fecha_eliminacion_programada": null,
+      "puedeEliminarse": 0
+    },
+    {
+      "id": 11,
+      "user_name": "sadgfdsgfvxcv",
+      "nombre": "Roberto",
+      "img_user": "default.png",
+      "email": "m@gmail.com",
+      "password_hash": "$2b$10$/KK62DyEaSImldXhXt4yj.DixOWBedaexjPwRbVqAd7wscTiNYc0y",
+      "role_id": 3,
+      "bloqueado": 0,
+      "fecha_eliminacion_programada": null,
+      "puedeEliminarse": 0
+    }
+  ],
+  "rol": [
+    {
+      "id": 1,
+      "nombre": "Administrador",
+      "descripcion": null
+    },
+    {
+      "id": 2,
+      "nombre": "Profesor",
+      "descripcion": null
+    },
+    {
+      "id": 3,
+      "nombre": "Auxiliar",
+      "descripcion": null
+    }
+  ],
+  "insumo": [
+    {
+      "id_insumo": 1,
+      "nombre": "saddsa",
+      "descripcion": "2qasdasd",
+      "cantidad": 39,
+      "unidad": null,
+      "ubicacion": null,
+      "fecha_ingreso": "2025-10-26",
+      "estado": ""
+    },
+    {
+      "id_insumo": 2,
+      "nombre": "afsdfsdf",
+      "descripcion": "fvghb jfcutcgj",
+      "cantidad": 4,
+      "unidad": null,
+      "ubicacion": null,
+      "fecha_ingreso": "2025-10-26",
+      "estado": "disponible"
+    },
+    {
+      "id_insumo": 4,
+      "nombre": "Cables",
+      "descripcion": "hola buenas esta es solo una descripcion del producto, el que quiere agregue",
+      "cantidad": 10,
+      "unidad": null,
+      "ubicacion": null,
+      "fecha_ingreso": "2025-11-10",
+      "estado": "disponible"
+    },
+    {
+      "id_insumo": 5,
+      "nombre": "tornillos",
+      "descripcion": "dasdasd",
+      "cantidad": 48,
+      "unidad": null,
+      "ubicacion": null,
+      "fecha_ingreso": "2025-11-10",
+      "estado": "disponible"
+    },
+    {
+      "id_insumo": 6,
+      "nombre": "tuerca",
+      "descripcion": "dasdad",
+      "cantidad": 43,
+      "unidad": null,
+      "ubicacion": null,
+      "fecha_ingreso": "2025-11-10",
+      "estado": "disponible"
+    },
+    {
+      "id_insumo": 7,
+      "nombre": "castaño",
+      "descripcion": "sdadsada",
+      "cantidad": 12,
+      "unidad": "20cm",
+      "ubicacion": "1dasfsfv",
+      "fecha_ingreso": "2025-11-10",
+      "estado": "disponible"
+    },
+    {
+      "id_insumo": 8,
+      "nombre": "sadasda",
+      "descripcion": "dasfsdgdfhdfb",
+      "cantidad": 234,
+      "unidad": "cm",
+      "ubicacion": "1dasfsfv",
+      "fecha_ingreso": "2025-11-19",
+      "estado": "disponible"
+    }
+  ],
+  "usos": [
+    {
+      "id": 6,
+      "insumo_id": 1,
+      "estudiante_id": 4,
+      "profesor_encargado": "asd",
+      "cantidad_usada": 3,
+      "descripcion": "adsad",
+      "fecha_uso": "2025-12-03T18:39:51.000Z"
+    },
+    {
+      "id": 7,
+      "insumo_id": 5,
+      "estudiante_id": 4,
+      "profesor_encargado": "asd",
+      "cantidad_usada": 52,
+      "descripcion": "dasd",
+      "fecha_uso": "2025-12-03T18:42:51.000Z"
+    }
+  ],
+  "generatedAt": "2025-12-03T18:42:55.304Z"
+}

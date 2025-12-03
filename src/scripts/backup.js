@@ -1,7 +1,7 @@
 // controllers/backupController.js
 const fs = require("fs");
 const path = require("path");
-const { sequelize, Estudiante, Herramienta, Prestamos,Backups } = require("../database/models");
+const { sequelize, Estudiante, Herramienta, Prestamos,Backups,Insumo,Rol, UsosInsumos,Usuario } = require("../database/models");
 
 const backupController = {
   async makeBackup(req, res) {
@@ -13,11 +13,19 @@ const backupController = {
       const prestamos = await Prestamos.findAll({
         nest: true,
       });
+      const insumo = await Insumo.findAll({ raw: true });
+      const usos = await UsosInsumos.findAll({ raw: true });
+      const rol = await Rol.findAll({ raw: true });
+      const usuario = await Usuario.findAll({ raw: true });
 
       const data = {
         estudiantes,
         herramientas,
         prestamos,
+        usuario,
+        rol,
+        insumo,
+        usos,
         generatedAt: new Date().toISOString(),
       };
 

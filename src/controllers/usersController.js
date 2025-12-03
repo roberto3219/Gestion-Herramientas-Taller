@@ -142,6 +142,8 @@ const controller = {
   },
   mostrarPerfil: async (req, res) => {
     try {
+      const backupDir = path.join(__dirname, "../backups");
+      const backups = fs.readdirSync(backupDir)
       const usuario = await db.Usuario.findOne({
         where: {
           email: req.session.userLogged.correo,
@@ -149,7 +151,7 @@ const controller = {
       });
       await req.logAction('Ver perfil', { userId: usuario.id, email: usuario.email });
       console.log(usuario + "usuario")
-      res.render("users/perfil", { usuario: usuario , error: null });
+      res.render("users/perfil", { backups ,usuario: usuario , error: null });
     } catch (error) {
       res.render("error", { error: "Problema conectando a la base de datos" });
     }
@@ -228,45 +230,59 @@ const controller = {
     }
   },
   restore: async (req, res) => {
-  try {
-    const mode = req.body.mode || "merge"; // viene del input hidden
-    const filePath = path.join(__dirname, "../backups/backup-2025-10-03T17-20-42-605Z.json");
+try {
+    const { mode, file } = req.body;
+
+    if (!file) {
+      return res.status(400).json({ error: "No se seleccionó ningún backup" });
+    }
+
+    const filePath = path.join(__dirname, "../backups", file);
     const backupData = JSON.parse(fs.readFileSync(filePath, "utf8"));
 
     if (mode === "replace") {
-      // 🔹 BORRAR datos anteriores en orden (respetando FK si existen)
       await db.Prestamos.destroy({ where: {} });
       await db.Herramienta.destroy({ where: {} });
       await db.Estudiante.destroy({ where: {} });
+      await db.Insumo.destroy({ where: {} });
+      await db.UsosInsumos.destroy({ where: {} });
+      await db.Rol.destroy({ where: {} });
+      await db.Usuario.destroy({ where: {} });
 
-      // 🔹 INSERTAR datos del backup
+
       await db.Estudiante.bulkCreate(backupData.estudiantes);
       await db.Herramienta.bulkCreate(backupData.herramientas);
       await db.Prestamos.bulkCreate(backupData.prestamos);
+      await db.Insumo.bulkCreate(backupData.insumo);
+      await db.UsosInsumos.bulkCreate(backupData.usos);
+      await db.Rol.bulkCreate(backupData.rol);
+      await db.Usuario.bulkCreate(backupData.usuario);
 
-      return res.json({
-        msg: "Backup restaurado (modo REPLACE, se reemplazaron los datos anteriores) ✅"
-      });
+      return res.json({ msg: "Backup restaurado (REPLACE) ✔" });
     }
 
-    // 🔹 MERGE (solo agrega lo que falta)
-    for (const e of backupData.estudiantes) {
+    // MERGE
+    for (const e of backupData.estudiantes)
       await db.Estudiante.findOrCreate({ where: { id: e.id }, defaults: e });
-    }
 
-    for (const h of backupData.herramientas) {
+    for (const h of backupData.herramientas)
       await db.Herramienta.findOrCreate({ where: { id: h.id }, defaults: h });
-    }
 
-    for (const p of backupData.prestamos) {
+    for (const p of backupData.prestamos)
       await db.Prestamos.findOrCreate({ where: { id: p.id }, defaults: p });
-    }
 
-    await req.logAction('Restaurar backup', { mode: mode, file: filePath });
+    for (const i of backupData.insumo)
+      await db.Insumo.findOrCreate({ where: { id: i.id }, defaults: i });
+    for (const u of backupData.usos)
+      await db.UsosInsumos.findOrCreate({ where: { id: u.id }, defaults: u });
+    for (const r of backupData.rol)
+      await db.Rol.findOrCreate({ where: { id: r.id }, defaults: r });
+    for (const u of backupData.usuario)
+      await db.Usuario.findOrCreate({ where: { id: u.id }, defaults: u });
+    
+    await req.logAction('Restaurar backup', { mode, file });
 
-    res.json({
-      msg: "Backup restaurado (modo MERGE, solo se agregaron los que faltaban) ✅"
-    });
+    res.json({ msg: "Backup restaurado (MERGE) ✔" });
 
   } catch (error) {
     console.error(error);
