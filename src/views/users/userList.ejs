@@ -49,6 +49,7 @@
         <td><%= u.email %></td>
         <td><%= u.role_id %></td>
         <td>
+
           <% if (u.bloqueado) { %>
             <span class="text-danger">Bloqueado</span>
           <% } else { %>
@@ -57,6 +58,8 @@
         </td>
         <td><%= u.fecha_eliminacion_programada ? u.fecha_eliminacion_programada : "Ninguna"  %></td>
         <td>
+           <% if( u.user_name != usuario.user_name){ %>
+          
                     <% if(usuario.role_id != 3){ %>
                       <button class="bloquear-btn btn btn-warning">
                         <%= u.bloqueado ? "Desbloquear" : "Bloquear" %>
@@ -72,6 +75,9 @@
             <% }else{ %>
               <button class="cancelar-btn btn btn-danger">Cancelar</button>
             <% } %>
+            <% }else{ %>
+              <span>N/A</span>
+              <% } %>  
         </td>
       </tr>
     <% }) %>

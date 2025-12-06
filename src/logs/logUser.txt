@@ -5,3 +5,6 @@ Se creo un regitro de usuario al ingresar en /register el dia: 1761771256917.
 Se creo un regitro de usuario al ingresar en /register el dia: 1761771264147.
 Se creo un regitro de usuario al ingresar en /register el dia: 1763349990038.
 Se creo un regitro de usuario al ingresar en /register el dia: 1763350001678.
+Se creo un regitro de usuario al ingresar en /register el dia: 1765042885521.
+Se creo un regitro de usuario al ingresar en /register el dia: 1765045897251.
+Se creo un regitro de usuario al ingresar en /register el dia: 1765047407613.

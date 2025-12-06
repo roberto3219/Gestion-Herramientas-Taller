@@ -14,8 +14,8 @@ require("pdfkit");
           { model: db.Estudiante,attributes:["nombre"] , as: "estudiantes" },
         ],
       });
-      console.log(usos);
-      await req.logAction('Acceso a la lista de usos de insumos', { totalUsos: usos.length });
+/*       console.log(usos);
+ */      await req.logAction('Acceso a la lista de usos de insumos', { totalUsos: usos.length });
       res.render("usosInsumos/listUsos", { usos, usuario: req.session.userLogged });
     } catch (error) {
       console.error(error);

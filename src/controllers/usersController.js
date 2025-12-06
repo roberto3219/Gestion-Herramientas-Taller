@@ -97,14 +97,15 @@ const controller = {
       const usuario = await db.Usuario.findOne({
         where: { email: req.body.email },
       });
-      if(usuario.bloqueado){
+
+      console.log(usuario)
+      if (usuario) {
+        if(usuario.bloqueado){
         return  res.render("users/login", {
           old: req.body,
           error: "Usuario bloqueado. Contacte al administrador.",
         });
       }
-      console.log(usuario)
-      if (usuario) {
         const validarPass = await bcrypt.compare(
           req.body.password,
           usuario.password_hash
@@ -127,13 +128,13 @@ const controller = {
         } else {
           res.render("users/login", {
             old: req.body,
-            error: "Contraseña incorrecta.",
+            error: "Correo o Contraseña incorrecta.",
           });
         }
       } else {
         res.render("users/login", {
           old: req.body,
-          error: "No existe un usuario con este correo.",
+          error: "Correo o Contraseña incorrecta.",
         });
       }
     } catch (error) {

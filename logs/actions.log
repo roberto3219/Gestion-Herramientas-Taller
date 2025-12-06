@@ -1922,3 +1922,206 @@
 2025-12-03T18:47:46.891Z | userId:10 | user:pau | ruta:/users/login | accion:Iniciar sesión | ip:::1 | datos:{"userId":10,"email":"c@gmail.com"}
 2025-12-03T18:47:46.904Z | userId:10 | user:pau | ruta:/ | accion:Acceder al índice | ip:::1 | datos:{}
 2025-12-03T18:47:49.190Z | userId:10 | user:pau | ruta:/users/profile | accion:Ver perfil | ip:::1 | datos:{"userId":10,"email":"c@gmail.com"}
+2025-12-06T17:40:45.634Z | userId:anon | user:anon | ruta:/ | accion:Acceder al índice | ip:::1 | datos:{}
+2025-12-06T17:40:52.945Z | userId:anon | user:anon | ruta:/users/register | accion:Mostrar formulario de registro | ip:::ffff:127.0.0.1 | datos:{}
+2025-12-06T17:41:25.498Z | userId:anon | user:anon | ruta:/users/register | accion:POST /users/register | ip:::1 | datos:{}
+2025-12-06T17:41:25.585Z | userId:anon | user:anon | ruta:/users/register | accion:Registrar usuario | ip:::1 | datos:{"username":"sdadjkn","email":"p@gmail.com"}
+2025-12-06T17:41:38.064Z | userId:anon | user:anon | ruta:/users/login | accion:POST /users/login | ip:::1 | datos:{"body":{"email":"p@gmail.com","password":"123456789"}}
+2025-12-06T17:42:43.141Z | userId:anon | user:anon | ruta:/users/login | accion:POST /users/login | ip:::1 | datos:{"body":{"email":"p@gmail.com","password":"123456789"}}
+2025-12-06T17:42:48.148Z | userId:anon | user:anon | ruta:/users/login | accion:POST /users/login | ip:::1 | datos:{"body":{"email":"p@gmail.com","password":"12345678"}}
+2025-12-06T17:42:48.198Z | userId:12 | user:sdadjkn | ruta:/users/login | accion:Iniciar sesión | ip:::1 | datos:{"userId":12,"email":"p@gmail.com"}
+2025-12-06T17:42:48.227Z | userId:12 | user:sdadjkn | ruta:/ | accion:Acceder al índice | ip:::1 | datos:{}
+2025-12-06T17:42:52.847Z | userId:12 | user:sdadjkn | ruta:/herramientas | accion:Listar herramientas | ip:::1 | datos:{"totalHerramientas":4}
+2025-12-06T17:42:53.727Z | userId:12 | user:sdadjkn | ruta:/prestamos | accion:Listar préstamos | ip:::1 | datos:{}
+2025-12-06T17:42:54.158Z | userId:12 | user:sdadjkn | ruta:/insumos | accion:Acceder a la lista de insumos | ip:::1 | datos:{}
+2025-12-06T17:42:54.599Z | userId:12 | user:sdadjkn | ruta:/usosInsumos | accion:Acceso a la lista de usos de insumos | ip:::1 | datos:{"totalUsos":2}
+2025-12-06T17:42:56.229Z | userId:12 | user:sdadjkn | ruta:/users/profile | accion:Ver perfil | ip:::1 | datos:{"userId":12,"email":"p@gmail.com"}
+2025-12-06T17:43:23.767Z | userId:12 | user:sdadjkn | ruta:/users/profile | accion:Cerrar sesión | ip:::1 | datos:{"userId":12,"email":"p@gmail.com"}
+2025-12-06T17:43:23.766Z | userId:12 | user:sdadjkn | ruta:/users/profile | accion:POST /users/profile | ip:::1 | datos:{"body":{}}
+2025-12-06T17:43:28.883Z | userId:anon | user:anon | ruta:/users/login | accion:POST /users/login | ip:::1 | datos:{"body":{"email":"p@gmail.com","password":"12345678"}}
+2025-12-06T17:43:28.933Z | userId:12 | user:sdadjkn | ruta:/users/login | accion:Iniciar sesión | ip:::1 | datos:{"userId":12,"email":"p@gmail.com"}
+2025-12-06T17:43:28.945Z | userId:12 | user:sdadjkn | ruta:/ | accion:Acceder al índice | ip:::1 | datos:{}
+2025-12-06T17:43:30.149Z | userId:12 | user:sdadjkn | ruta:/users/profile | accion:Ver perfil | ip:::1 | datos:{"userId":12,"email":"p@gmail.com"}
+2025-12-06T17:43:31.958Z | userId:12 | user:sdadjkn | ruta:/ | accion:Acceder al índice | ip:::1 | datos:{}
+2025-12-06T17:43:37.859Z | userId:12 | user:sdadjkn | ruta:/ | accion:POST / | ip:::1 | datos:{"body":{"q":"tiago muñoz"}}
+2025-12-06T17:43:37.864Z | userId:12 | user:sdadjkn | ruta:/ | accion:Búsqueda en el índice | ip:::1 | datos:{"termino":"tiago muñoz"}
+2025-12-06T17:43:42.370Z | userId:12 | user:sdadjkn | ruta:/ | accion:POST / | ip:::1 | datos:{"body":{"q":""}}
+2025-12-06T17:43:42.373Z | userId:12 | user:sdadjkn | ruta:/ | accion:Búsqueda en el índice | ip:::1 | datos:{"termino":""}
+2025-12-06T17:43:44.971Z | userId:12 | user:sdadjkn | ruta:/ | accion:POST / | ip:::1 | datos:{"body":{"q":"tiago"}}
+2025-12-06T17:43:44.975Z | userId:12 | user:sdadjkn | ruta:/ | accion:Búsqueda en el índice | ip:::1 | datos:{"termino":"tiago"}
+2025-12-06T17:43:47.202Z | userId:12 | user:sdadjkn | ruta:/ | accion:POST / | ip:::1 | datos:{"body":{"q":""}}
+2025-12-06T17:43:47.205Z | userId:12 | user:sdadjkn | ruta:/ | accion:Búsqueda en el índice | ip:::1 | datos:{"termino":""}
+2025-12-06T17:43:51.907Z | userId:12 | user:sdadjkn | ruta:/ | accion:POST / | ip:::1 | datos:{"body":{"q":"12"}}
+2025-12-06T17:44:15.313Z | userId:12 | user:sdadjkn | ruta:/users/profile | accion:Ver perfil | ip:::1 | datos:{"userId":12,"email":"p@gmail.com"}
+2025-12-06T17:44:17.642Z | userId:12 | user:sdadjkn | ruta:/ | accion:Acceder al índice | ip:::1 | datos:{}
+2025-12-06T17:44:22.069Z | userId:12 | user:sdadjkn | ruta:/ | accion:POST / | ip:::1 | datos:{"body":{"q":"tiago"}}
+2025-12-06T17:44:22.074Z | userId:12 | user:sdadjkn | ruta:/ | accion:Búsqueda en el índice | ip:::1 | datos:{"termino":"tiago"}
+2025-12-06T17:44:23.765Z | userId:12 | user:sdadjkn | ruta:/ | accion:POST / | ip:::1 | datos:{"body":{"q":""}}
+2025-12-06T17:44:23.768Z | userId:12 | user:sdadjkn | ruta:/ | accion:Búsqueda en el índice | ip:::1 | datos:{"termino":""}
+2025-12-06T17:44:26.916Z | userId:12 | user:sdadjkn | ruta:/ | accion:POST / | ip:::1 | datos:{"body":{"q":"carlo"}}
+2025-12-06T17:44:26.919Z | userId:12 | user:sdadjkn | ruta:/ | accion:Búsqueda en el índice | ip:::1 | datos:{"termino":"carlo"}
+2025-12-06T17:44:28.869Z | userId:12 | user:sdadjkn | ruta:/ | accion:POST / | ip:::1 | datos:{"body":{"q":"12"}}
+2025-12-06T17:44:28.872Z | userId:12 | user:sdadjkn | ruta:/ | accion:Búsqueda en el índice | ip:::1 | datos:{"termino":"12"}
+2025-12-06T17:44:30.789Z | userId:12 | user:sdadjkn | ruta:/ | accion:POST / | ip:::1 | datos:{"body":{"q":""}}
+2025-12-06T17:44:30.793Z | userId:12 | user:sdadjkn | ruta:/ | accion:Búsqueda en el índice | ip:::1 | datos:{"termino":""}
+2025-12-06T17:44:32.972Z | userId:12 | user:sdadjkn | ruta:/ | accion:POST / | ip:::1 | datos:{"body":{"q":"23"}}
+2025-12-06T17:44:32.975Z | userId:12 | user:sdadjkn | ruta:/ | accion:Búsqueda en el índice | ip:::1 | datos:{"termino":"23"}
+2025-12-06T17:44:34.085Z | userId:12 | user:sdadjkn | ruta:/ | accion:POST / | ip:::1 | datos:{"body":{"q":""}}
+2025-12-06T17:44:34.088Z | userId:12 | user:sdadjkn | ruta:/ | accion:Búsqueda en el índice | ip:::1 | datos:{"termino":""}
+2025-12-06T17:44:39.868Z | userId:12 | user:sdadjkn | ruta:/ | accion:POST / | ip:::1 | datos:{"body":{"q":"taladro"}}
+2025-12-06T17:44:39.872Z | userId:12 | user:sdadjkn | ruta:/ | accion:Búsqueda en el índice | ip:::1 | datos:{"termino":"taladro"}
+2025-12-06T17:44:42.018Z | userId:12 | user:sdadjkn | ruta:/ | accion:POST / | ip:::1 | datos:{"body":{"q":""}}
+2025-12-06T17:44:42.021Z | userId:12 | user:sdadjkn | ruta:/ | accion:Búsqueda en el índice | ip:::1 | datos:{"termino":""}
+2025-12-06T17:44:46.285Z | userId:12 | user:sdadjkn | ruta:/ | accion:POST / | ip:::1 | datos:{"body":{"q":"carlos"}}
+2025-12-06T17:44:46.288Z | userId:12 | user:sdadjkn | ruta:/ | accion:Búsqueda en el índice | ip:::1 | datos:{"termino":"carlos"}
+2025-12-06T17:44:48.781Z | userId:12 | user:sdadjkn | ruta:/ | accion:POST / | ip:::1 | datos:{"body":{"q":""}}
+2025-12-06T17:44:48.785Z | userId:12 | user:sdadjkn | ruta:/ | accion:Búsqueda en el índice | ip:::1 | datos:{"termino":""}
+2025-12-06T17:44:54.108Z | userId:12 | user:sdadjkn | ruta:/ | accion:POST / | ip:::1 | datos:{"body":{"q":"devuelto"}}
+2025-12-06T17:44:54.112Z | userId:12 | user:sdadjkn | ruta:/ | accion:Búsqueda en el índice | ip:::1 | datos:{"termino":"devuelto"}
+2025-12-06T17:44:57.004Z | userId:12 | user:sdadjkn | ruta:/ | accion:POST / | ip:::1 | datos:{"body":{"q":"pendiente"}}
+2025-12-06T17:44:57.007Z | userId:12 | user:sdadjkn | ruta:/ | accion:Búsqueda en el índice | ip:::1 | datos:{"termino":"pendiente"}
+2025-12-06T17:44:58.144Z | userId:12 | user:sdadjkn | ruta:/ | accion:POST / | ip:::1 | datos:{"body":{"q":""}}
+2025-12-06T17:44:58.147Z | userId:12 | user:sdadjkn | ruta:/ | accion:Búsqueda en el índice | ip:::1 | datos:{"termino":""}
+2025-12-06T17:45:10.805Z | userId:12 | user:sdadjkn | ruta:/estudiantes | accion:Listar estudiantes | ip:::1 | datos:{}
+2025-12-06T17:45:13.874Z | userId:12 | user:sdadjkn | ruta:/estudiantes/add | accion:Mostrar formulario de creación de alumno | ip:::1 | datos:{}
+2025-12-06T17:45:34.754Z | userId:12 | user:sdadjkn | ruta:/estudiantes/add | accion:POST /estudiantes/add | ip:::1 | datos:{"body":{"nombre":"messi","dni":"21345678","email":"messi@gmail.com","curso":"2da 4ta","telefono":""}}
+2025-12-06T17:45:34.764Z | userId:12 | user:sdadjkn | ruta:/estudiantes/add | accion:Crear alumno | ip:::1 | datos:{"nombre":"messi","dni":"21345678"}
+2025-12-06T17:45:34.769Z | userId:12 | user:sdadjkn | ruta:/estudiantes | accion:Listar estudiantes | ip:::1 | datos:{}
+2025-12-06T17:45:38.686Z | userId:12 | user:sdadjkn | ruta:/estudiantes/reporte | accion:POST /estudiantes/reporte | ip:::1 | datos:{"body":{}}
+2025-12-06T17:45:38.709Z | userId:12 | user:sdadjkn | ruta:/estudiantes/reporte | accion:Generar reporte PDF de estudiantes | ip:::1 | datos:{"totalEstudiantes":6}
+2025-12-06T17:45:51.047Z | userId:12 | user:sdadjkn | ruta:/estudiantes/editar/11 | accion:Mostrar formulario de edición de alumno | ip:::1 | datos:{"id":11,"nombre":"messi","dni":"21345678","telefono":""}
+2025-12-06T17:45:59.707Z | userId:12 | user:sdadjkn | ruta:/estudiantes/editar/11 | accion:POST /estudiantes/editar/11 | ip:::1 | datos:{"body":{"nombre":"messi","dni":"21345678","email":"messi@gmail.com","curso":"2da 4ta","telefono":"3884176587"}}
+2025-12-06T17:45:59.713Z | userId:12 | user:sdadjkn | ruta:/estudiantes/editar/11 | accion:Actualizar alumno | ip:::1 | datos:{"id":"11","nombre":"messi","dni":"21345678","telefono":"3884176587"}
+2025-12-06T17:45:59.718Z | userId:12 | user:sdadjkn | ruta:/estudiantes | accion:Listar estudiantes | ip:::1 | datos:{}
+2025-12-06T17:46:09.456Z | userId:12 | user:sdadjkn | ruta:/estudiantes/eliminar/1 | accion:Borrar alumno | ip:::1 | datos:{"id":"1"}
+2025-12-06T17:46:09.461Z | userId:12 | user:sdadjkn | ruta:/estudiantes | accion:Listar estudiantes | ip:::1 | datos:{}
+2025-12-06T17:46:19.619Z | userId:12 | user:sdadjkn | ruta:/herramientas | accion:Listar herramientas | ip:::1 | datos:{"totalHerramientas":4}
+2025-12-06T17:46:24.677Z | userId:12 | user:sdadjkn | ruta:/audit | accion:Listar audit logs | ip:::1 | datos:{"termino":"","pagina":1}
+2025-12-06T17:46:26.937Z | userId:12 | user:sdadjkn | ruta:/insumos | accion:Acceder a la lista de insumos | ip:::1 | datos:{}
+2025-12-06T17:46:31.462Z | userId:12 | user:sdadjkn | ruta:/estudiantes | accion:Listar estudiantes | ip:::1 | datos:{}
+2025-12-06T17:46:56.108Z | userId:12 | user:sdadjkn | ruta:/users/ | accion:Listar usuarios | ip:::1 | datos:{"userId":12}
+2025-12-06T17:46:56.808Z | userId:12 | user:sdadjkn | ruta:/insumos | accion:Acceder a la lista de insumos | ip:::1 | datos:{}
+2025-12-06T17:46:59.264Z | userId:12 | user:sdadjkn | ruta:/usosInsumos | accion:Acceso a la lista de usos de insumos | ip:::1 | datos:{"totalUsos":2}
+2025-12-06T17:47:01.903Z | userId:12 | user:sdadjkn | ruta:/users/ | accion:Listar usuarios | ip:::1 | datos:{"userId":12}
+2025-12-06T17:49:20.364Z | userId:12 | user:sdadjkn | ruta:/users/ | accion:Listar usuarios | ip:::1 | datos:{"userId":12}
+2025-12-06T17:49:59.213Z | userId:12 | user:sdadjkn | ruta:/users/ | accion:Listar usuarios | ip:::1 | datos:{"userId":12}
+2025-12-06T17:50:00.962Z | userId:12 | user:sdadjkn | ruta:/herramientas | accion:Listar herramientas | ip:::1 | datos:{"totalHerramientas":4}
+2025-12-06T17:50:01.802Z | userId:12 | user:sdadjkn | ruta:/usosInsumos | accion:Acceso a la lista de usos de insumos | ip:::1 | datos:{"totalUsos":2}
+2025-12-06T17:50:03.363Z | userId:12 | user:sdadjkn | ruta:/users/ | accion:Listar usuarios | ip:::1 | datos:{"userId":12}
+2025-12-06T17:51:07.618Z | userId:12 | user:sdadjkn | ruta:/users/ | accion:Listar usuarios | ip:::1 | datos:{"userId":12}
+2025-12-06T17:52:15.717Z | userId:12 | user:sdadjkn | ruta:/users/ | accion:Listar usuarios | ip:::1 | datos:{"userId":12}
+2025-12-06T17:52:38.348Z | userId:12 | user:sdadjkn | ruta:/users/ | accion:Listar usuarios | ip:::1 | datos:{"userId":12}
+2025-12-06T17:52:41.398Z | userId:12 | user:sdadjkn | ruta:/audit | accion:Listar audit logs | ip:::1 | datos:{"termino":"","pagina":1}
+2025-12-06T17:52:46.634Z | userId:12 | user:sdadjkn | ruta:/herramientas | accion:Listar herramientas | ip:::1 | datos:{"totalHerramientas":4}
+2025-12-06T17:53:03.767Z | userId:12 | user:sdadjkn | ruta:/ | accion:Acceder al índice | ip:::1 | datos:{}
+2025-12-06T17:53:04.533Z | userId:12 | user:sdadjkn | ruta:/estudiantes | accion:Listar estudiantes | ip:::1 | datos:{}
+2025-12-06T17:53:05.490Z | userId:12 | user:sdadjkn | ruta:/herramientas | accion:Listar herramientas | ip:::1 | datos:{"totalHerramientas":4}
+2025-12-06T17:53:05.901Z | userId:12 | user:sdadjkn | ruta:/prestamos | accion:Listar préstamos | ip:::1 | datos:{}
+2025-12-06T17:53:06.303Z | userId:12 | user:sdadjkn | ruta:/audit | accion:Listar audit logs | ip:::1 | datos:{"termino":"","pagina":1}
+2025-12-06T17:53:07.245Z | userId:12 | user:sdadjkn | ruta:/users/ | accion:Listar usuarios | ip:::1 | datos:{"userId":12}
+2025-12-06T17:53:07.546Z | userId:12 | user:sdadjkn | ruta:/insumos | accion:Acceder a la lista de insumos | ip:::1 | datos:{}
+2025-12-06T17:53:07.915Z | userId:12 | user:sdadjkn | ruta:/usosInsumos | accion:Acceso a la lista de usos de insumos | ip:::1 | datos:{"totalUsos":2}
+2025-12-06T17:53:08.266Z | userId:12 | user:sdadjkn | ruta:/insumos | accion:Acceder a la lista de insumos | ip:::1 | datos:{}
+2025-12-06T17:53:08.819Z | userId:12 | user:sdadjkn | ruta:/users/ | accion:Listar usuarios | ip:::1 | datos:{"userId":12}
+2025-12-06T17:53:09.238Z | userId:12 | user:sdadjkn | ruta:/audit | accion:Listar audit logs | ip:::1 | datos:{"termino":"","pagina":1}
+2025-12-06T18:03:31.647Z | userId:12 | user:sdadjkn | ruta:/users/ | accion:Listar usuarios | ip:::1 | datos:{"userId":12}
+2025-12-06T18:03:50.544Z | userId:12 | user:sdadjkn | ruta:/ | accion:Acceder al índice | ip:::1 | datos:{}
+2025-12-06T18:03:53.840Z | userId:12 | user:sdadjkn | ruta:/estudiantes | accion:Listar estudiantes | ip:::1 | datos:{}
+2025-12-06T18:03:56.029Z | userId:12 | user:sdadjkn | ruta:/herramientas | accion:Listar herramientas | ip:::1 | datos:{"totalHerramientas":4}
+2025-12-06T18:04:06.796Z | userId:12 | user:sdadjkn | ruta:/estudiantes | accion:Listar estudiantes | ip:::1 | datos:{}
+2025-12-06T18:04:57.135Z | userId:12 | user:sdadjkn | ruta:/users/ | accion:Listar usuarios | ip:::1 | datos:{"userId":12}
+2025-12-06T18:04:59.205Z | userId:12 | user:sdadjkn | ruta:/insumos | accion:Acceder a la lista de insumos | ip:::1 | datos:{}
+2025-12-06T18:05:00.046Z | userId:12 | user:sdadjkn | ruta:/usosInsumos | accion:Acceso a la lista de usos de insumos | ip:::1 | datos:{"totalUsos":2}
+2025-12-06T18:05:00.869Z | userId:12 | user:sdadjkn | ruta:/insumos | accion:Acceder a la lista de insumos | ip:::1 | datos:{}
+2025-12-06T18:05:01.181Z | userId:12 | user:sdadjkn | ruta:/users/ | accion:Listar usuarios | ip:::1 | datos:{"userId":12}
+2025-12-06T18:05:07.649Z | userId:12 | user:sdadjkn | ruta:/audit | accion:Listar audit logs | ip:::1 | datos:{"termino":"","pagina":1}
+2025-12-06T18:05:08.070Z | userId:12 | user:sdadjkn | ruta:/prestamos | accion:Listar préstamos | ip:::1 | datos:{}
+2025-12-06T18:05:08.496Z | userId:12 | user:sdadjkn | ruta:/herramientas | accion:Listar herramientas | ip:::1 | datos:{"totalHerramientas":4}
+2025-12-06T18:05:08.812Z | userId:12 | user:sdadjkn | ruta:/estudiantes | accion:Listar estudiantes | ip:::1 | datos:{}
+2025-12-06T18:05:09.157Z | userId:12 | user:sdadjkn | ruta:/ | accion:Acceder al índice | ip:::1 | datos:{}
+2025-12-06T18:05:09.942Z | userId:12 | user:sdadjkn | ruta:/users/profile | accion:Ver perfil | ip:::1 | datos:{"userId":12,"email":"p@gmail.com"}
+2025-12-06T18:05:12.325Z | userId:12 | user:sdadjkn | ruta:/users/profile | accion:POST /users/profile | ip:::1 | datos:{"body":{}}
+2025-12-06T18:05:12.326Z | userId:12 | user:sdadjkn | ruta:/users/profile | accion:Cerrar sesión | ip:::1 | datos:{"userId":12,"email":"p@gmail.com"}
+2025-12-06T18:05:14.905Z | userId:anon | user:anon | ruta:/users/register | accion:Mostrar formulario de registro | ip:::1 | datos:{}
+2025-12-06T18:16:50.614Z | userId:anon | user:anon | ruta:/ | accion:Acceder al índice | ip:::1 | datos:{}
+2025-12-06T18:16:58.643Z | userId:anon | user:anon | ruta:/users/login | accion:POST /users/login | ip:::1 | datos:{"body":{"email":"p@gmail.com","password":"12345678"}}
+2025-12-06T18:16:58.691Z | userId:12 | user:sdadjkn | ruta:/users/login | accion:Iniciar sesión | ip:::1 | datos:{"userId":12,"email":"p@gmail.com"}
+2025-12-06T18:16:58.700Z | userId:12 | user:sdadjkn | ruta:/ | accion:Acceder al índice | ip:::1 | datos:{}
+2025-12-06T18:23:55.749Z | userId:12 | user:sdadjkn | ruta:/users/profile | accion:Ver perfil | ip:::1 | datos:{"userId":12,"email":"p@gmail.com"}
+2025-12-06T18:23:57.379Z | userId:12 | user:sdadjkn | ruta:/users/profile | accion:POST /users/profile | ip:::1 | datos:{"body":{}}
+2025-12-06T18:23:57.379Z | userId:12 | user:sdadjkn | ruta:/users/profile | accion:Cerrar sesión | ip:::1 | datos:{"userId":12,"email":"p@gmail.com"}
+2025-12-06T18:23:58.473Z | userId:anon | user:anon | ruta:/users/register | accion:Mostrar formulario de registro | ip:::1 | datos:{}
+2025-12-06T18:24:50.224Z | userId:anon | user:anon | ruta:/users/register | accion:Mostrar formulario de registro | ip:::1 | datos:{}
+2025-12-06T18:25:26.135Z | userId:anon | user:anon | ruta:/users/register | accion:Mostrar formulario de registro | ip:::1 | datos:{}
+2025-12-06T18:26:33.410Z | userId:anon | user:anon | ruta:/users/register | accion:Mostrar formulario de registro | ip:::1 | datos:{}
+2025-12-06T18:27:09.731Z | userId:anon | user:anon | ruta:/users/register | accion:Mostrar formulario de registro | ip:::1 | datos:{}
+2025-12-06T18:27:48.214Z | userId:anon | user:anon | ruta:/users/register | accion:Mostrar formulario de registro | ip:::1 | datos:{}
+2025-12-06T18:29:53.187Z | userId:anon | user:anon | ruta:/users/register | accion:Mostrar formulario de registro | ip:::1 | datos:{}
+2025-12-06T18:31:37.229Z | userId:anon | user:anon | ruta:/users/register | accion:POST /users/register | ip:::1 | datos:{}
+2025-12-06T18:31:37.310Z | userId:anon | user:anon | ruta:/users/register | accion:Registrar usuario | ip:::1 | datos:{"username":"sad","email":"a@gmail.com"}
+2025-12-06T18:31:46.836Z | userId:anon | user:anon | ruta:/users/login | accion:POST /users/login | ip:::1 | datos:{"body":{"email":"a@gmail.com","password":"Manogrande1234asda"}}
+2025-12-06T18:32:41.543Z | userId:anon | user:anon | ruta:/users/login | accion:POST /users/login | ip:::1 | datos:{"body":{"email":"vv@gmail.com","password":"123123"}}
+2025-12-06T18:32:53.630Z | userId:anon | user:anon | ruta:/users/login | accion:POST /users/login | ip:::1 | datos:{"body":{"email":"vv@gmail.com","password":"sasdadsadad"}}
+2025-12-06T18:33:12.233Z | userId:anon | user:anon | ruta:/users/login | accion:POST /users/login | ip:::1 | datos:{"body":{"email":"ve2ev@gmail.com","password":"sdasdsafds"}}
+2025-12-06T18:34:41.380Z | userId:anon | user:anon | ruta:/users/login | accion:POST /users/login | ip:::1 | datos:{"body":{"email":"a@gmail.com","password":"Manogrande1234asda"}}
+2025-12-06T18:34:51.251Z | userId:anon | user:anon | ruta:/users/login | accion:POST /users/login | ip:::1 | datos:{"body":{"email":"cacacvs@gmail.com","password":"1234512"}}
+2025-12-06T18:35:24.887Z | userId:anon | user:anon | ruta:/users/login | accion:POST /users/login | ip:::1 | datos:{"body":{"email":"cacacvs@gmail.com","password":"1234512"}}
+2025-12-06T18:35:40.308Z | userId:anon | user:anon | ruta:/users/login | accion:POST /users/login | ip:::1 | datos:{"body":{"email":"sdadsad@gmail.com","password":"@sadasdadweqaf"}}
+2025-12-06T18:35:57.500Z | userId:anon | user:anon | ruta:/users/register | accion:Mostrar formulario de registro | ip:::1 | datos:{}
+2025-12-06T18:56:47.594Z | userId:anon | user:anon | ruta:/users/register | accion:POST /users/register | ip:::1 | datos:{}
+2025-12-06T19:03:47.998Z | userId:anon | user:anon | ruta:/users/register | accion:Mostrar formulario de registro | ip:::1 | datos:{}
+2025-12-06T19:03:58.239Z | userId:anon | user:anon | ruta:/users/login | accion:POST /users/login | ip:::1 | datos:{"body":{"email":"p@gmail.com","password":"12345678"}}
+2025-12-06T19:03:58.298Z | userId:12 | user:sdadjkn | ruta:/users/login | accion:Iniciar sesión | ip:::1 | datos:{"userId":12,"email":"p@gmail.com"}
+2025-12-06T19:03:58.325Z | userId:12 | user:sdadjkn | ruta:/ | accion:Acceder al índice | ip:::1 | datos:{}
+2025-12-06T19:14:45.300Z | userId:12 | user:sdadjkn | ruta:/users/profile | accion:Ver perfil | ip:::1 | datos:{"userId":12,"email":"p@gmail.com"}
+2025-12-06T19:14:47.235Z | userId:12 | user:sdadjkn | ruta:/prestamos | accion:Listar préstamos | ip:::1 | datos:{}
+2025-12-06T19:14:47.839Z | userId:12 | user:sdadjkn | ruta:/audit | accion:Listar audit logs | ip:::1 | datos:{"termino":"","pagina":1}
+2025-12-06T19:14:48.459Z | userId:12 | user:sdadjkn | ruta:/users/ | accion:Listar usuarios | ip:::1 | datos:{"userId":12}
+2025-12-06T19:14:48.863Z | userId:12 | user:sdadjkn | ruta:/insumos | accion:Acceder a la lista de insumos | ip:::1 | datos:{}
+2025-12-06T19:14:50.019Z | userId:12 | user:sdadjkn | ruta:/usosInsumos | accion:Acceso a la lista de usos de insumos | ip:::1 | datos:{"totalUsos":2}
+2025-12-06T19:14:50.353Z | userId:12 | user:sdadjkn | ruta:/insumos | accion:Acceder a la lista de insumos | ip:::1 | datos:{}
+2025-12-06T19:15:02.517Z | userId:12 | user:sdadjkn | ruta:/insumos | accion:POST /insumos | ip:::1 | datos:{"body":{"q":"tuerca"}}
+2025-12-06T19:15:02.522Z | userId:12 | user:sdadjkn | ruta:/insumos | accion:Buscar insumo | ip:::1 | datos:{"termino":"tuerca"}
+2025-12-06T19:15:11.102Z | userId:12 | user:sdadjkn | ruta:/insumos | accion:POST /insumos | ip:::1 | datos:{"body":{"q":""}}
+2025-12-06T19:15:11.105Z | userId:12 | user:sdadjkn | ruta:/insumos | accion:Buscar insumo | ip:::1 | datos:{"termino":""}
+2025-12-06T19:15:23.403Z | userId:12 | user:sdadjkn | ruta:/insumos/1/edit | accion:POST /insumos/1/edit | ip:::1 | datos:{"body":{"nombre":"saddsa","descripcion":"2qasdasd","cantidad":"39","estado":"disponible"}}
+2025-12-06T19:15:23.410Z | userId:12 | user:sdadjkn | ruta:/insumos/1/edit | accion:Actualizar insumo | ip:::1 | datos:{"id":"1","nombre":"saddsa"}
+2025-12-06T19:15:24.503Z | userId:12 | user:sdadjkn | ruta:/insumos | accion:POST /insumos | ip:::1 | datos:{"body":{"q":""}}
+2025-12-06T19:15:24.505Z | userId:12 | user:sdadjkn | ruta:/insumos | accion:Buscar insumo | ip:::1 | datos:{"termino":""}
+2025-12-06T19:16:02.903Z | userId:12 | user:sdadjkn | ruta:/audit | accion:Listar audit logs | ip:::1 | datos:{"termino":"","pagina":1}
+2025-12-06T19:16:03.622Z | userId:12 | user:sdadjkn | ruta:/users/ | accion:Listar usuarios | ip:::1 | datos:{"userId":12}
+2025-12-06T19:16:04.138Z | userId:12 | user:sdadjkn | ruta:/insumos | accion:Acceder a la lista de insumos | ip:::1 | datos:{}
+2025-12-06T19:16:05.377Z | userId:12 | user:sdadjkn | ruta:/users/ | accion:Listar usuarios | ip:::1 | datos:{"userId":12}
+2025-12-06T19:16:08.342Z | userId:12 | user:sdadjkn | ruta:/audit | accion:Listar audit logs | ip:::1 | datos:{"termino":"","pagina":1}
+2025-12-06T19:18:30.208Z | userId:12 | user:sdadjkn | ruta:/users/profile | accion:Ver perfil | ip:::1 | datos:{"userId":12,"email":"p@gmail.com"}
+2025-12-06T19:18:31.453Z | userId:12 | user:sdadjkn | ruta:/users/ | accion:Listar usuarios | ip:::1 | datos:{"userId":12}
+2025-12-06T19:18:32.027Z | userId:12 | user:sdadjkn | ruta:/insumos | accion:Acceder a la lista de insumos | ip:::1 | datos:{}
+2025-12-06T19:18:32.584Z | userId:12 | user:sdadjkn | ruta:/audit | accion:Listar audit logs | ip:::1 | datos:{"termino":"","pagina":1}
+2025-12-06T19:18:33.183Z | userId:12 | user:sdadjkn | ruta:/prestamos | accion:Listar préstamos | ip:::1 | datos:{}
+2025-12-06T19:18:44.658Z | userId:12 | user:sdadjkn | ruta:/ | accion:Acceder al índice | ip:::1 | datos:{}
+2025-12-06T19:18:48.352Z | userId:12 | user:sdadjkn | ruta:/estudiantes | accion:Listar estudiantes | ip:::1 | datos:{}
+2025-12-06T19:19:04.955Z | userId:anon | user:anon | ruta:/ | accion:Acceder al índice | ip:::ffff:127.0.0.1 | datos:{}
+2025-12-06T19:19:11.295Z | userId:anon | user:anon | ruta:/users/login | accion:POST /users/login | ip:::ffff:127.0.0.1 | datos:{"body":{"email":"p@gmail.com","password":"12345678"}}
+2025-12-06T19:19:11.354Z | userId:12 | user:sdadjkn | ruta:/users/login | accion:Iniciar sesión | ip:::ffff:127.0.0.1 | datos:{"userId":12,"email":"p@gmail.com"}
+2025-12-06T19:19:11.365Z | userId:12 | user:sdadjkn | ruta:/ | accion:Acceder al índice | ip:::ffff:127.0.0.1 | datos:{}
+2025-12-06T19:19:12.564Z | userId:12 | user:sdadjkn | ruta:/estudiantes | accion:Listar estudiantes | ip:::1 | datos:{}
+2025-12-06T19:19:15.874Z | userId:12 | user:sdadjkn | ruta:/ | accion:Acceder al índice | ip:::ffff:127.0.0.1 | datos:{}
+2025-12-06T19:19:17.381Z | userId:12 | user:sdadjkn | ruta:/estudiantes | accion:Listar estudiantes | ip:::ffff:127.0.0.1 | datos:{}
+2025-12-06T19:19:29.163Z | userId:anon | user:anon | ruta:/ | accion:Acceder al índice | ip:::1 | datos:{}
+2025-12-06T19:19:36.979Z | userId:anon | user:anon | ruta:/users/login | accion:POST /users/login | ip:::1 | datos:{"body":{"email":"p@gmail.com","password":"12345678"}}
+2025-12-06T19:19:37.039Z | userId:12 | user:sdadjkn | ruta:/users/login | accion:Iniciar sesión | ip:::1 | datos:{"userId":12,"email":"p@gmail.com"}
+2025-12-06T19:19:37.052Z | userId:12 | user:sdadjkn | ruta:/ | accion:Acceder al índice | ip:::1 | datos:{}
+2025-12-06T19:19:40.252Z | userId:12 | user:sdadjkn | ruta:/estudiantes | accion:Listar estudiantes | ip:::1 | datos:{}
+2025-12-06T19:19:41.638Z | userId:12 | user:sdadjkn | ruta:/herramientas | accion:Listar herramientas | ip:::1 | datos:{"totalHerramientas":4}
+2025-12-06T19:19:42.853Z | userId:12 | user:sdadjkn | ruta:/prestamos | accion:Listar préstamos | ip:::1 | datos:{}
+2025-12-06T19:19:43.856Z | userId:12 | user:sdadjkn | ruta:/audit | accion:Listar audit logs | ip:::1 | datos:{"termino":"","pagina":1}
+2025-12-06T19:19:45.005Z | userId:12 | user:sdadjkn | ruta:/users/ | accion:Listar usuarios | ip:::1 | datos:{"userId":12}
+2025-12-06T19:19:46.165Z | userId:12 | user:sdadjkn | ruta:/insumos | accion:Acceder a la lista de insumos | ip:::1 | datos:{}
+2025-12-06T19:19:47.478Z | userId:12 | user:sdadjkn | ruta:/usosInsumos | accion:Acceso a la lista de usos de insumos | ip:::1 | datos:{"totalUsos":2}
+2025-12-06T19:20:07.512Z | userId:anon | user:anon | ruta:/ | accion:Acceder al índice | ip:::1 | datos:{}
+2025-12-06T19:20:14.950Z | userId:anon | user:anon | ruta:/users/login | accion:POST /users/login | ip:::1 | datos:{"body":{"email":"p@gmail.com","password":"12345678"}}
+2025-12-06T19:20:15.009Z | userId:12 | user:sdadjkn | ruta:/users/login | accion:Iniciar sesión | ip:::1 | datos:{"userId":12,"email":"p@gmail.com"}
+2025-12-06T19:20:15.023Z | userId:12 | user:sdadjkn | ruta:/ | accion:Acceder al índice | ip:::1 | datos:{}
+2025-12-06T19:20:15.846Z | userId:12 | user:sdadjkn | ruta:/usosInsumos | accion:Acceso a la lista de usos de insumos | ip:::1 | datos:{"totalUsos":2}
+2025-12-06T19:20:17.366Z | userId:12 | user:sdadjkn | ruta:/users/profile | accion:Ver perfil | ip:::1 | datos:{"userId":12,"email":"p@gmail.com"}
+2025-12-06T19:20:19.156Z | userId:12 | user:sdadjkn | ruta:/ | accion:Acceder al índice | ip:::1 | datos:{}

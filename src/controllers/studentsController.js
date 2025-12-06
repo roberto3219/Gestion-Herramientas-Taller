@@ -13,11 +13,11 @@ require("pdfkit");
 const controller = {
   index: async (req, res) => {
     try {
-      console.log("🔍 Modelos disponibles en db:");
-    console.log(Object.keys(db));
+     /*  console.log("🔍 Modelos disponibles en db:");
+    console.log(Object.keys(db)); */
     await req.logAction('Listar estudiantes', {  });
-      console.log(req.session.userLogged.role_id);
-      
+/*       console.log(req.session.userLogged.role_id);
+ */      
       if(req.session.userLogged.role_id == 3){
         let alumnos = await db.Estudiante.findAll({
           attributes: ['id', 'nombre', 'curso']
